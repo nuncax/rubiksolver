@@ -1,10 +1,19 @@
 package arista;
 
-import java.util.Vector;
+import java.util.Set;
 
-public class Arista {
-	Vector posicion = new Vector<Integer>(3);
-	Vector orientacion = new Vector<Integer>(3);
-	Color color1;
-	Color color2;
+import pieza.Vector;
+
+import centro.Centro;
+
+public class Arista extends Centro{
+
+	public Arista(Vector posicion, Vector orientacion,
+			Set<Color> color) {
+		super(posicion, orientacion, color);
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
 }
