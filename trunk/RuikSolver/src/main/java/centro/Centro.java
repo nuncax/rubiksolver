@@ -44,6 +44,12 @@ public class Centro implements Pieza {
 		this.color = color;
 	}
 
+	@Override
+	public String toString() {
+		return "Centro [posicion=" + posicion + ", orientacion=" + orientacion
+				+ ", color=" + color + "]";
+	}
+
 
 	// Color color;
 }

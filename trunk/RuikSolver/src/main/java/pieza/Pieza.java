@@ -15,4 +15,6 @@ public interface Pieza {
 	public Set<Color> getColor();
 
 	public void setColor(Set<Color> color);
+	
+	public String toString();
 }
