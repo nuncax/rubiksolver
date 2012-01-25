@@ -276,6 +276,10 @@ public class RubikCube {
 		this.naranja = new Centro(posicion, orientacion, colors);
 		colors = new HashSet<Color>();
 	}
+	
+	public void R (){
+		
+	}
 
 	public Centro getBlanco() {
 		return blanco;
