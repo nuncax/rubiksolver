@@ -25,17 +25,14 @@ public class Vectr {
 		this.vector.add(z);
 	}
 	
-	public void setX(Integer cordE1) {
-		this.vector.remove(0);
-		this.vector.add(0, cordE1);
+	public void setX(Integer x) {
+		this.vector.set(0, x);
 	}
-	public void setY(Integer cordE2) {
-		this.vector.remove(1);
-		this.vector.add(1, cordE2);
+	public void setY(Integer y) {
+		this.vector.set(1, y);
 	}
-	public void setZ(Integer cordE3) {
-		this.vector.remove(0);
-		this.vector.add(2, cordE3);
+	public void setZ(Integer z) {
+		this.vector.set(2, z);
 	}
 	
 	public Integer getX(){
@@ -50,7 +47,7 @@ public class Vectr {
 
 	@Override
 	public String toString() {
-		return "Vector [vector=" + vector + "]";
+		return vector.toString();
 	}
 	
 
