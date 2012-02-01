@@ -18,6 +18,7 @@ public class RubikCube {
 	Integer orZ;
 
 	public RubikCube() {
+		this.cubeSet = new HashSet<Pieza>();
 		createCentros();
 		createAristas();
 		createVertices();
@@ -256,7 +257,7 @@ public class RubikCube {
 	public Set<Pieza> getBlueFace() {
 		Set<Pieza> blueFace = new HashSet<Pieza>();
 		for (Pieza pieza : this.cubeSet) {
-			if (pieza.isBlue()) {
+			if (pieza.isBlue() && !pieza.esCentro()) {
 				blueFace.add(pieza);
 			}
 		}
@@ -266,7 +267,7 @@ public class RubikCube {
 	public Set<Pieza> getRedFace() {
 		Set<Pieza> redFace = new HashSet<Pieza>();
 		for (Pieza pieza : this.cubeSet) {
-			if (pieza.isRed()) {
+			if (pieza.isRed() && !pieza.esCentro()) {
 				redFace.add(pieza);
 			}
 		}
@@ -276,7 +277,7 @@ public class RubikCube {
 	public Set<Pieza> getYellowFace() {
 		Set<Pieza> yellowFace = new HashSet<Pieza>();
 		for (Pieza pieza : this.cubeSet) {
-			if (pieza.isYellow()) {
+			if (pieza.isYellow() && !pieza.esCentro()) {
 				yellowFace.add(pieza);
 			}
 		}
@@ -286,7 +287,7 @@ public class RubikCube {
 	public Set<Pieza> getGreenFace() {
 		Set<Pieza> greenFace = new HashSet<Pieza>();
 		for (Pieza pieza : this.cubeSet) {
-			if (pieza.isGreen()) {
+			if (pieza.isGreen() && !pieza.esCentro()) {
 				greenFace.add(pieza);
 			}
 		}
@@ -296,7 +297,7 @@ public class RubikCube {
 	public Set<Pieza> getOrangeFace() {
 		Set<Pieza> orangeFace = new HashSet<Pieza>();
 		for (Pieza pieza : this.cubeSet) {
-			if (pieza.isOrange()) {
+			if (pieza.isOrange() && !pieza.esCentro()) {
 				orangeFace.add(pieza);
 			}
 		}
@@ -306,7 +307,7 @@ public class RubikCube {
 	public Set<Pieza> getWhiteFace() {
 		Set<Pieza> whiteFace = new HashSet<Pieza>();
 		for (Pieza pieza : this.cubeSet) {
-			if (pieza.isWhite()) {
+			if (pieza.isWhite() && !pieza.esCentro()) {
 				whiteFace.add(pieza);
 			}
 		}
@@ -314,11 +315,11 @@ public class RubikCube {
 	}
 
 	private Integer cosNPi05(Integer times) {
-		return cosNPi05(times);
+		return (int) Math.cos(times * 0.5 * Math.PI);
 	}
 
 	private Integer sinNPi05(Integer times) {
-		return sinNPi05(times);
+		return (int) Math.sin(times * 0.5 * Math.PI);
 	}
 
 	public void rotateWhiteFaceClockwise(int times) {
