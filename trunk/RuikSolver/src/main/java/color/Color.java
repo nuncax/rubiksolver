@@ -1,4 +1,4 @@
-package arista;
+package color;
 
 public class Color {
 	private String color;
