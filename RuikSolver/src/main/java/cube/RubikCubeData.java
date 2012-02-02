@@ -255,4 +255,189 @@ public class RubikCubeData {
 		orientacion = new Vectr(-1, 0, 0);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 	}
+
+	public void rotateWhiteFaceClockwise(RubikCube rubikCube) {
+		for (Pieza pieza : rubikCube.getWhiteFace()) {
+			rubikCube.data.menosXy(rubikCube, pieza);
+		}
+	}
+
+	/**
+	 * Rotates the red face clockwise.
+	 * @param rubikCube TODO
+	 */
+	public void rotateRedFaceClockwise(RubikCube rubikCube) {
+		for (Pieza pieza : rubikCube.getRedFace()) {
+			rubikCube.data.menosYz(rubikCube, pieza);
+	
+		}
+	}
+
+	protected void menosYz(RubikCube rubikCube, Pieza pieza) {
+		posZ = -pieza.getPosY();
+		posY = pieza.getPosZ();
+		pieza.setPosZ(posZ);
+		pieza.setPosY(posY);
+	
+		orZ = -pieza.getOrY();
+		orY = pieza.getOrZ();
+		pieza.setOrZ(orZ);
+		pieza.setOrY(orY);
+	}
+
+	public void rotateRedFaceCounterClockwise(RubikCube rubikCube) {
+		for (Pieza pieza : rubikCube.getRedFace()) {
+			rubikCube.data.yMenosZ(rubikCube, pieza);
+		}
+	}
+
+	protected void yMenosZ(RubikCube rubikCube, Pieza pieza) {
+		posZ = pieza.getPosY();
+		posY = -pieza.getPosZ();
+		pieza.setPosZ(posZ);
+		pieza.setPosY(posY);
+	
+		orZ = pieza.getOrY();
+		orY = -pieza.getOrZ();
+		pieza.setOrZ(orZ);
+		pieza.setOrY(orY);
+	}
+
+	/**
+	 * Rotates the blue face clockwise.
+	 * @param rubikCube TODO
+	 */
+	public void rotateBlueFaceClockwise(RubikCube rubikCube) {
+		for (Pieza pieza : rubikCube.getBlueFace()) {
+			rubikCube.data.xMenosZ(rubikCube, pieza);
+		}
+	}
+
+	protected void xMenosZ(RubikCube rubikCube, Pieza pieza) {
+		posZ = pieza.getPosX();
+		posX = -pieza.getPosZ();
+		pieza.setPosZ(posZ);
+		pieza.setPosX(posX);
+	
+		orZ = pieza.getOrX();
+		orX = -pieza.getOrZ();
+		pieza.setOrZ(orZ);
+		pieza.setOrX(orX);
+	}
+
+	/**
+	 * Rotates the blue face counterclockwise.
+	 * @param rubikCube TODO
+	 */
+	public void rotateBlueFaceCounterClockwise(RubikCube rubikCube) {
+		for (Pieza pieza : rubikCube.getBlueFace()) {
+			rubikCube.data.menosXz(rubikCube, pieza);
+		}
+	}
+
+	protected void menosXz(RubikCube rubikCube, Pieza pieza) {
+		posZ = -pieza.getPosX();
+		posX = pieza.getPosZ();
+		pieza.setPosZ(posZ);
+		pieza.setPosX(posX);
+	
+		orZ = -pieza.getOrX();
+		orX = pieza.getOrZ();
+		pieza.setOrZ(orZ);
+		pieza.setOrX(orX);
+	}
+
+	/**
+	 * Rotates the orange face clockwise.
+	 * @param rubikCube TODO
+	 */
+	public void rotateOrangeFaceClockwise(RubikCube rubikCube) {
+		for (Pieza pieza : rubikCube.getOrangeFace()) {
+			yMenosZ(rubikCube, pieza);
+		}
+	}
+
+	protected void xMenosY(RubikCube rubikCube, Pieza pieza) {
+		posY = pieza.getPosX();
+		posX = -pieza.getPosY();
+		pieza.setPosY(posY);
+		pieza.setPosX(posX);
+	
+		orY = pieza.getOrX();
+		orX = -pieza.getOrY();
+		pieza.setOrY(orY);
+		pieza.setOrX(orX);
+	}
+
+	/**
+	 * Rotates the orange face counterclockwise.
+	 * @param rubikCube TODO
+	 */
+	public void rotateOrangeFaceCounterClockwise(RubikCube rubikCube) {
+		for (Pieza pieza : rubikCube.getOrangeFace()) {
+			menosYz(rubikCube, pieza);
+		}
+	}
+
+	/**
+	 * Rotates the green face clockwise.
+	 * @param rubikCube TODO
+	 */
+	public void rotateGreenFaceClockwise(RubikCube rubikCube) {
+		for (Pieza pieza : rubikCube.getGreenFace()) {
+			menosXz(rubikCube, pieza);
+		}
+	}
+
+	/**
+	 * Rotates the green face counterclockwise.
+	 * @param rubikCube TODO
+	 */
+	public void rotateGreenFaceCounterClockwise(RubikCube rubikCube) {
+		for (Pieza pieza : rubikCube.getGreenFace()) {
+			xMenosZ(rubikCube, pieza);
+		}
+	}
+
+	/**
+	 * Rotates the yellow face clockwise.
+	 * @param rubikCube TODO
+	 */
+	public void rotateYellowFaceClockwise(RubikCube rubikCube) {
+		for (Pieza pieza : rubikCube.getYellowFace()) {
+			xMenosY(rubikCube, pieza);
+		}
+	}
+
+	/**
+	 * Rotates the yellow face counterclockwise.
+	 * @param rubikCube TODO
+	 */
+	public void rotateYellowFaceCounterClockwise(RubikCube rubikCube) {
+		for (Pieza pieza : rubikCube.getYellowFace()) {
+			rubikCube.data.menosXy(rubikCube, pieza);
+		}
+	}
+
+	/**
+	 * Rotates the white face counterclockwise.
+	 * @param rubikCube TODO
+	 */
+	public void rotateWhiteFaceCounterClockwise(RubikCube rubikCube) {
+		for (Pieza pieza : rubikCube.getWhiteFace()) {
+			xMenosY(rubikCube, pieza);
+		}
+	}
+
+	protected void menosXy(RubikCube rubikCube, Pieza pieza) {
+		posY = -pieza.getPosX();
+		posX = pieza.getPosY();
+		pieza.setPosY(posY);
+		pieza.setPosX(posX);
+	
+		orY = -pieza.getOrX();
+		orX = pieza.getOrY();
+		pieza.setOrY(orY);
+		pieza.setOrX(orX);
+	}
 }
