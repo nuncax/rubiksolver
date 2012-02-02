@@ -77,16 +77,20 @@ public class RubikCube {
 
 	public void rotateWhiteFaceClockwise() {
 		for (Pieza pieza : getWhiteFace()) {
-			data.posY = -pieza.getPosX();
-			data.posX = pieza.getPosY();
-			pieza.setPosY(data.posY);
-			pieza.setPosX(data.posX);
-			
-			data.orY = -pieza.getOrX();
-			data.orX = pieza.getOrY();
-			pieza.setOrY(data.orY);
-			pieza.setOrX(data.orX);
+			menosXy(pieza);
 		}
+	}
+
+	protected void menosXy(Pieza pieza) {
+		data.posY = -pieza.getPosX();
+		data.posX = pieza.getPosY();
+		pieza.setPosY(data.posY);
+		pieza.setPosX(data.posX);
+
+		data.orY = -pieza.getOrX();
+		data.orX = pieza.getOrY();
+		pieza.setOrY(data.orY);
+		pieza.setOrX(data.orX);
 	}
 
 	/**
@@ -94,16 +98,20 @@ public class RubikCube {
 	 */
 	public void rotateWhiteFaceCounterClockwise() {
 		for (Pieza pieza : getWhiteFace()) {
-			data.posY = pieza.getPosX();
-			data.posX = -pieza.getPosY();
-			pieza.setPosY(data.posY);
-			pieza.setPosX(data.posX);
-			
-			data.orY = pieza.getOrX();
-			data.orX = -pieza.getOrY();
-			pieza.setOrY(data.orY);
-			pieza.setOrX(data.orX);
+			xMenosY(pieza);
 		}
+	}
+
+	protected void xMenosY(Pieza pieza) {
+		data.posY = pieza.getPosX();
+		data.posX = -pieza.getPosY();
+		pieza.setPosY(data.posY);
+		pieza.setPosX(data.posX);
+
+		data.orY = pieza.getOrX();
+		data.orX = -pieza.getOrY();
+		pieza.setOrY(data.orY);
+		pieza.setOrX(data.orX);
 	}
 
 	/**
@@ -111,31 +119,39 @@ public class RubikCube {
 	 */
 	public void rotateRedFaceClockwise() {
 		for (Pieza pieza : getRedFace()) {
-			data.posZ = -pieza.getPosY();
-			data.posY = pieza.getPosZ();
-			pieza.setPosZ(data.posZ);
-			pieza.setPosY(data.posY);
-			
-			data.orZ = -pieza.getOrY();
-			data.orY = pieza.getOrZ();
-			pieza.setOrZ(data.orZ);
-			pieza.setOrY(data.orY);
+			menosYz(pieza);
 
 		}
 	}
 
+	protected void menosYz(Pieza pieza) {
+		data.posZ = -pieza.getPosY();
+		data.posY = pieza.getPosZ();
+		pieza.setPosZ(data.posZ);
+		pieza.setPosY(data.posY);
+
+		data.orZ = -pieza.getOrY();
+		data.orY = pieza.getOrZ();
+		pieza.setOrZ(data.orZ);
+		pieza.setOrY(data.orY);
+	}
+
 	public void rotateRedFaceCounterClockwise() {
 		for (Pieza pieza : getRedFace()) {
-			data.posZ = pieza.getPosY();
-			data.posY = -pieza.getPosZ();
-			pieza.setPosZ(data.posZ);
-			pieza.setPosY(data.posY);
-			
-			data.orZ = pieza.getOrY();
-			data.orY = -pieza.getOrZ();
-			pieza.setOrZ(data.orZ);
-			pieza.setOrY(data.orY);
+			yMenosZ(pieza);
 		}
+	}
+
+	protected void yMenosZ(Pieza pieza) {
+		data.posZ = pieza.getPosY();
+		data.posY = -pieza.getPosZ();
+		pieza.setPosZ(data.posZ);
+		pieza.setPosY(data.posY);
+
+		data.orZ = pieza.getOrY();
+		data.orY = -pieza.getOrZ();
+		pieza.setOrZ(data.orZ);
+		pieza.setOrY(data.orY);
 	}
 
 	/**
@@ -143,16 +159,20 @@ public class RubikCube {
 	 */
 	public void rotateBlueFaceClockwise() {
 		for (Pieza pieza : getBlueFace()) {
-			data.posZ = pieza.getPosX();
-			data.posX = -pieza.getPosZ();
-			pieza.setPosZ(data.posZ);
-			pieza.setPosX(data.posX);
-			
-			data.orZ = pieza.getOrX();
-			data.orX = -pieza.getOrZ();
-			pieza.setOrZ(data.orZ);
-			pieza.setOrX(data.orX);
+			xMenosZ(pieza);
 		}
+	}
+
+	protected void xMenosZ(Pieza pieza) {
+		data.posZ = pieza.getPosX();
+		data.posX = -pieza.getPosZ();
+		pieza.setPosZ(data.posZ);
+		pieza.setPosX(data.posX);
+
+		data.orZ = pieza.getOrX();
+		data.orX = -pieza.getOrZ();
+		pieza.setOrZ(data.orZ);
+		pieza.setOrX(data.orX);
 	}
 
 	/**
@@ -160,16 +180,20 @@ public class RubikCube {
 	 */
 	public void rotateBlueFaceCounterClockwise() {
 		for (Pieza pieza : getBlueFace()) {
-			data.posZ = -pieza.getPosX();
-			data.posX = pieza.getPosZ();
-			pieza.setPosZ(data.posZ);
-			pieza.setPosX(data.posX);
-			
-			data.orZ = -pieza.getOrX();
-			data.orX = pieza.getOrZ();
-			pieza.setOrZ(data.orZ);
-			pieza.setOrX(data.orX);
+			menosXz(pieza);
 		}
+	}
+
+	protected void menosXz(Pieza pieza) {
+		data.posZ = -pieza.getPosX();
+		data.posX = pieza.getPosZ();
+		pieza.setPosZ(data.posZ);
+		pieza.setPosX(data.posX);
+
+		data.orZ = -pieza.getOrX();
+		data.orX = pieza.getOrZ();
+		pieza.setOrZ(data.orZ);
+		pieza.setOrX(data.orX);
 	}
 
 	/**
@@ -177,15 +201,7 @@ public class RubikCube {
 	 */
 	public void rotateOrangeFaceClockwise() {
 		for (Pieza pieza : getOrangeFace()) {
-			data.posZ = pieza.getPosY();
-			data.posY = -pieza.getPosZ();
-			pieza.setPosZ(data.posZ);
-			pieza.setPosY(data.posY);
-			
-			data.orZ = pieza.getOrY();
-			data.orY = -pieza.getOrZ();
-			pieza.setOrZ(data.orZ);
-			pieza.setOrY(data.orY);
+			yMenosZ(pieza);
 		}
 	}
 
@@ -194,15 +210,7 @@ public class RubikCube {
 	 */
 	public void rotateOrangeFaceCounterClockwise() {
 		for (Pieza pieza : getOrangeFace()) {
-			data.posZ = -pieza.getPosY();
-			data.posY = pieza.getPosZ();
-			pieza.setPosZ(data.posZ);
-			pieza.setPosY(data.posY);
-			
-			data.orZ = -pieza.getOrY();
-			data.orY = pieza.getOrZ();
-			pieza.setOrZ(data.orZ);
-			pieza.setOrY(data.orY);
+			menosYz(pieza);
 		}
 	}
 
@@ -211,15 +219,7 @@ public class RubikCube {
 	 */
 	public void rotateGreenFaceClockwise() {
 		for (Pieza pieza : getGreenFace()) {
-			data.posZ = -pieza.getPosX();
-			data.posX = pieza.getPosZ();
-			pieza.setPosZ(data.posZ);
-			pieza.setPosX(data.posX);
-			
-			data.orZ = -pieza.getOrX();
-			data.orX = pieza.getOrZ();
-			pieza.setOrZ(data.orZ);
-			pieza.setOrX(data.orX);
+			menosXz(pieza);
 		}
 	}
 
@@ -228,15 +228,7 @@ public class RubikCube {
 	 */
 	public void rotateGreenFaceCounterClockwise() {
 		for (Pieza pieza : getGreenFace()) {
-			data.posZ = pieza.getPosX();
-			data.posX = -pieza.getPosZ();
-			pieza.setPosZ(data.posZ);
-			pieza.setPosX(data.posX);
-			
-			data.orZ = pieza.getOrX();
-			data.orX = -pieza.getOrZ();
-			pieza.setOrZ(data.orZ);
-			pieza.setOrX(data.orX);
+			xMenosZ(pieza);
 		}
 	}
 
@@ -245,15 +237,7 @@ public class RubikCube {
 	 */
 	public void rotateYellowFaceClockwise() {
 		for (Pieza pieza : getYellowFace()) {
-			data.posY = pieza.getPosX();
-			data.posX = -pieza.getPosY();
-			pieza.setPosY(data.posY);
-			pieza.setPosX(data.posX);
-			
-			data.orY = pieza.getOrX();
-			data.orX = -pieza.getOrY();
-			pieza.setOrY(data.orY);
-			pieza.setOrX(data.orX);
+			xMenosY(pieza);
 		}
 	}
 
@@ -262,15 +246,7 @@ public class RubikCube {
 	 */
 	public void rotateYellowFaceCounterClockwise() {
 		for (Pieza pieza : getYellowFace()) {
-			data.posY = -pieza.getPosX();
-			data.posX = pieza.getPosY();
-			pieza.setPosY(data.posY);
-			pieza.setPosX(data.posX);
-			
-			data.orY = -pieza.getOrX();
-			data.orX = pieza.getOrY();
-			pieza.setOrY(data.orY);
-			pieza.setOrX(data.orX);
+			menosXy(pieza);
 		}
 	}
 
