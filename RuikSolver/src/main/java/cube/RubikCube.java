@@ -10,13 +10,8 @@ import color.Color;
 
 public class RubikCube {
 
-	private Set<Pieza> cubeSet;
-	Integer posX;
-	Integer posY;
-	Integer posZ;
-	Integer orX;
-	Integer orY;
-	Integer orZ;
+	private final Set<Pieza> cubeSet;
+
 
 	public RubikCube() {
 		this.cubeSet = new HashSet<Pieza>();
@@ -313,12 +308,12 @@ public class RubikCube {
 	}
 	
 	
-	Integer auxiliarypos;
-	Integer auxiliarxpos;
-	Integer auxiliarydir;
-	Integer auxiliarxdir;
-	Integer auxiliarzpos;
-	Integer auxiliarzdir;
+	Integer posX;
+	Integer posY;
+	Integer posZ;
+	Integer orX;
+	Integer orY;
+	Integer orZ;
 	
 	public void rotateWhiteFaceClockwise() {
 		for (Pieza pieza: getWhiteFace()) {
@@ -327,15 +322,15 @@ public class RubikCube {
 	}
 
 	protected void menosXy(Pieza pieza) {
-		auxiliarypos = -pieza.getPosX();
-		auxiliarxpos = pieza.getPosY();
-		pieza.setPosY( auxiliarypos);
-		pieza.setPosX(auxiliarxpos);
+		posY = -pieza.getPosX();
+		posX = pieza.getPosY();
+		pieza.setPosY( posY);
+		pieza.setPosX(posX);
 
-		auxiliarydir = -pieza.getOrX();
-		auxiliarxdir = pieza.getOrY();
-		pieza.setOrY(auxiliarydir);
-		pieza.setOrX(auxiliarxdir);
+		orY = -pieza.getOrX();
+		orX = pieza.getOrY();
+		pieza.setOrY(orY);
+		pieza.setOrX(orX);
 	}
 
 	/**
@@ -348,15 +343,15 @@ public class RubikCube {
 	}
 
 	protected void xMenosY(Pieza pieza) {
-		auxiliarypos = pieza.getPosX();
-		auxiliarxpos = -pieza.getPosY();
-		pieza.setPosY(auxiliarypos);
-		pieza.setPosX(auxiliarxpos);
+		posY = pieza.getPosX();
+		posX = -pieza.getPosY();
+		pieza.setPosY(posY);
+		pieza.setPosX(posX);
 
-		auxiliarydir = pieza.getOrX();
-		auxiliarxdir = -pieza.getOrY();
-		pieza.setOrY(auxiliarydir);
-		pieza.setOrX(auxiliarxdir);
+		orY = pieza.getOrX();
+		orX = -pieza.getOrY();
+		pieza.setOrY(orY);
+		pieza.setOrX(orX);
 	}
 
 	/**
@@ -370,15 +365,15 @@ public class RubikCube {
 	}
 
 	protected void menosYz(Pieza pieza) {
-		auxiliarzpos = -pieza.getPosY();
-		auxiliarypos =pieza.getPosZ();
-		pieza.setPosZ(auxiliarzpos);
-		pieza.setPosY(auxiliarypos);
+		posZ = -pieza.getPosY();
+		posY =pieza.getPosZ();
+		pieza.setPosZ(posZ);
+		pieza.setPosY(posY);
 
-		auxiliarzdir = -pieza.getOrY();
-		auxiliarydir = pieza.getOrZ();
-		pieza.setOrZ(auxiliarzdir);
-		pieza.setOrY(auxiliarydir);
+		orZ = -pieza.getOrY();
+		orY = pieza.getOrZ();
+		pieza.setOrZ(orZ);
+		pieza.setOrY(orY);
 	}
 	public void rotateRedFaceCounterClockwise() {
 		for (Pieza pieza: getRedFace()) {
@@ -387,15 +382,15 @@ public class RubikCube {
 	}
 
 	protected void yMenosZ(Pieza pieza) {
-		auxiliarzpos = pieza.getPosY();
-		auxiliarypos = -pieza.getPosZ();
-		pieza.setPosZ(auxiliarzpos);
-		pieza.setPosY(auxiliarypos);
+		posZ = pieza.getPosY();
+		posY = -pieza.getPosZ();
+		pieza.setPosZ(posZ);
+		pieza.setPosY(posY);
 
-		auxiliarzdir = pieza.getOrY();
-		auxiliarydir = -pieza.getOrZ();
-		pieza.setOrZ(auxiliarzdir);
-		pieza.setOrY(auxiliarydir);
+		orZ = pieza.getOrY();
+		orY = -pieza.getOrZ();
+		pieza.setOrZ(orZ);
+		pieza.setOrY(orY);
 	}
 
 	/**
@@ -408,15 +403,15 @@ public class RubikCube {
 	}
 
 	protected void xMenosZ(Pieza pieza) {
-		auxiliarzpos = pieza.getPosX();
-		auxiliarxpos = -pieza.getPosZ();
-		pieza.setPosZ(auxiliarzpos);
-		pieza.setPosX(auxiliarxpos);
+		posZ = pieza.getPosX();
+		posX = -pieza.getPosZ();
+		pieza.setPosZ(posZ);
+		pieza.setPosX(posX);
 
-		auxiliarzdir = pieza.getOrX();
-		auxiliarxdir = -pieza.getOrZ();
-		pieza.setOrZ(auxiliarzdir);
-		pieza.setOrX(auxiliarxdir);
+		orZ = pieza.getOrX();
+		orX = -pieza.getOrZ();
+		pieza.setOrZ(orZ);
+		pieza.setOrX(orX);
 	}
 
 	/**
@@ -429,15 +424,15 @@ public class RubikCube {
 	}
 
 	protected void menosXz(Pieza pieza) {
-		auxiliarzpos = -pieza.getPosX();
-		auxiliarxpos =pieza.getPosZ();
-		pieza.setPosZ(auxiliarzpos);
-		pieza.setPosX(auxiliarxpos);
+		posZ = -pieza.getPosX();
+		posX =pieza.getPosZ();
+		pieza.setPosZ(posZ);
+		pieza.setPosX(posX);
 
-		auxiliarzdir = -pieza.getOrX();
-		auxiliarxdir = pieza.getOrZ();
-		pieza.setOrZ(auxiliarzdir);
-		pieza.setOrX(auxiliarxdir);
+		orZ = -pieza.getOrX();
+		orX = pieza.getOrZ();
+		pieza.setOrZ(orZ);
+		pieza.setOrX(orX);
 	}
 
 	/**
