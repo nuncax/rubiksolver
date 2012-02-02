@@ -258,7 +258,7 @@ public class RubikCubeData {
 
 	public void rotateWhiteFaceClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getWhiteFace()) {
-			rubikCube.data.menosXy(rubikCube, pieza);
+			pieza.menosXy(rubikCube, rubikCube.data);
 		}
 	}
 
@@ -268,39 +268,15 @@ public class RubikCubeData {
 	 */
 	public void rotateRedFaceClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getRedFace()) {
-			rubikCube.data.menosYz(rubikCube, pieza);
+			pieza.menosYz(rubikCube, rubikCube.data);
 	
 		}
-	}
-
-	protected void menosYz(RubikCube rubikCube, Pieza pieza) {
-		posZ = -pieza.getPosY();
-		posY = pieza.getPosZ();
-		pieza.setPosZ(posZ);
-		pieza.setPosY(posY);
-	
-		orZ = -pieza.getOrY();
-		orY = pieza.getOrZ();
-		pieza.setOrZ(orZ);
-		pieza.setOrY(orY);
 	}
 
 	public void rotateRedFaceCounterClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getRedFace()) {
-			rubikCube.data.yMenosZ(rubikCube, pieza);
+			pieza.yMenosZ(rubikCube, rubikCube.data);
 		}
-	}
-
-	protected void yMenosZ(RubikCube rubikCube, Pieza pieza) {
-		posZ = pieza.getPosY();
-		posY = -pieza.getPosZ();
-		pieza.setPosZ(posZ);
-		pieza.setPosY(posY);
-	
-		orZ = pieza.getOrY();
-		orY = -pieza.getOrZ();
-		pieza.setOrZ(orZ);
-		pieza.setOrY(orY);
 	}
 
 	/**
@@ -309,20 +285,8 @@ public class RubikCubeData {
 	 */
 	public void rotateBlueFaceClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getBlueFace()) {
-			rubikCube.data.xMenosZ(rubikCube, pieza);
+			pieza.xMenosZ(rubikCube, rubikCube.data);
 		}
-	}
-
-	protected void xMenosZ(RubikCube rubikCube, Pieza pieza) {
-		posZ = pieza.getPosX();
-		posX = -pieza.getPosZ();
-		pieza.setPosZ(posZ);
-		pieza.setPosX(posX);
-	
-		orZ = pieza.getOrX();
-		orX = -pieza.getOrZ();
-		pieza.setOrZ(orZ);
-		pieza.setOrX(orX);
 	}
 
 	/**
@@ -331,20 +295,8 @@ public class RubikCubeData {
 	 */
 	public void rotateBlueFaceCounterClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getBlueFace()) {
-			rubikCube.data.menosXz(rubikCube, pieza);
+			pieza.menosXz(rubikCube, rubikCube.data);
 		}
-	}
-
-	protected void menosXz(RubikCube rubikCube, Pieza pieza) {
-		posZ = -pieza.getPosX();
-		posX = pieza.getPosZ();
-		pieza.setPosZ(posZ);
-		pieza.setPosX(posX);
-	
-		orZ = -pieza.getOrX();
-		orX = pieza.getOrZ();
-		pieza.setOrZ(orZ);
-		pieza.setOrX(orX);
 	}
 
 	/**
@@ -353,20 +305,8 @@ public class RubikCubeData {
 	 */
 	public void rotateOrangeFaceClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getOrangeFace()) {
-			yMenosZ(rubikCube, pieza);
+			pieza.yMenosZ(rubikCube, this);
 		}
-	}
-
-	protected void xMenosY(RubikCube rubikCube, Pieza pieza) {
-		posY = pieza.getPosX();
-		posX = -pieza.getPosY();
-		pieza.setPosY(posY);
-		pieza.setPosX(posX);
-	
-		orY = pieza.getOrX();
-		orX = -pieza.getOrY();
-		pieza.setOrY(orY);
-		pieza.setOrX(orX);
 	}
 
 	/**
@@ -375,7 +315,7 @@ public class RubikCubeData {
 	 */
 	public void rotateOrangeFaceCounterClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getOrangeFace()) {
-			menosYz(rubikCube, pieza);
+			pieza.menosYz(rubikCube, this);
 		}
 	}
 
@@ -385,7 +325,7 @@ public class RubikCubeData {
 	 */
 	public void rotateGreenFaceClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getGreenFace()) {
-			menosXz(rubikCube, pieza);
+			pieza.menosXz(rubikCube, this);
 		}
 	}
 
@@ -395,7 +335,7 @@ public class RubikCubeData {
 	 */
 	public void rotateGreenFaceCounterClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getGreenFace()) {
-			xMenosZ(rubikCube, pieza);
+			pieza.xMenosZ(rubikCube, this);
 		}
 	}
 
@@ -405,7 +345,7 @@ public class RubikCubeData {
 	 */
 	public void rotateYellowFaceClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getYellowFace()) {
-			xMenosY(rubikCube, pieza);
+			pieza.xMenosY(rubikCube, this);
 		}
 	}
 
@@ -415,7 +355,7 @@ public class RubikCubeData {
 	 */
 	public void rotateYellowFaceCounterClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getYellowFace()) {
-			rubikCube.data.menosXy(rubikCube, pieza);
+			pieza.menosXy(rubikCube, rubikCube.data);
 		}
 	}
 
@@ -425,19 +365,7 @@ public class RubikCubeData {
 	 */
 	public void rotateWhiteFaceCounterClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getWhiteFace()) {
-			xMenosY(rubikCube, pieza);
+			pieza.xMenosY(rubikCube, this);
 		}
-	}
-
-	protected void menosXy(RubikCube rubikCube, Pieza pieza) {
-		posY = -pieza.getPosX();
-		posX = pieza.getPosY();
-		pieza.setPosY(posY);
-		pieza.setPosX(posX);
-	
-		orY = -pieza.getOrX();
-		orX = pieza.getOrY();
-		pieza.setOrY(orY);
-		pieza.setOrX(orX);
 	}
 }
