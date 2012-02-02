@@ -137,7 +137,7 @@ public class Pieza {
 		return numCaras == 2;
 	}
 
-	public void menosXy(RubikCube rubikCube, RubikCubeData rubikCubeData) {
+	public void menosXy() {
 		setPosY(-getPosX());
 		setPosX(getPosY());
 
@@ -145,7 +145,7 @@ public class Pieza {
 		setOrX(getOrY());
 	}
 
-	public void xMenosY(RubikCube rubikCube, RubikCubeData rubikCubeData) {
+	public void xMenosY() {
 		setPosY(getPosX());
 		setPosX(-getPosY());
 
@@ -153,7 +153,7 @@ public class Pieza {
 		setOrX(-getOrY());
 	}
 
-	public void menosXz(RubikCube rubikCube, RubikCubeData rubikCubeData) {
+	public void menosXz() {
 		setPosZ(-getPosX());
 		setPosX(getPosZ());
 
@@ -161,7 +161,7 @@ public class Pieza {
 		setOrX(getOrZ());
 	}
 
-	public void xMenosZ(RubikCube rubikCube, RubikCubeData rubikCubeData) {
+	public void xMenosZ() {
 		setPosZ(getPosX());
 		setPosX(-getPosZ());
 
@@ -169,7 +169,7 @@ public class Pieza {
 		setOrX(-getOrZ());
 	}
 
-	public void yMenosZ(RubikCube rubikCube, RubikCubeData rubikCubeData) {
+	public void yMenosZ() {
 		setPosZ(getPosY());
 		setPosY(-getPosZ());
 
@@ -177,7 +177,7 @@ public class Pieza {
 		setOrY(-getOrZ());
 	}
 
-	public void menosYz(RubikCube rubikCube, RubikCubeData rubikCubeData) {
+	public void menosYz() {
 		setPosZ(-getPosY());
 		setPosY(getPosZ());
 

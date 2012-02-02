@@ -1,77 +1,85 @@
 package cube;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import pieza.Pieza;
 
-
 public class RubikCube {
-	public RubikCubeData data = new RubikCubeData();
-	
+	public RubikCubeData cubeData;
+
 	public RubikCube() {
-		this.data.cubeSet.addAll(data.createCube());
-		
+		this.cubeData.createCube();
 	}
-
-	public Set<Pieza> getBlueFace() {
-		Set<Pieza> blueFace = new HashSet<Pieza>();
-		for (Pieza pieza : this.data.cubeSet) {
-			if (pieza.isBlue() && !pieza.esCentro()) {
-				blueFace.add(pieza);
-			}
+	
+	public void rotateYellowFaceClockwise() {
+		for (Pieza pieza : cubeData.getYellowFace()) {
+			pieza.xMenosY();
 		}
-		return blueFace;
 	}
-
-	public Set<Pieza> getRedFace() {
-		Set<Pieza> redFace = new HashSet<Pieza>();
-		for (Pieza pieza : this.data.cubeSet) {
-			if (pieza.isRed() && !pieza.esCentro()) {
-				redFace.add(pieza);
-			}
+	public void rotateWhiteFaceClockwise() {
+		for (Pieza pieza : cubeData.getWhiteFace()) {
+			pieza.menosXy();
 		}
-		return redFace;
 	}
 
-	public Set<Pieza> getYellowFace() {
-		Set<Pieza> yellowFace = new HashSet<Pieza>();
-		for (Pieza pieza : this.data.cubeSet) {
-			if (pieza.isYellow() && !pieza.esCentro()) {
-				yellowFace.add(pieza);
-			}
+	public void rotateRedFaceClockwise() {
+		for (Pieza pieza : cubeData.getRedFace()) {
+			pieza.menosYz();
+
 		}
-		return yellowFace;
 	}
 
-	public Set<Pieza> getGreenFace() {
-		Set<Pieza> greenFace = new HashSet<Pieza>();
-		for (Pieza pieza : this.data.cubeSet) {
-			if (pieza.isGreen() && !pieza.esCentro()) {
-				greenFace.add(pieza);
-			}
+	public void rotateRedFaceCounterClockwise() {
+		for (Pieza pieza : cubeData.getRedFace()) {
+			pieza.yMenosZ();
 		}
-		return greenFace;
 	}
 
-	public Set<Pieza> getOrangeFace() {
-		Set<Pieza> orangeFace = new HashSet<Pieza>();
-		for (Pieza pieza : this.data.cubeSet) {
-			if (pieza.isOrange() && !pieza.esCentro()) {
-				orangeFace.add(pieza);
-			}
+	public void rotateBlueFaceClockwise() {
+		for (Pieza pieza : cubeData.getBlueFace()) {
+			pieza.xMenosZ();
 		}
-		return orangeFace;
 	}
 
-	public Set<Pieza> getWhiteFace() {
-		Set<Pieza> whiteFace = new HashSet<Pieza>();
-		for (Pieza pieza : this.data.cubeSet) {
-			if (pieza.isWhite() && !pieza.esCentro()) {
-				whiteFace.add(pieza);
-			}
+	public void rotateBlueFaceCounterClockwise() {
+		for (Pieza pieza : cubeData.getBlueFace()) {
+			pieza.menosXz();
 		}
-		return whiteFace;
 	}
 
+	public void rotateOrangeFaceClockwise() {
+		for (Pieza pieza : cubeData.getOrangeFace()) {
+			pieza.yMenosZ();
+		}
+	}
+
+	public void rotateOrangeFaceCounterClockwise() {
+		for (Pieza pieza : cubeData.getOrangeFace()) {
+			pieza.menosYz();
+		}
+	}
+
+	public void rotateGreenFaceClockwise() {
+		for (Pieza pieza : cubeData.getGreenFace()) {
+			pieza.menosXz();
+		}
+	}
+
+	public void rotateGreenFaceCounterClockwise() {
+		for (Pieza pieza : cubeData.getGreenFace()) {
+			pieza.xMenosZ();
+		}
+	}
+
+	
+
+	public void rotateYellowFaceCounterClockwise() {
+		for (Pieza pieza : cubeData.getYellowFace()) {
+			pieza.menosXy();
+		}
+	}
+
+	public void rotateWhiteFaceCounterClockwise() {
+		for (Pieza pieza : cubeData.getWhiteFace()) {
+			pieza.xMenosY();
+		}
+	}
 }
