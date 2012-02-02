@@ -32,8 +32,8 @@ public class RubikCube {
 		Color amarillo = new Color("amarillo");
 		Color naranja = new Color("naranja");
 
-		Vectr orientacion = new Vectr();
-		Vectr posicion = new Vectr();
+		Vectr orientacion;
+		Vectr posicion;
 		Set<Color> colors = new HashSet<Color>();
 
 		// AzRB
@@ -100,7 +100,6 @@ public class RubikCube {
 		posicion = new Vectr(-1, -1, -1);
 		orientacion = new Vectr(0, 0, -1);
 		this.cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new HashSet<Color>();
 
 	}
 
@@ -113,8 +112,8 @@ public class RubikCube {
 		Color amarillo = new Color("amarillo");
 		Color naranja = new Color("naranja");
 
-		Vectr orientacion = new Vectr();
-		Vectr posicion = new Vectr();
+		Vectr orientacion;
+		Vectr posicion;
 		Set<Color> colors = new HashSet<Color>();
 		// RB
 		colors.add(rojo);
@@ -199,7 +198,6 @@ public class RubikCube {
 		posicion = new Vectr(0, -1, -1);
 		orientacion = new Vectr(0, 0, -1);
 		this.cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new HashSet<Color>();
 
 	}
 
@@ -212,8 +210,8 @@ public class RubikCube {
 		Color amarillo = new Color("amarillo");
 		Color naranja = new Color("naranja");
 
-		Vectr orientacion = new Vectr();
-		Vectr posicion = new Vectr();
+		Vectr orientacion;
+		Vectr posicion;
 		Set<Color> colors = new HashSet<Color>();
 
 		// blanco
@@ -251,7 +249,6 @@ public class RubikCube {
 		posicion = new Vectr(-1, 0, 0);
 		orientacion = new Vectr(-1, 0, 0);
 		this.cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new HashSet<Color>();
 	}
 
 	public Set<Pieza> getBlueFace() {

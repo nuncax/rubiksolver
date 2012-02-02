@@ -12,8 +12,11 @@ public class Pieza {
 
 	public Pieza(Vectr posicion, Vectr orientacion, Set<Color> colors) {
 
-		this.posicion = posicion;
-		this.orientacion = orientacion;
+		this.posicion = new Vectr(posicion.getX(), posicion.getY(),
+				posicion.getZ());
+
+		this.orientacion = new Vectr(orientacion.getX(), orientacion.getY(),
+				orientacion.getZ());
 		this.color = new HashSet<Color>();
 		this.color.addAll(colors);
 	}
@@ -29,11 +32,16 @@ public class Pieza {
 	}
 
 	public void setPosicion(Vectr posicion) {
-		this.posicion = posicion;
+		this.posicion.setX(posicion.getX());
+		this.posicion.setY(posicion.getY());
+		this.posicion.setZ(posicion.getZ());
+		
 	}
 
 	public void setOrientacion(Vectr orientacion) {
-		this.orientacion = orientacion;
+		this.orientacion.setX(posicion.getX());
+		this.orientacion.setY(posicion.getY());
+		this.orientacion.setZ(posicion.getZ());
 	}
 
 	public Integer getPosX() {
@@ -89,7 +97,7 @@ public class Pieza {
 	}
 
 	public void setColor(Set<Color> color) {
-		this.color = color;
+		this.color.addAll(color);
 	}
 
 	public boolean isBlue() {
