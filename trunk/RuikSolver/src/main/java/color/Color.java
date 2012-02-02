@@ -4,7 +4,7 @@ public class Color {
 	private String color;
 
 	public Color(String color) {
-		this.color = color;
+		this.color= color.toString();
 	}
 
 	public String getColor() {
@@ -12,7 +12,7 @@ public class Color {
 	}
 
 	public void setColor(String color) {
-		this.color = color;
+		this.color = color.toString();
 	}
 
 	@Override

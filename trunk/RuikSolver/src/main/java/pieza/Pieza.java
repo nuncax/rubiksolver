@@ -14,7 +14,6 @@ public class Pieza {
 
 		this.posicion = new Vectr(posicion.getX(), posicion.getY(),
 				posicion.getZ());
-
 		this.orientacion = new Vectr(orientacion.getX(), orientacion.getY(),
 				orientacion.getZ());
 		this.color = new HashSet<Color>();

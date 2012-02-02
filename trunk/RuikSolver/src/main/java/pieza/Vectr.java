@@ -13,11 +13,6 @@ public class Vectr {
 		this.vector.add(Z);
 	}
 
-	public Vectr(ArrayList<Integer> vector) {
-		this.vector = new ArrayList<Integer>(3);
-		
-	}
-
 	public Vectr() {
 		// TODO Auto-generated constructor stub
 	}
