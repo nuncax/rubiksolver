@@ -1,16 +1,23 @@
 package cube;
 
-import pieza.Pieza;
+import color.Color;
 
 public class RubikCube {
-	public RubikCubeData cubeData;
+	public RubikCubeRotations cubeRotations;
 
 	public RubikCube() {
-		cubeData = new RubikCubeData();
-		this.cubeData.createCube();
+		cubeRotations = new RubikCubeRotations();
 	}
-
 	
-	
-	
+//	void R(Color color){
+//		switch (color) {
+//		case "d":
+//			
+//			break;
+//
+//		default:
+//			break;
+//		}
+//		this.cubeRotations.clockwise.rotateBlueFaceClockwise();
+//	}
 }

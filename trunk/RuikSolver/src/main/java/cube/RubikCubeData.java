@@ -246,8 +246,6 @@ public class RubikCubeData {
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 	}
 
-
-
 	public Set<Pieza> getCubeSet() {
 		return this.cubeSet;
 	}
