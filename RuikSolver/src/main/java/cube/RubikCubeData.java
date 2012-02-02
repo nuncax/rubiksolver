@@ -9,31 +9,28 @@ import pieza.Pieza;
 import pieza.Vectr;
 
 public class RubikCubeData {
-	
-	public RubikCubeData() {
-		this.cubeSet = new HashSet<Pieza>();
-	}
-
 	public Set<Pieza> cubeSet;
+
 	public Set<Pieza> createCube() {
+		this.cubeSet = new HashSet<Pieza>();
 		createCentros();
 		createAristas();
 		createVertices();
 		return cubeSet;
 	}
 
-	void createVertices() {
+	private void createVertices() {
 		Color blanco = new Color("blanco");
 		Color verde = new Color("verde");
 		Color azul = new Color("azul");
 		Color rojo = new Color("rojo");
 		Color amarillo = new Color("amarillo");
 		Color naranja = new Color("naranja");
-	
+
 		Vectr orientacion;
 		Vectr posicion;
 		Set<Color> colors = new HashSet<Color>();
-	
+
 		// AzRB
 		colors.add(azul);
 		colors.add(rojo);
@@ -98,18 +95,18 @@ public class RubikCubeData {
 		posicion = new Vectr(-1, -1, -1);
 		orientacion = new Vectr(0, 0, -1);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
-	
+
 	}
 
-	void createAristas() {
-	
+	private void createAristas() {
+
 		Color blanco = new Color("blanco");
 		Color verde = new Color("verde");
 		Color azul = new Color("azul");
 		Color rojo = new Color("rojo");
 		Color amarillo = new Color("amarillo");
 		Color naranja = new Color("naranja");
-	
+
 		Vectr orientacion;
 		Vectr posicion;
 		Set<Color> colors = new HashSet<Color>();
@@ -196,22 +193,22 @@ public class RubikCubeData {
 		posicion = new Vectr(0, -1, -1);
 		orientacion = new Vectr(0, 0, -1);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
-	
+
 	}
 
-	void createCentros() {
-	
+	private void createCentros() {
+
 		Color blanco = new Color("blanco");
 		Color verde = new Color("verde");
 		Color azul = new Color("azul");
 		Color rojo = new Color("rojo");
 		Color amarillo = new Color("amarillo");
 		Color naranja = new Color("naranja");
-	
+
 		Vectr orientacion;
 		Vectr posicion;
 		Set<Color> colors = new HashSet<Color>();
-	
+
 		// blanco
 		colors.add(blanco);
 		posicion = new Vectr(0, 0, 1);
@@ -249,84 +246,69 @@ public class RubikCubeData {
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 	}
 
-	public void rotateWhiteFaceClockwise(RubikCube rubikCube) {
-		for (Pieza pieza : rubikCube.getWhiteFace()) {
-			pieza.menosXy(rubikCube, rubikCube.data);
-		}
+
+
+	public Set<Pieza> getCubeSet() {
+		return this.cubeSet;
 	}
 
-
-	public void rotateRedFaceClockwise(RubikCube rubikCube) {
-		for (Pieza pieza : rubikCube.getRedFace()) {
-			pieza.menosYz(rubikCube, rubikCube.data);
-	
+	public Set<Pieza> getBlueFace() {
+		Set<Pieza> blueFace = new HashSet<Pieza>();
+		for (Pieza pieza : cubeSet) {
+			if (pieza.isBlue() && !pieza.esCentro()) {
+				blueFace.add(pieza);
+			}
 		}
+		return blueFace;
 	}
 
-	public void rotateRedFaceCounterClockwise(RubikCube rubikCube) {
-		for (Pieza pieza : rubikCube.getRedFace()) {
-			pieza.yMenosZ(rubikCube, rubikCube.data);
+	public Set<Pieza> getWhiteFace() {
+		Set<Pieza> whiteFace = new HashSet<Pieza>();
+		for (Pieza pieza : cubeSet) {
+			if (pieza.isWhite() && !pieza.esCentro()) {
+				whiteFace.add(pieza);
+			}
 		}
+		return whiteFace;
 	}
 
-	public void rotateBlueFaceClockwise(RubikCube rubikCube) {
-		for (Pieza pieza : rubikCube.getBlueFace()) {
-			pieza.xMenosZ(rubikCube, rubikCube.data);
+	public Set<Pieza> getOrangeFace() {
+		Set<Pieza> orangeFace = new HashSet<Pieza>();
+		for (Pieza pieza : cubeSet) {
+			if (pieza.isOrange() && !pieza.esCentro()) {
+				orangeFace.add(pieza);
+			}
 		}
+		return orangeFace;
 	}
 
-	
-	public void rotateBlueFaceCounterClockwise(RubikCube rubikCube) {
-		for (Pieza pieza : rubikCube.getBlueFace()) {
-			pieza.menosXz(rubikCube, rubikCube.data);
+	public Set<Pieza> getGreenFace() {
+		Set<Pieza> greenFace = new HashSet<Pieza>();
+		for (Pieza pieza : cubeSet) {
+			if (pieza.isGreen() && !pieza.esCentro()) {
+				greenFace.add(pieza);
+			}
 		}
+		return greenFace;
 	}
 
-
-	public void rotateOrangeFaceClockwise(RubikCube rubikCube) {
-		for (Pieza pieza : rubikCube.getOrangeFace()) {
-			pieza.yMenosZ(rubikCube, this);
+	public Set<Pieza> getYellowFace() {
+		Set<Pieza> yellowFace = new HashSet<Pieza>();
+		for (Pieza pieza : cubeSet) {
+			if (pieza.isYellow() && !pieza.esCentro()) {
+				yellowFace.add(pieza);
+			}
 		}
+		return yellowFace;
 	}
 
-
-	public void rotateOrangeFaceCounterClockwise(RubikCube rubikCube) {
-		for (Pieza pieza : rubikCube.getOrangeFace()) {
-			pieza.menosYz(rubikCube, this);
+	public Set<Pieza> getRedFace() {
+		Set<Pieza> redFace = new HashSet<Pieza>();
+		for (Pieza pieza : cubeSet) {
+			if (pieza.isRed() && !pieza.esCentro()) {
+				redFace.add(pieza);
+			}
 		}
-	}
-
-
-	public void rotateGreenFaceClockwise(RubikCube rubikCube) {
-		for (Pieza pieza : rubikCube.getGreenFace()) {
-			pieza.menosXz(rubikCube, this);
-		}
-	}
-
-	
-	public void rotateGreenFaceCounterClockwise(RubikCube rubikCube) {
-		for (Pieza pieza : rubikCube.getGreenFace()) {
-			pieza.xMenosZ(rubikCube, this);
-		}
-	}
-
-	
-	public void rotateYellowFaceClockwise(RubikCube rubikCube) {
-		for (Pieza pieza : rubikCube.getYellowFace()) {
-			pieza.xMenosY(rubikCube, this);
-		}
-	}
-
-	public void rotateYellowFaceCounterClockwise(RubikCube rubikCube) {
-		for (Pieza pieza : rubikCube.getYellowFace()) {
-			pieza.menosXy(rubikCube, rubikCube.data);
-		}
-	}
-
-
-	public void rotateWhiteFaceCounterClockwise(RubikCube rubikCube) {
-		for (Pieza pieza : rubikCube.getWhiteFace()) {
-			pieza.xMenosY(rubikCube, this);
-		}
+		return redFace;
 	}
 }
