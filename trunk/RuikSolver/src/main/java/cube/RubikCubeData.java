@@ -15,13 +15,6 @@ public class RubikCubeData {
 	}
 
 	public Set<Pieza> cubeSet;
-	public Integer posX;
-	public Integer posY;
-	public Integer posZ;
-	public Integer orX;
-	public Integer orY;
-	public Integer orZ;
-
 	public Set<Pieza> createCube() {
 		createCentros();
 		createAristas();
@@ -262,10 +255,7 @@ public class RubikCubeData {
 		}
 	}
 
-	/**
-	 * Rotates the red face clockwise.
-	 * @param rubikCube TODO
-	 */
+
 	public void rotateRedFaceClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getRedFace()) {
 			pieza.menosYz(rubikCube, rubikCube.data);
@@ -279,90 +269,61 @@ public class RubikCubeData {
 		}
 	}
 
-	/**
-	 * Rotates the blue face clockwise.
-	 * @param rubikCube TODO
-	 */
 	public void rotateBlueFaceClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getBlueFace()) {
 			pieza.xMenosZ(rubikCube, rubikCube.data);
 		}
 	}
 
-	/**
-	 * Rotates the blue face counterclockwise.
-	 * @param rubikCube TODO
-	 */
+	
 	public void rotateBlueFaceCounterClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getBlueFace()) {
 			pieza.menosXz(rubikCube, rubikCube.data);
 		}
 	}
 
-	/**
-	 * Rotates the orange face clockwise.
-	 * @param rubikCube TODO
-	 */
+
 	public void rotateOrangeFaceClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getOrangeFace()) {
 			pieza.yMenosZ(rubikCube, this);
 		}
 	}
 
-	/**
-	 * Rotates the orange face counterclockwise.
-	 * @param rubikCube TODO
-	 */
+
 	public void rotateOrangeFaceCounterClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getOrangeFace()) {
 			pieza.menosYz(rubikCube, this);
 		}
 	}
 
-	/**
-	 * Rotates the green face clockwise.
-	 * @param rubikCube TODO
-	 */
+
 	public void rotateGreenFaceClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getGreenFace()) {
 			pieza.menosXz(rubikCube, this);
 		}
 	}
 
-	/**
-	 * Rotates the green face counterclockwise.
-	 * @param rubikCube TODO
-	 */
+	
 	public void rotateGreenFaceCounterClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getGreenFace()) {
 			pieza.xMenosZ(rubikCube, this);
 		}
 	}
 
-	/**
-	 * Rotates the yellow face clockwise.
-	 * @param rubikCube TODO
-	 */
+	
 	public void rotateYellowFaceClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getYellowFace()) {
 			pieza.xMenosY(rubikCube, this);
 		}
 	}
 
-	/**
-	 * Rotates the yellow face counterclockwise.
-	 * @param rubikCube TODO
-	 */
 	public void rotateYellowFaceCounterClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getYellowFace()) {
 			pieza.menosXy(rubikCube, rubikCube.data);
 		}
 	}
 
-	/**
-	 * Rotates the white face counterclockwise.
-	 * @param rubikCube TODO
-	 */
+
 	public void rotateWhiteFaceCounterClockwise(RubikCube rubikCube) {
 		for (Pieza pieza : rubikCube.getWhiteFace()) {
 			pieza.xMenosY(rubikCube, this);
