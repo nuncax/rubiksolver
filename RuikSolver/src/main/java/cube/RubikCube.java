@@ -311,430 +311,215 @@ public class RubikCube {
 		}
 		return whiteFace;
 	}
+	
+	
+	Integer auxiliarypos;
+	Integer auxiliarxpos;
+	Integer auxiliarydir;
+	Integer auxiliarxdir;
+	Integer auxiliarzpos;
+	Integer auxiliarzdir;
+	
+	public void rotateWhiteFaceClockwise() {
+		for (Pieza pieza: getWhiteFace()) {
+				auxiliarypos = -pieza.getPosX();
+				auxiliarxpos = pieza.getPosY();
+				pieza.setPosY( auxiliarypos);
+				pieza.setPosX(auxiliarxpos);
 
-	private Integer cosNPi05(Integer times) {
-		return (int) Math.cos(times * 0.5 * Math.PI);
-	}
-
-	private Integer sinNPi05(Integer times) {
-		return (int) Math.sin(times * 0.5 * Math.PI);
-	}
-
-	public void rotateWhiteFaceClockwise(int times) {
-		if (times < 0) {
-			rotateWhiteFaceCounterClockwise(Math.abs(times));
-		} else {
-			while (times >= 4) {
-				times = times - 4;
-			}
-			if (times == 3) {
-				rotateWhiteFaceCounterClockwise(1);
-			} else {
-				for (Pieza pieza : getWhiteFace()) {
-					posY = menosSenoXMasCosenoY(times, pieza);
-					posX = cosPxSenPy(times, pieza);
-					pieza.setPosY(posY);
-					pieza.setPosX(posX);
-
-					orY = menosSenOxCosOy(times, pieza);
-					orX = cosOxSenOy(times, pieza);
-					pieza.setOrY(orY);
-					pieza.setOrX(orX);
-				}
-			}
+				auxiliarydir = -pieza.getOrX();
+				auxiliarxdir = pieza.getOrY();
+				pieza.setOrY(auxiliarydir);
+				pieza.setOrX(auxiliarxdir);
 		}
 	}
 
-	protected int menosSenoXMasCosenoY(int times, Pieza pieza) {
-		return -sinNPi05(times) * pieza.getPosX() + cosNPi05(times)	* pieza.getPosY();
-	}
+	/**
+	 * Rotates the white face counterclockwise.
+	 */
+	public void rotateWhiteFaceCounterClockwise() {
+		for (Pieza pieza: getWhiteFace()) {
+				auxiliarypos = pieza.getPosX();
+				auxiliarxpos = -pieza.getPosY();
+				pieza.setPosY(auxiliarypos);
+				pieza.setPosX(auxiliarxpos);
 
-	public void rotateWhiteFaceCounterClockwise(int times) {
-		if (times < 0) {
-			rotateWhiteFaceClockwise(Math.abs(times));
-		} else {
-			while (times >= 4) {
-				times = times - 4;
-			}
-			if (times == 3) {
-				rotateWhiteFaceClockwise(1);
-			} else {
-				for (Pieza pieza : getWhiteFace()) {
-
-					posY = sinNPi05(times) * pieza.getPosX() + cosNPi05(times)
-							* pieza.getPosY();
-					posX = cosNPi05(times) * pieza.getPosX() - sinNPi05(times)
-							* pieza.getPosY();
-					pieza.setPosY(posY);
-					pieza.setPosX(posX);
-
-					orY = sinNPi05(times) * pieza.getOrX() + cosNPi05(times)
-							* pieza.getOrY();
-					orX = cosNPi05(times) * pieza.getOrX() - sinNPi05(times)
-							* pieza.getOrY();
-					pieza.setOrY(orY);
-					pieza.setOrX(orX);
-				}
-
-			}
+				auxiliarydir = pieza.getOrX();
+				auxiliarxdir = -pieza.getOrY();
+				pieza.setOrY(auxiliarydir);
+				pieza.setOrX(auxiliarxdir);
 		}
 	}
 
-	public void rotateRedFaceClockwise(int times) {
-		if (times < 0) {
-			rotateRedFaceCounterClockwise(Math.abs(times));
-		} else {
-			while (times >= 4) {
-				times = times - 4;
-			}
-			if (times == 3) {
-				rotateRedFaceCounterClockwise(1);
-			} else {
-				for (Pieza pieza : getWhiteFace()) {
-					posZ = -sinNPi05(times) * pieza.getPosY() + cosNPi05(times)
-							* pieza.getPosZ();
-					posY = cosNPi05(times) * pieza.getPosY() + sinNPi05(times)
-							* pieza.getPosZ();
-					pieza.setPosZ(posZ);
+	/**
+	 * Rotates the red face clockwise.
+	 */
+	public void rotateRedFaceClockwise() {
+		for (Pieza pieza: getRedFace()) {
+				auxiliarzpos = -pieza.getPosY();
+				auxiliarypos =pieza.getPosZ();
+				pieza.setPosZ(auxiliarzpos);
+				pieza.setPosY(auxiliarypos);
 
-					pieza.setPosY(posY);
-
-					orZ = -sinNPi05(times) * pieza.getOrY() + cosNPi05(times)
-							* pieza.getOrZ();
-					orY = cosNPi05(times) * pieza.getOrY() + sinNPi05(times)
-							* pieza.getOrZ();
-					pieza.setOrZ(orZ);
-					pieza.setOrY(orY);
-
-				}
-			}
+				auxiliarzdir = -pieza.getOrY();
+				auxiliarydir = pieza.getOrZ();
+				pieza.setOrZ(auxiliarzdir);
+				pieza.setOrY(auxiliarydir);
+			
 		}
 	}
 
-	public void rotateRedFaceCounterClockwise(int times) {
-		if (times < 0) {
-			rotateRedFaceClockwise(Math.abs(times));
-		} else {
-			while (times >= 4) {
-				times = times - 4;
-			}
-			if (times == 3) {
-				rotateRedFaceClockwise(1);
-			} else {
-				for (Pieza pieza : getWhiteFace()) {
+	/**
+	 * Rotates the red face counterclockwise.
+	 */
+	public void rotateRedFaceCounterClockwise() {
+		for (Pieza pieza: getRedFace()) {
+				auxiliarzpos = pieza.getPosY();
+				auxiliarypos = -pieza.getPosZ();
+				pieza.setPosZ(auxiliarzpos);
+				pieza.setPosY(auxiliarypos);
 
-					posZ = senPyCosPz(times, pieza);
-					posY = cosPyMenosSenPz(times, pieza);
-					pieza.setPosZ(posZ);
-					pieza.setPosY(posY);
-
-					orZ = senOyCosOz(times, pieza);
-					orY = cosOyMenosSenOz(times, pieza);
-					pieza.setOrZ(orZ);
-					pieza.setOrY(orY);
-				}
-
-			}
+				auxiliarzdir = pieza.getOrY();
+				auxiliarydir = -pieza.getOrZ();
+				pieza.setOrZ(auxiliarzdir);
+				pieza.setOrY(auxiliarydir);
 		}
 	}
 
-	protected int senPyCosPz(int times, Pieza pieza) {
-		return sinNPi05(times) * pieza.getPosY() + cosNPi05(times)
-				* pieza.getPosZ();
-	}
+	/**
+	 * Rotates the blue face clockwise.
+	 */
+	public void rotateBlueFaceClockwise() {
+		for (Pieza pieza: getBlueFace()) {
+				auxiliarzpos = pieza.getPosX();
+				auxiliarxpos = -pieza.getPosZ();
+				pieza.setPosZ(auxiliarzpos);
+				pieza.setPosX(auxiliarxpos);
 
-	protected int cosPyMenosSenPz(int times, Pieza pieza) {
-		return cosNPi05(times) * pieza.getPosY() - sinNPi05(times)
-				* pieza.getPosZ();
-	}
-
-	protected int senOyCosOz(int times, Pieza pieza) {
-		return sinNPi05(times) * pieza.getOrY() + cosNPi05(times)
-				* pieza.getOrZ();
-	}
-
-	protected int cosOyMenosSenOz(int times, Pieza pieza) {
-		return cosNPi05(times) * pieza.getOrY() - sinNPi05(times)
-				* pieza.getOrZ();
-	}
-
-	public void rotateBlueFaceClockwise(int times) {
-		if (times < 0) {
-			rotateBlueFaceCounterClockwise(Math.abs(times));
-		} else {
-			while (times >= 4) {
-				times = times - 4;
-			}
-			if (times == 3) {
-				rotateBlueFaceCounterClockwise(1);
-			} else {
-				for (Pieza pieza : getWhiteFace()) {
-
-					posZ = senPxCosPz(times, pieza);
-					posX = cosPxMenosSenPz(times, pieza);
-					pieza.setPosZ(posZ);
-					pieza.setPosX(posX);
-
-					orZ = senOxCosOz(times, pieza);
-					orX = cosOxMenosSenOz(times, pieza);
-					pieza.setOrZ(orZ);
-					pieza.setOrX(orX);
-
-				}
-			}
+				auxiliarzdir = pieza.getOrX();
+				auxiliarxdir = -pieza.getOrZ();
+				pieza.setOrZ(auxiliarzdir);
+				pieza.setOrX(auxiliarxdir);
 		}
 	}
 
-	protected int senPxCosPz(int times, Pieza pieza) {
-		return sinNPi05(times) * pieza.getPosX() + cosNPi05(times)
-				* pieza.getPosZ();
-	}
+	/**
+	 * Rotates the blue face counterclockwise.
+	 */
+	public void rotateBlueFaceCounterClockwise() {
+		for (Pieza pieza: getBlueFace()) {
+				auxiliarzpos = -pieza.getPosX();
+				auxiliarxpos =pieza.getPosZ();
+				pieza.setPosZ(auxiliarzpos);
+				pieza.setPosX(auxiliarxpos);
 
-	protected int cosPxMenosSenPz(int times, Pieza pieza) {
-		return cosNPi05(times) * pieza.getPosX() - sinNPi05(times)
-				* pieza.getPosZ();
-	}
-
-	protected int senOxCosOz(int times, Pieza pieza) {
-		return sinNPi05(times) * pieza.getOrX() + cosNPi05(times)
-				* pieza.getOrZ();
-	}
-
-	protected int cosOxMenosSenOz(int times, Pieza pieza) {
-		return cosNPi05(times) * pieza.getOrX() - sinNPi05(times)
-				* pieza.getOrZ();
-	}
-
-	public void rotateBlueFaceCounterClockwise(int times) {
-		if (times < 0) {
-			rotateBlueFaceClockwise(Math.abs(times));
-		} else {
-			while (times >= 4) {
-				times = times - 4;
-			}
-			if (times == 3) {
-				rotateBlueFaceClockwise(1);
-			} else {
-				for (Pieza pieza : getWhiteFace()) {
-
-					posZ = menosSenPxCosPz(times, pieza);
-					posX = cosXsenZ(times, pieza);
-					pieza.setPosZ(posZ);
-					pieza.setPosX(posX);
-
-					orZ = menosSenOxCosOz(times, pieza);
-					orX = cosOxSenOz(times, pieza);
-					pieza.setOrZ(orZ);
-					pieza.setOrX(orX);
-				}
-			}
-
+				auxiliarzdir = -pieza.getOrX();
+				auxiliarxdir = pieza.getOrZ();
+				pieza.setOrZ(auxiliarzdir);
+				pieza.setOrX(auxiliarxdir);
 		}
 	}
 
-	protected int menosSenPxCosPz(int times, Pieza pieza) {
-		return -sinNPi05(times) * pieza.getPosX() + cosNPi05(times)
-				* pieza.getPosZ();
-	}
+	/**
+	 * Rotates the orange face clockwise.
+	 */
+	public void rotateOrangeFaceClockwise() {
+		for (Pieza pieza: getOrangeFace()) {
+				auxiliarzpos = pieza.getPosY();
+				auxiliarypos = -pieza.getPosZ();
+				pieza.setPosZ(auxiliarzpos);
+				pieza.setPosY(auxiliarypos);
 
-	protected int menosSenOxCosOz(int times, Pieza pieza) {
-		return -sinNPi05(times) * pieza.getOrX() + cosNPi05(times)
-				* pieza.getOrZ();
-	}
-
-	protected int cosOxSenOz(int times, Pieza pieza) {
-		return cosNPi05(times) * pieza.getOrX() + sinNPi05(times)
-				* pieza.getOrZ();
-	}
-
-	public void rotateOrangeFaceClockwise(int times) {
-		if (times < 0) {
-			rotateOrangeFaceCounterClockwise(Math.abs(times));
-		} else {
-			while (times >= 4) {
-				times = times - 4;
-			}
-			if (times == 3) {
-				rotateOrangeFaceCounterClockwise(1);
-			} else {
-				for (Pieza pieza : getWhiteFace()) {
-
-					posZ = senPyCosPz(times, pieza);
-					posY = cosPyMenosSenPz(times, pieza);
-					pieza.setPosZ(posZ);
-					pieza.setPosY(posY);
-
-					orZ = senOyCosOz(times, pieza);
-					orY = cosOyMenosSenOz(times, pieza);
-					pieza.setOrZ(orZ);
-					pieza.setOrY(orY);
-
-				}
-			}
+				auxiliarzdir = pieza.getOrY();
+				auxiliarydir = -pieza.getOrZ();
+				pieza.setOrZ(auxiliarzdir);
+				pieza.setOrY(auxiliarydir);
 		}
 	}
 
-	public void rotateOrangeFaceCounterClockwise(int times) {
-		if (times < 0) {
-			rotateOrangeFaceClockwise(Math.abs(times));
-		} else {
-			while (times >= 4) {
-				times = times - 4;
-			}
-			if (times == 3) {
-				rotateOrangeFaceClockwise(1);
-			} else {
-				for (Pieza pieza : getWhiteFace()) {
+	/**
+	 * Rotates the orange face counterclockwise.
+	 */
+	public void rotateOrangeFaceCounterClockwise() {
+		for (Pieza pieza: getOrangeFace()) {
+				auxiliarzpos = -pieza.getPosY();
+				auxiliarypos =pieza.getPosZ();
+				pieza.setPosZ(auxiliarzpos);
+				pieza.setPosY(auxiliarypos);
 
-					posZ = -sinNPi05(times) * pieza.getPosY() + cosNPi05(times)
-							* pieza.getPosZ();
-					posY = cosNPi05(times) * pieza.getPosY() + sinNPi05(times)
-							* pieza.getPosZ();
-					pieza.setPosZ(posZ);
-					pieza.setPosY(posY);
-
-					orZ = -sinNPi05(times) * pieza.getOrY() + cosNPi05(times)
-							* pieza.getOrZ();
-					orY = cosNPi05(times) * pieza.getOrY() + sinNPi05(times)
-							* pieza.getOrZ();
-					pieza.setOrZ(orZ);
-					pieza.setOrY(orY);
-
-				}
-			}
+				auxiliarzdir = -pieza.getOrY();
+				auxiliarydir = pieza.getOrZ();
+				pieza.setOrZ(auxiliarzdir);
+				pieza.setOrY(auxiliarydir);
 		}
 	}
 
-	public void rotateGreenFaceClockwise(int times) {
-		if (times < 0) {
-			rotateGreenFaceCounterClockwise(Math.abs(times));
-		} else {
-			while (times >= 4) {
-				times = times - 4;
-			}
-			if (times == 3) {
-				rotateGreenFaceCounterClockwise(1);
-			} else {
-				for (Pieza pieza : getWhiteFace()) {
+	/**
+	 * Rotates the green face clockwise.
+	 */
+	public void rotateGreenFaceClockwise() {
+		for (Pieza pieza: getGreenFace()){
+				auxiliarzpos = -pieza.getPosX();
+				auxiliarxpos =pieza.getPosZ();
+				pieza.setPosZ(auxiliarzpos);
+				pieza.setPosX(auxiliarxpos);
 
-					posZ = menosSenPxCosPz(times, pieza);
-					posX = cosXsenZ(times, pieza);
-					pieza.setPosZ(posZ);
-					pieza.setPosX(posX);
-
-					orZ = menosSenOxCosOz(times, pieza);
-					orX = cosOxSenOz(times, pieza);
-					pieza.setOrZ(orZ);
-					pieza.setOrX(orX);
-
-				}
-			}
+				auxiliarzdir = -pieza.getOrX();
+				auxiliarxdir = pieza.getOrZ();
+				pieza.setOrZ(auxiliarzdir);
+				pieza.setOrX(auxiliarxdir);
 		}
 	}
 
-	protected int cosXsenZ(int times, Pieza pieza) {
-		return cosNPi05(times) * pieza.getPosX() + sinNPi05(times)
-				* pieza.getPosZ();
-	}
+	/**
+	 * Rotates the green face counterclockwise.
+	 */
+	public void rotateGreenFaceCounterClockwise() {
+		for (Pieza pieza: getGreenFace()) {
+				auxiliarzpos = pieza.getPosX();
+				auxiliarxpos = -pieza.getPosZ();
+				pieza.setPosZ(auxiliarzpos);
+				pieza.setPosX(auxiliarxpos);
 
-	public void rotateGreenFaceCounterClockwise(int times) {
-		if (times < 0) {
-			rotateGreenFaceClockwise(Math.abs(times));
-		} else {
-			while (times >= 4) {
-				times = times - 4;
-			}
-			if (times == 3) {
-				rotateGreenFaceClockwise(1);
-			} else {
-				for (Pieza pieza : getWhiteFace()) {
-
-					posZ = senPxCosPz(times, pieza);
-					posX = cosPxMenosSenPz(times, pieza);
-					pieza.setPosZ(posZ);
-					pieza.setPosX(posX);
-
-					orZ = senOxCosOz(times, pieza);
-					orX = cosOxMenosSenOz(times, pieza);
-					pieza.setOrZ(orZ);
-					pieza.setOrX(orX);
-
-				}
-			}
+				auxiliarzdir = pieza.getOrX();
+				auxiliarxdir = -pieza.getOrZ();
+				pieza.setOrZ(auxiliarzdir);
+				pieza.setOrX(auxiliarxdir);
 		}
 	}
 
-	public void rotateYellowFaceClockwise(int times) {
-		if (times < 0) {
-			rotateYellowFaceCounterClockwise(Math.abs(times));
-		} else {
-			while (times >= 4) {
-				times = times - 4;
-			}
-			if (times == 3) {
-				rotateYellowFaceCounterClockwise(1);
-			} else {
-				for (Pieza pieza : getWhiteFace()) {
+	/**
+	 * Rotates the yellow face clockwise.
+	 */
+	public void rotateYellowFaceClockwise() {
+		for (Pieza pieza: getYellowFace()) {
+				auxiliarypos = pieza.getPosX();
+				auxiliarxpos = -pieza.getPosY();
+				pieza.setPosY(auxiliarypos);
+				pieza.setPosX(auxiliarxpos);
 
-					posY = sinNPi05(times) * pieza.getPosX() + cosNPi05(times)
-							* pieza.getPosY();
-					posX = cosNPi05(times) * pieza.getPosX() - sinNPi05(times)
-							* pieza.getPosY();
-					pieza.setPosY(posY);
-					pieza.setPosX(posX);
-
-					orY = sinNPi05(times) * pieza.getOrX() + cosNPi05(times)
-							* pieza.getOrY();
-					orX = cosNPi05(times) * pieza.getOrX() - sinNPi05(times)
-							* pieza.getOrY();
-					pieza.setOrY(orY);
-					pieza.setOrX(orX);
-				}
-			}
-
+				auxiliarydir = pieza.getOrX();
+				auxiliarxdir = -pieza.getOrY();
+				pieza.setOrY(auxiliarydir);
+				pieza.setOrX(auxiliarxdir);
 		}
 	}
 
-	public void rotateYellowFaceCounterClockwise(int times) {
-		if (times < 0) {
-			rotateYellowFaceClockwise(Math.abs(times));
-		} else {
-			while (times >= 4) {
-				times = times - 4;
-			}
-			if (times == 3) {
-				rotateYellowFaceClockwise(1);
-			} else {
-				for (Pieza pieza : getWhiteFace()) {
+	/**
+	 * Rotates the yellow face counterclockwise.
+	 */
+	public void rotateYellowFaceCounterClockwise() {
+		for (Pieza pieza: getYellowFace()) {
+				auxiliarypos = -pieza.getPosX();
+				auxiliarxpos = pieza.getPosY();
+				pieza.setPosY( auxiliarypos);
+				pieza.setPosX(auxiliarxpos);
 
-					posY = menosSenoXMasCosenoY(times, pieza);
-					posX = cosPxSenPy(times, pieza);
-					pieza.setPosY(posY);
-					pieza.setPosX(posX);
-
-					orY = menosSenOxCosOy(times, pieza);
-					orX = cosOxSenOy(times, pieza);
-					pieza.setOrY(orY);
-					pieza.setOrX(orX);
-
-				}
-			}
+				auxiliarydir = -pieza.getOrX();
+				auxiliarxdir = pieza.getOrY();
+				pieza.setOrY(auxiliarydir);
+				pieza.setOrX(auxiliarxdir);
 		}
 	}
-
-	protected int cosOxSenOy(int times, Pieza pieza) {
-		return cosNPi05(times) * pieza.getOrX() + sinNPi05(times)
-				* pieza.getOrY();
-	}
-
-	protected int cosPxSenPy(int times, Pieza pieza) {
-		return cosNPi05(times) * pieza.getPosX() + sinNPi05(times)
-				* pieza.getPosY();
-	}
-
-	protected int menosSenOxCosOy(int times, Pieza pieza) {
-		return -sinNPi05(times) * pieza.getOrX() + cosNPi05(times)
-				* pieza.getOrY();
-	}
-
+	
 }
