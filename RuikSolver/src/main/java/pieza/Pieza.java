@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import color.Color;
+import cube.RubikCube;
+import cube.RubikCubeData;
 
 public class Pieza {
 	private final Vectr posicion;
@@ -135,6 +137,78 @@ public class Pieza {
 			numCaras++;
 		}
 		return numCaras == 2;
+	}
+
+	public void menosXy(RubikCube rubikCube, RubikCubeData rubikCubeData) {
+		rubikCubeData.posY = -getPosX();
+		rubikCubeData.posX = getPosY();
+		setPosY(rubikCubeData.posY);
+		setPosX(rubikCubeData.posX);
+	
+		rubikCubeData.orY = -getOrX();
+		rubikCubeData.orX = getOrY();
+		setOrY(rubikCubeData.orY);
+		setOrX(rubikCubeData.orX);
+	}
+
+	public void xMenosY(RubikCube rubikCube, RubikCubeData rubikCubeData) {
+		rubikCubeData.posY = getPosX();
+		rubikCubeData.posX = -getPosY();
+		setPosY(rubikCubeData.posY);
+		setPosX(rubikCubeData.posX);
+	
+		rubikCubeData.orY = getOrX();
+		rubikCubeData.orX = -getOrY();
+		setOrY(rubikCubeData.orY);
+		setOrX(rubikCubeData.orX);
+	}
+
+	public void menosXz(RubikCube rubikCube, RubikCubeData rubikCubeData) {
+		rubikCubeData.posZ = -getPosX();
+		rubikCubeData.posX = getPosZ();
+		setPosZ(rubikCubeData.posZ);
+		setPosX(rubikCubeData.posX);
+	
+		rubikCubeData.orZ = -getOrX();
+		rubikCubeData.orX = getOrZ();
+		setOrZ(rubikCubeData.orZ);
+		setOrX(rubikCubeData.orX);
+	}
+
+	public void xMenosZ(RubikCube rubikCube, RubikCubeData rubikCubeData) {
+		rubikCubeData.posZ = getPosX();
+		rubikCubeData.posX = -getPosZ();
+		setPosZ(rubikCubeData.posZ);
+		setPosX(rubikCubeData.posX);
+	
+		rubikCubeData.orZ = getOrX();
+		rubikCubeData.orX = -getOrZ();
+		setOrZ(rubikCubeData.orZ);
+		setOrX(rubikCubeData.orX);
+	}
+
+	public void yMenosZ(RubikCube rubikCube, RubikCubeData rubikCubeData) {
+		rubikCubeData.posZ = getPosY();
+		rubikCubeData.posY = -getPosZ();
+		setPosZ(rubikCubeData.posZ);
+		setPosY(rubikCubeData.posY);
+	
+		rubikCubeData.orZ = getOrY();
+		rubikCubeData.orY = -getOrZ();
+		setOrZ(rubikCubeData.orZ);
+		setOrY(rubikCubeData.orY);
+	}
+
+	public void menosYz(RubikCube rubikCube, RubikCubeData rubikCubeData) {
+		rubikCubeData.posZ = -getPosY();
+		rubikCubeData.posY = getPosZ();
+		setPosZ(rubikCubeData.posZ);
+		setPosY(rubikCubeData.posY);
+	
+		rubikCubeData.orZ = -getOrY();
+		rubikCubeData.orY = getOrZ();
+		setOrZ(rubikCubeData.orZ);
+		setOrY(rubikCubeData.orY);
 	}
 
 }
