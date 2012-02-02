@@ -10,23 +10,23 @@ public class Main {
 	public static void main(String[] args) {
 		RubikCube cube = new RubikCube();
 
-		cube.rotateWhiteFaceClockwise(1);
-		cube.rotateWhiteFaceCounterClockwise(1);
+		cube.rotateWhiteFaceClockwise();
+		cube.rotateWhiteFaceCounterClockwise();
 		
-		cube.rotateBlueFaceClockwise(1);
-		cube.rotateBlueFaceCounterClockwise(1);
+		cube.rotateBlueFaceClockwise();
+		cube.rotateBlueFaceCounterClockwise();
 
-		cube.rotateGreenFaceClockwise(1);
-		cube.rotateGreenFaceCounterClockwise(1);
+		cube.rotateGreenFaceClockwise();
+		cube.rotateGreenFaceCounterClockwise();
 
-		cube.rotateOrangeFaceClockwise(1);
-		cube.rotateOrangeFaceCounterClockwise(1);
+		cube.rotateOrangeFaceClockwise();
+		cube.rotateOrangeFaceCounterClockwise();
 
-		cube.rotateRedFaceClockwise(1);
-		cube.rotateRedFaceCounterClockwise(1);
+		cube.rotateRedFaceClockwise();
+		cube.rotateRedFaceCounterClockwise();
 
-		cube.rotateYellowFaceClockwise(1);
-		cube.rotateYellowFaceCounterClockwise(1);
+		cube.rotateYellowFaceClockwise();
+		cube.rotateYellowFaceCounterClockwise();
 
 	}
 
