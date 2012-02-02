@@ -331,22 +331,22 @@ public class RubikCube {
 				rotateWhiteFaceCounterClockwise(1);
 			} else {
 				for (Pieza pieza : getWhiteFace()) {
-					posY = -sinNPi05(times) * pieza.getPosX() + cosNPi05(times)
-							* pieza.getPosY();
-					posX = cosNPi05(times) * pieza.getPosX() + sinNPi05(times)
-							* pieza.getPosY();
+					posY = menosSenoXMasCosenoY(times, pieza);
+					posX = cosPxSenPy(times, pieza);
 					pieza.setPosY(posY);
 					pieza.setPosX(posX);
 
-					orY = -sinNPi05(times) * pieza.getOrX() + cosNPi05(times)
-							* pieza.getOrY();
-					orX = cosNPi05(times) * pieza.getOrX() + sinNPi05(times)
-							* pieza.getOrY();
+					orY = menosSenOxCosOy(times, pieza);
+					orX = cosOxSenOy(times, pieza);
 					pieza.setOrY(orY);
 					pieza.setOrX(orX);
 				}
 			}
 		}
+	}
+
+	protected int menosSenoXMasCosenoY(int times, Pieza pieza) {
+		return -sinNPi05(times) * pieza.getPosX() + cosNPi05(times)	* pieza.getPosY();
 	}
 
 	public void rotateWhiteFaceCounterClockwise(int times) {
@@ -423,23 +423,39 @@ public class RubikCube {
 			} else {
 				for (Pieza pieza : getWhiteFace()) {
 
-					posZ = sinNPi05(times) * pieza.getPosY() + cosNPi05(times)
-							* pieza.getPosZ();
-					posY = cosNPi05(times) * pieza.getPosY() - sinNPi05(times)
-							* pieza.getPosZ();
+					posZ = senPyCosPz(times, pieza);
+					posY = cosPyMenosSenPz(times, pieza);
 					pieza.setPosZ(posZ);
 					pieza.setPosY(posY);
 
-					orZ = sinNPi05(times) * pieza.getOrY() + cosNPi05(times)
-							* pieza.getOrZ();
-					orY = cosNPi05(times) * pieza.getOrY() - sinNPi05(times)
-							* pieza.getOrZ();
+					orZ = senOyCosOz(times, pieza);
+					orY = cosOyMenosSenOz(times, pieza);
 					pieza.setOrZ(orZ);
 					pieza.setOrY(orY);
 				}
 
 			}
 		}
+	}
+
+	protected int senPyCosPz(int times, Pieza pieza) {
+		return sinNPi05(times) * pieza.getPosY() + cosNPi05(times)
+				* pieza.getPosZ();
+	}
+
+	protected int cosPyMenosSenPz(int times, Pieza pieza) {
+		return cosNPi05(times) * pieza.getPosY() - sinNPi05(times)
+				* pieza.getPosZ();
+	}
+
+	protected int senOyCosOz(int times, Pieza pieza) {
+		return sinNPi05(times) * pieza.getOrY() + cosNPi05(times)
+				* pieza.getOrZ();
+	}
+
+	protected int cosOyMenosSenOz(int times, Pieza pieza) {
+		return cosNPi05(times) * pieza.getOrY() - sinNPi05(times)
+				* pieza.getOrZ();
 	}
 
 	public void rotateBlueFaceClockwise(int times) {
@@ -454,23 +470,39 @@ public class RubikCube {
 			} else {
 				for (Pieza pieza : getWhiteFace()) {
 
-					posZ = sinNPi05(times) * pieza.getPosX() + cosNPi05(times)
-							* pieza.getPosZ();
-					posX = cosNPi05(times) * pieza.getPosX() - sinNPi05(times)
-							* pieza.getPosZ();
+					posZ = senPxCosPz(times, pieza);
+					posX = cosPxMenosSenPz(times, pieza);
 					pieza.setPosZ(posZ);
 					pieza.setPosX(posX);
 
-					orZ = sinNPi05(times) * pieza.getOrX() + cosNPi05(times)
-							* pieza.getOrZ();
-					orX = cosNPi05(times) * pieza.getOrX() - sinNPi05(times)
-							* pieza.getOrZ();
+					orZ = senOxCosOz(times, pieza);
+					orX = cosOxMenosSenOz(times, pieza);
 					pieza.setOrZ(orZ);
 					pieza.setOrX(orX);
 
 				}
 			}
 		}
+	}
+
+	protected int senPxCosPz(int times, Pieza pieza) {
+		return sinNPi05(times) * pieza.getPosX() + cosNPi05(times)
+				* pieza.getPosZ();
+	}
+
+	protected int cosPxMenosSenPz(int times, Pieza pieza) {
+		return cosNPi05(times) * pieza.getPosX() - sinNPi05(times)
+				* pieza.getPosZ();
+	}
+
+	protected int senOxCosOz(int times, Pieza pieza) {
+		return sinNPi05(times) * pieza.getOrX() + cosNPi05(times)
+				* pieza.getOrZ();
+	}
+
+	protected int cosOxMenosSenOz(int times, Pieza pieza) {
+		return cosNPi05(times) * pieza.getOrX() - sinNPi05(times)
+				* pieza.getOrZ();
 	}
 
 	public void rotateBlueFaceCounterClockwise(int times) {
@@ -485,23 +517,34 @@ public class RubikCube {
 			} else {
 				for (Pieza pieza : getWhiteFace()) {
 
-					posZ = -sinNPi05(times) * pieza.getPosX() + cosNPi05(times)
-							* pieza.getPosZ();
-					posX = cosNPi05(times) * pieza.getPosX() + sinNPi05(times)
-							* pieza.getPosZ();
+					posZ = menosSenPxCosPz(times, pieza);
+					posX = cosXsenZ(times, pieza);
 					pieza.setPosZ(posZ);
 					pieza.setPosX(posX);
 
-					orZ = -sinNPi05(times) * pieza.getOrX() + cosNPi05(times)
-							* pieza.getOrZ();
-					orX = cosNPi05(times) * pieza.getOrX() + sinNPi05(times)
-							* pieza.getOrZ();
+					orZ = menosSenOxCosOz(times, pieza);
+					orX = cosOxSenOz(times, pieza);
 					pieza.setOrZ(orZ);
 					pieza.setOrX(orX);
 				}
 			}
 
 		}
+	}
+
+	protected int menosSenPxCosPz(int times, Pieza pieza) {
+		return -sinNPi05(times) * pieza.getPosX() + cosNPi05(times)
+				* pieza.getPosZ();
+	}
+
+	protected int menosSenOxCosOz(int times, Pieza pieza) {
+		return -sinNPi05(times) * pieza.getOrX() + cosNPi05(times)
+				* pieza.getOrZ();
+	}
+
+	protected int cosOxSenOz(int times, Pieza pieza) {
+		return cosNPi05(times) * pieza.getOrX() + sinNPi05(times)
+				* pieza.getOrZ();
 	}
 
 	public void rotateOrangeFaceClockwise(int times) {
@@ -516,17 +559,13 @@ public class RubikCube {
 			} else {
 				for (Pieza pieza : getWhiteFace()) {
 
-					posZ = sinNPi05(times) * pieza.getPosY() + cosNPi05(times)
-							* pieza.getPosZ();
-					posY = cosNPi05(times) * pieza.getPosY() - sinNPi05(times)
-							* pieza.getPosZ();
+					posZ = senPyCosPz(times, pieza);
+					posY = cosPyMenosSenPz(times, pieza);
 					pieza.setPosZ(posZ);
 					pieza.setPosY(posY);
 
-					orZ = sinNPi05(times) * pieza.getOrY() + cosNPi05(times)
-							* pieza.getOrZ();
-					orY = cosNPi05(times) * pieza.getOrY() - sinNPi05(times)
-							* pieza.getOrZ();
+					orZ = senOyCosOz(times, pieza);
+					orY = cosOyMenosSenOz(times, pieza);
 					pieza.setOrZ(orZ);
 					pieza.setOrY(orY);
 
@@ -578,23 +617,24 @@ public class RubikCube {
 			} else {
 				for (Pieza pieza : getWhiteFace()) {
 
-					posZ = -sinNPi05(times) * pieza.getPosX() + cosNPi05(times)
-							* pieza.getPosZ();
-					posX = cosNPi05(times) * pieza.getPosX() + sinNPi05(times)
-							* pieza.getPosZ();
+					posZ = menosSenPxCosPz(times, pieza);
+					posX = cosXsenZ(times, pieza);
 					pieza.setPosZ(posZ);
 					pieza.setPosX(posX);
 
-					orZ = -sinNPi05(times) * pieza.getOrX() + cosNPi05(times)
-							* pieza.getOrZ();
-					orX = cosNPi05(times) * pieza.getOrX() + sinNPi05(times)
-							* pieza.getOrZ();
+					orZ = menosSenOxCosOz(times, pieza);
+					orX = cosOxSenOz(times, pieza);
 					pieza.setOrZ(orZ);
 					pieza.setOrX(orX);
 
 				}
 			}
 		}
+	}
+
+	protected int cosXsenZ(int times, Pieza pieza) {
+		return cosNPi05(times) * pieza.getPosX() + sinNPi05(times)
+				* pieza.getPosZ();
 	}
 
 	public void rotateGreenFaceCounterClockwise(int times) {
@@ -609,17 +649,13 @@ public class RubikCube {
 			} else {
 				for (Pieza pieza : getWhiteFace()) {
 
-					posZ = sinNPi05(times) * pieza.getPosX() + cosNPi05(times)
-							* pieza.getPosZ();
-					posX = cosNPi05(times) * pieza.getPosX() - sinNPi05(times)
-							* pieza.getPosZ();
+					posZ = senPxCosPz(times, pieza);
+					posX = cosPxMenosSenPz(times, pieza);
 					pieza.setPosZ(posZ);
 					pieza.setPosX(posX);
 
-					orZ = sinNPi05(times) * pieza.getOrX() + cosNPi05(times)
-							* pieza.getOrZ();
-					orX = cosNPi05(times) * pieza.getOrX() - sinNPi05(times)
-							* pieza.getOrZ();
+					orZ = senOxCosOz(times, pieza);
+					orX = cosOxMenosSenOz(times, pieza);
 					pieza.setOrZ(orZ);
 					pieza.setOrX(orX);
 
@@ -671,23 +707,34 @@ public class RubikCube {
 			} else {
 				for (Pieza pieza : getWhiteFace()) {
 
-					posY = -sinNPi05(times) * pieza.getPosX() + cosNPi05(times)
-							* pieza.getPosY();
-					posX = cosNPi05(times) * pieza.getPosX() + sinNPi05(times)
-							* pieza.getPosY();
+					posY = menosSenoXMasCosenoY(times, pieza);
+					posX = cosPxSenPy(times, pieza);
 					pieza.setPosY(posY);
 					pieza.setPosX(posX);
 
-					orY = -sinNPi05(times) * pieza.getOrX() + cosNPi05(times)
-							* pieza.getOrY();
-					orX = cosNPi05(times) * pieza.getOrX() + sinNPi05(times)
-							* pieza.getOrY();
+					orY = menosSenOxCosOy(times, pieza);
+					orX = cosOxSenOy(times, pieza);
 					pieza.setOrY(orY);
 					pieza.setOrX(orX);
 
 				}
 			}
 		}
+	}
+
+	protected int cosOxSenOy(int times, Pieza pieza) {
+		return cosNPi05(times) * pieza.getOrX() + sinNPi05(times)
+				* pieza.getOrY();
+	}
+
+	protected int cosPxSenPy(int times, Pieza pieza) {
+		return cosNPi05(times) * pieza.getPosX() + sinNPi05(times)
+				* pieza.getPosY();
+	}
+
+	protected int menosSenOxCosOy(int times, Pieza pieza) {
+		return -sinNPi05(times) * pieza.getOrX() + cosNPi05(times)
+				* pieza.getOrY();
 	}
 
 }
