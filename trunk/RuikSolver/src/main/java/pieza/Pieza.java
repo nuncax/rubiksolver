@@ -6,18 +6,18 @@ import java.util.Set;
 import color.Color;
 
 public class Pieza {
-	private Vectr posicion;
-	private Vectr orientacion;
-	private Set<Color> color;
+	private final Vectr posicion;
+	private final Vectr orientacion;
+	private final Set<Color> color;
 
-	public Pieza(Vectr posicion, Vectr orientacion, Set<Color> colors) {
+	public Pieza(Vectr pos, Vectr or, Set<Color> col) {
 
-		this.posicion = new Vectr(posicion.getX(), posicion.getY(),
-				posicion.getZ());
-		this.orientacion = new Vectr(orientacion.getX(), orientacion.getY(),
-				orientacion.getZ());
+		this.posicion = new Vectr(pos.getX(), pos.getY(),
+				pos.getZ());
+		this.orientacion = new Vectr(or.getX(), or.getY(),
+				or.getZ());
 		this.color = new HashSet<Color>();
-		this.color.addAll(colors);
+		this.color.addAll(col);
 	}
 
 	@Override
@@ -30,17 +30,17 @@ public class Pieza {
 		return posicion;
 	}
 
-	public void setPosicion(Vectr posicion) {
-		this.posicion.setX(posicion.getX());
-		this.posicion.setY(posicion.getY());
-		this.posicion.setZ(posicion.getZ());
+	public void setPosicion(Vectr pos) {
+		this.posicion.setX(pos.getX());
+		this.posicion.setY(pos.getY());
+		this.posicion.setZ(pos.getZ());
 		
 	}
 
-	public void setOrientacion(Vectr orientacion) {
-		this.orientacion.setX(posicion.getX());
-		this.orientacion.setY(posicion.getY());
-		this.orientacion.setZ(posicion.getZ());
+	public void setOrientacion(Vectr or) {
+		this.orientacion.setX(or.getX());
+		this.orientacion.setY(or.getY());
+		this.orientacion.setZ(or.getZ());
 	}
 
 	public Integer getPosX() {
@@ -95,8 +95,8 @@ public class Pieza {
 		return color;
 	}
 
-	public void setColor(Set<Color> color) {
-		this.color.addAll(color);
+	public void setColor(Set<Color> colo) {
+		this.color.addAll(colo);
 	}
 
 	public boolean isBlue() {
