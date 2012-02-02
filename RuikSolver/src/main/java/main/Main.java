@@ -1,6 +1,6 @@
 package main;
 
-import rubikCube.RubikCube;
+import cube.RubikCube;
 
 public class Main {
 

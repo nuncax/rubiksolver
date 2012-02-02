@@ -1,11 +1,12 @@
-package rubikCube;
+package cube;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import color.Color;
 import pieza.Pieza;
 import pieza.Vectr;
+
+import color.Color;
 
 public class RubikCube {
 
