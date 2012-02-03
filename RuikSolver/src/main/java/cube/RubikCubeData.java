@@ -9,7 +9,8 @@ import pieza.Pieza;
 import pieza.Vectr;
 
 public class RubikCubeData {
-	public Set<Pieza> cubeSet;
+	
+	private Set<Pieza> cubeSet;
 
 	public Set<Pieza> createCube() {
 		this.cubeSet = new HashSet<Pieza>();
