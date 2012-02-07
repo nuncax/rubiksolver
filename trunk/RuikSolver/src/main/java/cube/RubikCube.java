@@ -6,105 +6,92 @@ import color.Color;
 import pieza.Pieza;
 
 public class RubikCube {
-	public RubikCubeData data;
+	private final RubikCubeData data;
+
+	public final Color AZUL = new Color("AZUL");
+	public final Color NARANJA = new Color("naranja");
+	public final Color ROJO = new Color("rojo");
+	public final Color BLANCO = new Color("blanco");
+	// private final Color AMARILLO = new Color("amarillo");
+	public final Color VERDE = new Color("verde");
 
 	public RubikCube() {
 		data = new RubikCubeData();
 		data.createCube();
 	}
 
-	public void R(Color front) {
-		switch (front.toString()) {
-		case "rojo":
+	public void right(Color front) {
+		if (front.equals(this.ROJO)) {
 			data.rotateBlueFaceClockwise();
-			break;
-		case "azul":
+		} else if (front.equals(this.AZUL)) {
 			data.rotateOrangeFaceClockwise();
-			break;
-		case "naranja":
+		} else if (front.equals(this.NARANJA)) {
 			data.rotateGreenFaceClockwise();
-			break;
-		case "verde":
+		} else if (front.equals(this.VERDE)) {
 			data.rotateRedFaceClockwise();
-			break;
-		default:
-			break;
 		}
 	}
 
-	public void Rp(Color front) {
-		switch (front.toString()) {
-		case "rojo":
+	public void rightP(Color front) {
+		if (front.equals(this.ROJO)) {
 			data.rotateBlueFaceCounterClockwise();
-			break;
-		case "azul":
+		} else if (front.equals(this.AZUL)) {
 			data.rotateOrangeFaceCounterClockwise();
-			break;
-		case "naranja":
+		} else if (front.equals(this.NARANJA)) {
 			data.rotateGreenFaceCounterClockwise();
-			break;
-		case "verde":
+		} else if (front.equals(this.VERDE)) {
 			data.rotateRedFaceCounterClockwise();
-			break;
-		default:
-			break;
 		}
 	}
-	public void L(Color front) {
-		switch (front.toString()) {
-		case "rojo":
+
+	public void left(Color front) {
+		if (front.equals(this.ROJO)) {
 			data.rotateGreenFaceClockwise();
-			break;
-		case "azul":
+		} else if (front.equals(this.AZUL)) {
 			data.rotateRedFaceClockwise();
-			break;
-		case "naranja":
+		} else if (front.equals(this.NARANJA)) {
 			data.rotateBlueFaceClockwise();
-			break;
-		case "verde":
+		} else if (front.equals(this.VERDE)) {
 			data.rotateOrangeFaceClockwise();
-			break;
-		default:
-			break;
 		}
 	}
-	public void Lp(Color front) {
-		switch (front.toString()) {
-		case "rojo":
+
+	public void leftP(Color front) {
+		if (front.equals(this.ROJO)) {
 			data.rotateGreenFaceCounterClockwise();
-			break;
-		case "azul":
+		} else if (front.equals(this.AZUL)) {
 			data.rotateRedFaceCounterClockwise();
-			break;
-		case "naranja":
+		} else if (front.equals(this.NARANJA)) {
 			data.rotateBlueFaceCounterClockwise();
-			break;
-		case "verde":
+		} else if (front.equals(this.VERDE)) {
 			data.rotateOrangeFaceCounterClockwise();
-			break;
-		default:
-			break;
 		}
+
 	}
-	public void U() {
+
+	public void uper() {
 		data.rotateWhiteFaceClockwise();
 	}
-	public void Up() {
+
+	public void upP() {
 		data.rotateWhiteFaceCounterClockwise();
 	}
-	public void D() {
+
+	public void down() {
 		data.rotateYellowFaceClockwise();
 	}
-	public void Dp() {
+
+	public void downP() {
 		data.rotateYellowFaceCounterClockwise();
 	}
-	public Set<Pieza> getPiezas(){
-		return this.getPiezas();
-		
+
+	public Set<Pieza> getPiezas() {
+		return this.data.getCubeSet();
+
 	}
 
 	public Set<Pieza> getAristas() {
-		
+
 		return null;
 	}
 }
