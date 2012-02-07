@@ -14,6 +14,9 @@ public class Color {
 	public void setColor(String col) {
 		this.color = col;
 	}
+	public void setColor(Color col) {
+		this.color = col.toString();
+	}
 
 	public String toString() {
 		return color;

@@ -136,6 +136,19 @@ public class Pieza {
 		}
 		return numCaras == 2;
 	}
+	public boolean esArista() {
+		int numCaras = 0;
+		if (this.posicion.getX() == 0) {
+			numCaras++;
+		}
+		if (this.posicion.getY() == 0) {
+			numCaras++;
+		}
+		if (this.posicion.getZ() == 0) {
+			numCaras++;
+		}
+		return numCaras == 1;
+	}
 
 	public void menosXy() {
 		setPosY(-getPosX());
@@ -183,6 +196,16 @@ public class Pieza {
 
 		setOrZ(-getOrY());
 		setOrY(getOrZ());
+	}
+
+	public boolean isEstaResuelta() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean estaAbajo() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
