@@ -14,46 +14,11 @@ public class SolutionMethodTemba {
 
 	private RubikCube rubikCube;
 
-	private final Color FRONT;
-	private final Color RIGHT;
-	private final Color LEFT;
-	private final Color UP;
-	// private final Color DONW;
-	private final Color BACK;
-
 	private List<Color> caras;
 
 	public SolutionMethodTemba(RubikCube rubikCube) {
 		this.rubikCube = rubikCube;
-		this.FRONT = rubikCube.AZUL;
-		this.RIGHT = rubikCube.NARANJA;
-		this.BACK = rubikCube.VERDE;
-		this.LEFT = rubikCube.ROJO;
-		this.UP= rubikCube.BLANCO;
-	}
 
-	void setFrontByColor(Color front) {
-		if (front.equals(rubikCube.AZUL)) {
-			this.FRONT.setColor(rubikCube.AZUL);
-			this.RIGHT.setColor(rubikCube.NARANJA);
-			this.BACK.setColor(rubikCube.VERDE);
-			this.LEFT.setColor(rubikCube.ROJO);
-		} else if (front.equals(rubikCube.NARANJA)) {
-			this.FRONT.setColor(rubikCube.NARANJA);
-			this.RIGHT.setColor(rubikCube.VERDE);
-			this.BACK.setColor(rubikCube.ROJO);
-			this.LEFT.setColor(rubikCube.AZUL);
-		} else if (front.equals(rubikCube.VERDE)) {
-			this.FRONT.setColor(rubikCube.VERDE);
-			this.RIGHT.setColor(rubikCube.ROJO);
-			this.BACK.setColor(rubikCube.AZUL);
-			this.LEFT.setColor(rubikCube.NARANJA);
-		} else if (front.equals(rubikCube.ROJO)) {
-			this.FRONT.setColor(rubikCube.ROJO);
-			this.RIGHT.setColor(rubikCube.AZUL);
-			this.BACK.setColor(rubikCube.NARANJA);
-			this.LEFT.setColor(rubikCube.VERDE);
-		}
 	}
 
 	void solucionar() {
@@ -63,7 +28,38 @@ public class SolutionMethodTemba {
 	}
 
 	private void resolverCruz() {
-		resolverCruzPorCara(rubikCube.AZUL);
+		// Set<Pieza> piezas = buscarAristas();
+		// for (Pieza aristaBlanca : piezas) {
+		// colocarAristaEnSuPosicionCruz(aristaBlanca);
+		//
+		// }
+	}
+
+	private void colocarAristaEnSuPosicionCruz(Pieza pieza) {
+		this.rubikCube.setFrontByPieza(pieza);
+		bajarPieza(pieza);
+		llevarAsuCara(pieza);
+		subirPieza(pieza);
+	}
+
+	private void subirPieza(Pieza pieza) {
+//		if(pieza.){
+//			
+//		}else{
+//			
+//		}
+	}
+
+	private void llevarAsuCara(Pieza pieza) {
+		if (pieza.containsColor(this.rubikCube.LEFT)) {
+			rubikCube.downP();
+		} else if (pieza.containsColor(this.rubikCube.RIGHT)) {
+			rubikCube.down();
+		} else if (pieza.containsColor(this.rubikCube.BACK)) {
+			rubikCube.down();
+			rubikCube.down();
+		}
+		rubikCube.setFrontByPieza(pieza);
 	}
 
 	private void resolverEsquinas() {
@@ -72,19 +68,28 @@ public class SolutionMethodTemba {
 	}
 
 	private void resolverCruzPorCara(Color color) {
-		this.setFrontByColor(color);
-		Set<Pieza> aristasBlancas = this.buscarAristas(this.UP);
-		for (Pieza pieza : aristasBlancas) {
-			if (pieza.getColor().contains(this.UP)) {
-				bajar(pieza);
-				
+
+	}
+
+	private void bajarPieza(Pieza pieza) {
+		if (!pieza.containsColor(this.rubikCube.DONW)) {
+			if (pieza.containsColor(this.rubikCube.UP)) {
+				rubikCube.front();
+				rubikCube.front();
+			} else {
+				rubikCube.front();
 			}
 		}
 	}
 
-	private void bajar(Pieza pieza) {
-		// TODO Auto-generated method stub
-		
+	private Set<Pieza> buscarPieza(Color color) {
+		Set<Pieza> piezas = new HashSet<Pieza>();
+		for (Pieza pieza : this.rubikCube.getPiezas()) {
+			if (pieza.equals(color)) {
+
+			}
+		}
+		return piezas;
 	}
 
 	private Set<Pieza> buscarAristas(Color color) {
