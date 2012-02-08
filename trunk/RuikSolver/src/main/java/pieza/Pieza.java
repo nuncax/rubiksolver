@@ -136,6 +136,7 @@ public class Pieza {
 		}
 		return numCaras == 2;
 	}
+
 	public boolean esArista() {
 		int numCaras = 0;
 		if (this.posicion.getX() == 0) {
@@ -208,4 +209,24 @@ public class Pieza {
 		return false;
 	}
 
+	public boolean estaEnCaraAzul() {
+		return (isBlue() && isWhite()) || (isBlue() && isOrange()) || (isBlue()
+				&& isYellow());
+	}
+	public boolean estaEnCaraNaranja() {
+		return (isOrange() && isWhite()) || (isOrange() && isGreen()) || (isOrange()
+				&& isYellow());
+	}
+	public boolean estaEnCaraVerde() {
+		return (isGreen() && isWhite()) || (isGreen() && isRed()) || (isGreen()
+				&& isYellow());
+	}
+	public boolean estaEnCaraRoja() {
+		return (isRed() && isWhite()) || (isRed() && isBlue()) || (isRed()
+				&& isYellow());
+	}
+	
+	public boolean containsColor(Color color){
+		return this.color.contains(color);
+	}
 }

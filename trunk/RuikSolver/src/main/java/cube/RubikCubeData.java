@@ -384,4 +384,15 @@ public class RubikCubeData {
 			pieza.menosXz();
 		}
 	}
+
+
+	public Pieza getCentro(Color color) {
+		Pieza piezaRes=null;
+		for (Pieza pieza : this.cubeSet) {
+			if(pieza.containsColor(color)){
+				piezaRes=pieza;
+			}
+		}
+		return piezaRes;
+	}
 }
