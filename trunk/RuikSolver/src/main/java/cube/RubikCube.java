@@ -1,5 +1,6 @@
 package cube;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import color.Color;
@@ -158,5 +159,15 @@ public class RubikCube {
 			BACK = this.data.getCentro(NARANJA);
 			LEFT = this.data.getCentro(VERDE);
 		}
+	}
+
+	public Set<Pieza> buscarPieza(Color color) {
+		Set<Pieza> piezas = new HashSet<Pieza>();
+		for (Pieza pieza : this.data.getCubeSet()) {
+			if (pieza.containsColor(color)) {
+				
+			}
+		}
+		return piezas;
 	}
 }

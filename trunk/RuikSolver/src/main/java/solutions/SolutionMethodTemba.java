@@ -82,16 +82,6 @@ public class SolutionMethodTemba {
 		}
 	}
 
-	private Set<Pieza> buscarPieza(Color color) {
-		Set<Pieza> piezas = new HashSet<Pieza>();
-		for (Pieza pieza : this.rubikCube.getPiezas()) {
-			if (pieza.equals(color)) {
-
-			}
-		}
-		return piezas;
-	}
-
 	private Set<Pieza> buscarAristas(Color color) {
 		Set<Pieza> piezaRes = new HashSet<Pieza>();
 		for (Pieza pieza : this.rubikCube.getPiezas()) {

@@ -230,4 +230,9 @@ public class Pieza {
 	public boolean containsColor(Color color){
 		return this.color.contains(color);
 	}
+
+	public boolean containsColor(Pieza left) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
