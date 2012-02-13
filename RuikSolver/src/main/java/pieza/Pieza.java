@@ -8,6 +8,7 @@ import cube.RubikCube;
 import cube.RubikCubeData;
 
 public class Pieza {
+	
 	private final Vectr posicion;
 	private final Vectr orientacion;
 	private final Set<Color> color;
