@@ -24,10 +24,10 @@ public class SolutionMethodTemba {
 	void solucionar() {
 		resolverCruz();
 		resolverEsquinas();
-
 	}
 
 	private void resolverCruz() {
+		this.rubikCube.buscarPieza(this.rubikCube.UP.getColor());
 		// Set<Pieza> piezas = buscarAristas();
 		// for (Pieza aristaBlanca : piezas) {
 		// colocarAristaEnSuPosicionCruz(aristaBlanca);
