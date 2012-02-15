@@ -1,6 +1,7 @@
 package cube;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import color.Color;
@@ -124,7 +125,7 @@ public class RubikCube {
 		data.rotateYellowFaceCounterClockwise();
 	}
 
-	public Set<Pieza> getPiezas() {
+	public List<Pieza> getPiezas() {
 		return this.data.getCubeSet();
 	}
 
@@ -138,7 +139,7 @@ public class RubikCube {
 	}
 
 	public void setFrontByPieza(Pieza pieza) {
-		if (pieza.estaEnCaraAzul()) {
+		if (pieza.estaEnCaraAzul(FRONT)) {
 			FRONT = this.data.getCentro(AZUL);
 			RIGHT = this.data.getCentro(NARANJA);
 			BACK = this.data.getCentro(VERDE);
