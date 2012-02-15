@@ -1,24 +1,22 @@
 package pieza;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import color.Color;
-import cube.RubikCube;
-import cube.RubikCubeData;
 
 public class Pieza {
-	
+
 	private final Vectr posicion;
 	private final Vectr orientacion;
-	private final Set<Color> color;
 
-	public Pieza(Vectr pos, Vectr or, Set<Color> col) {
+	private final List<Color> color;
 
+	public Pieza(Vectr pos, Vectr or, List<Color> colores) {
 		this.posicion = new Vectr(pos.getX(), pos.getY(), pos.getZ());
 		this.orientacion = new Vectr(or.getX(), or.getY(), or.getZ());
-		this.color = new HashSet<Color>();
-		this.color.addAll(col);
+		this.color = new ArrayList<Color>();
+		this.color.addAll(colores);
 	}
 
 	@Override
@@ -92,11 +90,11 @@ public class Pieza {
 		this.orientacion.setZ(z);
 	}
 
-	public Set<Color> getColor() {
+	public List<Color> getColor() {
 		return color;
 	}
 
-	public void setColor(Set<Color> colo) {
+	public void setColor(List<Color> colo) {
 		this.color.addAll(colo);
 	}
 
@@ -200,34 +198,13 @@ public class Pieza {
 		setOrY(getOrZ());
 	}
 
-	public boolean isEstaResuelta() {
-		// TODO Auto-generated method stub
-		return false;
+	public Color getColorPuntero() {
+		return this.color.get(0);
 	}
 
-	public boolean estaAbajo() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean estaEnCaraAzul() {
-		return (isBlue() && isWhite()) || (isBlue() && isOrange()) || (isBlue()
-				&& isYellow());
-	}
-	public boolean estaEnCaraNaranja() {
-		return (isOrange() && isWhite()) || (isOrange() && isGreen()) || (isOrange()
-				&& isYellow());
-	}
-	public boolean estaEnCaraVerde() {
-		return (isGreen() && isWhite()) || (isGreen() && isRed()) || (isGreen()
-				&& isYellow());
-	}
-	public boolean estaEnCaraRoja() {
-		return (isRed() && isWhite()) || (isRed() && isBlue()) || (isRed()
-				&& isYellow());
-	}
-	
-	public boolean containsColor(Color color){
+	public boolean containsColor(Color color) {
 		return this.color.contains(color);
 	}
+
+	
 }
