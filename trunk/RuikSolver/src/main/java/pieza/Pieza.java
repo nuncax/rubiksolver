@@ -205,6 +205,18 @@ public class Pieza {
 	public boolean containsColor(Color color) {
 		return this.color.contains(color);
 	}
+	
+	public boolean estaEnCara(Pieza pieza){
+		boolean res = false;
+		if(pieza.getPosX().equals(this.getPosX())){
+			res = true;
+		}else if(pieza.getPosY().equals(this.getPosY())){
+			res = true;
+		}else if(pieza.getPosZ().equals(this.getPosZ())){
+			res = true;
+		}
+		return res;
+	}
 
 	
 }

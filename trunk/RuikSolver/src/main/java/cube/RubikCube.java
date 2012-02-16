@@ -6,7 +6,6 @@ import java.util.Set;
 
 import color.Color;
 import pieza.Pieza;
-import solutions.SolutionMethodTemba;
 
 public class RubikCube {
 	private final RubikCubeData data;
@@ -18,7 +17,7 @@ public class RubikCube {
 	public Pieza DONW;
 	public Pieza BACK;
 
-	private final Color AZUL = new Color("AZUL");
+	private final Color AZUL = new Color("azul");
 	private final Color NARANJA = new Color("naranja");
 	private final Color ROJO = new Color("rojo");
 	private final Color BLANCO = new Color("blanco");
@@ -36,76 +35,75 @@ public class RubikCube {
 		this.UP = data.getCentro(BLANCO);
 	}
 
-	public void right(Color front) {
-		if (front.equals(this.ROJO)) {
-			data.rotateBlueFaceClockwise();
-		} else if (front.equals(this.AZUL)) {
+	public void right() {
+		if (FRONT.isBlue()) {
 			data.rotateOrangeFaceClockwise();
-		} else if (front.equals(this.NARANJA)) {
-			data.rotateGreenFaceClockwise();
-		} else if (front.equals(this.VERDE)) {
+		} else if (FRONT.isGreen()) {
 			data.rotateRedFaceClockwise();
+		} else if (FRONT.isOrange()) {
+			data.rotateGreenFaceClockwise();
+		} else if (FRONT.isRed()) {
+			data.rotateBlueFaceClockwise();
 		}
 	}
 
 	public void rightP(Color front) {
-		if (front.equals(this.ROJO)) {
-			data.rotateBlueFaceCounterClockwise();
-		} else if (front.equals(this.AZUL)) {
+		if (FRONT.isBlue()) {
 			data.rotateOrangeFaceCounterClockwise();
-		} else if (front.equals(this.NARANJA)) {
-			data.rotateGreenFaceCounterClockwise();
-		} else if (front.equals(this.VERDE)) {
+		} else if (FRONT.isGreen()) {
 			data.rotateRedFaceCounterClockwise();
+		} else if (FRONT.isOrange()) {
+			data.rotateGreenFaceCounterClockwise();
+		} else if (FRONT.isRed()) {
+			data.rotateBlueFaceCounterClockwise();
 		}
 	}
 
 	public void left(Color front) {
-		if (front.equals(this.ROJO)) {
-			data.rotateGreenFaceClockwise();
-		} else if (front.equals(this.AZUL)) {
+		if (FRONT.isBlue()) {
 			data.rotateRedFaceClockwise();
-		} else if (front.equals(this.NARANJA)) {
-			data.rotateBlueFaceClockwise();
-		} else if (front.equals(this.VERDE)) {
+		} else if (FRONT.isGreen()) {
 			data.rotateOrangeFaceClockwise();
+		} else if (FRONT.isOrange()) {
+			data.rotateBlueFaceClockwise();
+		} else if (FRONT.isRed()) {
+			data.rotateGreenFaceClockwise();
 		}
 	}
 
 	public void leftP(Color front) {
-		if (front.equals(this.ROJO)) {
-			data.rotateGreenFaceCounterClockwise();
-		} else if (front.equals(this.AZUL)) {
+		if (FRONT.isBlue()) {
 			data.rotateRedFaceCounterClockwise();
-		} else if (front.equals(this.NARANJA)) {
-			data.rotateBlueFaceCounterClockwise();
-		} else if (front.equals(this.VERDE)) {
+		} else if (FRONT.isGreen()) {
 			data.rotateOrangeFaceCounterClockwise();
-		}
-
-	}
-
-	public void front(Color front) {
-		if (front.equals(this.ROJO)) {
-			data.rotateRedFaceClockwise();
-		} else if (front.equals(this.AZUL)) {
-			data.rotateBlueFaceClockwise();
-		} else if (front.equals(this.NARANJA)) {
-			data.rotateOrangeFaceClockwise();
-		} else if (front.equals(this.VERDE)) {
-			data.rotateGreenFaceClockwise();
+		} else if (FRONT.isOrange()) {
+			data.rotateBlueFaceCounterClockwise();
+		} else if (FRONT.isRed()) {
+			data.rotateGreenFaceCounterClockwise();
 		}
 	}
 
-	public void frontP(Color front) {
-		if (front.equals(this.ROJO)) {
-			data.rotateRedFaceCounterClockwise();
-		} else if (front.equals(this.AZUL)) {
-			data.rotateBlueFaceCounterClockwise();
-		} else if (front.equals(this.NARANJA)) {
-			data.rotateOrangeFaceCounterClockwise();
-		} else if (front.equals(this.VERDE)) {
-			data.rotateGreenFaceCounterClockwise();
+	public void front() {
+		if (FRONT.isBlue()) {
+			this.data.rotateBlueFaceClockwise();
+		} else if (FRONT.isGreen()) {
+			this.data.rotateGreenFaceClockwise();
+		} else if (FRONT.isOrange()) {
+			this.data.rotateOrangeFaceClockwise();
+		} else if (FRONT.isRed()) {
+			this.data.rotateRedFaceClockwise();
+		}
+	}
+
+	public void frontP() {
+		if (FRONT.isBlue()) {
+			this.data.rotateBlueFaceCounterClockwise();
+		} else if (FRONT.isGreen()) {
+			this.data.rotateGreenFaceCounterClockwise();
+		} else if (FRONT.isOrange()) {
+			this.data.rotateOrangeFaceCounterClockwise();
+		} else if (FRONT.isRed()) {
+			this.data.rotateRedFaceCounterClockwise();
 		}
 	}
 
@@ -133,32 +131,28 @@ public class RubikCube {
 		return null;
 	}
 
-	public void front() {
-		// TODO Auto-generated method stub
-
-	}
-
 	public void setFrontByPieza(Pieza pieza) {
-		if (pieza.estaEnCaraAzul(FRONT)) {
-			FRONT = this.data.getCentro(AZUL);
-			RIGHT = this.data.getCentro(NARANJA);
-			BACK = this.data.getCentro(VERDE);
-			LEFT = this.data.getCentro(ROJO);
-		} else if (pieza.estaEnCaraNaranja()) {
-			FRONT = this.data.getCentro(NARANJA);
-			RIGHT = this.data.getCentro(VERDE);
-			BACK = this.data.getCentro(ROJO);
-			LEFT = this.data.getCentro(AZUL);
-		} else if (pieza.estaEnCaraVerde()) {
-			FRONT = this.data.getCentro(VERDE);
-			RIGHT = this.data.getCentro(ROJO);
-			BACK = this.data.getCentro(AZUL);
-			LEFT = this.data.getCentro(NARANJA);
-		} else if (pieza.estaEnCaraRoja()) {
-			FRONT = this.data.getCentro(ROJO);
-			RIGHT = this.data.getCentro(AZUL);
-			BACK = this.data.getCentro(NARANJA);
-			LEFT = this.data.getCentro(VERDE);
+		Pieza piezaAux;
+		if (pieza.estaEnCara(RIGHT)) {
+			piezaAux = FRONT;
+			FRONT = RIGHT;
+			RIGHT = BACK;
+			BACK = LEFT;
+			LEFT = piezaAux;
+		} else if (pieza.estaEnCara(BACK)) {
+			piezaAux = FRONT;
+			FRONT = BACK;
+			BACK = piezaAux;
+
+			piezaAux = RIGHT;
+			RIGHT = LEFT;
+			LEFT = piezaAux;
+		} else if (pieza.estaEnCara(LEFT)) {
+			piezaAux = FRONT;
+			FRONT = LEFT;
+			RIGHT = BACK;
+			BACK = LEFT;
+			LEFT = piezaAux;
 		}
 	}
 
@@ -166,7 +160,7 @@ public class RubikCube {
 		Set<Pieza> piezas = new HashSet<Pieza>();
 		for (Pieza pieza : this.data.getCubeSet()) {
 			if (pieza.containsColor(color)) {
-				
+
 			}
 		}
 		return piezas;
