@@ -167,7 +167,7 @@ public class RubikCube {
 	public Set<Pieza> buscarPieza(Color color) {
 		Set<Pieza> piezas = new HashSet<Pieza>();
 		for (Pieza pieza : this.data.getCubeSet()) {
-			if (pieza.getColor().equals(color)) {
+			if (pieza.getColorPuntero().equals(color)) {
 
 			}
 		}
