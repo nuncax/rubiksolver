@@ -11,7 +11,7 @@ import pieza.Pieza;
 import pieza.Vectr;
 
 public class RubikCubeData {
-	
+
 	private List<Pieza> cubeSet;
 
 	public List<Pieza> createCube() {
@@ -22,7 +22,6 @@ public class RubikCubeData {
 		return cubeSet;
 	}
 
-	
 	private void createVertices() {
 		Color blanco = new Color("blanco");
 		Color verde = new Color("verde");
@@ -314,6 +313,7 @@ public class RubikCubeData {
 		}
 		return redFace;
 	}
+
 	public void rotateRedFaceCounterClockwise() {
 		for (Pieza pieza : this.getRedFace()) {
 			pieza.yMenosZ();
@@ -349,7 +349,7 @@ public class RubikCubeData {
 			pieza.menosYz();
 		}
 	}
-	
+
 	public void rotateYellowFaceClockwise() {
 		for (Pieza pieza : this.getYellowFace()) {
 			pieza.xMenosY();
@@ -387,10 +387,14 @@ public class RubikCubeData {
 		}
 	}
 
-
 	public Pieza getCentro(Color color) {
-		//TODO
-		return null;
-		
+		Pieza piezaRes = null;
+		for (Pieza pieza : this.cubeSet) {
+			if (pieza.esCentro() && pieza.getColorPuntero().equals(color)) {
+				piezaRes = pieza;
+			}
+		}
+		return piezaRes;
+
 	}
 }

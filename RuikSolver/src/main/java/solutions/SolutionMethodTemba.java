@@ -1,14 +1,11 @@
 package solutions;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import pieza.Pieza;
 import color.Color;
 import cube.RubikCube;
-import cube.RubikCubeData;
+
 
 public class SolutionMethodTemba {
 
@@ -27,8 +24,11 @@ public class SolutionMethodTemba {
 	}
 
 	private void resolverCruz() {
-		this.rubikCube.buscarPieza(this.rubikCube.UP.getColorPuntero());
-		// Set<Pieza> piezas = buscarAristas();
+		
+		 Set<Pieza> piezas = this.rubikCube.buscarAristasDeUp();
+		 for (Pieza pieza : piezas) {
+			colocarAristaEnSuPosicionCruz(pieza);
+		}
 		// for (Pieza aristaBlanca : piezas) {
 		// colocarAristaEnSuPosicionCruz(aristaBlanca);
 		//
@@ -43,11 +43,11 @@ public class SolutionMethodTemba {
 	}
 
 	private void subirPieza(Pieza pieza) {
-//		if(pieza.){
-//			
-//		}else{
-//			
-//		}
+		// if(pieza.){
+		//
+		// }else{
+		//
+		// }
 	}
 
 	private void llevarAsuCara(Pieza pieza) {
@@ -67,10 +67,6 @@ public class SolutionMethodTemba {
 
 	}
 
-	private void resolverCruzPorCara(Color color) {
-
-	}
-
 	private void bajarPieza(Pieza pieza) {
 		if (!pieza.containsColor(this.rubikCube.DONW.getColorPuntero())) {
 			if (pieza.containsColor(this.rubikCube.UP.getColorPuntero())) {
@@ -82,17 +78,7 @@ public class SolutionMethodTemba {
 		}
 	}
 
-	private Set<Pieza> buscarAristas(Color color) {
-		Set<Pieza> piezaRes = new HashSet<Pieza>();
-		for (Pieza pieza : this.rubikCube.getPiezas()) {
-			for (Color colorPieza : pieza.getColor()) {
-				if (colorPieza.equals(pieza.toString()) && pieza.esArista()) {
-					piezaRes.add(pieza);
-				}
-			}
-		}
-		return piezaRes;
-	}
+	
 
 	public List<Color> getCaras() {
 		return caras;
