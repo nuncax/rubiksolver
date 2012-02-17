@@ -1,7 +1,9 @@
 package cube;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 import color.Color;
@@ -47,7 +49,7 @@ public class RubikCube {
 		}
 	}
 
-	public void rightP(Color front) {
+	public void rightP() {
 		if (FRONT.isBlue()) {
 			data.rotateOrangeFaceCounterClockwise();
 		} else if (FRONT.isGreen()) {
@@ -128,7 +130,13 @@ public class RubikCube {
 	}
 
 	public Set<Pieza> getAristas() {
-		return null;
+		Set<Pieza> piezasRes = new HashSet<Pieza>();
+		for (Pieza pieza : getPiezas()) {
+			if (pieza.esArista()) {
+				piezasRes.add(pieza);
+			}
+		}
+		return piezasRes;
 	}
 
 	public void setFrontByPieza(Pieza pieza) {
@@ -159,10 +167,66 @@ public class RubikCube {
 	public Set<Pieza> buscarPieza(Color color) {
 		Set<Pieza> piezas = new HashSet<Pieza>();
 		for (Pieza pieza : this.data.getCubeSet()) {
-			if (pieza.containsColor(color)) {
+			if (pieza.getColor().equals(color)) {
 
 			}
 		}
 		return piezas;
+	}
+
+	public Set<Pieza> buscarAristas(Color color) {
+		Set<Pieza> piezaRes = new HashSet<Pieza>();
+		for (Pieza pieza : this.getAristas()) {
+			if (pieza.containsColor(color)) {
+				piezaRes.add(pieza);
+			}
+		}
+		return piezaRes;
+	}
+
+	public Set<Pieza> buscarAristasDeUp() {
+		Set<Pieza> piezaRes = new HashSet<Pieza>();
+		for (Pieza pieza : this.getAristas()) {
+			if (pieza.containsColor(this.UP.getColorPuntero())) {
+				piezaRes.add(pieza);
+			}
+		}
+		return piezaRes;
+	}
+
+	public void scramble() {
+		Random dado = new Random();
+		dado.setSeed(new Date().getTime());
+		int vecesQueGiro = dado.nextInt(1000);
+
+		for (int i = 0; i < vecesQueGiro; i++) {
+			dado.setSeed(new Date().getTime());
+			int queGiro = dado.nextInt(5);
+			for (int j = 0; j < queGiro; j++) {
+				switch (queGiro) {
+				case 1:
+					this.right();
+					break;
+				case 2:
+					this.front();
+					break;
+				case 3:
+					break;
+				case 4:
+					this.uper();
+					break;
+				case 5:
+					this.down();
+					break;
+				case 0:
+this.b
+					break;
+
+				default:
+					break;
+				}
+			}
+		}
+
 	}
 }
