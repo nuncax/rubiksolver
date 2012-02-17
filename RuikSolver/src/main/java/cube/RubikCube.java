@@ -61,7 +61,7 @@ public class RubikCube {
 		}
 	}
 
-	public void left(Color front) {
+	public void left() {
 		if (FRONT.isBlue()) {
 			data.rotateRedFaceClockwise();
 		} else if (FRONT.isGreen()) {
@@ -195,6 +195,7 @@ public class RubikCube {
 	}
 
 	public void scramble() {
+		//TODO
 		Random dado = new Random();
 		dado.setSeed(new Date().getTime());
 		int vecesQueGiro = dado.nextInt(1000);
@@ -211,6 +212,7 @@ public class RubikCube {
 					this.front();
 					break;
 				case 3:
+					this.left();
 					break;
 				case 4:
 					this.uper();
@@ -219,7 +221,7 @@ public class RubikCube {
 					this.down();
 					break;
 				case 0:
-this.b
+					// this.b
 					break;
 
 				default:
