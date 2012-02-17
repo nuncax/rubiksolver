@@ -90,9 +90,9 @@ public class Pieza {
 		this.orientacion.setZ(z);
 	}
 
-	public List<Color> getColor() {
-		return color;
-	}
+//	public List<Color> getColor() {
+//		return color;
+//	}
 
 	public void setColor(List<Color> colo) {
 		this.color.addAll(colo);
