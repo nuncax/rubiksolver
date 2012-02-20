@@ -39,6 +39,11 @@ public class RubikCube {
 		this.BACK = data.getCentro(VERDE);
 		this.LEFT = data.getCentro(ROJO);
 		this.UP = data.getCentro(BLANCO);
+
+		// this.setFrontByPieza(LEFT);
+		// this.setFrontByPieza(RIGHT);
+		// this.setFrontByPieza(FRONT);
+		// this.setFrontByPieza(BACK);
 	}
 
 	public void right() {
@@ -113,6 +118,30 @@ public class RubikCube {
 		}
 	}
 
+	private void back() {
+		if (FRONT.isBlue()) {
+			this.data.rotateGreenFaceClockwise();
+		} else if (FRONT.isGreen()) {
+			this.data.rotateBlueFaceClockwise();
+		} else if (FRONT.isOrange()) {
+			this.data.rotateRedFaceClockwise();
+		} else if (FRONT.isRed()) {
+			this.data.rotateOrangeFaceClockwise();
+		}
+	}
+
+	private void backP() {
+		if (FRONT.isBlue()) {
+			this.data.rotateGreenFaceCounterClockwise();
+		} else if (FRONT.isGreen()) {
+			this.data.rotateBlueFaceCounterClockwise();
+		} else if (FRONT.isOrange()) {
+			this.data.rotateRedFaceCounterClockwise();
+		} else if (FRONT.isRed()) {
+			this.data.rotateOrangeFaceCounterClockwise();
+		}
+	}
+
 	public void uper() {
 		data.rotateWhiteFaceClockwise();
 	}
@@ -145,13 +174,13 @@ public class RubikCube {
 
 	public void setFrontByPieza(Pieza pieza) {
 		Pieza piezaAux;
-		if (pieza.estaEnCara(RIGHT)) {
+		if (pieza.isFace(RIGHT)) {
 			piezaAux = FRONT;
 			FRONT = RIGHT;
 			RIGHT = BACK;
 			BACK = LEFT;
 			LEFT = piezaAux;
-		} else if (pieza.estaEnCara(BACK)) {
+		} else if (pieza.isFace(BACK)) {
 			piezaAux = FRONT;
 			FRONT = BACK;
 			BACK = piezaAux;
@@ -159,12 +188,13 @@ public class RubikCube {
 			piezaAux = RIGHT;
 			RIGHT = LEFT;
 			LEFT = piezaAux;
-		} else if (pieza.estaEnCara(LEFT)) {
+		} else if (pieza.isFace(LEFT)) {
 			piezaAux = FRONT;
+
 			FRONT = LEFT;
-			RIGHT = BACK;
-			BACK = LEFT;
-			LEFT = piezaAux;
+			LEFT = BACK;
+			BACK = RIGHT;
+			RIGHT = piezaAux;
 		}
 	}
 
@@ -244,16 +274,6 @@ public class RubikCube {
 				break;
 			}
 		}
-
-	}
-
-	private void back() {
-		// TODO Auto-generated method stub
-
-	}
-
-	private void backP() {
-		// TODO Auto-generated method stub
 
 	}
 

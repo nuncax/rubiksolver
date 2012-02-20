@@ -1,3 +1,12 @@
-L
 R
+RP
+L
+LP
+F
+FP
+B
+BP
 U
+UP
+D
+DP
