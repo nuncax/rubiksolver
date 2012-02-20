@@ -1,5 +1,9 @@
 package cube;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -73,7 +77,7 @@ public class RubikCube {
 		}
 	}
 
-	public void leftP(Color front) {
+	public void leftP() {
 		if (FRONT.isBlue()) {
 			data.rotateRedFaceCounterClockwise();
 		} else if (FRONT.isGreen()) {
@@ -168,7 +172,7 @@ public class RubikCube {
 		Set<Pieza> piezas = new HashSet<Pieza>();
 		for (Pieza pieza : this.data.getCubeSet()) {
 			if (pieza.getColorPuntero().equals(color)) {
-
+				piezas.add(pieza);
 			}
 		}
 		return piezas;
@@ -194,8 +198,67 @@ public class RubikCube {
 		return piezaRes;
 	}
 
+	public void SetPositions() throws IOException {
+		BufferedReader bf = new BufferedReader(new FileReader("datos.txt"));
+		String sCadena;
+		while ((sCadena = bf.readLine()) != null) {
+			System.out.println(sCadena);
+			switch (sCadena) {
+			case "R":
+				this.right();
+				break;
+			case "RP":
+				this.rightP();
+				break;
+			case "L":
+				this.left();
+				break;
+			case "LP":
+				this.leftP();
+				break;
+			case "F":
+				this.front();
+				break;
+			case "FP":
+				this.frontP();
+				break;
+			case "B":
+				this.back();
+				break;
+			case "BP":
+				this.backP();
+				break;
+			case "U":
+				this.uper();
+				break;
+			case "UP":
+				this.upP();
+				break;
+			case "D":
+				this.down();
+				break;
+			case "DP":
+				this.downP();
+				break;
+			default:
+				break;
+			}
+		}
+
+	}
+
+	private void back() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private void backP() {
+		// TODO Auto-generated method stub
+
+	}
+
 	public void scramble() {
-		//TODO
+		// TODO
 		Random dado = new Random();
 		dado.setSeed(new Date().getTime());
 		int vecesQueGiro = dado.nextInt(1000);
