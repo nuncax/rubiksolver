@@ -1,9 +1,14 @@
 package pieza;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 import color.Color;
+
+import org.apache.log4j.Logger;
+
+
 
 public class Pieza {
 
@@ -11,6 +16,8 @@ public class Pieza {
 	private final Vectr orientacion;
 
 	private final List<Color> color;
+	
+	private final  Logger log = Logger.getLogger(Pieza.class);
 
 	public Pieza(Vectr pos, Vectr or, List<Color> colores) {
 		this.posicion = new Vectr(pos.getX(), pos.getY(), pos.getZ());
@@ -30,9 +37,11 @@ public class Pieza {
 	}
 
 	public void setPosicion(Vectr pos) {
+		log.info("Creando la cesta y el stock");
 		this.posicion.setX(pos.getX());
 		this.posicion.setY(pos.getY());
 		this.posicion.setZ(pos.getZ());
+		log.info("Creando la cesta y el stock");
 
 	}
 
@@ -191,8 +200,7 @@ public class Pieza {
 	}
 
 	public void yMenosZ() {
-		setPosZ(getPosY());
-		setPosY(-getPosZ());
+		setPosZ(getPosY());		setPosY(-getPosZ());
 
 		setOrZ(getOrY());
 		setOrY(-getOrZ());

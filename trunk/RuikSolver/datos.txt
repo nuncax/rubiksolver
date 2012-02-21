@@ -1,12 +1,6 @@
 R
-RP
-L
-LP
-F
-FP
-B
-BP
 U
-UP
+R
 D
-DP
+D
+RP

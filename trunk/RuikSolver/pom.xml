@@ -38,5 +38,12 @@
 			<systemPath>${basedir}/lib/mockito-all-1.9.0-rc1.jar</systemPath>
 			<scope>system</scope>
 		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>1.2.16</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/log4j-1.2.16.jar</systemPath>
+		</dependency>
 	</dependencies>
 </project>
