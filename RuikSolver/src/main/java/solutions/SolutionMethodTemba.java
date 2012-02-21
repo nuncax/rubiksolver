@@ -11,14 +11,14 @@ public class SolutionMethodTemba {
 
 	private RubikCube rubikCube;
 
-	private List<Color> caras;
+	//private List<Color> caras;
 
 	public SolutionMethodTemba(RubikCube rubikCube) {
 		this.rubikCube = rubikCube;
 
 	}
 
-	void solucionar() {
+	public void solucionar() {
 		resolverCruz();
 		resolverEsquinas();
 	}
@@ -76,15 +76,5 @@ public class SolutionMethodTemba {
 				rubikCube.front();
 			}
 		}
-	}
-
-	
-
-	public List<Color> getCaras() {
-		return caras;
-	}
-
-	public void setCaras(List<Color> caras) {
-		this.caras = caras;
 	}
 }
