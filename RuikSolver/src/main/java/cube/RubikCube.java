@@ -228,54 +228,38 @@ public class RubikCube {
 		return piezaRes;
 	}
 
-	public void SetPositions() throws IOException {
-		BufferedReader bf = new BufferedReader(new FileReader("datos.txt"));
-		String sCadena;
-		while ((sCadena = bf.readLine()) != null) {
-			System.out.println(sCadena);
-			switch (sCadena) {
-			case "R":
-				this.right();
-				break;
-			case "RP":
-				this.rightP();
-				break;
-			case "L":
-				this.left();
-				break;
-			case "LP":
-				this.leftP();
-				break;
-			case "F":
-				this.front();
-				break;
-			case "FP":
-				this.frontP();
-				break;
-			case "B":
-				this.back();
-				break;
-			case "BP":
-				this.backP();
-				break;
-			case "U":
-				this.uper();
-				break;
-			case "UP":
-				this.upP();
-				break;
-			case "D":
-				this.down();
-				break;
-			case "DP":
-				this.downP();
-				break;
-			default:
-				break;
-			}
-		}
-
-	}
+    public void SetPositions() throws IOException {
+        BufferedReader bf = new BufferedReader(new FileReader("datos.txt"));
+        String sCadena;
+        while ((sCadena = bf.readLine()) != null) {
+            System.out.println(sCadena);
+            if (sCadena.equals("R")) {
+                this.right();
+            } else if (sCadena.equals("RP")) {
+                this.rightP();
+            } else if (sCadena.equals("L")) {
+                this.left();
+            } else if (sCadena.equals("LP")) {
+                this.leftP();
+            } else if (sCadena.equals("F")) {
+                this.front();
+            } else if (sCadena.equals("FP")) {
+                this.frontP();
+            } else if (sCadena.equals("B")) {
+                this.back();
+            } else if (sCadena.equals("BP")) {
+                this.backP();
+            } else if (sCadena.equals("U")) {
+                this.uper();
+            } else if (sCadena.equals("UP")) {
+                this.upP();
+            } else if (sCadena.equals("D")) {
+                this.down();
+            } else if (sCadena.equals("DP")) {
+                this.downP();
+            }
+        }
+    }
 
 	public void scramble() {
 		// TODO
