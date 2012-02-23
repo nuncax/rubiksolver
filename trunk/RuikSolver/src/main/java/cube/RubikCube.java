@@ -1,7 +1,6 @@
 package cube;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Date;
@@ -45,117 +44,150 @@ public class RubikCube {
 		// this.setFrontByPieza(FRONT);
 		// this.setFrontByPieza(BACK);
 	}
+	
 
 	public void right() {
-		if (FRONT.isBlue()) {
-			data.rotateOrangeFaceClockwise();
-		} else if (FRONT.isGreen()) {
-			data.rotateRedFaceClockwise();
-		} else if (FRONT.isOrange()) {
-			data.rotateGreenFaceClockwise();
-		} else if (FRONT.isRed()) {
-			data.rotateBlueFaceClockwise();
-		}
+		data.rotateFaceClockwise(RIGHT);
 	}
 
 	public void rightP() {
-		if (FRONT.isBlue()) {
-			data.rotateOrangeFaceCounterClockwise();
-		} else if (FRONT.isGreen()) {
-			data.rotateRedFaceCounterClockwise();
-		} else if (FRONT.isOrange()) {
-			data.rotateGreenFaceCounterClockwise();
-		} else if (FRONT.isRed()) {
-			data.rotateBlueFaceCounterClockwise();
-		}
+		data.rotateFaceCounterClockwise(RIGHT);
 	}
 
 	public void left() {
-		if (FRONT.isBlue()) {
-			data.rotateRedFaceClockwise();
-		} else if (FRONT.isGreen()) {
-			data.rotateOrangeFaceClockwise();
-		} else if (FRONT.isOrange()) {
-			data.rotateBlueFaceClockwise();
-		} else if (FRONT.isRed()) {
-			data.rotateGreenFaceClockwise();
-		}
+		data.rotateFaceClockwise(LEFT);
 	}
-
 	public void leftP() {
-		if (FRONT.isBlue()) {
-			data.rotateRedFaceCounterClockwise();
-		} else if (FRONT.isGreen()) {
-			data.rotateOrangeFaceCounterClockwise();
-		} else if (FRONT.isOrange()) {
-			data.rotateBlueFaceCounterClockwise();
-		} else if (FRONT.isRed()) {
-			data.rotateGreenFaceCounterClockwise();
-		}
+		data.rotateFaceCounterClockwise(LEFT);
 	}
 
 	public void front() {
-		if (FRONT.isBlue()) {
-			this.data.rotateBlueFaceClockwise();
-		} else if (FRONT.isGreen()) {
-			this.data.rotateGreenFaceClockwise();
-		} else if (FRONT.isOrange()) {
-			this.data.rotateOrangeFaceClockwise();
-		} else if (FRONT.isRed()) {
-			this.data.rotateRedFaceClockwise();
-		}
+	data.rotateFaceClockwise(FRONT);
 	}
 
 	public void frontP() {
-		if (FRONT.isBlue()) {
-			this.data.rotateBlueFaceCounterClockwise();
-		} else if (FRONT.isGreen()) {
-			this.data.rotateGreenFaceCounterClockwise();
-		} else if (FRONT.isOrange()) {
-			this.data.rotateOrangeFaceCounterClockwise();
-		} else if (FRONT.isRed()) {
-			this.data.rotateRedFaceCounterClockwise();
-		}
+		data.rotateFaceCounterClockwise(FRONT);
 	}
 
 	private void back() {
-		if (FRONT.isBlue()) {
-			this.data.rotateGreenFaceClockwise();
-		} else if (FRONT.isGreen()) {
-			this.data.rotateBlueFaceClockwise();
-		} else if (FRONT.isOrange()) {
-			this.data.rotateRedFaceClockwise();
-		} else if (FRONT.isRed()) {
-			this.data.rotateOrangeFaceClockwise();
-		}
+		data.rotateFaceClockwise(BACK);
+
 	}
 
 	private void backP() {
-		if (FRONT.isBlue()) {
-			this.data.rotateGreenFaceCounterClockwise();
-		} else if (FRONT.isGreen()) {
-			this.data.rotateBlueFaceCounterClockwise();
-		} else if (FRONT.isOrange()) {
-			this.data.rotateRedFaceCounterClockwise();
-		} else if (FRONT.isRed()) {
-			this.data.rotateOrangeFaceCounterClockwise();
-		}
+		data.rotateFaceCounterClockwise(BACK);
 	}
 
+//	public void right() {
+//		if (FRONT.isBlue()) {
+//			data.rotateOrangeFaceClockwise();
+//		} else if (FRONT.isGreen()) {
+//			data.rotateRedFaceClockwise();
+//		} else if (FRONT.isOrange()) {
+//			data.rotateGreenFaceClockwise();
+//		} else if (FRONT.isRed()) {
+//			data.rotateBlueFaceClockwise();
+//		}
+//	}
+//
+//	public void rightP() {
+//		if (FRONT.isBlue()) {
+//			data.rotateOrangeFaceCounterClockwise();
+//		} else if (FRONT.isGreen()) {
+//			data.rotateRedFaceCounterClockwise();
+//		} else if (FRONT.isOrange()) {
+//			data.rotateGreenFaceCounterClockwise();
+//		} else if (FRONT.isRed()) {
+//			data.rotateBlueFaceCounterClockwise();
+//		}
+//	}
+//
+//	public void left() {
+//		if (FRONT.isBlue()) {
+//			data.rotateRedFaceClockwise();
+//		} else if (FRONT.isGreen()) {
+//			data.rotateOrangeFaceClockwise();
+//		} else if (FRONT.isOrange()) {
+//			data.rotateBlueFaceClockwise();
+//		} else if (FRONT.isRed()) {
+//			data.rotateGreenFaceClockwise();
+//		}
+//	}
+//
+//	public void leftP() {
+//		if (FRONT.isBlue()) {
+//			data.rotateRedFaceCounterClockwise();
+//		} else if (FRONT.isGreen()) {
+//			data.rotateOrangeFaceCounterClockwise();
+//		} else if (FRONT.isOrange()) {
+//			data.rotateBlueFaceCounterClockwise();
+//		} else if (FRONT.isRed()) {
+//			data.rotateGreenFaceCounterClockwise();
+//		}
+//	}
+//
+//	public void front() {
+//		if (FRONT.isBlue()) {
+//			this.data.rotateBlueFaceClockwise();
+//		} else if (FRONT.isGreen()) {
+//			this.data.rotateGreenFaceClockwise();
+//		} else if (FRONT.isOrange()) {
+//			this.data.rotateOrangeFaceClockwise();
+//		} else if (FRONT.isRed()) {
+//			this.data.rotateRedFaceClockwise();
+//		}
+//	}
+//
+//	public void frontP() {
+//		if (FRONT.isBlue()) {
+//			this.data.rotateBlueFaceCounterClockwise();
+//		} else if (FRONT.isGreen()) {
+//			this.data.rotateGreenFaceCounterClockwise();
+//		} else if (FRONT.isOrange()) {
+//			this.data.rotateOrangeFaceCounterClockwise();
+//		} else if (FRONT.isRed()) {
+//			this.data.rotateRedFaceCounterClockwise();
+//		}
+//	}
+//
+//	private void back() {
+//		if (FRONT.isBlue()) {
+//			this.data.rotateGreenFaceClockwise();
+//		} else if (FRONT.isGreen()) {
+//			this.data.rotateBlueFaceClockwise();
+//		} else if (FRONT.isOrange()) {
+//			this.data.rotateRedFaceClockwise();
+//		} else if (FRONT.isRed()) {
+//			this.data.rotateOrangeFaceClockwise();
+//		}
+//	}
+//
+//	private void backP() {
+//		if (FRONT.isBlue()) {
+//			this.data.rotateGreenFaceCounterClockwise();
+//		} else if (FRONT.isGreen()) {
+//			this.data.rotateBlueFaceCounterClockwise();
+//		} else if (FRONT.isOrange()) {
+//			this.data.rotateRedFaceCounterClockwise();
+//		} else if (FRONT.isRed()) {
+//			this.data.rotateOrangeFaceCounterClockwise();
+//		}
+//	}
+
 	public void uper() {
-		data.rotateWhiteFaceClockwise();
+		data.rotateFaceClockwise(UP);
 	}
 
 	public void upP() {
-		data.rotateWhiteFaceCounterClockwise();
+		data.rotateFaceCounterClockwise(UP);
 	}
 
 	public void down() {
-		data.rotateYellowFaceClockwise();
+		data.rotateFaceClockwise(DONW);
 	}
 
 	public void downP() {
-		data.rotateYellowFaceCounterClockwise();
+		data.rotateFaceCounterClockwise(DONW);
 	}
 
 	public List<Pieza> getPiezas() {
@@ -174,13 +206,13 @@ public class RubikCube {
 
 	public void setFrontByPieza(Pieza pieza) {
 		Pieza piezaAux;
-		if (pieza.isFace(RIGHT)) {
+		if (pieza.estaEnCara(RIGHT)) {
 			piezaAux = FRONT;
 			FRONT = RIGHT;
 			RIGHT = BACK;
 			BACK = LEFT;
 			LEFT = piezaAux;
-		} else if (pieza.isFace(BACK)) {
+		} else if (pieza.estaEnCara(BACK)) {
 			piezaAux = FRONT;
 			FRONT = BACK;
 			BACK = piezaAux;
@@ -188,7 +220,7 @@ public class RubikCube {
 			piezaAux = RIGHT;
 			RIGHT = LEFT;
 			LEFT = piezaAux;
-		} else if (pieza.isFace(LEFT)) {
+		} else if (pieza.estaEnCara(LEFT)) {
 			piezaAux = FRONT;
 
 			FRONT = LEFT;
