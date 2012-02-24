@@ -6,24 +6,29 @@ import java.util.List;
 import java.util.Set;
 
 import color.Color;
-
-import pieza.Matrix;
 import pieza.Pieza;
 import pieza.Vectr;
 
 public class RubikCubeData {
-	final private int[][] BLUE_MATRIZ = { { 0, 0, -1 }, { 0, 1, 0 },
-			{ 1, 0, 0 } };
-	final private int[][] RED_MATRIZ = { { 1, 0, 0 }, { 0, 0, 1 }, { 0, -1, 0 } };
-	final private int[][] WHITE_MATRIZ = { { 0, 1, 0 }, { -1, 0, 0 },
-			{ 0, 0, 1 } };
-	final private int[][] ORANGE_MATRIZ = { { 1, 0, 0 }, { 0, 0, -1 },
-			{ 0, 1, 0 } };
-	final private int[][] GREEN_MATRIZ = { { 0, 0, 1 }, { 0, 1, 0 },
-			{ -1, 0, 0 } };
-	final private int[][] YELLOW_MATRIZ = { { 0, -1, 0 }, { 1, 0, 0 },
-			{ 0, 0, 1 } };
 
+	int[][] getMatriz(Pieza centro, int signo) {
+		int[][] maux = null;
+		if (centro.getColorPuntero().equals(this.blanco)) {
+			maux = new int[][] { { 0, signo * 1, 0 },{ signo * -1, 0, 0 }, { 0, 0, 1 } };
+		} else if (centro.getColorPuntero().equals(this.amarillo)) {
+			maux = new int[][] { { 0, signo * -1, 0 },{ signo * 1, 0, 0 }, { 0, 0, 1 } };
+		} else if (centro.getColorPuntero().equals(this.azul)) {
+			maux = new int[][] { { 0, 0, signo * -1 }, { 0, 1, 0 },{ signo * 1, 0, 0 } };
+		} else if (centro.getColorPuntero().equals(this.naranja)) {
+			maux = new int[][] { { 1, 0, 0 }, { 0, 0, signo * -1 },{ 0, signo * 1, 0 } };
+		} else if (centro.getColorPuntero().equals(this.rojo)) {
+			maux = new int[][] { { 1, 0, 0 }, { 0, 0, signo * 1 },{ 0, signo * -1, 0 } };
+		} else if (centro.getColorPuntero().equals(this.verde)) {
+			maux = new int[][] { { 0, 0, signo * 1 }, { 0, 1, 0 },{ signo * -1, 0, 0 } };
+		}
+		return maux;
+	}
+	
 	final private Color blanco = new Color("blanco");
 	final private Color verde = new Color("verde");
 	final private Color azul = new Color("azul");
@@ -186,7 +191,7 @@ public class RubikCubeData {
 		colors.add(rojo);
 		colors.add(amarillo);
 		posicion = new Vectr(1, 0, -1);
-		orientacion = new Vectr(0, 0, 1);
+		orientacion = new Vectr(0, 0, -1);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// AzA
@@ -269,166 +274,21 @@ public class RubikCubeData {
 	public Set<Pieza> getFace(Pieza centro) {
 		Set<Pieza> face = new HashSet<Pieza>();
 		for (Pieza pieza : cubeSet) {
-			if (pieza.containsColor(centro.getColorPuntero()) && !pieza.esCentro()) {
+			if (pieza.containsColor(centro.getColorPuntero())
+					&& !pieza.esCentro()) {
 				face.add(pieza);
 			}
 		}
 		return face;
 	}
 
-	// public Set<Pieza> getBlueFace() {
-	// Set<Pieza> blueFace = new HashSet<Pieza>();
-	// for (Pieza pieza : cubeSet) {
-	// if (pieza.isBlue() && !pieza.esCentro()) {
-	// blueFace.add(pieza);
-	// }
-	// }
-	// return blueFace;
-	// }
-	//
-	// public Set<Pieza> getWhiteFace() {
-	// Set<Pieza> whiteFace = new HashSet<Pieza>();
-	// for (Pieza pieza : cubeSet) {
-	// if (pieza.isWhite() && !pieza.esCentro()) {
-	// whiteFace.add(pieza);
-	// }
-	// }
-	// return whiteFace;
-	// }
-	//
-	// public Set<Pieza> getOrangeFace() {
-	// Set<Pieza> orangeFace = new HashSet<Pieza>();
-	// for (Pieza pieza : cubeSet) {
-	// if (pieza.isOrange() && !pieza.esCentro()) {
-	// orangeFace.add(pieza);
-	// }
-	// }
-	// return orangeFace;
-	// }
-	//
-	// public Set<Pieza> getGreenFace() {
-	// Set<Pieza> greenFace = new HashSet<Pieza>();
-	// for (Pieza pieza : cubeSet) {
-	// if (pieza.isGreen() && !pieza.esCentro()) {
-	// greenFace.add(pieza);
-	// }
-	// }
-	// return greenFace;
-	// }
-	//
-	// public Set<Pieza> getYellowFace() {
-	// Set<Pieza> yellowFace = new HashSet<Pieza>();
-	// for (Pieza pieza : cubeSet) {
-	// if (pieza.isYellow() && !pieza.esCentro()) {
-	// yellowFace.add(pieza);
-	// }
-	// }
-	// return yellowFace;
-	// }
-	//
-	// public Set<Pieza> getRedFace() {
-	//
-	// Set<Pieza> redFace = new HashSet<Pieza>();
-	// for (Pieza pieza : cubeSet) {
-	// if (pieza.isRed() && !pieza.esCentro()) {
-	// redFace.add(pieza);
-	// }
-	// }
-	// return redFace;
-	// }
+	public void rotateFaceClockwise(Pieza centro, int signo) {
+		int[][] matriz = getMatriz(centro, signo);
+		for (Pieza pieza : getFace(centro)) {
+			pieza.multiplicar(matriz);
+		}
 
-	public void rotateFaceClockwise(Pieza centro) {
-		int maux[][] = null;
-		if (centro.getColorPuntero().equals(this.blanco)) {
-			maux = this.WHITE_MATRIZ;
-		} else if (centro.getColorPuntero().equals(this.amarillo)) {
-			maux = this.YELLOW_MATRIZ;
-		} else if (centro.getColorPuntero().equals(this.azul)) {
-			maux = this.BLUE_MATRIZ;
-		} else if (centro.getColorPuntero().equals(this.naranja)) {
-			maux = this.ORANGE_MATRIZ;
-		} else if (centro.getColorPuntero().equals(this.rojo)) {
-			maux = this.RED_MATRIZ;
-		} else if (centro.getColorPuntero().equals(this.verde)) {
-			maux = this.GREEN_MATRIZ;
-		}
-		for(Pieza pieza: getFace(centro)){
-			pieza.multiplicar(maux);
-		}
 	}
-
-	// public void rotateOrangeFaceClockwise() {
-	// for (Pieza pieza : this.getOrangeFace()) {
-	// pieza.naranjaYcontraRojo();
-	// }
-	// }
-	//
-	// public void rotateRedFaceCounterClockwise() {
-	// for (Pieza pieza : this.getRedFace()) {
-	// pieza.naranjaYcontraRojo();
-	// }
-	// }
-	//
-	// public void rotateGreenFaceClockwise() {
-	// for (Pieza pieza : this.getGreenFace()) {
-	// pieza.verdeYcontraAzul();
-	// }
-	// }
-	//
-	// public void rotateBlueFaceCounterClockwise() {
-	// for (Pieza pieza : this.getBlueFace()) {
-	// pieza.verdeYcontraAzul();
-	// }
-	// }
-	//
-	// public void rotateYellowFaceCounterClockwise() {
-	// for (Pieza pieza : this.getYellowFace()) {
-	// pieza.blancoYcontraAmarillo();
-	// }
-	// }
-	//
-	// public void rotateGreenFaceCounterClockwise() {
-	// for (Pieza pieza : this.getGreenFace()) {
-	// pieza.azulYcontraVerde();
-	// }
-	// }
-	//
-	// public void rotateWhiteFaceCounterClockwise() {
-	// for (Pieza pieza : this.getWhiteFace()) {
-	// pieza.amarilloContraBlanco();
-	// }
-	// }
-	//
-	// public void rotateOrangeFaceCounterClockwise() {
-	// for (Pieza pieza : this.getOrangeFace()) {
-	// pieza.rojoYcontraNaranja();
-	// }
-	// }
-	//
-	// public void rotateYellowFaceClockwise() {
-	// for (Pieza pieza : this.getYellowFace()) {
-	// pieza.amarilloContraBlanco();
-	// }
-	// }
-	//
-	// public void rotateWhiteFaceClockwise() {
-	// for (Pieza pieza : this.getWhiteFace()) {
-	// pieza.blancoYcontraAmarillo();
-	// }
-	// }
-	//
-	// public void rotateRedFaceClockwise() {
-	// for (Pieza pieza : this.getRedFace()) {
-	// pieza.rojoYcontraNaranja();
-	//
-	// }
-	// }
-	//
-	// public void rotateBlueFaceClockwise() {
-	// for (Pieza pieza : this.getBlueFace()) {
-	// pieza.azulYcontraVerde();
-	// }
-	// }
 
 	public Pieza getCentro(Color color) {
 		Pieza piezaRes = null;
@@ -438,11 +298,6 @@ public class RubikCubeData {
 			}
 		}
 		return piezaRes;
-	}
-
-	public void rotateFaceCounterClockwise(Pieza rIGHT) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

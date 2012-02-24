@@ -1,17 +1,13 @@
 package solutions;
 
-import java.util.List;
 import java.util.Set;
 import pieza.Pieza;
-import color.Color;
 import cube.RubikCube;
 
 
 public class SolutionMethodTemba {
 
 	private RubikCube rubikCube;
-
-	//private List<Color> caras;
 
 	public SolutionMethodTemba(RubikCube rubikCube) {
 		this.rubikCube = rubikCube;
@@ -52,12 +48,12 @@ public class SolutionMethodTemba {
 
 	private void llevarAsuCara(Pieza pieza) {
 		if (pieza.containsColor(this.rubikCube.LEFT.getColorPuntero())) {
-			rubikCube.downP();
+			rubikCube.down(-1);
 		} else if (pieza.containsColor(this.rubikCube.RIGHT.getColorPuntero())) {
-			rubikCube.down();
+			rubikCube.down(1);
 		} else if (pieza.containsColor(this.rubikCube.BACK.getColorPuntero())) {
-			rubikCube.down();
-			rubikCube.down();
+			rubikCube.down(1);
+			rubikCube.down(1);
 		}
 		rubikCube.setFrontByPieza(pieza);
 	}
@@ -70,10 +66,10 @@ public class SolutionMethodTemba {
 	private void bajarPieza(Pieza pieza) {
 		if (!pieza.containsColor(this.rubikCube.DONW.getColorPuntero())) {
 			if (pieza.containsColor(this.rubikCube.UP.getColorPuntero())) {
-				rubikCube.front();
-				rubikCube.front();
+				rubikCube.front(1);
+				rubikCube.front(1);
 			} else {
-				rubikCube.front();
+				rubikCube.front(1);
 			}
 		}
 	}

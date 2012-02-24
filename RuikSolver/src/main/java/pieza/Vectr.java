@@ -36,35 +36,7 @@ public class Vectr {
 
 	@Override
 	public String toString() {
-		return "Vectr [vector=" + Arrays.toString(vector) + "]";
+		return "[" + Arrays.toString(vector) + "]";
 	}
-
-	// public void setCords(Integer x, Integer y, Integer z) {
-	//
-	// }
-
-	// public void setX(Integer x) {
-	// this.vector.set(0, x);
-	// }
-	//
-	// public void setY(Integer y) {
-	// this.vector.set(1, y);
-	// }
-	//
-	// public void setZ(Integer z) {
-	// this.vector.set(2, z);
-	// }
-	//
-	// public Integer getX() {
-	// return this.vector.get(0);
-	// }
-	//
-	// public Integer getY() {
-	// return this.vector.get(1);
-	// }
-	//
-	// public Integer getZ() {
-	// return this.vector.get(2);
-	// }
 
 }

@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import solutions.SolutionMethodTemba;
 import cube.RubikCube;
-import org.apache.log4j.PropertyConfigurator;
+//import org.apache.log4j.PropertyConfigurator;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
