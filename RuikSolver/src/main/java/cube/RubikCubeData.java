@@ -14,21 +14,27 @@ public class RubikCubeData {
 	int[][] getMatriz(Pieza centro, int signo) {
 		int[][] maux = null;
 		if (centro.getColorPuntero().equals(this.blanco)) {
-			maux = new int[][] { { 0, signo * 1, 0 },{ signo * -1, 0, 0 }, { 0, 0, 1 } };
+			maux = new int[][] { { 0, signo * 1, 0 }, { signo * -1, 0, 0 },
+					{ 0, 0, 1 } };
 		} else if (centro.getColorPuntero().equals(this.amarillo)) {
-			maux = new int[][] { { 0, signo * -1, 0 },{ signo * 1, 0, 0 }, { 0, 0, 1 } };
+			maux = new int[][] { { 0, signo * -1, 0 }, { signo * 1, 0, 0 },
+					{ 0, 0, 1 } };
 		} else if (centro.getColorPuntero().equals(this.azul)) {
-			maux = new int[][] { { 0, 0, signo * -1 }, { 0, 1, 0 },{ signo * 1, 0, 0 } };
+			maux = new int[][] { { 0, 0, signo * -1 }, { 0, 1, 0 },
+					{ signo * 1, 0, 0 } };
 		} else if (centro.getColorPuntero().equals(this.naranja)) {
-			maux = new int[][] { { 1, 0, 0 }, { 0, 0, signo * -1 },{ 0, signo * 1, 0 } };
+			maux = new int[][] { { 1, 0, 0 }, { 0, 0, signo * -1 },
+					{ 0, signo * 1, 0 } };
 		} else if (centro.getColorPuntero().equals(this.rojo)) {
-			maux = new int[][] { { 1, 0, 0 }, { 0, 0, signo * 1 },{ 0, signo * -1, 0 } };
+			maux = new int[][] { { 1, 0, 0 }, { 0, 0, signo * 1 },
+					{ 0, signo * -1, 0 } };
 		} else if (centro.getColorPuntero().equals(this.verde)) {
-			maux = new int[][] { { 0, 0, signo * 1 }, { 0, 1, 0 },{ signo * -1, 0, 0 } };
+			maux = new int[][] { { 0, 0, signo * 1 }, { 0, 1, 0 },
+					{ signo * -1, 0, 0 } };
 		}
 		return maux;
 	}
-	
+
 	final private Color blanco = new Color("blanco");
 	final private Color verde = new Color("verde");
 	final private Color azul = new Color("azul");
@@ -274,8 +280,7 @@ public class RubikCubeData {
 	public Set<Pieza> getFace(Pieza centro) {
 		Set<Pieza> face = new HashSet<Pieza>();
 		for (Pieza pieza : cubeSet) {
-			if (pieza.containsColor(centro.getColorPuntero())
-					&& !pieza.esCentro()) {
+			if (pieza.estaEnCara(centro) && !pieza.esCentro()) {
 				face.add(pieza);
 			}
 		}
@@ -286,6 +291,7 @@ public class RubikCubeData {
 		int[][] matriz = getMatriz(centro, signo);
 		for (Pieza pieza : getFace(centro)) {
 			pieza.multiplicar(matriz);
+			System.out.println(pieza);
 		}
 
 	}

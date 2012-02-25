@@ -39,11 +39,16 @@ public class SolutionMethodTemba {
 	}
 
 	private void subirPieza(Pieza pieza) {
-		// if(pieza.){
-		//
-		// }else{
-		//
-		// }
+		if(pieza.getColorPuntero().equals(rubikCube.UP.getColorPuntero())){
+			rubikCube.front(1);
+			rubikCube.front(1);
+		}else{
+			rubikCube.down(1);
+			rubikCube.right(1);
+			rubikCube.front(1);
+			rubikCube.right(-1);
+			
+		}
 	}
 
 	private void llevarAsuCara(Pieza pieza) {

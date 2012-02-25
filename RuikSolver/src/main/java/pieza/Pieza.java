@@ -38,29 +38,29 @@ public class Pieza {
 
 	public boolean esCentro() {
 		int numCaras = 0;
-		 if (this.getPos(X) == 0) {
-		 numCaras++;
-		 }
-		 if (this.getPos(Y) == 0) {
-		 numCaras++;
-		 }
-		 if (this.getPos(Z)== 0) {
-		 numCaras++;
-		 }
+		if (this.getPos(X) == 0) {
+			numCaras++;
+		}
+		if (this.getPos(Y) == 0) {
+			numCaras++;
+		}
+		if (this.getPos(Z) == 0) {
+			numCaras++;
+		}
 		return numCaras == 2;
 	}
 
 	public boolean esArista() {
 		int numCaras = 0;
-		 if (this.getPos(X) == 0) {
-		 numCaras++;
-		 }
-		 if (this.getPos(Y) == 0) {
-		 numCaras++;
-		 }
-		 if (this.getPos(Z) == 0) {
-		 numCaras++;
-		 }
+		if (this.getPos(X) == 0) {
+			numCaras++;
+		}
+		if (this.getPos(Y) == 0) {
+			numCaras++;
+		}
+		if (this.getPos(Z) == 0) {
+			numCaras++;
+		}
 		return numCaras == 1;
 	}
 
@@ -72,20 +72,20 @@ public class Pieza {
 		return this.color.contains(color);
 	}
 
-	public boolean estaEnCara(Pieza pieza) {
+	public boolean estaEnCara(Pieza centro) {
 		boolean res = false;
-		if (pieza.getPos(X) == this.getPos(X)) {
+		if (centro.getPos(X) != 0 && centro.getPos(X) == this.getPos(X)) {
 			res = true;
-		} else if (pieza.getPos(Y)==this.getPos(Y)) {
+		} else if (centro.getPos(Y) != 0 && centro.getPos(Y) == this.getPos(Y)) {
 			res = true;
-		} else if (pieza.getPos(Z)==this.getPos(Z)) {
+		} else if (centro.getPos(Z) != 0 && centro.getPos(Z) == this.getPos(Z)) {
 			res = true;
 		}
 		return res;
 	}
 
 	private int getPos(int cord) {
-		return this.posicion.getVector()[cord];
+		return this.posicion.getVector().get(cord);
 	}
 
 	public void multiplicar(int[][] maux) {
