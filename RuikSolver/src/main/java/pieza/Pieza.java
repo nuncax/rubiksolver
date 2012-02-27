@@ -92,4 +92,24 @@ public class Pieza {
 		this.posicion.multiplicaPorMatriz(maux);
 		this.orientacion.multiplicaPorMatriz(maux);
 	}
+
+	public boolean apunta(Pieza centro) {
+		return this.orientacion.equals(centro.orientacion);
+	}
+
+	public boolean esVertice() {
+
+		int numCaras = 0;
+		if (this.getPos(X) == 0) {
+			numCaras++;
+		}
+		if (this.getPos(Y) == 0) {
+			numCaras++;
+		}
+		if (this.getPos(Z) == 0) {
+			numCaras++;
+		}
+		return numCaras == 0;
+
+	}
 }
