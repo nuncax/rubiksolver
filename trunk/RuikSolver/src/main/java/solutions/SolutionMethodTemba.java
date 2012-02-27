@@ -4,7 +4,6 @@ import java.util.Set;
 import pieza.Pieza;
 import cube.RubikCube;
 
-
 public class SolutionMethodTemba {
 
 	private RubikCube rubikCube;
@@ -20,15 +19,23 @@ public class SolutionMethodTemba {
 	}
 
 	private void resolverCruz() {
-		
-		 Set<Pieza> piezas = this.rubikCube.buscarAristasDeUp();
-		 for (Pieza pieza : piezas) {
+
+		Set<Pieza> piezas = this.rubikCube.buscarAristasDeUp();
+		for (Pieza pieza : piezas) {
 			colocarAristaEnSuPosicionCruz(pieza);
 		}
-		// for (Pieza aristaBlanca : piezas) {
-		// colocarAristaEnSuPosicionCruz(aristaBlanca);
-		//
-		// }
+	}
+
+	private void resolverEsquinas() {
+		Set<Pieza> piezas = this.rubikCube.buscarVerticesDeUp();
+		for (Pieza pieza : piezas) {
+			colocarVerticeEnSuPosicionT(pieza);
+		}
+	}
+
+	private void colocarVerticeEnSuPosicionT(Pieza pieza) {
+		this.rubikCube.setFrontByPieza(pieza);
+		
 	}
 
 	private void colocarAristaEnSuPosicionCruz(Pieza pieza) {
@@ -39,15 +46,14 @@ public class SolutionMethodTemba {
 	}
 
 	private void subirPieza(Pieza pieza) {
-		if(pieza.getColorPuntero().equals(rubikCube.UP.getColorPuntero())){
+		if (pieza.apunta(this.rubikCube.DONW)) {
 			rubikCube.front(1);
 			rubikCube.front(1);
-		}else{
+		} else {
 			rubikCube.down(1);
 			rubikCube.right(1);
-			rubikCube.front(1);
+			rubikCube.front(-1);
 			rubikCube.right(-1);
-			
 		}
 	}
 
@@ -63,18 +69,22 @@ public class SolutionMethodTemba {
 		rubikCube.setFrontByPieza(pieza);
 	}
 
-	private void resolverEsquinas() {
-		// TODO Auto-generated method stub
-
-	}
-
 	private void bajarPieza(Pieza pieza) {
-		if (!pieza.containsColor(this.rubikCube.DONW.getColorPuntero())) {
-			if (pieza.containsColor(this.rubikCube.UP.getColorPuntero())) {
+		// TODO refinar
+		if (!pieza.estaEnCara(this.rubikCube.DONW)) {
+			if (pieza.estaEnCara(this.rubikCube.RIGHT)) {
 				rubikCube.front(1);
+				rubikCube.down(1);
+				rubikCube.front(-1);
+				rubikCube.down(-1);
+			} else if (pieza.estaEnCara(this.rubikCube.LEFT)) {
+				rubikCube.front(-1);
+				rubikCube.down(1);
 				rubikCube.front(1);
+				rubikCube.down(-1);
 			} else {
-				rubikCube.front(1);
+				rubikCube.front(-1);
+				rubikCube.front(-1);
 			}
 		}
 	}
