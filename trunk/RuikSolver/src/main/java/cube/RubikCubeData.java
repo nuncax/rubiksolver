@@ -291,7 +291,6 @@ public class RubikCubeData {
 		int[][] matriz = getMatriz(centro, signo);
 		for (Pieza pieza : getFace(centro)) {
 			pieza.multiplicar(matriz);
-			System.out.println(pieza);
 		}
 
 	}
