@@ -78,30 +78,42 @@ public class RubikCube {
 		}
 		return piezasRes;
 	}
+	
+	private Set<Pieza> getVertices() {
+		Set<Pieza> piezasRes = new HashSet<Pieza>();
+		for (Pieza pieza : getPiezas()) {
+			if (pieza.esVertice()) {
+				piezasRes.add(pieza);
+			}
+		}
+		return piezasRes;
+	}
 
 	public void setFrontByPieza(Pieza pieza) {
 		Pieza piezaAux;
-		if (pieza.estaEnCara(RIGHT)) {
-			piezaAux = FRONT;
-			FRONT = RIGHT;
-			RIGHT = BACK;
-			BACK = LEFT;
-			LEFT = piezaAux;
-		} else if (pieza.estaEnCara(BACK)) {
-			piezaAux = FRONT;
-			FRONT = BACK;
-			BACK = piezaAux;
+		if (!pieza.estaEnCara(FRONT)) {
+			if (pieza.estaEnCara(RIGHT)) {
+				piezaAux = FRONT;
+				FRONT = RIGHT;
+				RIGHT = BACK;
+				BACK = LEFT;
+				LEFT = piezaAux;
+			} else if (pieza.estaEnCara(BACK)) {
+				piezaAux = FRONT;
+				FRONT = BACK;
+				BACK = piezaAux;
 
-			piezaAux = RIGHT;
-			RIGHT = LEFT;
-			LEFT = piezaAux;
-		} else if (pieza.estaEnCara(LEFT)) {
-			piezaAux = FRONT;
+				piezaAux = RIGHT;
+				RIGHT = LEFT;
+				LEFT = piezaAux;
+			} else if (pieza.estaEnCara(LEFT)) {
+				piezaAux = FRONT;
 
-			FRONT = LEFT;
-			LEFT = BACK;
-			BACK = RIGHT;
-			RIGHT = piezaAux;
+				FRONT = LEFT;
+				LEFT = BACK;
+				BACK = RIGHT;
+				RIGHT = piezaAux;
+			}
 		}
 	}
 
@@ -134,6 +146,18 @@ public class RubikCube {
 		}
 		return piezaRes;
 	}
+
+	public Set<Pieza> buscarVerticesDeUp() {
+		Set<Pieza> piezaRes = new HashSet<Pieza>();
+		for (Pieza pieza : this.getVertices()) {
+			if (pieza.containsColor(this.UP.getColorPuntero())) {
+				piezaRes.add(pieza);
+			}
+		}
+		return piezaRes;
+	}
+
+	
 
 	public void SetPositions() throws IOException {
 		BufferedReader bf = new BufferedReader(new FileReader("datos.txt"));
