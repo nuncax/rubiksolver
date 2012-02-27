@@ -28,26 +28,39 @@ public class Vectr {
 		this.vector = new ArrayList<Integer>();
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Vectr other = (Vectr) obj;
+		if (vector == null) {
+			if (other.vector != null)
+				return false;
+		} else if (!vector.equals(other.vector))
+			return false;
+		return true;
+	}
+
 	public void multiplicaPorMatriz(int m[][]) {
-		// int[] res = new int[3];
 		List<Integer> res = new ArrayList<Integer>();
 		for (int i = 0; i < m.length; i++) {
 			int a = 0;
 			for (int j = 0; j < m.length; j++) {
-				// vector[i]
 				a += m[i][j] * this.vector.get(j);
 			}
 			res.add(a);
-			
+
 		}
 		vector.clear();
 		vector.addAll(res);
-		// this.vector = res;
 	}
 
-	@Override
 	public String toString() {
-		return "[" + vector + "]";
+		return vector.toString();
 	}
 
 }
