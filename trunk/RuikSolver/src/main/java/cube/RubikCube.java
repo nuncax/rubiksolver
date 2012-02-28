@@ -127,20 +127,20 @@ public class RubikCube {
 		return piezas;
 	}
 
-	public Set<Pieza> buscarAristas(Color color) {
-		Set<Pieza> piezaRes = new HashSet<Pieza>();
-		for (Pieza pieza : this.getAristas()) {
-			if (pieza.containsColor(color)) {
-				piezaRes.add(pieza);
-			}
-		}
-		return piezaRes;
-	}
+//	public Set<Pieza> buscarAristas(Color color) {
+//		Set<Pieza> piezaRes = new HashSet<Pieza>();
+//		for (Pieza pieza : this.getAristas()) {
+//			if (pieza.pernetece(color)) {
+//				piezaRes.add(pieza);
+//			}
+//		}
+//		return piezaRes;
+//	}
 
 	public Set<Pieza> buscarAristasDeUp() {
 		Set<Pieza> piezaRes = new HashSet<Pieza>();
 		for (Pieza pieza : this.getAristas()) {
-			if (pieza.containsColor(this.UP.getColorPuntero())) {
+			if (pieza.pernetece(this.UP)) {
 				piezaRes.add(pieza);
 			}
 		}
@@ -150,7 +150,7 @@ public class RubikCube {
 	public Set<Pieza> buscarVerticesDeUp() {
 		Set<Pieza> piezaRes = new HashSet<Pieza>();
 		for (Pieza pieza : this.getVertices()) {
-			if (pieza.containsColor(this.UP.getColorPuntero())) {
+			if (pieza.pernetece(this.UP)) {
 				piezaRes.add(pieza);
 			}
 		}

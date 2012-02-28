@@ -292,6 +292,7 @@ public class RubikCubeData {
 		for (Pieza pieza : getFace(centro)) {
 			pieza.multiplicar(matriz);
 		}
+		System.out.println("Gira la cara " + centro.getColorPuntero() + "," + signo);
 
 	}
 

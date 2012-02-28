@@ -68,8 +68,8 @@ public class Pieza {
 		return this.color.get(0);
 	}
 
-	public boolean containsColor(Color color) {
-		return this.color.contains(color);
+	public boolean pernetece(Pieza centro) {
+		return this.color.contains(centro.getColorPuntero());
 	}
 
 	public boolean estaEnCara(Pieza centro) {
