@@ -68,7 +68,7 @@ public class Pieza {
 		return this.color.get(0);
 	}
 
-	public boolean pernetece(Pieza centro) {
+	public boolean pertenece(Pieza centro) {
 		return this.color.contains(centro.getColorPuntero());
 	}
 

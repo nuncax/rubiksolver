@@ -12,7 +12,8 @@ public class Main {
 		// PropertyConfigurator.configure("log4j.properties");
 
 		RubikCube rubikCube = new RubikCube();
-		rubikCube.SetPositions();
+		//rubikCube.SetPositions();
+		rubikCube.scramble();
 		SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
 		temba.solucionar();
 	}
