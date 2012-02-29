@@ -42,14 +42,46 @@ public class SolutionMethodTemba {
 	}
 
 	private void subirVertice(Pieza pieza) {
-		// TODO Auto-generated method stub
+		if (pieza.estaEnCara(this.rubikCube.RIGHT)) {
+			while(!pieza.apunta(this.rubikCube.RIGHT)){
+				rubikCube.right(-1);
+				rubikCube.down(-1);
+				rubikCube.down(-1);
+				rubikCube.right(1);
+				rubikCube.down(1);
+			}
+			rubikCube.right(-1);
+			rubikCube.down(-1);
+			rubikCube.right(1);
+			
+		} else if (pieza.estaEnCara(this.rubikCube.LEFT)) {
+			while(!pieza.apunta(this.rubikCube.LEFT)){
+				rubikCube.left(1);
+				rubikCube.down(1);
+				rubikCube.down(1);
+				rubikCube.left(-1);
+				rubikCube.down(-1);
+			}
+			rubikCube.left(1);
+			rubikCube.down(1);
+			rubikCube.left(-1);			
+		}
 
 	}
 
 	private void llevarVerticeAsuCara(Pieza pieza) {
-//		while(!pieza.containsColor(this.rubikCube.FRONT.getColorPuntero()) && (()||())){
-//			
-//		}
+		while (
+
+		!pieza.pertenece(this.rubikCube.FRONT)
+				|| !((pieza.pertenece(this.rubikCube.RIGHT))
+						&& ((pieza.estaEnCara(this.rubikCube.RIGHT))) || (pieza
+						.pertenece(this.rubikCube.LEFT) && ((pieza
+						.estaEnCara(this.rubikCube.LEFT)))))
+
+		) {
+			this.rubikCube.down(1);
+			this.rubikCube.setFrontByPieza(pieza);
+		}
 	}
 
 	private void bajarVertice(Pieza pieza) {
@@ -63,6 +95,7 @@ public class SolutionMethodTemba {
 				this.rubikCube.down(-1);
 				this.rubikCube.left(-1);
 			}
+			this.rubikCube.setFrontByPieza(pieza);
 		}
 	}
 
@@ -89,11 +122,11 @@ public class SolutionMethodTemba {
 
 	private void llevarAsuCara(Pieza pieza) {
 		System.out.println("Llevando a su cara");
-		if (pieza.pernetece(this.rubikCube.LEFT)) {
+		if (pieza.pertenece(this.rubikCube.LEFT)) {
 			rubikCube.down(-1);
-		} else if (pieza.pernetece(this.rubikCube.RIGHT)) {
+		} else if (pieza.pertenece(this.rubikCube.RIGHT)) {
 			rubikCube.down(1);
-		} else if (pieza.pernetece(this.rubikCube.BACK)) {
+		} else if (pieza.pertenece(this.rubikCube.BACK)) {
 			rubikCube.down(1);
 			rubikCube.down(1);
 		}

@@ -78,7 +78,7 @@ public class RubikCube {
 		}
 		return piezasRes;
 	}
-	
+
 	private Set<Pieza> getVertices() {
 		Set<Pieza> piezasRes = new HashSet<Pieza>();
 		for (Pieza pieza : getPiezas()) {
@@ -127,20 +127,20 @@ public class RubikCube {
 		return piezas;
 	}
 
-//	public Set<Pieza> buscarAristas(Color color) {
-//		Set<Pieza> piezaRes = new HashSet<Pieza>();
-//		for (Pieza pieza : this.getAristas()) {
-//			if (pieza.pernetece(color)) {
-//				piezaRes.add(pieza);
-//			}
-//		}
-//		return piezaRes;
-//	}
+	// public Set<Pieza> buscarAristas(Color color) {
+	// Set<Pieza> piezaRes = new HashSet<Pieza>();
+	// for (Pieza pieza : this.getAristas()) {
+	// if (pieza.pernetece(color)) {
+	// piezaRes.add(pieza);
+	// }
+	// }
+	// return piezaRes;
+	// }
 
 	public Set<Pieza> buscarAristasDeUp() {
 		Set<Pieza> piezaRes = new HashSet<Pieza>();
 		for (Pieza pieza : this.getAristas()) {
-			if (pieza.pernetece(this.UP)) {
+			if (pieza.pertenece(this.UP)) {
 				piezaRes.add(pieza);
 			}
 		}
@@ -150,14 +150,12 @@ public class RubikCube {
 	public Set<Pieza> buscarVerticesDeUp() {
 		Set<Pieza> piezaRes = new HashSet<Pieza>();
 		for (Pieza pieza : this.getVertices()) {
-			if (pieza.pernetece(this.UP)) {
+			if (pieza.pertenece(this.UP)) {
 				piezaRes.add(pieza);
 			}
 		}
 		return piezaRes;
 	}
-
-	
 
 	public void SetPositions() throws IOException {
 		BufferedReader bf = new BufferedReader(new FileReader("datos.txt"));
@@ -186,39 +184,39 @@ public class RubikCube {
 		}
 	}
 
-	public void scramble() {
-		// TODO
+	private int tirar(int n) {
 		Random dado = new Random();
 		dado.setSeed(new Date().getTime());
-		int vecesQueGiro = dado.nextInt(1000);
+		return dado.nextInt(n);
+	}
 
+	public void scramble() {
+
+		int vecesQueGiro = 10;
 		for (int i = 0; i < vecesQueGiro; i++) {
-			dado.setSeed(new Date().getTime());
-			int queGiro = dado.nextInt(5);
-			for (int j = 0; j < queGiro; j++) {
-				switch (queGiro) {
-				case 1:
-					this.right(1);
-					break;
-				case 2:
-					this.front(1);
-					break;
-				case 3:
-					this.left(1);
-					break;
-				case 4:
-					this.uper(1);
-					break;
-				case 5:
-					this.down(1);
-					break;
-				case 0:
-					// this.b
-					break;
+			int queGiro = tirar(5);
+			switch (queGiro) {
+			case 1:
+				this.right(1);
+				break;
+			case 2:
+				this.front(1);
+				break;
+			case 3:
+				this.left(1);
+				break;
+			case 4:
+				this.uper(1);
+				break;
+			case 5:
+				this.down(1);
+				break;
+			case 0:
+				// this.b
+				break;
 
-				default:
-					break;
-				}
+			default:
+				break;
 			}
 		}
 
