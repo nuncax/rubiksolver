@@ -166,29 +166,29 @@ public class RubikCubeData {
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// AzR
-		colors.add(azul);
 		colors.add(rojo);
+		colors.add(azul);
 		posicion = new Vectr(1, 1, 0);
 		orientacion = new Vectr(1, 0, 0);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// AzN
-		colors.add(azul);
 		colors.add(naranja);
+		colors.add(azul);
 		posicion = new Vectr(-1, 1, 0);
 		orientacion = new Vectr(-1, 0, 0);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// VN
-		colors.add(verde);
 		colors.add(naranja);
+		colors.add(verde);
 		posicion = new Vectr(-1, -1, 0);
 		orientacion = new Vectr(-1, 0, 0);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// VR
-		colors.add(verde);
 		colors.add(rojo);
+		colors.add(verde);
 		posicion = new Vectr(1, -1, 0);
 		orientacion = new Vectr(1, 0, 0);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
