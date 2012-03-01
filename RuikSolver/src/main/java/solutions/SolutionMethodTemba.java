@@ -16,6 +16,27 @@ public class SolutionMethodTemba {
 	public void solucionar() {
 		resolverCruz();
 		resolverEsquinas();
+		segundaCapa();
+	}
+
+	private void segundaCapa() {
+		System.out.println("Segunda Capa:");
+		Set<Pieza> piezas = this.rubikCube.buscarAristasNoUp();
+		for (Pieza pieza : piezas) {
+			colocarAristaEnSegundaCapa(pieza);
+		}		
+	}
+
+	private void colocarAristaEnSegundaCapa(Pieza pieza) {
+		System.out.println("Colocando arista: " + pieza + "en segunda capa");
+		this.rubikCube.setFrontByPieza(pieza);
+		this.bajarPieza(pieza);
+		this.llevarAsuCara(pieza);
+		subeAsegundaCapa();
+	}
+
+	private void subeAsegundaCapa() {
+		
 	}
 
 	private void resolverCruz() {
@@ -34,7 +55,7 @@ public class SolutionMethodTemba {
 	}
 
 	private void colocarVerticeEnSuPosicionT(Pieza pieza) {
-		System.out.println("Colocando vertive: " + pieza + "en su posicion");
+		System.out.println("Colocando vertice: " + pieza + "en su posicion");
 		this.rubikCube.setFrontByPieza(pieza);
 		bajarVertice(pieza);
 		llevarVerticeAsuCara(pieza);
