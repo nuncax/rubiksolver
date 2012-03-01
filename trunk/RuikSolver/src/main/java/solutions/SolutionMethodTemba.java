@@ -42,8 +42,10 @@ public class SolutionMethodTemba {
 	}
 
 	private void subirVertice(Pieza pieza) {
+		System.out.println("subiendo vertice");
+
 		if (pieza.estaEnCara(this.rubikCube.RIGHT)) {
-			while(!pieza.apunta(this.rubikCube.RIGHT)){
+			while (!pieza.apunta(this.rubikCube.RIGHT)) {
 				rubikCube.right(-1);
 				rubikCube.down(-1);
 				rubikCube.down(-1);
@@ -53,9 +55,9 @@ public class SolutionMethodTemba {
 			rubikCube.right(-1);
 			rubikCube.down(-1);
 			rubikCube.right(1);
-			
+
 		} else if (pieza.estaEnCara(this.rubikCube.LEFT)) {
-			while(!pieza.apunta(this.rubikCube.LEFT)){
+			while (!pieza.apunta(this.rubikCube.LEFT)) {
 				rubikCube.left(1);
 				rubikCube.down(1);
 				rubikCube.down(1);
@@ -64,12 +66,13 @@ public class SolutionMethodTemba {
 			}
 			rubikCube.left(1);
 			rubikCube.down(1);
-			rubikCube.left(-1);			
+			rubikCube.left(-1);
 		}
 
 	}
 
 	private void llevarVerticeAsuCara(Pieza pieza) {
+		System.out.println("Llevando vertice a su cara");
 		while (
 
 		!pieza.pertenece(this.rubikCube.FRONT)
@@ -86,6 +89,7 @@ public class SolutionMethodTemba {
 
 	private void bajarVertice(Pieza pieza) {
 		if (!pieza.estaEnCara(this.rubikCube.DONW)) {
+			System.out.println("Bajando vertice:");
 			if (pieza.estaEnCara(this.rubikCube.RIGHT)) {
 				this.rubikCube.right(-1);
 				this.rubikCube.down(-1);

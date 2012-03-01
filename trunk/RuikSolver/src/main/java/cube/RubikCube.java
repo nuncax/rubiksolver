@@ -212,9 +212,8 @@ public class RubikCube {
 				this.down(1);
 				break;
 			case 0:
-				// this.b
+				this.back(1);
 				break;
-
 			default:
 				break;
 			}
