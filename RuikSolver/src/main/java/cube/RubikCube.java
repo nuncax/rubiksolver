@@ -220,4 +220,15 @@ public class RubikCube {
 		}
 
 	}
+
+	public Set<Pieza> buscarAristasNoUp() {
+		Set<Pieza> piezaRes = new HashSet<Pieza>();
+		for (Pieza pieza : this.getAristas()) {
+			if (!pieza.pertenece(this.UP) && !pieza.pertenece(this.DONW)) {
+				piezaRes.add(pieza);
+			}
+		}
+		return piezaRes;
+
+	}
 }
