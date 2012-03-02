@@ -1,5 +1,6 @@
 package solutions;
 
+import java.util.List;
 import java.util.Set;
 import pieza.Pieza;
 import cube.RubikCube;
@@ -17,6 +18,23 @@ public class SolutionMethodTemba {
 		resolverCruz();
 		resolverEsquinas();
 		segundaCapa();
+		colocarEsquinasDeDown();
+	}
+
+	private void colocarEsquinasDeDown() {
+		System.out.println("Segunda Capa:");
+		List<Pieza> piezas = this.rubikCube.buscarVerticesDeDonw();
+		Pieza pieza = piezas.get(0);
+		llevarVerticeAsuCara(pieza);
+		for (Pieza pieza2 : piezas) {
+			colocarEsquinaDownEnPos(pieza2);
+		}
+	}
+
+	private void colocarEsquinaDownEnPos(Pieza pieza) {
+		if(pieza.estaEnCara(this.rubikCube.LEFT)){
+			
+		}
 	}
 
 	private void segundaCapa() {
@@ -38,9 +56,26 @@ public class SolutionMethodTemba {
 	private void bajarPiezaSegunda(Pieza pieza) {
 		if (!pieza.estaEnCara(this.rubikCube.DONW)) {
 			if (pieza.estaEnCara(this.rubikCube.RIGHT)) {
-				
-			} else if (pieza.estaEnCara(this.rubikCube.LEFT)) {
+				this.rubikCube.right(-1);
+				this.rubikCube.down(+1);
+				this.rubikCube.right(+1);
+				this.rubikCube.down(+1);
+				this.rubikCube.front(+1);
+				this.rubikCube.down(-1);
+				this.rubikCube.front(-1);
+				this.rubikCube.down(+1);
+				this.rubikCube.down(+1);
 
+			} else if (pieza.estaEnCara(this.rubikCube.LEFT)) {
+				this.rubikCube.left(+1);
+				this.rubikCube.down(-1);
+				this.rubikCube.left(-1);
+				this.rubikCube.down(-1);
+				this.rubikCube.front(-1);
+				this.rubikCube.down(+1);
+				this.rubikCube.front(+1);
+				this.rubikCube.down(+1);
+				this.rubikCube.down(+1);
 			}
 		}
 	}
@@ -76,8 +111,8 @@ public class SolutionMethodTemba {
 			} else {
 				this.rubikCube.down(+1);
 			}
-			subeAsegundaCapa(pieza);
 			this.rubikCube.setFrontByPieza(pieza);
+			subeAsegundaCapa(pieza);
 		} else if (pieza.apunta(rubikCube.FRONT)
 				&& !pieza.getColorPuntero().equals(
 						rubikCube.FRONT.getColorPuntero())) {
@@ -86,8 +121,8 @@ public class SolutionMethodTemba {
 			} else {
 				this.rubikCube.down(+1);
 			}
-			subeAsegundaCapa(pieza);
 			this.rubikCube.setFrontByPieza(pieza);
+			subeAsegundaCapa(pieza);
 		} else if (!pieza.apunta(rubikCube.FRONT)
 				&& !pieza.getColorPuntero().equals(
 						rubikCube.FRONT.getColorPuntero())) {
@@ -220,7 +255,7 @@ public class SolutionMethodTemba {
 	}
 
 	private void llevarAsuCara(Pieza pieza) {
-		if (!pieza.estaEnCara(this.rubikCube.FRONT)) {
+		if (!pieza.pertenece(this.rubikCube.FRONT)) {
 			System.out.println("Llevando a su cara");
 			if (pieza.pertenece(this.rubikCube.LEFT)) {
 				rubikCube.down(-1);

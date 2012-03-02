@@ -1,12 +1,6 @@
 R
-R
-L
-L
-F
-F
-B
-B
 U
+LP
+D
+RP
 U
-D
-D
