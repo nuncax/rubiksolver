@@ -3,6 +3,7 @@ package cube;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -191,10 +192,14 @@ public class RubikCube {
 	}
 
 	public void scramble() {
-
+		int aux = 6;
 		int vecesQueGiro = 10;
+		int queGiro = tirar(5);
 		for (int i = 0; i < vecesQueGiro; i++) {
-			int queGiro = tirar(5);
+			while (queGiro == aux) {
+				queGiro = tirar(5);
+			}
+			aux = queGiro;
 			switch (queGiro) {
 			case 1:
 				this.right(1);
@@ -230,5 +235,15 @@ public class RubikCube {
 		}
 		return piezaRes;
 
+	}
+
+	public List<Pieza> buscarVerticesDeDonw() {
+		List<Pieza> piezaRes = new ArrayList<Pieza>();
+		for (Pieza pieza : this.getVertices()) {
+			if (pieza.pertenece(this.DONW)) {
+				piezaRes.add(pieza);
+			}
+		}
+		return piezaRes;
 	}
 }
