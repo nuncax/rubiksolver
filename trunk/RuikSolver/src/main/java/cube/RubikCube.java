@@ -16,12 +16,12 @@ import pieza.Pieza;
 public class RubikCube {
 	private final RubikCubeData data;
 
-	public Pieza FRONT;
-	public Pieza RIGHT;
-	public Pieza LEFT;
-	public Pieza UP;
-	public Pieza DONW;
-	public Pieza BACK;
+	public Pieza front_center;
+	public Pieza right_center;
+	public Pieza left_center;
+	public Pieza up_center;
+	public Pieza down_center;
+	public Pieza back_center;
 
 	private final Color AZUL = new Color("azul");
 	private final Color NARANJA = new Color("naranja");
@@ -33,37 +33,37 @@ public class RubikCube {
 	public RubikCube() {
 		data = new RubikCubeData();
 		data.createCube();
-		this.DONW = data.getCentro(AMARILLO);
-		this.FRONT = data.getCentro(AZUL);
-		this.RIGHT = data.getCentro(NARANJA);
-		this.BACK = data.getCentro(VERDE);
-		this.LEFT = data.getCentro(ROJO);
-		this.UP = data.getCentro(BLANCO);
+		this.down_center = data.getCentro(AMARILLO);
+		this.front_center = data.getCentro(AZUL);
+		this.right_center = data.getCentro(NARANJA);
+		this.back_center = data.getCentro(VERDE);
+		this.left_center = data.getCentro(ROJO);
+		this.up_center = data.getCentro(BLANCO);
 	}
 
 	public void right(int signo) {
-		data.rotateFaceClockwise(RIGHT, signo);
+		data.rotateFaceClockwise(right_center, signo);
 	}
 
 	public void left(int signo) {
-		data.rotateFaceClockwise(LEFT, signo);
+		data.rotateFaceClockwise(left_center, signo);
 	}
 
 	public void front(int signo) {
-		data.rotateFaceClockwise(FRONT, signo);
+		data.rotateFaceClockwise(front_center, signo);
 	}
 
 	private void back(int signo) {
-		data.rotateFaceClockwise(BACK, signo);
+		data.rotateFaceClockwise(back_center, signo);
 
 	}
 
 	public void uper(int signo) {
-		data.rotateFaceClockwise(UP, signo);
+		data.rotateFaceClockwise(up_center, signo);
 	}
 
 	public void down(int signo) {
-		data.rotateFaceClockwise(DONW, signo);
+		data.rotateFaceClockwise(down_center, signo);
 	}
 
 	public List<Pieza> getPiezas() {
@@ -92,28 +92,28 @@ public class RubikCube {
 
 	public void setFrontByPieza(Pieza pieza) {
 		Pieza piezaAux;
-		if (!pieza.estaEnCara(FRONT)) {
-			if (pieza.estaEnCara(RIGHT)) {
-				piezaAux = FRONT;
-				FRONT = RIGHT;
-				RIGHT = BACK;
-				BACK = LEFT;
-				LEFT = piezaAux;
-			} else if (pieza.estaEnCara(BACK)) {
-				piezaAux = FRONT;
-				FRONT = BACK;
-				BACK = piezaAux;
+		if (!pieza.estaEnCara(front_center)) {
+			if (pieza.estaEnCara(right_center)) {
+				piezaAux = front_center;
+				front_center = right_center;
+				right_center = back_center;
+				back_center = left_center;
+				left_center = piezaAux;
+			} else if (pieza.estaEnCara(back_center)) {
+				piezaAux = front_center;
+				front_center = back_center;
+				back_center = piezaAux;
 
-				piezaAux = RIGHT;
-				RIGHT = LEFT;
-				LEFT = piezaAux;
-			} else if (pieza.estaEnCara(LEFT)) {
-				piezaAux = FRONT;
+				piezaAux = right_center;
+				right_center = left_center;
+				left_center = piezaAux;
+			} else if (pieza.estaEnCara(left_center)) {
+				piezaAux = front_center;
 
-				FRONT = LEFT;
-				LEFT = BACK;
-				BACK = RIGHT;
-				RIGHT = piezaAux;
+				front_center = left_center;
+				left_center = back_center;
+				back_center = right_center;
+				right_center = piezaAux;
 			}
 		}
 	}
@@ -141,7 +141,7 @@ public class RubikCube {
 	public Set<Pieza> buscarAristasDeUp() {
 		Set<Pieza> piezaRes = new HashSet<Pieza>();
 		for (Pieza pieza : this.getAristas()) {
-			if (pieza.pertenece(this.UP)) {
+			if (pieza.pertenece(this.up_center)) {
 				piezaRes.add(pieza);
 			}
 		}
@@ -151,14 +151,14 @@ public class RubikCube {
 	public Set<Pieza> buscarVerticesDeUp() {
 		Set<Pieza> piezaRes = new HashSet<Pieza>();
 		for (Pieza pieza : this.getVertices()) {
-			if (pieza.pertenece(this.UP)) {
+			if (pieza.pertenece(this.up_center)) {
 				piezaRes.add(pieza);
 			}
 		}
 		return piezaRes;
 	}
 
-	public void SetPositions() throws IOException {
+	public void setPositions() throws IOException {
 		BufferedReader bf = new BufferedReader(new FileReader("datos.txt"));
 		String sCadena;
 		while ((sCadena = bf.readLine()) != null) {
@@ -229,7 +229,7 @@ public class RubikCube {
 	public Set<Pieza> buscarAristasNoUp() {
 		Set<Pieza> piezaRes = new HashSet<Pieza>();
 		for (Pieza pieza : this.getAristas()) {
-			if (!pieza.pertenece(this.UP) && !pieza.pertenece(this.DONW)) {
+			if (!pieza.pertenece(this.up_center) && !pieza.pertenece(this.down_center)) {
 				piezaRes.add(pieza);
 			}
 		}
@@ -240,7 +240,7 @@ public class RubikCube {
 	public List<Pieza> buscarVerticesDeDonw() {
 		List<Pieza> piezaRes = new ArrayList<Pieza>();
 		for (Pieza pieza : this.getVertices()) {
-			if (pieza.pertenece(this.DONW)) {
+			if (pieza.pertenece(this.down_center)) {
 				piezaRes.add(pieza);
 			}
 		}
