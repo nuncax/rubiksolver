@@ -5,27 +5,35 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Vectr {
-	private List<Integer> vector;
-	final int X = 0;
-	final int Y = 1;
+	private final List<Integer> vector;
+	final static int X = 0;
+	final static private int Y = 1;
 
 	public List<Integer> getVector() {
 		// TODO
 		return vector;
 	}
 
-	final int Z = 2;
+	final static int Z = 2;
 
 	public Vectr(Integer x, Integer y, Integer z) {
 		this.vector = new ArrayList<Integer>();
 		vector.add(X, x);
 		vector.add(Y, y);
 		vector.add(Z, z);
-		;
 	}
 
 	public Vectr() {
 		this.vector = new ArrayList<Integer>();
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((vector == null) ? 0 : vector.hashCode());
+		return result;
 	}
 
 	@Override

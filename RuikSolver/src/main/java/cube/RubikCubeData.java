@@ -13,34 +13,34 @@ public class RubikCubeData {
 
 	int[][] getMatriz(Pieza centro, int signo) {
 		int[][] maux = null;
-		if (centro.getColorPuntero().equals(this.blanco)) {
+		if (centro.getColorPuntero().equals(this.blanco_color)) {
 			maux = new int[][] { { 0, signo * 1, 0 }, { signo * -1, 0, 0 },
-					{ 0, 0, 1 } };
-		} else if (centro.getColorPuntero().equals(this.amarillo)) {
+					{ 0, 0, 1 }, };
+		} else if (centro.getColorPuntero().equals(this.amarillo_color)) {
 			maux = new int[][] { { 0, signo * -1, 0 }, { signo * 1, 0, 0 },
-					{ 0, 0, 1 } };
-		} else if (centro.getColorPuntero().equals(this.azul)) {
+					{ 0, 0, 1 }, };
+		} else if (centro.getColorPuntero().equals(this.azul_color)) {
 			maux = new int[][] { { 0, 0, signo * -1 }, { 0, 1, 0 },
-					{ signo * 1, 0, 0 } };
-		} else if (centro.getColorPuntero().equals(this.naranja)) {
+					{ signo * 1, 0, 0 }, };
+		} else if (centro.getColorPuntero().equals(this.naranja_color)) {
 			maux = new int[][] { { 1, 0, 0 }, { 0, 0, signo * -1 },
-					{ 0, signo * 1, 0 } };
-		} else if (centro.getColorPuntero().equals(this.rojo)) {
+					{ 0, signo * 1, 0 } ,};
+		} else if (centro.getColorPuntero().equals(this.rojo_color)) {
 			maux = new int[][] { { 1, 0, 0 }, { 0, 0, signo * 1 },
-					{ 0, signo * -1, 0 } };
-		} else if (centro.getColorPuntero().equals(this.verde)) {
+					{ 0, signo * -1, 0 } ,};
+		} else if (centro.getColorPuntero().equals(this.verde_color)) {
 			maux = new int[][] { { 0, 0, signo * 1 }, { 0, 1, 0 },
-					{ signo * -1, 0, 0 } };
+					{ signo * -1, 0, 0 } ,};
 		}
 		return maux;
 	}
 
-	final private Color blanco = new Color("blanco");
-	final private Color verde = new Color("verde");
-	final private Color azul = new Color("azul");
-	final private Color rojo = new Color("rojo");
-	final private Color amarillo = new Color("amarillo");
-	final private Color naranja = new Color("naranja");
+	final private Color blanco_color = new Color("blanco");
+	final private Color verde_color = new Color("verde");
+	final private Color azul_color = new Color("azul");
+	final private Color rojo_color = new Color("rojo");
+	final private Color amarillo_color = new Color("amarillo");
+	final private Color naranja_color = new Color("naranja");
 
 	private List<Pieza> cubeSet;
 
@@ -59,66 +59,66 @@ public class RubikCubeData {
 		List<Color> colors = new ArrayList<Color>();
 
 		// AzRB
-		colors.add(blanco);
-		colors.add(azul);
-		colors.add(rojo);
+		colors.add(blanco_color);
+		colors.add(azul_color);
+		colors.add(rojo_color);
 		posicion = new Vectr(1, 1, 1);
 		orientacion = new Vectr(0, 0, 1);
 		// verticeAzulRojoBlanco = new Pieza(posicion, orientacion, colors);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// AzNB
-		colors.add(blanco);
-		colors.add(azul);
-		colors.add(naranja);
+		colors.add(blanco_color);
+		colors.add(azul_color);
+		colors.add(naranja_color);
 		posicion = new Vectr(-1, 1, 1);
 		orientacion = new Vectr(0, 0, 1);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// VNB
-		colors.add(blanco);
-		colors.add(verde);
-		colors.add(naranja);
+		colors.add(blanco_color);
+		colors.add(verde_color);
+		colors.add(naranja_color);
 		posicion = new Vectr(-1, -1, 1);
 		orientacion = new Vectr(0, 0, 1);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// VRB
-		colors.add(blanco);
-		colors.add(verde);
-		colors.add(rojo);
+		colors.add(blanco_color);
+		colors.add(verde_color);
+		colors.add(rojo_color);
 		posicion = new Vectr(1, -1, 1);
 		orientacion = new Vectr(0, 0, 1);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// AzNA
-		colors.add(azul);
-		colors.add(naranja);
-		colors.add(amarillo);
+		colors.add(azul_color);
+		colors.add(naranja_color);
+		colors.add(amarillo_color);
 		posicion = new Vectr(-1, 1, -1);
 		orientacion = new Vectr(0, 0, -1);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// AzRA
-		colors.add(azul);
-		colors.add(rojo);
-		colors.add(amarillo);
+		colors.add(azul_color);
+		colors.add(rojo_color);
+		colors.add(amarillo_color);
 		posicion = new Vectr(1, 1, -1);
 		orientacion = new Vectr(0, 0, -1);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// VRA
-		colors.add(verde);
-		colors.add(rojo);
-		colors.add(amarillo);
+		colors.add(verde_color);
+		colors.add(rojo_color);
+		colors.add(amarillo_color);
 		posicion = new Vectr(1, -1, -1);
 		orientacion = new Vectr(0, 0, -1);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// VNA
-		colors.add(verde);
-		colors.add(naranja);
-		colors.add(amarillo);
+		colors.add(verde_color);
+		colors.add(naranja_color);
+		colors.add(amarillo_color);
 		posicion = new Vectr(-1, -1, -1);
 		orientacion = new Vectr(0, 0, -1);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
@@ -225,49 +225,42 @@ public class RubikCubeData {
 
 	private void createCentros() {
 
-		Color blanco = new Color("blanco");
-		Color verde = new Color("verde");
-		Color azul = new Color("azul");
-		Color rojo = new Color("rojo");
-		Color amarillo = new Color("amarillo");
-		Color naranja = new Color("naranja");
-
 		Vectr orientacion;
 		Vectr posicion;
 		List<Color> colors = new ArrayList<Color>();
 
 		// blanco
-		colors.add(blanco);
+		colors.add(blanco_color);
 		posicion = new Vectr(0, 0, 1);
 		orientacion = new Vectr(0, 0, 1);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// amarillo
-		colors.add(amarillo);
+		colors.add(amarillo_color);
 		posicion = new Vectr(0, 0, -1);
 		orientacion = new Vectr(0, 0, -1);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// verde
-		colors.add(verde);
+		colors.add(verde_color);
 		posicion = new Vectr(0, -1, 0);
 		orientacion = new Vectr(0, -1, 0);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// rojo
-		colors.add(rojo);
+		colors.add(rojo_color);
 		posicion = new Vectr(1, 0, 0);
 		orientacion = new Vectr(1, 0, 0);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// azul
-		colors.add(azul);
+		colors.add(azul_color);
 		posicion = new Vectr(0, 1, 0);
 		orientacion = new Vectr(0, 1, 0);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
 		colors = new ArrayList<Color>();
 		// naranja
-		colors.add(naranja);
+		colors.add(naranja_color);
 		posicion = new Vectr(-1, 0, 0);
 		orientacion = new Vectr(-1, 0, 0);
 		cubeSet.add(new Pieza(posicion, orientacion, colors));
@@ -293,7 +286,6 @@ public class RubikCubeData {
 			pieza.multiplicar(matriz);
 		}
 		System.out.println("Gira la cara " + centro.getColorPuntero() + "," + signo);
-
 	}
 
 	public Pieza getCentro(Color color) {

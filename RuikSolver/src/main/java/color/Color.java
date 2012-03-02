@@ -21,6 +21,13 @@ public class Color {
 	public String toString() {
 		return color;
 	}
+	
+	final int PRIME = 31;
+	public int hashCode() {
+		int result = 1;
+		result = PRIME * result + ((color == null) ? 0 : color.hashCode());
+		return result;
+	}
 
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -36,8 +43,6 @@ public class Color {
 		} else if (!color.equals(other.color))
 			return false;
 		return true;
-	}
-	
-	
+	}	
 
 }
