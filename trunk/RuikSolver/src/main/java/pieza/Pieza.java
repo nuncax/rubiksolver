@@ -112,4 +112,37 @@ public class Pieza {
 		return numCaras == 0;
 
 	}
+
+	public boolean esPar(Pieza centro) {
+		boolean res = false;
+		if (this.pertenece(centro)) {
+			if (!this.apunta(centro) && (!this.getColorPuntero().equals(centro.getColorPuntero())) ){
+
+			}
+			if (!this.apunta(centro) && (this.getColorPuntero().equals(centro.getColorPuntero())) ){
+
+			}
+			if (this.apunta(centro) && (!this.getColorPuntero().equals(centro.getColorPuntero())) ){
+
+			}
+			if (!this.apunta(centro) && (!this.getColorPuntero().equals(centro.getColorPuntero()))) {
+
+			}
+
+		}
+		return res;
+	}
+
+	// public boolean esPar(Pieza centro) {
+	// boolean res = false;
+	// if (this.pertenece(centro)) {
+	// if ((this.apunta(centro) && this.getColorPuntero().equals(
+	// centro.getColorPuntero()))
+	// || ((!this.apunta(centro) && !this.getColorPuntero()
+	// .equals(centro.getColorPuntero())))) {
+	// res = true;
+	// }
+	// }
+	// return res;
+	// }
 }
