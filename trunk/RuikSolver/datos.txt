@@ -1,5 +1,4 @@
 R
-U
-LP
-D
+DP
 RP
+D
