@@ -112,8 +112,11 @@ public class Pieza {
 		return numCaras == 0;
 
 	}
-
+	
+	//creo q funciona simpre q no se le pasen los centros up y down
 	public boolean esPar(Pieza centro) {
+			
+		int cmp = 0;
 		List<Integer> thisV = this.orientacion.getVector();
 		List<Integer> centroV = centro.orientacion.getVector();
 
@@ -121,42 +124,15 @@ public class Pieza {
 		int y = thisV.get(1) * centroV.get(1);
 		int z = thisV.get(2) * centroV.get(2);
 
+		if ((x == 1 && y == 0 && z == 0)
+				&& this.esArista()
+				&& this.getColorPuntero().getColor()
+						.equals(centro.getColorPuntero().getColor())) {
+			cmp = 1;
+		}
+
 		int suma = x + y + z;
-		
-//		if(centro.getColorPuntero().getColor().equals(anObject))
 
-		return suma==0 && this.pertenece(centro); 
-
-		// if (this.pertenece(centro)) {
-		// if (!this.apunta(centro)&&
-		// !(this.getColorPuntero().equals(centro.getColorPuntero()))) {
-		// res = true;
-		// }
-		// if (!this.apunta(centro)&&
-		// (this.getColorPuntero().equals(centro.getColorPuntero()))) {
-		// res = true;
-		// }
-		// if (this.apunta(centro)&&
-		// !(this.getColorPuntero().equals(centro.getColorPuntero()))) {
-		// res = true;
-		// }
-		// if (this.apunta(centro)&&
-		// (this.getColorPuntero().equals(centro.getColorPuntero()))) {
-		// res = true;
-		// }
-		// }
+		return suma == cmp && this.pertenece(centro);
 	}
-
-	// public boolean esPar(Pieza centro) {
-	// boolean res = false;
-	// if (this.pertenece(centro)) {
-	// if ((this.apunta(centro) && this.getColorPuntero().equals(
-	// centro.getColorPuntero()))
-	// || ((!this.apunta(centro) && !this.getColorPuntero()
-	// .equals(centro.getColorPuntero())))) {
-	// res = true;
-	// }
-	// }
-	// return res;
-	// }
 }
