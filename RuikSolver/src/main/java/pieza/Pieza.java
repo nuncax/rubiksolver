@@ -114,23 +114,37 @@ public class Pieza {
 	}
 
 	public boolean esPar(Pieza centro) {
-		boolean res = false;
-		if (this.pertenece(centro)) {
-			if (!this.apunta(centro) && (!this.getColorPuntero().equals(centro.getColorPuntero())) ){
+		List<Integer> thisV = this.orientacion.getVector();
+		List<Integer> centroV = centro.orientacion.getVector();
 
-			}
-			if (!this.apunta(centro) && (this.getColorPuntero().equals(centro.getColorPuntero())) ){
+		int x = thisV.get(0) * centroV.get(0);
+		int y = thisV.get(1) * centroV.get(1);
+		int z = thisV.get(2) * centroV.get(2);
 
-			}
-			if (this.apunta(centro) && (!this.getColorPuntero().equals(centro.getColorPuntero())) ){
+		int suma = x + y + z;
+		
+//		if(centro.getColorPuntero().getColor().equals(anObject))
 
-			}
-			if (!this.apunta(centro) && (!this.getColorPuntero().equals(centro.getColorPuntero()))) {
+		return suma==0 && this.pertenece(centro); 
 
-			}
-
-		}
-		return res;
+		// if (this.pertenece(centro)) {
+		// if (!this.apunta(centro)&&
+		// !(this.getColorPuntero().equals(centro.getColorPuntero()))) {
+		// res = true;
+		// }
+		// if (!this.apunta(centro)&&
+		// (this.getColorPuntero().equals(centro.getColorPuntero()))) {
+		// res = true;
+		// }
+		// if (this.apunta(centro)&&
+		// !(this.getColorPuntero().equals(centro.getColorPuntero()))) {
+		// res = true;
+		// }
+		// if (this.apunta(centro)&&
+		// (this.getColorPuntero().equals(centro.getColorPuntero()))) {
+		// res = true;
+		// }
+		// }
 	}
 
 	// public boolean esPar(Pieza centro) {
