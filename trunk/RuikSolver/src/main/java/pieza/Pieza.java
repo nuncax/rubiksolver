@@ -91,6 +91,9 @@ public class Pieza {
 	public void multiplicar(int[][] maux) {
 		// TODO
 		this.posicion.multiplicaPorMatriz(maux);
+		for(Stick stick:this.color){
+			stick.getOrientacion().multiplicaPorMatriz(maux);
+		}
 		//this.orientacion.multiplicaPorMatriz(maux);
 	}
 
