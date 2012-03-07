@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import color.Color;
 import pieza.Pieza;
 import pieza.Stick;
 import pieza.Vectr;
@@ -14,34 +13,41 @@ public class RubikCubeData {
 
 	int[][] getMatriz(Pieza centro, int signo) {
 		int[][] maux = null;
-		if (centro.getColorPuntero().equals(this.blanco_color)) {
+		if (centro.getColorPuntero().equals(this.blanco_stick)) {
 			maux = new int[][] { { 0, signo * 1, 0 }, { signo * -1, 0, 0 },
 					{ 0, 0, 1 }, };
-		} else if (centro.getColorPuntero().equals(this.amarillo_color)) {
+		} else if (centro.getColorPuntero().equals(this.amarillo_stick)) {
 			maux = new int[][] { { 0, signo * -1, 0 }, { signo * 1, 0, 0 },
 					{ 0, 0, 1 }, };
-		} else if (centro.getColorPuntero().equals(this.azul_color)) {
+		} else if (centro.getColorPuntero().equals(this.azul_stick)) {
 			maux = new int[][] { { 0, 0, signo * -1 }, { 0, 1, 0 },
 					{ signo * 1, 0, 0 }, };
-		} else if (centro.getColorPuntero().equals(this.naranja_color)) {
+		} else if (centro.getColorPuntero().equals(this.naranja_stick)) {
 			maux = new int[][] { { 1, 0, 0 }, { 0, 0, signo * -1 },
 					{ 0, signo * 1, 0 } ,};
-		} else if (centro.getColorPuntero().equals(this.rojo_color)) {
+		} else if (centro.getColorPuntero().equals(this.rojo_stick)) {
 			maux = new int[][] { { 1, 0, 0 }, { 0, 0, signo * 1 },
 					{ 0, signo * -1, 0 } ,};
-		} else if (centro.getColorPuntero().equals(this.verde_color)) {
+		} else if (centro.getColorPuntero().equals(this.verde_stick)) {
 			maux = new int[][] { { 0, 0, signo * 1 }, { 0, 1, 0 },
 					{ signo * -1, 0, 0 } ,};
 		}
 		return maux;
 	}
+	
+	final private Stick blanco_stick = new Stick(bla, orientacion)
+	final private Stick verde_stick = new Stick("verde");
+	final private Stick azul_stick = new Stick("azul");
+	final private Stick rojo_stick = new Stick("rojo");
+	final private Stick amarillo_stick = new Stick("amarillo");
+	final private Stick naranja_stick = new Stick("naranja");
 
-	final private Color blanco_color = new Color("blanco");
-	final private Color verde_color = new Color("verde");
-	final private Color azul_color = new Color("azul");
-	final private Color rojo_color = new Color("rojo");
-	final private Color amarillo_color = new Color("amarillo");
-	final private Color naranja_color = new Color("naranja");
+	final private Stick blanco_stick = new Stick(bla, orientacion)
+	final private Stick verde_stick = new Stick("verde");
+	final private Stick azul_stick = new Stick("azul");
+	final private Stick rojo_stick = new Stick("rojo");
+	final private Stick amarillo_stick = new Stick("amarillo");
+	final private Stick naranja_stick = new Stick("naranja");
 
 	private List<Pieza> cubeSet;
 
@@ -57,170 +63,170 @@ public class RubikCubeData {
 
 		Vectr orientacion;
 		Vectr posicion;
-		List<Stick> colors = new ArrayList<Stick>();
+		List<Stick> stickers = new ArrayList<Stick>();
 
 		// AzRB
-		colors.add(blanco_color);
-		colors.add(azul_color);
-		colors.add(rojo_color);
+		stickers.add(blanco_stick);
+		stickers.add(azul_stick);
+		stickers.add(rojo_stick);
 		posicion = new Vectr(1, 1, 1);
 		orientacion = new Vectr(0, 0, 1);
-		// verticeAzulRojoBlanco = new Pieza(posicion, orientacion, colors);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		// verticeAzulRojoBlanco = new Pieza(posicion, orientacion, stickers);
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// AzNB
-		colors.add(blanco_color);
-		colors.add(azul_color);
-		colors.add(naranja_color);
+		stickers.add(blanco_stick);
+		stickers.add(azul_stick);
+		stickers.add(naranja_stick);
 		posicion = new Vectr(-1, 1, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// VNB
-		colors.add(blanco_color);
-		colors.add(verde_color);
-		colors.add(naranja_color);
+		stickers.add(blanco_stick);
+		stickers.add(verde_stick);
+		stickers.add(naranja_stick);
 		posicion = new Vectr(-1, -1, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// VRB
-		colors.add(blanco_color);
-		colors.add(verde_color);
-		colors.add(rojo_color);
+		stickers.add(blanco_stick);
+		stickers.add(verde_stick);
+		stickers.add(rojo_stick);
 		posicion = new Vectr(1, -1, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// AzNA
-		colors.add(azul_color);
-		colors.add(naranja_color);
-		colors.add(amarillo_color);
+		stickers.add(azul_stick);
+		stickers.add(naranja_stick);
+		stickers.add(amarillo_stick);
 		posicion = new Vectr(-1, 1, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// AzRA
-		colors.add(azul_color);
-		colors.add(rojo_color);
-		colors.add(amarillo_color);
+		stickers.add(azul_stick);
+		stickers.add(rojo_stick);
+		stickers.add(amarillo_stick);
 		posicion = new Vectr(1, 1, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// VRA
-		colors.add(verde_color);
-		colors.add(rojo_color);
-		colors.add(amarillo_color);
+		stickers.add(verde_stick);
+		stickers.add(rojo_stick);
+		stickers.add(amarillo_stick);
 		posicion = new Vectr(1, -1, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// VNA
-		colors.add(verde_color);
-		colors.add(naranja_color);
-		colors.add(amarillo_color);
+		stickers.add(verde_stick);
+		stickers.add(naranja_stick);
+		stickers.add(amarillo_stick);
 		posicion = new Vectr(-1, -1, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
 
 	}
 
 	private void createAristas() {
 
-		Color blanco = new Color("blanco");
-		Color verde = new Color("verde");
-		Color azul = new Color("azul");
-		Color rojo = new Color("rojo");
-		Color amarillo = new Color("amarillo");
-		Color naranja = new Color("naranja");
+//		Stick blanco = new Stick("blanco");
+//		Stick verde = new Stick("verde");
+//		Stick azul = new Stick("azul");
+//		Stick rojo = new Stick("rojo");
+//		Stick amarillo = new Stick("amarillo");
+//		Stick naranja = new Stick("naranja");
 
 		Vectr orientacion;
 		Vectr posicion;
-		List<Color> colors = new ArrayList<Color>();
+		List<Stick> stickers = new ArrayList<Stick>();
 		// RB
-		colors.add(blanco);
-		colors.add(rojo);
+		stickers.add(blanco_stick);
+		stickers.add(rojo_stick);
 		posicion = new Vectr(1, 0, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// AB
-		colors.add(blanco);
-		colors.add(azul);
+		stickers.add(blanco_stick);
+		stickers.add(azul_stick);
 		posicion = new Vectr(0, 1, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// NB
-		colors.add(blanco);
-		colors.add(naranja);
+		stickers.add(blanco_stick);
+		stickers.add(naranja_stick);
 		posicion = new Vectr(-1, 0, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// VB
-		colors.add(blanco);
-		colors.add(verde);
+		stickers.add(blanco_stick);
+		stickers.add(verde_stick);
 		posicion = new Vectr(0, -1, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// AzR
-		colors.add(rojo);
-		colors.add(azul);
+		stickers.add(rojo_stick);
+		stickers.add(azul_stick);
 		posicion = new Vectr(1, 1, 0);
 		orientacion = new Vectr(1, 0, 0);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// AzN
-		colors.add(naranja);
-		colors.add(azul);
+		stickers.add(naranja_stick);
+		stickers.add(azul_stick);
 		posicion = new Vectr(-1, 1, 0);
 		orientacion = new Vectr(-1, 0, 0);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// VN
-		colors.add(naranja);
-		colors.add(verde);
+		stickers.add(naranja_stick);
+		stickers.add(verde_stick);
 		posicion = new Vectr(-1, -1, 0);
 		orientacion = new Vectr(-1, 0, 0);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// VR
-		colors.add(rojo);
-		colors.add(verde);
+		stickers.add(rojo_stick);
+		stickers.add(verde_stick);
 		posicion = new Vectr(1, -1, 0);
 		orientacion = new Vectr(1, 0, 0);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// RA
-		colors.add(rojo);
-		colors.add(amarillo);
+		stickers.add(rojo_stick);
+		stickers.add(amarillo_stick);
 		posicion = new Vectr(1, 0, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// AzA
-		colors.add(azul);
-		colors.add(amarillo);
+		stickers.add(azul_stick);
+		stickers.add(amarillo_stick);
 		posicion = new Vectr(0, 1, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// NA
-		colors.add(naranja);
-		colors.add(amarillo);
+		stickers.add(naranja_stick);
+		stickers.add(amarillo_stick);
 		posicion = new Vectr(-1, 0, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// VA
-		colors.add(verde);
-		colors.add(amarillo);
+		stickers.add(verde_stick);
+		stickers.add(amarillo_stick);
 		posicion = new Vectr(0, -1, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
 
 	}
 
@@ -228,43 +234,43 @@ public class RubikCubeData {
 
 		Vectr orientacion;
 		Vectr posicion;
-		List<Color> colors = new ArrayList<Color>();
+		List<Stick> stickers = new ArrayList<Stick>();
 
 		// blanco
-		colors.add(blanco_color);
+		stickers.add(blanco_stick);
 		posicion = new Vectr(0, 0, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// amarillo
-		colors.add(amarillo_color);
+		stickers.add(amarillo_stick);
 		posicion = new Vectr(0, 0, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// verde
-		colors.add(verde_color);
+		stickers.add(verde_stick);
 		posicion = new Vectr(0, -1, 0);
 		orientacion = new Vectr(0, -1, 0);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// rojo
-		colors.add(rojo_color);
+		stickers.add(rojo_stick);
 		posicion = new Vectr(1, 0, 0);
 		orientacion = new Vectr(1, 0, 0);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// azul
-		colors.add(azul_color);
+		stickers.add(azul_stick);
 		posicion = new Vectr(0, 1, 0);
 		orientacion = new Vectr(0, 1, 0);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
-		colors = new ArrayList<Color>();
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
+		stickers = new ArrayList<Stick>();
 		// naranja
-		colors.add(naranja_color);
+		stickers.add(naranja_stick);
 		posicion = new Vectr(-1, 0, 0);
 		orientacion = new Vectr(-1, 0, 0);
-		cubeSet.add(new Pieza(posicion, orientacion, colors));
+		cubeSet.add(new Pieza(posicion, orientacion, stickers));
 	}
 
 	public List<Pieza> getCubeSet() {
@@ -289,10 +295,10 @@ public class RubikCubeData {
 		System.out.println("Gira la cara " + centro.getColorPuntero() + "," + signo);
 	}
 
-	public Pieza getCentro(Color color) {
+	public Pieza getCentro(Stick stick) {
 		Pieza piezaRes = null;
 		for (Pieza pieza : this.cubeSet) {
-			if (pieza.esCentro() && pieza.getColorPuntero().equals(color)) {
+			if (pieza.esCentro() && pieza.getColorPuntero().equals(stick)) {
 				piezaRes = pieza;
 			}
 		}
