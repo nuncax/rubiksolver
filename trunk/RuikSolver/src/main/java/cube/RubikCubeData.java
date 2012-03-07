@@ -7,6 +7,7 @@ import java.util.Set;
 
 import color.Color;
 import pieza.Pieza;
+import pieza.Stick;
 import pieza.Vectr;
 
 public class RubikCubeData {
@@ -56,7 +57,7 @@ public class RubikCubeData {
 
 		Vectr orientacion;
 		Vectr posicion;
-		List<Color> colors = new ArrayList<Color>();
+		List<Stick> colors = new ArrayList<Stick>();
 
 		// AzRB
 		colors.add(blanco_color);
