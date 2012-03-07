@@ -3,7 +3,7 @@ package pieza;
 import java.util.ArrayList;
 import java.util.List;
 
-import color.Color;
+//import color.Color;
 
 public class Pieza {
 
@@ -11,28 +11,28 @@ public class Pieza {
 	private static final int Y = 1;
 	private static final int Z = 2;
 	private final Vectr posicion;
-	private final Vectr orientacion;
+	//private final Vectr orientacion;
 
-	private final List<Color> color;
+	private final List<Stick> color;
 
-	public Pieza(Vectr pos, Vectr or, List<Color> colores) {
+	public Pieza(Vectr pos, Vectr or, List<Stick> colores) {
 		this.posicion = pos;
-		this.orientacion = or;
-		this.color = new ArrayList<Color>();
+	//	this.orientacion = or;
+		this.color = new ArrayList<Stick>();
 		this.color.addAll(colores);
 	}
 
-	@Override
-	public String toString() {
-		return "Pieza [posicion=" + posicion + ", orientacion=" + orientacion
-				+ ", color=" + color + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Pieza [posicion=" + posicion + ", orientacion=" + orientacion
+//				+ ", color=" + color + "]";
+//	}
 
 	public Vectr getPosicion() {
 		return posicion;
 	}
 
-	public void setColor(List<Color> colo) {
+	public void setColor(List<Stick> colo) {
 		this.color.addAll(colo);
 	}
 
@@ -64,7 +64,7 @@ public class Pieza {
 		return numCaras == 1;
 	}
 
-	public Color getColorPuntero() {
+	public Stick getColorPuntero() {
 		return this.color.get(0);
 	}
 
@@ -89,12 +89,15 @@ public class Pieza {
 	}
 
 	public void multiplicar(int[][] maux) {
+		// TODO
 		this.posicion.multiplicaPorMatriz(maux);
-		this.orientacion.multiplicaPorMatriz(maux);
+		//this.orientacion.multiplicaPorMatriz(maux);
 	}
 
 	public boolean apunta(Pieza centro) {
-		return this.orientacion.equals(centro.orientacion);
+		//TODO
+		//return this.orientacion.equals(centro.orientacion);
+		return true;
 	}
 
 	public boolean esVertice() {
@@ -114,25 +117,25 @@ public class Pieza {
 	}
 	
 	//creo q funciona simpre q no se le pasen los centros up y down
-	public boolean esPar(Pieza centro) {
-			
-		int cmp = 0;
-		List<Integer> thisV = this.orientacion.getVector();
-		List<Integer> centroV = centro.orientacion.getVector();
-
-		int x = thisV.get(0) * centroV.get(0);
-		int y = thisV.get(1) * centroV.get(1);
-		int z = thisV.get(2) * centroV.get(2);
-
-		if ((x == 1 && y == 0 && z == 0)
-				&& this.esArista()
-				&& this.getColorPuntero().getColor()
-						.equals(centro.getColorPuntero().getColor())) {
-			cmp = 1;
-		}
-
-		int suma = x + y + z;
-
-		return suma == cmp && this.pertenece(centro);
-	}
+//	public boolean esPar(Pieza centro) {
+//			
+//		int cmp = 0;
+//		List<Integer> thisV = this.orientacion.getVector();
+//		List<Integer> centroV = centro.orientacion.getVector();
+//
+//		int x = thisV.get(0) * centroV.get(0);
+//		int y = thisV.get(1) * centroV.get(1);
+//		int z = thisV.get(2) * centroV.get(2);
+//
+//		if ((x == 1 && y == 0 && z == 0)
+//				&& this.esArista()
+//				&& this.getColorPuntero().getColor()
+//						.equals(centro.getColorPuntero().getColor())) {
+//			cmp = 1;
+//		}
+//
+//		int suma = x + y + z;
+//
+//		return suma == cmp && this.pertenece(centro);
+//	}
 }
