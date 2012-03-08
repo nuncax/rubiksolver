@@ -23,22 +23,22 @@ public class RubikCube {
 	public Pieza down_center;
 	public Pieza back_center;
 
-	private final Color AZUL = new Color("azul");
-	private final Color NARANJA = new Color("naranja");
-	private final Color ROJO = new Color("rojo");
-	private final Color BLANCO = new Color("blanco");
-	private final Color AMARILLO = new Color("amarillo");
-	private final Color VERDE = new Color("verde");
+//	private final Color AZUL = new Color("azul");
+//	private final Color NARANJA = new Color("naranja");
+//	private final Color ROJO = new Color("rojo");
+//	private final Color BLANCO = new Color("blanco");
+//	private final Color AMARILLO = new Color("amarillo");
+//	private final Color VERDE = new Color("verde");
 
 	public RubikCube() {
 		data = new RubikCubeData();
 		data.createCube();
-		this.down_center = data.getCentro(AMARILLO);
-		this.front_center = data.getCentro(AZUL);
-		this.right_center = data.getCentro(NARANJA);
-		this.back_center = data.getCentro(VERDE);
-		this.left_center = data.getCentro(ROJO);
-		this.up_center = data.getCentro(BLANCO);
+		this.down_center = data.getCentro(data.amarillo);
+		this.front_center = data.getCentro(data.azul);
+		this.right_center = data.getCentro(data.naranja);
+		this.back_center = data.getCentro(data.verde);
+		this.left_center = data.getCentro(data.rojo);
+		this.up_center = data.getCentro(data.blanco);
 	}
 
 	public void right(int signo) {
@@ -66,13 +66,13 @@ public class RubikCube {
 		data.rotateFaceClockwise(down_center, signo);
 	}
 
-	public List<Pieza> getPiezas() {
-		return this.data.getCubeSet();
-	}
+//	public List<Pieza> getPiezas() {
+//		return this.data.getCubeSet();
+//	}
 
-	public Set<Pieza> getAristas() {
+	private Set<Pieza> getAristas() {
 		Set<Pieza> piezasRes = new HashSet<Pieza>();
-		for (Pieza pieza : getPiezas()) {
+		for (Pieza pieza : this.data.getCubeSet()) {
 			if (pieza.esArista()) {
 				piezasRes.add(pieza);
 			}
@@ -82,7 +82,7 @@ public class RubikCube {
 
 	private Set<Pieza> getVertices() {
 		Set<Pieza> piezasRes = new HashSet<Pieza>();
-		for (Pieza pieza : getPiezas()) {
+		for (Pieza pieza : this.data.getCubeSet()) {
 			if (pieza.esVertice()) {
 				piezasRes.add(pieza);
 			}
@@ -118,15 +118,15 @@ public class RubikCube {
 		}
 	}
 
-	public Set<Pieza> buscarPieza(Color color) {
-		Set<Pieza> piezas = new HashSet<Pieza>();
-		for (Pieza pieza : this.data.getCubeSet()) {
-			if (pieza.getColorPuntero().equals(color)) {
-				piezas.add(pieza);
-			}
-		}
-		return piezas;
-	}
+//	private Set<Pieza> buscarPieza(Color color) {
+//		Set<Pieza> piezas = new HashSet<Pieza>();
+//		for (Pieza pieza : this.data.getCubeSet()) {
+//			if (pieza.getColorPuntero().equals(color)) {
+//				piezas.add(pieza);
+//			}
+//		}
+//		return piezas;
+//	}
 
 	// public Set<Pieza> buscarAristas(Color color) {
 	// Set<Pieza> piezaRes = new HashSet<Pieza>();

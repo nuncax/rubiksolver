@@ -3,6 +3,7 @@ package solutions;
 import java.util.List;
 import java.util.Set;
 import pieza.Pieza;
+import pieza.Stick;
 import cube.RubikCube;
 
 public class SolutionMethodTemba {
@@ -79,6 +80,8 @@ public class SolutionMethodTemba {
 	}
 
 	private void subeAsegundaCapa(Pieza pieza) {
+		//TODO
+		
 		if (pieza.apunta(rubikCube.front_center)
 				&& pieza.getColorPuntero().equals(
 						rubikCube.front_center.getColorPuntero())) {
@@ -241,7 +244,9 @@ public class SolutionMethodTemba {
 
 	private void subirPieza(Pieza pieza) {
 		System.out.println("Colocando subiendo pieza");
-		if (pieza.apunta(this.rubikCube.down_center)) {
+		Stick stick = pieza.getStick(this.rubikCube.front_center);
+		
+		if (stick.apunta(this.rubikCube.down_center)) {
 			rubikCube.front(1);
 			rubikCube.front(1);
 		} else {
