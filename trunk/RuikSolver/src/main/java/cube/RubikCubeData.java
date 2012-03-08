@@ -304,9 +304,10 @@ public class RubikCubeData {
 	}
 
 	public Pieza getCentro(Color amarillo) {
+		//TODO
 		Pieza piezaRes = null;
 		for (Pieza pieza : this.cubeCentersList) {
-			if(pieza.)
+			if(pieza.esCentro()&&amarillo.equals(pieza.getStick(pieza).getColor()))
 			piezaRes = pieza;
 		}
 		return piezaRes;
