@@ -71,7 +71,7 @@ public class Pieza {
 //	}
 
 	public boolean pertenece(Pieza centro) {
-		return this.stickers.contains(centro.getColorPuntero());
+		return this.stickers.contains(centro.getStick(centro));
 	}
 
 	public boolean estaEnCara(Pieza centro) {
