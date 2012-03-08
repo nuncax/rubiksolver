@@ -10,30 +10,32 @@ public class Pieza {
 	private static final int X = 0;
 	private static final int Y = 1;
 	private static final int Z = 2;
+	
 	private final Vectr posicion;
+	private final List<Stick> stickers;
 	//private final Vectr orientacion;
 
-	private final List<Stick> color;
 
 	public Pieza(Vectr pos, Vectr or, List<Stick> colores) {
 		this.posicion = pos;
 	//	this.orientacion = or;
-		this.color = new ArrayList<Stick>();
-		this.color.addAll(colores);
+		this.stickers = new ArrayList<Stick>();
+		this.stickers.addAll(colores);
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Pieza [posicion=" + posicion + ", orientacion=" + orientacion
-//				+ ", color=" + color + "]";
-//	}
+	@Override
+	public String toString() {
+		return "Pieza [posicion=" + posicion + ", stickers=" + stickers + "]";
+	}
+
+
 
 	public Vectr getPosicion() {
 		return posicion;
 	}
 
 	public void setColor(List<Stick> colo) {
-		this.color.addAll(colo);
+		this.stickers.addAll(colo);
 	}
 
 	public boolean esCentro() {
@@ -64,12 +66,12 @@ public class Pieza {
 		return numCaras == 1;
 	}
 
-	public Stick getColorPuntero() {
-		return this.color.get(0);
-	}
+//	public Stick getColorPuntero() {
+//		return this.stickers.get(0);
+//	}
 
 	public boolean pertenece(Pieza centro) {
-		return this.color.contains(centro.getColorPuntero());
+		return this.stickers.contains(centro.getColorPuntero());
 	}
 
 	public boolean estaEnCara(Pieza centro) {
@@ -91,17 +93,17 @@ public class Pieza {
 	public void multiplicar(int[][] maux) {
 		// TODO
 		this.posicion.multiplicaPorMatriz(maux);
-		for(Stick stick:this.color){
+		for(Stick stick:this.stickers){
 			stick.getOrientacion().multiplicaPorMatriz(maux);
 		}
 		//this.orientacion.multiplicaPorMatriz(maux);
 	}
 
-	public boolean apunta(Pieza centro) {
-		//TODO
-		//return this.orientacion.equals(centro.orientacion);
-		return true;
-	}
+//	public boolean apunta(Pieza centro) {
+//		//TODO
+//		//return this.orientacion.equals(centro.orientacion);
+//		return true;
+//	}
 
 	public boolean esVertice() {
 
@@ -117,6 +119,16 @@ public class Pieza {
 		}
 		return numCaras == 0;
 
+	}
+
+	public Stick getStick(Pieza front_center) {
+		Stick stickRes = null;
+		for (Stick stick : this.stickers) {
+			if(stick.equals(front_center)){
+				stickRes= stick;
+			}
+		}
+		return stickRes;
 	}
 	
 	//creo q funciona simpre q no se le pasen los centros up y down
