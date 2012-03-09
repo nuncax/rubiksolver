@@ -7,9 +7,12 @@ import java.util.Set;
 
 import color.Color;
 
+import pieza.Arista;
+import pieza.Centro;
 import pieza.Pieza;
 import pieza.Stick;
 import pieza.Vectr;
+import pieza.Vertice;
 
 public class RubikCubeData {
 
@@ -71,13 +74,13 @@ public class RubikCubeData {
 		List<Stick> stickers = new ArrayList<Stick>();
 
 		// AzRB
-		stickers.add(blanco_stick);
-		stickers.add(azul_stick);
-		stickers.add(rojo_stick);
+//		stickers.add(blanco_stick);
+//		stickers.add(azul_stick);
+//		stickers.add(rojo_stick);
 		posicion = new Vectr(1, 1, 1);
 		orientacion = new Vectr(0, 0, 1);
 		// verticeAzulRojoBlanco = new Pieza(posicion, orientacion, stickers);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Vertice(posicion, blanco_stick, azul_stick, rojo_stick));
 		stickers = new ArrayList<Stick>();
 		// AzNB
 		stickers.add(blanco_stick);
@@ -85,7 +88,7 @@ public class RubikCubeData {
 		stickers.add(naranja_stick);
 		posicion = new Vectr(-1, 1, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Vertice(posicion, blanco_stick, azul_stick, naranja_stick));
 		stickers = new ArrayList<Stick>();
 		// VNB
 		stickers.add(blanco_stick);
@@ -93,7 +96,7 @@ public class RubikCubeData {
 		stickers.add(naranja_stick);
 		posicion = new Vectr(-1, -1, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Vertice(posicion, blanco_stick, verde_stick,naranja_stick));
 		stickers = new ArrayList<Stick>();
 		// VRB
 		stickers.add(blanco_stick);
@@ -101,7 +104,7 @@ public class RubikCubeData {
 		stickers.add(rojo_stick);
 		posicion = new Vectr(1, -1, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Vertice(posicion, blanco_stick, verde_stick,rojo_stick));
 		stickers = new ArrayList<Stick>();
 		// AzNA
 		stickers.add(azul_stick);
@@ -109,7 +112,7 @@ public class RubikCubeData {
 		stickers.add(amarillo_stick);
 		posicion = new Vectr(-1, 1, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Vertice(posicion, azul_stick, naranja_stick,amarillo_stick));
 		stickers = new ArrayList<Stick>();
 		// AzRA
 		stickers.add(azul_stick);
@@ -117,7 +120,7 @@ public class RubikCubeData {
 		stickers.add(amarillo_stick);
 		posicion = new Vectr(1, 1, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Vertice(posicion, azul_stick, rojo_stick,amarillo_stick));
 		stickers = new ArrayList<Stick>();
 		// VRA
 		stickers.add(verde_stick);
@@ -125,7 +128,7 @@ public class RubikCubeData {
 		stickers.add(amarillo_stick);
 		posicion = new Vectr(1, -1, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Vertice(posicion, verde_stick, rojo_stick,amarillo_stick));
 		stickers = new ArrayList<Stick>();
 		// VNA
 		stickers.add(verde_stick);
@@ -133,7 +136,7 @@ public class RubikCubeData {
 		stickers.add(amarillo_stick);
 		posicion = new Vectr(-1, -1, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Vertice(posicion, verde_stick,naranja_stick,amarillo_stick));
 
 	}
 
@@ -154,84 +157,84 @@ public class RubikCubeData {
 		stickers.add(rojo_stick);
 		posicion = new Vectr(1, 0, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Arista(posicion, blanco_stick	, rojo_stick));
 		stickers = new ArrayList<Stick>();
 		// AB
 		stickers.add(blanco_stick);
 		stickers.add(azul_stick);
 		posicion = new Vectr(0, 1, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Arista(posicion,blanco_stick,azul_stick));
 		stickers = new ArrayList<Stick>();
 		// NB
 		stickers.add(blanco_stick);
 		stickers.add(naranja_stick);
 		posicion = new Vectr(-1, 0, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Arista(posicion, blanco_stick,naranja_stick));
 		stickers = new ArrayList<Stick>();
 		// VB
 		stickers.add(blanco_stick);
 		stickers.add(verde_stick);
 		posicion = new Vectr(0, -1, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Arista(posicion, blanco_stick,verde_stick));
 		stickers = new ArrayList<Stick>();
 		// AzR
 		stickers.add(rojo_stick);
 		stickers.add(azul_stick);
 		posicion = new Vectr(1, 1, 0);
 		orientacion = new Vectr(1, 0, 0);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Arista(posicion,rojo_stick,azul_stick));
 		stickers = new ArrayList<Stick>();
 		// AzN
 		stickers.add(naranja_stick);
 		stickers.add(azul_stick);
 		posicion = new Vectr(-1, 1, 0);
 		orientacion = new Vectr(-1, 0, 0);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Arista(posicion, naranja_stick,azul_stick));
 		stickers = new ArrayList<Stick>();
 		// VN
 		stickers.add(naranja_stick);
 		stickers.add(verde_stick);
 		posicion = new Vectr(-1, -1, 0);
 		orientacion = new Vectr(-1, 0, 0);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Arista(posicion, naranja_stick, verde_stick));
 		stickers = new ArrayList<Stick>();
 		// VR
 		stickers.add(rojo_stick);
 		stickers.add(verde_stick);
 		posicion = new Vectr(1, -1, 0);
 		orientacion = new Vectr(1, 0, 0);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Arista(posicion, rojo_stick, verde_stick));
 		stickers = new ArrayList<Stick>();
 		// RA
 		stickers.add(rojo_stick);
 		stickers.add(amarillo_stick);
 		posicion = new Vectr(1, 0, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Arista(posicion, rojo_stick,amarillo_stick));
 		stickers = new ArrayList<Stick>();
 		// AzA
 		stickers.add(azul_stick);
 		stickers.add(amarillo_stick);
 		posicion = new Vectr(0, 1, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Arista(posicion, azul_stick,amarillo_stick));
 		stickers = new ArrayList<Stick>();
 		// NA
 		stickers.add(naranja_stick);
 		stickers.add(amarillo_stick);
 		posicion = new Vectr(-1, 0, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Arista(posicion, naranja_stick,amarillo_stick));
 		stickers = new ArrayList<Stick>();
 		// VA
 		stickers.add(verde_stick);
 		stickers.add(amarillo_stick);
 		posicion = new Vectr(0, -1, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeList.add(new Pieza(posicion, orientacion, stickers));
+		cubeList.add(new Arista(posicion, verde_stick,amarillo_stick));
 
 	}
 
@@ -245,37 +248,37 @@ public class RubikCubeData {
 		stickers.add(blanco_stick);
 		posicion = new Vectr(0, 0, 1);
 		orientacion = new Vectr(0, 0, 1);
-		cubeCentersList.add(new Pieza(posicion, orientacion, stickers));
+		cubeCentersList.add(new Centro(posicion,blanco_stick));
 		stickers = new ArrayList<Stick>();
 		// amarillo
 		stickers.add(amarillo_stick);
 		posicion = new Vectr(0, 0, -1);
 		orientacion = new Vectr(0, 0, -1);
-		cubeCentersList.add(new Pieza(posicion, orientacion, stickers));
+		cubeCentersList.add(new Centro(posicion,amarillo_stick));
 		stickers = new ArrayList<Stick>();
 		// verde
 		stickers.add(verde_stick);
 		posicion = new Vectr(0, -1, 0);
 		orientacion = new Vectr(0, -1, 0);
-		cubeCentersList.add(new Pieza(posicion, orientacion, stickers));
+		cubeCentersList.add(new Centro(posicion, verde_stick));
 		stickers = new ArrayList<Stick>();
 		// rojo
 		stickers.add(rojo_stick);
 		posicion = new Vectr(1, 0, 0);
 		orientacion = new Vectr(1, 0, 0);
-		cubeCentersList.add(new Pieza(posicion, orientacion, stickers));
+		cubeCentersList.add(new Centro(posicion, rojo_stick));
 		stickers = new ArrayList<Stick>();
 		// azul
 		stickers.add(azul_stick);
 		posicion = new Vectr(0, 1, 0);
 		orientacion = new Vectr(0, 1, 0);
-		cubeCentersList.add(new Pieza(posicion, orientacion, stickers));
+		cubeCentersList.add(new Centro(posicion, azul_stick));
 		stickers = new ArrayList<Stick>();
 		// naranja
 		stickers.add(naranja_stick);
 		posicion = new Vectr(-1, 0, 0);
 		orientacion = new Vectr(-1, 0, 0);
-		cubeCentersList.add(new Pieza(posicion, orientacion, stickers));
+		cubeCentersList.add(new Centro(posicion, naranja_stick));
 	}
 
 	public List<Pieza> getCubeSet() {
@@ -287,7 +290,7 @@ public class RubikCubeData {
 	private Set<Pieza> getFace(Pieza centro) {
 		Set<Pieza> face = new HashSet<Pieza>();
 		for (Pieza pieza : cubeList) {
-			if (pieza.estaEnCara(centro) && !pieza.esCentro()) {
+			if (pieza.estaEnCara(centro) && ()!pieza.esCentro()) {
 				face.add(pieza);
 			}
 		}
