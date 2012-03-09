@@ -28,16 +28,6 @@ public class Pieza {
 		return "Pieza [posicion=" + posicion + ", stickers=" + stickers + "]";
 	}
 
-
-
-	public Vectr getPosicion() {
-		return posicion;
-	}
-
-	public void setColor(List<Stick> colo) {
-		this.stickers.addAll(colo);
-	}
-
 	public boolean esCentro() {
 		int numCaras = 0;
 		if (this.getPos(X) == 0) {
