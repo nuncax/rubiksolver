@@ -1,32 +1,28 @@
 package pieza;
 
-import java.util.ArrayList;
-import java.util.List;
-
 //import color.Color;
 
-public class Pieza {
+public abstract class Pieza {
+
+	final Vectr posicion;
+	Stick stickers[];
 
 	private static final int X = 0;
 	private static final int Y = 1;
 	private static final int Z = 2;
-	
-	private final Vectr posicion;
-	private final List<Stick> stickers;
-	//private final Vectr orientacion;
 
-
-	public Pieza(Vectr pos, Vectr or, List<Stick> colores) {
-		this.posicion = pos;
-	//	this.orientacion = or;
-		this.stickers = new ArrayList<Stick>();
-		this.stickers.addAll(colores);
+	public Pieza(Vectr posicion) {
+		super();
+		this.posicion = posicion;
+		this.stickers = null;
 	}
 
-	@Override
-	public String toString() {
-		return "Pieza [posicion=" + posicion + ", stickers=" + stickers + "]";
-	}
+	// private final Vectr orientacion;
+
+	// @Override
+	// public String toString() {
+	// return "Pieza [posicion=" + posicion + ", stickers=" + stickers + "]";
+	// }
 
 	public boolean esCentro() {
 		int numCaras = 0;
@@ -56,12 +52,13 @@ public class Pieza {
 		return numCaras == 1;
 	}
 
-//	public Stick getColorPuntero() {
-//		return this.stickers.get(0);
-//	}
+	// public Stick getColorPuntero() {
+	// return this.stickers.get(0);
+	// }
 
 	public boolean pertenece(Pieza centro) {
-		return this.stickers.contains(centro.getStick(centro));
+		return false;
+		// return this.stickers.contains(centro.getStick(centro));
 	}
 
 	public boolean estaEnCara(Pieza centro) {
@@ -83,17 +80,17 @@ public class Pieza {
 	public void multiplicar(int[][] maux) {
 		// TODO
 		this.posicion.multiplicaPorMatriz(maux);
-		for(Stick stick:this.stickers){
+		for (Stick stick : this.stickers) {
 			stick.getOrientacion().multiplicaPorMatriz(maux);
 		}
-		//this.orientacion.multiplicaPorMatriz(maux);
+		// this.orientacion.multiplicaPorMatriz(maux);
 	}
 
-//	public boolean apunta(Pieza centro) {
-//		//TODO
-//		//return this.orientacion.equals(centro.orientacion);
-//		return true;
-//	}
+	// public boolean apunta(Pieza centro) {
+	// //TODO
+	// //return this.orientacion.equals(centro.orientacion);
+	// return true;
+	// }
 
 	public boolean esVertice() {
 
@@ -114,33 +111,33 @@ public class Pieza {
 	public Stick getStick(Pieza front_center) {
 		Stick stickRes = null;
 		for (Stick stick : this.stickers) {
-			if(stick.equals(front_center)){
-				stickRes= stick;
+			if (stick.equals(front_center)) {
+				stickRes = stick;
 			}
 		}
 		return stickRes;
 	}
-	
-	//creo q funciona simpre q no se le pasen los centros up y down
-//	public boolean esPar(Pieza centro) {
-//			
-//		int cmp = 0;
-//		List<Integer> thisV = this.orientacion.getVector();
-//		List<Integer> centroV = centro.orientacion.getVector();
-//
-//		int x = thisV.get(0) * centroV.get(0);
-//		int y = thisV.get(1) * centroV.get(1);
-//		int z = thisV.get(2) * centroV.get(2);
-//
-//		if ((x == 1 && y == 0 && z == 0)
-//				&& this.esArista()
-//				&& this.getColorPuntero().getColor()
-//						.equals(centro.getColorPuntero().getColor())) {
-//			cmp = 1;
-//		}
-//
-//		int suma = x + y + z;
-//
-//		return suma == cmp && this.pertenece(centro);
-//	}
+
+	// creo q funciona simpre q no se le pasen los centros up y down
+	// public boolean esPar(Pieza centro) {
+	//
+	// int cmp = 0;
+	// List<Integer> thisV = this.orientacion.getVector();
+	// List<Integer> centroV = centro.orientacion.getVector();
+	//
+	// int x = thisV.get(0) * centroV.get(0);
+	// int y = thisV.get(1) * centroV.get(1);
+	// int z = thisV.get(2) * centroV.get(2);
+	//
+	// if ((x == 1 && y == 0 && z == 0)
+	// && this.esArista()
+	// && this.getColorPuntero().getColor()
+	// .equals(centro.getColorPuntero().getColor())) {
+	// cmp = 1;
+	// }
+	//
+	// int suma = x + y + z;
+	//
+	// return suma == cmp && this.pertenece(centro);
+	// }
 }
