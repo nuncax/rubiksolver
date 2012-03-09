@@ -17,8 +17,8 @@ public class SolutionMethodTemba {
 
 	public void solucionar() {
 		resolverCruz();
-		resolverEsquinas();
-		segundaCapa();
+		//resolverEsquinas();
+		//segundaCapa();
 		colocarEsquinasDeDown();
 	}
 
@@ -36,21 +36,21 @@ public class SolutionMethodTemba {
 		
 	}
 
-	private void segundaCapa() {
-		System.out.println("Segunda Capa:");
-		Set<Pieza> piezas = this.rubikCube.buscarAristasNoUp();
-		for (Pieza pieza : piezas) {
-			colocarAristaEnSegundaCapa(pieza);
-		}
-	}
+//	private void segundaCapa() {
+//		System.out.println("Segunda Capa:");
+//		Set<Pieza> piezas = this.rubikCube.buscarAristasNoUp();
+//		for (Pieza pieza : piezas) {
+//			colocarAristaEnSegundaCapa(pieza);
+//		}
+//	}
 
-	private void colocarAristaEnSegundaCapa(Pieza pieza) {
-		System.out.println("Colocando arista: " + pieza + "en segunda capa");
-		this.rubikCube.setFrontByPieza(pieza);
-		this.bajarPiezaSegunda(pieza);
-		this.llevarAsuCara(pieza);
-		subeAsegundaCapa(pieza);
-	}
+//	private void colocarAristaEnSegundaCapa(Pieza pieza) {
+//		System.out.println("Colocando arista: " + pieza + "en segunda capa");
+//		this.rubikCube.setFrontByPieza(pieza);
+//		this.bajarPiezaSegunda(pieza);
+//		this.llevarAsuCara(pieza);
+//		subeAsegundaCapa(pieza);
+//	}
 
 	private void bajarPiezaSegunda(Pieza pieza) {
 		if (!pieza.estaEnCara(this.rubikCube.down_center)) {
@@ -79,75 +79,75 @@ public class SolutionMethodTemba {
 		}
 	}
 
-	private void subeAsegundaCapa(Pieza pieza) {
-		//TODO
-		
-		if (pieza.apunta(rubikCube.front_center)
-				&& pieza.getColorPuntero().equals(
-						rubikCube.front_center.getColorPuntero())) {
-			if (pieza.pertenece(this.rubikCube.left_center)) {
-				this.rubikCube.down(+1);
-				this.rubikCube.left(+1);
-				this.rubikCube.down(-1);
-				this.rubikCube.left(-1);
-				this.rubikCube.down(-1);
-				this.rubikCube.front(-1);
-				this.rubikCube.down(+1);
-				this.rubikCube.front(+1);
-			} else {
-				this.rubikCube.down(-1);
-				this.rubikCube.right(-1);
-				this.rubikCube.down(+1);
-				this.rubikCube.right(+1);
-				this.rubikCube.down(+1);
-				this.rubikCube.front(+1);
-				this.rubikCube.down(-1);
-				this.rubikCube.front(-1);
-			}
-		} else if (!pieza.apunta(rubikCube.front_center)
-				&& pieza.getColorPuntero().equals(
-						rubikCube.front_center.getColorPuntero())) {
-			if (pieza.pertenece(this.rubikCube.left_center)) {
-				this.rubikCube.down(-1);
-			} else {
-				this.rubikCube.down(+1);
-			}
-			this.rubikCube.setFrontByPieza(pieza);
-			subeAsegundaCapa(pieza);
-		} else if (pieza.apunta(rubikCube.front_center)
-				&& !pieza.getColorPuntero().equals(
-						rubikCube.front_center.getColorPuntero())) {
-			if (pieza.pertenece(this.rubikCube.left_center)) {
-				this.rubikCube.down(-1);
-			} else {
-				this.rubikCube.down(+1);
-			}
-			this.rubikCube.setFrontByPieza(pieza);
-			subeAsegundaCapa(pieza);
-		} else if (!pieza.apunta(rubikCube.front_center)
-				&& !pieza.getColorPuntero().equals(
-						rubikCube.front_center.getColorPuntero())) {
-			if (pieza.pertenece(this.rubikCube.left_center)) {
-				this.rubikCube.down(+1);
-				this.rubikCube.left(+1);
-				this.rubikCube.down(-1);
-				this.rubikCube.left(-1);
-				this.rubikCube.down(-1);
-				this.rubikCube.front(-1);
-				this.rubikCube.down(+1);
-				this.rubikCube.front(+1);
-			} else {
-				this.rubikCube.down(-1);
-				this.rubikCube.right(-1);
-				this.rubikCube.down(+1);
-				this.rubikCube.right(+1);
-				this.rubikCube.down(+1);
-				this.rubikCube.front(+1);
-				this.rubikCube.down(-1);
-				this.rubikCube.front(-1);
-			}
-		}
-	}
+//	private void subeAsegundaCapa(Pieza pieza) {
+//		//TODO
+//		
+//		if (pieza.apunta(rubikCube.front_center)
+//				&& pieza.getColorPuntero().equals(
+//						rubikCube.front_center.getColorPuntero())) {
+//			if (pieza.pertenece(this.rubikCube.left_center)) {
+//				this.rubikCube.down(+1);
+//				this.rubikCube.left(+1);
+//				this.rubikCube.down(-1);
+//				this.rubikCube.left(-1);
+//				this.rubikCube.down(-1);
+//				this.rubikCube.front(-1);
+//				this.rubikCube.down(+1);
+//				this.rubikCube.front(+1);
+//			} else {
+//				this.rubikCube.down(-1);
+//				this.rubikCube.right(-1);
+//				this.rubikCube.down(+1);
+//				this.rubikCube.right(+1);
+//				this.rubikCube.down(+1);
+//				this.rubikCube.front(+1);
+//				this.rubikCube.down(-1);
+//				this.rubikCube.front(-1);
+//			}
+//		} else if (!pieza.apunta(rubikCube.front_center)
+//				&& pieza.getColorPuntero().equals(
+//						rubikCube.front_center.getColorPuntero())) {
+//			if (pieza.pertenece(this.rubikCube.left_center)) {
+//				this.rubikCube.down(-1);
+//			} else {
+//				this.rubikCube.down(+1);
+//			}
+//			this.rubikCube.setFrontByPieza(pieza);
+//			subeAsegundaCapa(pieza);
+//		} else if (pieza.apunta(rubikCube.front_center)
+//				&& !pieza.getColorPuntero().equals(
+//						rubikCube.front_center.getColorPuntero())) {
+//			if (pieza.pertenece(this.rubikCube.left_center)) {
+//				this.rubikCube.down(-1);
+//			} else {
+//				this.rubikCube.down(+1);
+//			}
+//			this.rubikCube.setFrontByPieza(pieza);
+//			subeAsegundaCapa(pieza);
+//		} else if (!pieza.apunta(rubikCube.front_center)
+//				&& !pieza.getColorPuntero().equals(
+//						rubikCube.front_center.getColorPuntero())) {
+//			if (pieza.pertenece(this.rubikCube.left_center)) {
+//				this.rubikCube.down(+1);
+//				this.rubikCube.left(+1);
+//				this.rubikCube.down(-1);
+//				this.rubikCube.left(-1);
+//				this.rubikCube.down(-1);
+//				this.rubikCube.front(-1);
+//				this.rubikCube.down(+1);
+//				this.rubikCube.front(+1);
+//			} else {
+//				this.rubikCube.down(-1);
+//				this.rubikCube.right(-1);
+//				this.rubikCube.down(+1);
+//				this.rubikCube.right(+1);
+//				this.rubikCube.down(+1);
+//				this.rubikCube.front(+1);
+//				this.rubikCube.down(-1);
+//				this.rubikCube.front(-1);
+//			}
+//		}
+//	}
 
 	private void resolverCruz() {
 		System.out.println("*Resolviendo cruz:*");
@@ -157,50 +157,50 @@ public class SolutionMethodTemba {
 		}
 	}
 
-	private void resolverEsquinas() {
-		Set<Pieza> piezas = this.rubikCube.buscarVerticesDeUp();
-		for (Pieza pieza : piezas) {
-			colocarVerticeEnSuPosicionT(pieza);
-		}
-	}
+//	private void resolverEsquinas() {
+//		Set<Pieza> piezas = this.rubikCube.buscarVerticesDeUp();
+//		for (Pieza pieza : piezas) {
+//			colocarVerticeEnSuPosicionT(pieza);
+//		}
+//	}
 
-	private void colocarVerticeEnSuPosicionT(Pieza pieza) {
-		System.out.println("Colocando vertice: " + pieza + "en su posicion");
-		this.rubikCube.setFrontByPieza(pieza);
-		bajarVertice(pieza);
-		llevarVerticeAsuEsquina(pieza);
-		subirVertice(pieza);
-	}
+//	private void colocarVerticeEnSuPosicionT(Pieza pieza) {
+//		System.out.println("Colocando vertice: " + pieza + "en su posicion");
+//		this.rubikCube.setFrontByPieza(pieza);
+//		bajarVertice(pieza);
+//		llevarVerticeAsuEsquina(pieza);
+//		subirVertice(pieza);
+//	}
 
-	private void subirVertice(Pieza pieza) {
-		System.out.println("subiendo vertice*********************");
-
-		if (pieza.estaEnCara(this.rubikCube.right_center)) {
-			while (!pieza.apunta(this.rubikCube.right_center)) {
-				rubikCube.right(-1);
-				rubikCube.down(-1);
-				rubikCube.down(-1);
-				rubikCube.right(1);
-				rubikCube.down(1);
-			}
-			rubikCube.right(-1);
-			rubikCube.down(-1);
-			rubikCube.right(1);
-
-		} else if (pieza.estaEnCara(this.rubikCube.left_center)) {
-			while (!pieza.apunta(this.rubikCube.left_center)) {
-				rubikCube.left(1);
-				rubikCube.down(1);
-				rubikCube.down(1);
-				rubikCube.left(-1);
-				rubikCube.down(-1);
-			}
-			rubikCube.left(1);
-			rubikCube.down(1);
-			rubikCube.left(-1);
-		}
-
-	}
+//	private void subirVertice(Pieza pieza) {
+//		System.out.println("subiendo vertice*********************");
+//
+//		if (pieza.estaEnCara(this.rubikCube.right_center)) {
+//			while (!pieza.apunta(this.rubikCube.right_center)) {
+//				rubikCube.right(-1);
+//				rubikCube.down(-1);
+//				rubikCube.down(-1);
+//				rubikCube.right(1);
+//				rubikCube.down(1);
+//			}
+//			rubikCube.right(-1);
+//			rubikCube.down(-1);
+//			rubikCube.right(1);
+//
+//		} else if (pieza.estaEnCara(this.rubikCube.left_center)) {
+//			while (!pieza.apunta(this.rubikCube.left_center)) {
+//				rubikCube.left(1);
+//				rubikCube.down(1);
+//				rubikCube.down(1);
+//				rubikCube.left(-1);
+//				rubikCube.down(-1);
+//			}
+//			rubikCube.left(1);
+//			rubikCube.down(1);
+//			rubikCube.left(-1);
+//		}
+//
+//	}
 
 	private void llevarVerticeAsuEsquina(Pieza pieza) {
 		System.out.println("Llevando vertice a su cara");
