@@ -1,37 +1,49 @@
 package pieza;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class Vectr {
-	private final List<Integer> vector;
-	final static int X = 0;
+	private Integer vector[];
+	final static private int X = 0;
 	final static private int Y = 1;
-
-	public List<Integer> getVector() {
-		// TODO
-		return vector;
-	}
-
-	final static int Z = 2;
+	final static private int Z = 2;
 
 	public Vectr(Integer x, Integer y, Integer z) {
-		this.vector = new ArrayList<Integer>();
-		vector.add(X, x);
-		vector.add(Y, y);
-		vector.add(Z, z);
+		this.vector = new Integer[3];
+		vector[X] = x;
+		vector[Y] = y;
+		vector[Z] = z;
 	}
 
-	public Vectr() {
-		this.vector = new ArrayList<Integer>();
+	public void multiplicaPorMatriz(int m[][]) {
+		Integer res[] = new Integer[3];
+		res[0]=0;
+		res[1]=0;
+		res[2]=0;
+		for (int i = 0; i < m.length; i++) {
+			for (int j = 0; j < m.length; j++) {
+				res[i] += m[i][j] * this.vector[j];
+			}
+		}
+		this.vector=res;
 	}
 
+	public void sumarVector(Vectr vectorSuma) {
+		for (int i = 0; i < this.vector.length; i++) {
+			this.vector[i] += vectorSuma.vector[i];
+		}
+	}
+
+	@Override
+	public String toString() {
+		return Arrays.toString(vector);
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((vector == null) ? 0 : vector.hashCode());
+		result = prime * result + Arrays.hashCode(vector);
 		return result;
 	}
 
@@ -44,30 +56,9 @@ public class Vectr {
 		if (getClass() != obj.getClass())
 			return false;
 		Vectr other = (Vectr) obj;
-		if (vector == null) {
-			if (other.vector != null)
-				return false;
-		} else if (!vector.equals(other.vector))
+		if (!Arrays.equals(vector, other.vector))
 			return false;
 		return true;
-	}
-
-	public void multiplicaPorMatriz(int m[][]) {
-		List<Integer> res = new ArrayList<Integer>();
-		for (int i = 0; i < m.length; i++) {
-			int a = 0;
-			for (int j = 0; j < m.length; j++) {
-				a += m[i][j] * this.vector.get(j);
-			}
-			res.add(a);
-
-		}
-		vector.clear();
-		vector.addAll(res);
-	}
-
-	public String toString() {
-		return vector.toString();
 	}
 
 }
