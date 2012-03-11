@@ -12,16 +12,16 @@ public class Main {
 		// PropertyConfigurator.configure("log4j.properties");
 
 		RubikCube rubikCube = new RubikCube();
-		 rubikCube.setPositions();
-		 
+		rubikCube.setPositions();
+
 		// rubikCube.scramble();
 
-		//List<Pieza> list = new ArrayList<Pieza>();
-		//list.add(rubikCube.back_center);
+		// List<Pieza> list = new ArrayList<Pieza>();
+		// list.add(rubikCube.back_center);
 		// list.add(rubikCube.down_center);
-		//list.add(rubikCube.front_center);
-		//list.add(rubikCube.left_center);
-		//list.add(rubikCube.right_center);
+		// list.add(rubikCube.front_center);
+		// list.add(rubikCube.left_center);
+		// list.add(rubikCube.right_center);
 		// list.add(rubikCube.up_center);
 
 		SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);

@@ -9,122 +9,160 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import pieza.Arista;
+import pieza.Centro;
+import pieza.Color;
 import pieza.Pieza;
+import pieza.Vertice;
 
 public class RubikCube {
-	private final RubikCubeData data;
+	private List<Pieza> piezas;
 
-	public Pieza front_center;
-	public Pieza right_center;
-	public Pieza left_center;
-	public Pieza up_center;
-	public Pieza down_center;
-	public Pieza back_center;
-
-//	private final Color AZUL = new Color("azul");
-//	private final Color NARANJA = new Color("naranja");
-//	private final Color ROJO = new Color("rojo");
-//	private final Color BLANCO = new Color("blanco");
-//	private final Color AMARILLO = new Color("amarillo");
-//	private final Color VERDE = new Color("verde");
+	public Color front_face;
+	public Color right_face;
+	public Color left_face;
+	public Color up_face;
+	public Color down_face;
+	public Color back_face;
 
 	public RubikCube() {
-		data = new RubikCubeData();
-		data.createCube();
-		this.down_center = data.getCentro(data.amarillo);
-		this.front_center = data.getCentro(data.azul);
-		this.right_center = data.getCentro(data.naranja);
-		this.back_center = data.getCentro(data.verde);
-		this.left_center = data.getCentro(data.rojo);
-		this.up_center = data.getCentro(data.blanco);
+		RubikCubeData data = new RubikCubeData();
+		this.piezas = data.createCube();
+		this.down_face = Color.YELLOW;
+		this.front_face = Color.BLUE;
+		this.right_face = Color.ORANGE;
+		this.back_face = Color.GREEN;
+		this.left_face = Color.RED;
+		this.up_face = Color.WHITE;
 	}
 
 	public void right(int signo) {
-		data.rotateFaceClockwise(right_center, signo);
+		rotateFaceClockwise(right_face, signo);
 	}
 
 	public void left(int signo) {
-		data.rotateFaceClockwise(left_center, signo);
+		rotateFaceClockwise(left_face, signo);
 	}
 
 	public void front(int signo) {
-		data.rotateFaceClockwise(front_center, signo);
+		rotateFaceClockwise(front_face, signo);
 	}
 
 	private void back(int signo) {
-		data.rotateFaceClockwise(back_center, signo);
+		rotateFaceClockwise(back_face, signo);
 
 	}
 
 	public void uper(int signo) {
-		data.rotateFaceClockwise(up_center, signo);
+		rotateFaceClockwise(up_face, signo);
 	}
 
 	public void down(int signo) {
-		data.rotateFaceClockwise(down_center, signo);
+		rotateFaceClockwise(down_face, signo);
 	}
 
-//	public List<Pieza> getPiezas() {
-//		return this.data.getCubeSet();
-//	}
-
-	private Set<Pieza> getAristas() {
-		Set<Pieza> piezasRes = new HashSet<Pieza>();
-		for (Pieza pieza : this.data.getCubeSet()) {
-			if (pieza.esArista()) {
-				piezasRes.add(pieza);
+	private List<Arista> getAristas() {
+		List<Arista> piezasRes = new ArrayList<Arista>();
+		for (Pieza pieza : this.piezas) {
+			if (pieza instanceof Arista) {
+				Arista aristaRes = (Arista) pieza;
+				piezasRes.add(aristaRes);
 			}
 		}
 		return piezasRes;
 	}
 
-	private Set<Pieza> getVertices() {
-		Set<Pieza> piezasRes = new HashSet<Pieza>();
-		for (Pieza pieza : this.data.getCubeSet()) {
-			if (pieza.esVertice()) {
-				piezasRes.add(pieza);
+	private List<Arista> getVertices() {
+		List<Arista> piezasRes = new ArrayList<Arista>();
+		for (Pieza pieza : this.piezas) {
+			if (pieza instanceof Arista) {
+				Arista aristaRes = (Arista) pieza;
+				piezasRes.add(aristaRes);
 			}
 		}
 		return piezasRes;
+	}
+
+	private List<Centro> getCentros() {
+		List<Centro> piezasRes = new ArrayList<Centro>();
+		for (Pieza pieza : this.piezas) {
+			if (pieza instanceof Centro) {
+				Centro aristaRes = (Centro) pieza;
+				piezasRes.add(aristaRes);
+			}
+		}
+		return piezasRes;
+	}
+
+	private List<Pieza> buscarPiezas(Color color) {
+		List<Pieza> piezas = new ArrayList<Pieza>();
+		for (Pieza pieza : this.piezas) {
+			if (pieza.tieneStick(color)) {
+				piezas.add(pieza);
+			}
+		}
+		return piezas;
+	}
+
+	public List<Arista> buscarAristas(Color color) {
+		List<Arista> piezas = new ArrayList<Arista>();
+		for (Pieza pieza : this.buscarPiezas(color)) {
+			if (pieza instanceof Arista) {
+				Arista arista = (Arista) pieza;
+				piezas.add(arista);
+			}
+		}
+		return piezas;
+	}
+
+	public List<Vertice> buscarVertices(Color color) {
+		List<Vertice> piezas = new ArrayList<Vertice>();
+		for (Pieza pieza : this.buscarPiezas(color)) {
+			if (pieza instanceof Vertice) {
+				Vertice vertice = (Vertice) pieza;
+				piezas.add(vertice);
+			}
+		}
+		return piezas;
+	}
+
+	private Centro getCentro(Color color) {
+		Centro centroRes = null;
+		for (Centro centro : this.getCentros()) {
+			if (centro.getColor().equals(color)) {
+				centroRes = centro;
+			}
+		}
+		return centroRes;
 	}
 
 	public void setFrontByPieza(Pieza pieza) {
-		Pieza piezaAux;
-		if (!pieza.estaEnCara(front_center)) {
-			if (pieza.estaEnCara(right_center)) {
-				piezaAux = front_center;
-				front_center = right_center;
-				right_center = back_center;
-				back_center = left_center;
-				left_center = piezaAux;
-			} else if (pieza.estaEnCara(back_center)) {
-				piezaAux = front_center;
-				front_center = back_center;
-				back_center = piezaAux;
+		Color colorAux;
+		if (!pieza.estaEnCara(front_face)) {
+			if (pieza.estaEnCara(right_face)) {
+				colorAux = front_face;
+				front_face = right_face;
+				right_face = back_face;
+				back_face = left_face;
+				left_face = colorAux;
+			} else if (pieza.estaEnCara(back_face)) {
+				colorAux = front_face;
+				front_face = back_face;
+				back_face = colorAux;
 
-				piezaAux = right_center;
-				right_center = left_center;
-				left_center = piezaAux;
-			} else if (pieza.estaEnCara(left_center)) {
-				piezaAux = front_center;
+				colorAux = right_face;
+				right_face = left_face;
+				left_face = colorAux;
+			} else if (pieza.estaEnCara(left_face)) {
+				colorAux = front_face;
 
-				front_center = left_center;
-				left_center = back_center;
-				back_center = right_center;
-				right_center = piezaAux;
+				front_face = left_face;
+				left_face = back_face;
+				back_face = right_face;
+				right_face = colorAux;
 			}
 		}
 	}
-
-//	private Set<Pieza> buscarPieza(Color color) {
-//		Set<Pieza> piezas = new HashSet<Pieza>();
-//		for (Pieza pieza : this.data.getCubeSet()) {
-//			if (pieza.getColorPuntero().equals(color)) {
-//				piezas.add(pieza);
-//			}
-//		}
-//		return piezas;
-//	}
 
 	// public Set<Pieza> buscarAristas(Color color) {
 	// Set<Pieza> piezaRes = new HashSet<Pieza>();
@@ -135,26 +173,6 @@ public class RubikCube {
 	// }
 	// return piezaRes;
 	// }
-
-	public Set<Pieza> buscarAristasDeUp() {
-		Set<Pieza> piezaRes = new HashSet<Pieza>();
-		for (Pieza pieza : this.getAristas()) {
-			if (pieza.pertenece(this.up_center)) {
-				piezaRes.add(pieza);
-			}
-		}
-		return piezaRes;
-	}
-
-	public Set<Pieza> buscarVerticesDeUp() {
-		Set<Pieza> piezaRes = new HashSet<Pieza>();
-		for (Pieza pieza : this.getVertices()) {
-			if (pieza.pertenece(this.up_center)) {
-				piezaRes.add(pieza);
-			}
-		}
-		return piezaRes;
-	}
 
 	public void setPositions() throws IOException {
 		BufferedReader bf = new BufferedReader(new FileReader("datos.txt"));
@@ -224,24 +242,21 @@ public class RubikCube {
 
 	}
 
-	public Set<Pieza> buscarAristasNoUp() {
-		Set<Pieza> piezaRes = new HashSet<Pieza>();
-		for (Pieza pieza : this.getAristas()) {
-			if (!pieza.pertenece(this.up_center) && !pieza.pertenece(this.down_center)) {
-				piezaRes.add(pieza);
-			}
+	public void rotateFaceClockwise(Color color, int signo) {
+		int[][] matriz = getCentro(color).getMatriz(signo);
+		for (Pieza pieza : getFace(color)) {
+			pieza.multiplicar(matriz);
 		}
-		return piezaRes;
-
 	}
 
-	public List<Pieza> buscarVerticesDeDonw() {
-		List<Pieza> piezaRes = new ArrayList<Pieza>();
-		for (Pieza pieza : this.getVertices()) {
-			if (pieza.pertenece(this.down_center)) {
-				piezaRes.add(pieza);
+	private List<Pieza> getFace(Color color) {
+		List<Pieza> face = new ArrayList<Pieza>();
+		for (Pieza pieza : this.piezas) {
+			if (pieza.estaEnCara(color) && !(pieza instanceof Centro)) {
+				face.add(pieza);
 			}
 		}
-		return piezaRes;
+		return face;
 	}
+
 }
