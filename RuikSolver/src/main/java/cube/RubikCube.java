@@ -59,7 +59,7 @@ public class RubikCube {
 		rotateFaceClockwise(down_face, signo);
 	}
 
-	public List<Pieza> get(Class<Pieza> class1) {
+	public List<Pieza> get(Class<?> class1) {
 		List<Pieza> piezasRes = new ArrayList<Pieza>();
 		for (Pieza pieza : this.piezas) {
 			if (pieza.getClass().equals(class1)) {
@@ -264,5 +264,4 @@ public class RubikCube {
 			pieza.multiplicar(matriz);
 		}
 	}
-
 }
