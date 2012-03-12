@@ -21,6 +21,9 @@ public class SolutionMethodTemba {
 	}
 
 	private void resolverCruz() {
+		
+		rubikCube.get(Pieza.class);
+		
 		System.out.println("*Resolviendo cruz:*");
 		List<Arista> piezas = this.rubikCube
 				.buscarAristas(this.rubikCube.up_face);

@@ -5,10 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 import pieza.Arista;
 import pieza.Centro;
 import pieza.Color;
@@ -61,7 +59,17 @@ public class RubikCube {
 		rotateFaceClockwise(down_face, signo);
 	}
 
-	private List<Arista> getAristas() {
+	public List<Pieza> get(Class<Pieza> class1) {
+		List<Pieza> piezasRes = new ArrayList<Pieza>();
+		for (Pieza pieza : this.piezas) {
+			if (pieza.getClass().equals(class1)) {
+				piezasRes.add(pieza);
+			}
+		}
+		return piezasRes;
+	}
+
+	public List<Arista> getAristas() {
 		List<Arista> piezasRes = new ArrayList<Arista>();
 		for (Pieza pieza : this.piezas) {
 			if (pieza instanceof Arista) {
@@ -72,12 +80,12 @@ public class RubikCube {
 		return piezasRes;
 	}
 
-	private List<Arista> getVertices() {
-		List<Arista> piezasRes = new ArrayList<Arista>();
+	private List<Vertice> getVertices() {
+		List<Vertice> piezasRes = new ArrayList<Vertice>();
 		for (Pieza pieza : this.piezas) {
-			if (pieza instanceof Arista) {
-				Arista aristaRes = (Arista) pieza;
-				piezasRes.add(aristaRes);
+			if (pieza instanceof Vertice) {
+				Vertice vertice = (Vertice) pieza;
+				piezasRes.add(vertice);
 			}
 		}
 		return piezasRes;
@@ -104,11 +112,20 @@ public class RubikCube {
 		return piezas;
 	}
 
+	private List<Pieza> getFace(Color color) {
+		List<Pieza> face = new ArrayList<Pieza>();
+		for (Pieza pieza : this.piezas) {
+			if (pieza.estaEnCara(color) && !(pieza instanceof Centro)) {
+				face.add(pieza);
+			}
+		}
+		return face;
+	}
+
 	public List<Arista> buscarAristas(Color color) {
 		List<Arista> piezas = new ArrayList<Arista>();
-		for (Pieza pieza : this.buscarPiezas(color)) {
-			if (pieza instanceof Arista) {
-				Arista arista = (Arista) pieza;
+		for (Arista arista : this.getAristas()) {
+			if (arista.tieneStick(color)) {
 				piezas.add(arista);
 			}
 		}
@@ -117,9 +134,8 @@ public class RubikCube {
 
 	public List<Vertice> buscarVertices(Color color) {
 		List<Vertice> piezas = new ArrayList<Vertice>();
-		for (Pieza pieza : this.buscarPiezas(color)) {
-			if (pieza instanceof Vertice) {
-				Vertice vertice = (Vertice) pieza;
+		for (Vertice vertice : this.getVertices()) {
+			if (vertice.tieneStick(color)) {
 				piezas.add(vertice);
 			}
 		}
@@ -247,16 +263,6 @@ public class RubikCube {
 		for (Pieza pieza : getFace(color)) {
 			pieza.multiplicar(matriz);
 		}
-	}
-
-	private List<Pieza> getFace(Color color) {
-		List<Pieza> face = new ArrayList<Pieza>();
-		for (Pieza pieza : this.piezas) {
-			if (pieza.estaEnCara(color) && !(pieza instanceof Centro)) {
-				face.add(pieza);
-			}
-		}
-		return face;
 	}
 
 }
