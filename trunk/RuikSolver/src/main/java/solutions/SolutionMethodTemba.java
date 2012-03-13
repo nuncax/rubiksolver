@@ -65,7 +65,14 @@ public class SolutionMethodTemba {
 	private void llevarAsuCara(Arista pieza) {
 		if (!pieza.pertenece(this.rubikCube.front_face)) {
 			System.out.println("Llevando a su cara");
-			if (pieza.pertenece(this.rubikCube.left_face)) {
+			if (pieza.esPar(this.rubikCube.left_face)) {
+				rubikCube.down(-1);
+			} else if (pieza.esPar(this.rubikCube.right_face)) {
+				rubikCube.down(1);
+			} else if (pieza.esPar(this.rubikCube.back_face)) {
+				rubikCube.down(1);
+				rubikCube.down(1);
+			} else if (pieza.pertenece(this.rubikCube.left_face)) {
 				rubikCube.down(-1);
 			} else if (pieza.pertenece(this.rubikCube.right_face)) {
 				rubikCube.down(1);
@@ -154,9 +161,9 @@ public class SolutionMethodTemba {
 
 	private void subeAsegundaCapa(Pieza pieza) {
 		// TODO
-		
-		if(pieza.esPar(this.rubikCube.front_face)){
-			
+
+		if (pieza.esPar(this.rubikCube.front_face)) {
+
 		}
 
 		if (pieza.apunta(rubikCube.front_center)
