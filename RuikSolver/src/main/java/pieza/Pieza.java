@@ -10,7 +10,7 @@ public abstract class Pieza {
 		this.stickers = null;
 	}
 
-	private Vectr getPosicion() {
+	Vectr getPosicion() {
 		Vectr sumaRes = new Vectr(0, 0, 0);
 		for (int i = 0; i < this.stickers.length; i++) {
 			Stick stick = this.stickers[i];
@@ -27,8 +27,34 @@ public abstract class Pieza {
 
 	@Override
 	public String toString() {
-		return "Pieza [stickers=" + stickers[0].getColor()+","+ stickers[1].getColor().toString() +","+ stickers[0].getOrientacion().toString() +","+ stickers[1].getOrientacion().toString()+ ", getPosicion()=" + getPosicion() + "]";
-//		return "Pieza [stickers=" + Arrays.toString(stickers) + ", getPosicion()=" + getPosicion() + "]";
+		return "Pieza [Color = " + "[" + stickers[0].getColor() + ","
+				+ stickers[1].getColor() + "] Posicion = ["
+				+ toStringVect(stickers[0].getOrientacion()) + ","
+				+ toStringVect(stickers[1].getOrientacion()) + "], "
+				+ getPosicion() + "]";
+		// return "Pieza [stickers=" + Arrays.toString(stickers) +
+		// ", getPosicion()=" + getPosicion() + "]";
+	}
+
+	protected String toStringVect(Vectr vectr) {
+		String res = null;
+		int x = vectr.getX();
+		int y = vectr.getY();
+		int z = vectr.getZ();
+		if (x == 0 && y == 0 && z == 1) {
+			res = "blanco";
+		} else if (x == 0 && y == -1 && z == 0) {
+			res = "verde";
+		} else if (x == 0 && y == 1 && z == 0) {
+			res = "azul";
+		} else if (x == 0 && y == 0 && z == -1) {
+			res = "amarillo";
+		} else if (x == 1 && y == 0 && z == 0) {
+			res = "rojo";
+		} else if (x == -1 && y == 0 && z == 0) {
+			res = "naranja";
+		}
+		return res;
 	}
 
 	@Override
@@ -77,12 +103,24 @@ public abstract class Pieza {
 		boolean res = false;
 		for (int i = 0; i < this.stickers.length; i++) {
 			Stick stick = this.stickers[i];
-			if(stick.getColor().equals(color)){
+			if (stick.getColor().equals(color)
+					&& stick.getOrientacion().equals(color.getDireccion())) {
 				res = true;
-				i=stickers.length;
+				i = stickers.length;
 			}
 		}
 		return res;
 	}
 
+	public boolean estaOrientada() {
+		boolean res = true;
+		for (int i = 0; i < this.stickers.length; i++) {
+			Stick stick = this.stickers[i];
+			if (!stick.getOrientacion().equals(stick.getColor().getDireccion())) {
+				res=false;
+				i= this.stickers.length;
+			}
+		}
+		return res;
+	}
 }

@@ -23,7 +23,8 @@ public class Color {
 
 	@Override
 	public String toString() {
-		return "[" + color + "]";
+		return color ;
+		//return "[" + color + "]";
 	}
 
 	@Override
