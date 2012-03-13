@@ -7,6 +7,11 @@ public class Centro extends Pieza {
 		stickers = new Stick[1];
 		stickers[0] = new Stick(stick.getColor(), stick.getOrientacion());
 	}
+	@Override
+	public String toString() {
+		return "Pieza [Color = " +"["+getColor() + "] Posicion = ["
+				+ getPosicion();
+	}
 
 	public int[][] getMatriz(int signo) {
 		int[][] maux = null;
