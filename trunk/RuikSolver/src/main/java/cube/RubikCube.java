@@ -60,6 +60,7 @@ public class RubikCube {
 	}
 
 	public List<Pieza> get(Class<?> class1) {
+		class1.asSubclass(Centro.class);
 		List<Pieza> piezasRes = new ArrayList<Pieza>();
 		for (Pieza pieza : this.piezas) {
 			if (pieza.getClass().equals(class1)) {
@@ -105,7 +106,7 @@ public class RubikCube {
 	private List<Pieza> buscarPiezas(Color color) {
 		List<Pieza> piezas = new ArrayList<Pieza>();
 		for (Pieza pieza : this.piezas) {
-			if (pieza.tieneStick(color)) {
+			if (pieza.pertenece(color)) {
 				piezas.add(pieza);
 			}
 		}
@@ -125,7 +126,7 @@ public class RubikCube {
 	public List<Arista> buscarAristas(Color color) {
 		List<Arista> piezas = new ArrayList<Arista>();
 		for (Arista arista : this.getAristas()) {
-			if (arista.tieneStick(color)) {
+			if (arista.pertenece(color)) {
 				piezas.add(arista);
 			}
 		}
@@ -135,7 +136,7 @@ public class RubikCube {
 	public List<Vertice> buscarVertices(Color color) {
 		List<Vertice> piezas = new ArrayList<Vertice>();
 		for (Vertice vertice : this.getVertices()) {
-			if (vertice.tieneStick(color)) {
+			if (vertice.pertenece(color)) {
 				piezas.add(vertice);
 			}
 		}
@@ -259,6 +260,7 @@ public class RubikCube {
 	}
 
 	public void rotateFaceClockwise(Color color, int signo) {
+		System.out.println("Gira la cara " + color + " " + signo);
 		int[][] matriz = getCentro(color).getMatriz(signo);
 		for (Pieza pieza : getFace(color)) {
 			pieza.multiplicar(matriz);

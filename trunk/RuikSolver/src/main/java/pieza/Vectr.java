@@ -61,4 +61,14 @@ public class Vectr {
 		return true;
 	}
 
+	public Integer getX() {
+		return this.vector[X];
+	}
+	public Integer getY() {
+		return this.vector[Y];
+	}
+	public Integer getZ() {
+		return this.vector[Z];
+	}
+
 }

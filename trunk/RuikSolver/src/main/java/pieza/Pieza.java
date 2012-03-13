@@ -27,8 +27,8 @@ public abstract class Pieza {
 
 	@Override
 	public String toString() {
-		return "Pieza [stickers=" + Arrays.toString(stickers)
-				+ ", getPosicion()=" + getPosicion() + "]";
+		return "Pieza [stickers=" + stickers[0].getColor()+","+ stickers[1].getColor().toString() +","+ stickers[0].getOrientacion().toString() +","+ stickers[1].getOrientacion().toString()+ ", getPosicion()=" + getPosicion() + "]";
+//		return "Pieza [stickers=" + Arrays.toString(stickers) + ", getPosicion()=" + getPosicion() + "]";
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public abstract class Pieza {
 		return true;
 	}
 
-	public boolean tieneStick(Color color) {
+	public boolean pertenece(Color color) {
 		boolean res = false;
 		for (Stick stick : this.stickers) {
 			if (stick.getColor().equals(color)) {
@@ -68,6 +68,18 @@ public abstract class Pieza {
 		for (Stick stick : this.stickers) {
 			if (color.getDireccion().equals(stick.getOrientacion())) {
 				res = true;
+			}
+		}
+		return res;
+	}
+
+	public boolean esPar(Color color) {
+		boolean res = false;
+		for (int i = 0; i < this.stickers.length; i++) {
+			Stick stick = this.stickers[i];
+			if(stick.getColor().equals(color)){
+				res = true;
+				i=stickers.length;
 			}
 		}
 		return res;

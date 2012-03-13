@@ -21,9 +21,6 @@ public class SolutionMethodTemba {
 	}
 
 	private void resolverCruz() {
-		
-		rubikCube.get(Pieza.class);
-		
 		System.out.println("*Resolviendo cruz:*");
 		List<Arista> piezas = this.rubikCube
 				.buscarAristas(this.rubikCube.up_face);
@@ -62,13 +59,13 @@ public class SolutionMethodTemba {
 	}
 
 	private void llevarAsuCara(Pieza pieza) {
-		if (!pieza.tieneStick(this.rubikCube.front_face)) {
+		if (!pieza.pertenece(this.rubikCube.front_face)) {
 			System.out.println("Llevando a su cara");
-			if (pieza.tieneStick(this.rubikCube.left_face)) {
+			if (pieza.pertenece(this.rubikCube.left_face)) {
 				rubikCube.down(-1);
-			} else if (pieza.tieneStick(this.rubikCube.right_face)) {
+			} else if (pieza.pertenece(this.rubikCube.right_face)) {
 				rubikCube.down(1);
-			} else if (pieza.tieneStick(this.rubikCube.back_face)) {
+			} else if (pieza.pertenece(this.rubikCube.back_face)) {
 				rubikCube.down(1);
 				rubikCube.down(1);
 			}
@@ -77,18 +74,16 @@ public class SolutionMethodTemba {
 	}
 
 	private void subirArista(Pieza pieza) {
-		// System.out.println("Colocando subiendo pieza");
-		// Stick stick = pieza.getStick(this.rubikCube.front_face);
-		//
-		// if (stick.apunta(this.rubikCube.down_face)) {
-		// rubikCube.front(1);
-		// rubikCube.front(1);
-		// } else {
-		// rubikCube.down(1);
-		// rubikCube.right(1);
-		// rubikCube.front(-1);
-		// rubikCube.right(-1);
-		// }
+		System.out.println("Colocando subiendo pieza");
+		if (pieza.esPar(this.rubikCube.front_face)) {
+			rubikCube.front(1);
+			rubikCube.front(1);
+		} else {
+			rubikCube.down(1);
+			rubikCube.right(1);
+			rubikCube.front(-1);
+			rubikCube.right(-1);
+		}
 	}
 
 	// private void colocarEsquinasDeDown() {
@@ -267,10 +262,10 @@ public class SolutionMethodTemba {
 		System.out.println("Llevando vertice a su cara");
 		while (
 
-		!pieza.tieneStick(this.rubikCube.front_face)
-				|| !((pieza.tieneStick(this.rubikCube.right_face))
+		!pieza.pertenece(this.rubikCube.front_face)
+				|| !((pieza.pertenece(this.rubikCube.right_face))
 						&& ((pieza.estaEnCara(this.rubikCube.right_face))) || (pieza
-						.tieneStick(this.rubikCube.left_face) && ((pieza
+						.pertenece(this.rubikCube.left_face) && ((pieza
 						.estaEnCara(this.rubikCube.left_face)))))
 
 		) {
