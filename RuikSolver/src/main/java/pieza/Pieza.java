@@ -82,6 +82,7 @@ public abstract class Pieza {
 	public boolean pertenece(Color color) {
 		boolean res = false;
 		for (Stick stick : this.stickers) {
+			//TODO hacer el stick.pertenece  
 			if (stick.getColor().equals(color)) {
 				res = true;
 			}
@@ -104,12 +105,14 @@ public abstract class Pieza {
 		for (int i = 0; i < this.stickers.length; i++) {
 			Stick stick = this.stickers[i];
 			if (stick.getColor().equals(color)
+					//TODO
+				//stick.getColor().equals(color))
 					&& stick.getOrientacion().equals(color.getDireccion())) {
 				res = true;
 				i = stickers.length;
 			}
 		}
-		return res;
+		return res; 
 	}
 
 	public boolean estaOrientada() {
