@@ -7,7 +7,7 @@ public class Stick {
 	public Stick(Color color, Vectr orientacion) {
 		super();
 		this.color = color;
-		this.orientacion = orientacion;
+		this.orientacion = new Vectr(orientacion.getX(), orientacion.getY(), orientacion.getZ());
 	}
 
 	public Color getColor() {

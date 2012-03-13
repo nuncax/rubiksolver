@@ -2,10 +2,10 @@ package pieza;
 
 public class Centro extends Pieza {
 
-	public Centro(Vectr posicion, Stick stick) {
+	public Centro(Stick stick) {
 		super();
 		stickers = new Stick[1];
-		stickers[0] = stick;
+		stickers[0] = new Stick(stick.getColor(), stick.getOrientacion());
 	}
 
 	public int[][] getMatriz(int signo) {
