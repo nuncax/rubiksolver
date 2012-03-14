@@ -130,7 +130,7 @@ public abstract class Pieza {
 		Stick stickRes = null;
 		for (int i = 0; i < this.stickers.length; i++) {
 			Stick stick=stickers[i];
-			if(stick.getColor().equals(color)){
+			if(stick.getOrientacion().equals(color.getDireccion())){
 				stickRes=stick;
 			}
 		}
