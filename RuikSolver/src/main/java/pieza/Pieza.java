@@ -126,4 +126,14 @@ public abstract class Pieza {
 		}
 		return res;
 	}
+	public Stick getStickQueApunta(Color color) {
+		Stick stickRes = null;
+		for (int i = 0; i < this.stickers.length; i++) {
+			Stick stick=stickers[i];
+			if(stick.getColor().equals(color)){
+				stickRes=stick;
+			}
+		}
+		return stickRes;
+	}
 }
