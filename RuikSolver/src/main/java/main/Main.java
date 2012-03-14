@@ -13,8 +13,7 @@ public class Main {
 
 		RubikCube rubikCube = new RubikCube();
 		rubikCube.setPositions();
-
-		// rubikCube.scramble();
+		//rubikCube.scramble();
 
 		// List<Pieza> list = new ArrayList<Pieza>();
 		// list.add(rubikCube.back_center);
