@@ -1,6 +1,7 @@
 package main;
 
 import java.io.IOException;
+import panel.Interfaz;
 import solutions.SolutionMethodTemba;
 import cube.RubikCube;
 
@@ -11,17 +12,15 @@ public class Main {
 		// org.apache.log4j.chainsaw.Main.main(args);
 		// PropertyConfigurator.configure("log4j.properties");
 
+		Interfaz interfaz = new Interfaz();
+		interfaz.openPositionWorkstation();
+		
+	//	rubikcube.Rubikcube r = new Rubikcube();
+		//r.openPositionWorkstation();
+
 		RubikCube rubikCube = new RubikCube();
 		rubikCube.setPositions();
-		rubikCube.scramble();
-
-		// List<Pieza> list = new ArrayList<Pieza>();
-		// list.add(rubikCube.back_center);
-		// list.add(rubikCube.down_center);
-		// list.add(rubikCube.front_center);
-		// list.add(rubikCube.left_center);
-		// list.add(rubikCube.right_center);
-		// list.add(rubikCube.up_center);
+	//	rubikCube.scramble();
 
 		SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
 		temba.solucionar();

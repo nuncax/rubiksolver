@@ -295,4 +295,10 @@ public class RubikCube {
 			pieza.multiplicar(matriz);
 		}
 	}
+
+	public static void setPieceInformation(String piecename, int posx,
+			int posy, int posz, int dirx, int diry, int dirz) {
+		// TODO Auto-generated method stub
+		
+	}
 }
