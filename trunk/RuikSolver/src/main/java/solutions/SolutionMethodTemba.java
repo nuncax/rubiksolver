@@ -99,6 +99,10 @@ public class SolutionMethodTemba {
 		} else if (aristaRight.estaOrientada() || aristaLeft.estaOrientada()) {
 			antiHorario();
 			horario();
+		}else{
+			//caso en el estan las 4 posicionadas xo no orientadas
+			horario();
+			antiHorario();
 		}
 	}
 
