@@ -6,6 +6,10 @@ public abstract class Pieza {
 
 	Stick stickers[];
 
+	public Stick[] getStickers() {
+		return stickers;
+	}
+
 	public Pieza() {
 		this.stickers = null;
 	}
@@ -135,5 +139,14 @@ public abstract class Pieza {
 			}
 		}
 		return stickRes;
+	}
+	
+	public boolean estaPosicionado() {
+		Vectr sumaRes = new Vectr(0, 0, 0);
+		for (int i = 0; i < this.stickers.length; i++) {
+			Stick stick = this.stickers[i];
+			sumaRes.sumarVector(stick.getColor().getDireccion());
+		}
+		return sumaRes.equals(this.getPosicion());
 	}
 }

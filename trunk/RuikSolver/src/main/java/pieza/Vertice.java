@@ -17,6 +17,21 @@ public class Vertice extends Pieza {
 				+ "] Posicion = [" + toStringVect(stickers[0].getOrientacion())
 				+ "," + toStringVect(stickers[1].getOrientacion()) + ","
 				+ toStringVect(stickers[2].getOrientacion()) + "], "
-				+ getPosicion() + "]" + " | Orientada = "+estaOrientada();
+				+ getPosicion() + "]" + " | Orientada = " + estaOrientada();
+	}
+
+	public boolean esVecino(Vertice vertice2) {
+		int numeroDeStiksIguales = 0;
+		for (int i = 0; i < stickers.length; i++) {
+			Stick stick = stickers[i];
+			for (int j = 0; j < vertice2.stickers.length; j++) {
+				Stick stick2 = vertice2.stickers[j];
+				if (stick.getColor().equals(stick2.getColor())) {
+					numeroDeStiksIguales++;
+					// j = stickers.length;
+				}
+			}
+		}
+		return numeroDeStiksIguales == 2;
 	}
 }

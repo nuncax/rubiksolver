@@ -46,7 +46,7 @@ public class RubikCube {
 		rotateFaceClockwise(front_face, signo);
 	}
 
-	private void back(int signo) {
+	public void back(int signo) {
 		rotateFaceClockwise(back_face, signo);
 
 	}
@@ -113,7 +113,7 @@ public class RubikCube {
 		return piezas;
 	}
 
-	private List<Pieza> getFace(Color color) {
+	public List<Pieza> getFace(Color color) {
 		List<Pieza> face = new ArrayList<Pieza>();
 		for (Pieza pieza : this.piezas) {
 			if (pieza.estaEnCara(color) && !(pieza instanceof Centro)) {
@@ -153,6 +153,35 @@ public class RubikCube {
 		return centroRes;
 	}
 
+	public void setFrontByFace(Color cara) {
+		Color colorAux;
+		if (!cara.equals(front_face)) {
+			if (cara.equals(right_face)) {
+				colorAux = front_face;
+				front_face = right_face;
+				right_face = back_face;
+				back_face = left_face;
+				left_face = colorAux;
+			} else if (cara.equals(back_face)) {
+				colorAux = front_face;
+				front_face = back_face;
+				back_face = colorAux;
+
+				colorAux = right_face;
+				right_face = left_face;
+				left_face = colorAux;
+			} else if (cara.equals(left_face)) {
+				colorAux = front_face;
+
+				front_face = left_face;
+				left_face = back_face;
+				back_face = right_face;
+				right_face = colorAux;
+			}
+		}
+
+	}
+
 	public void setFrontByPieza(Pieza pieza) {
 		Color colorAux;
 		if (!pieza.estaEnCara(front_face)) {
@@ -190,9 +219,9 @@ public class RubikCube {
 	// }
 	// return piezaRes;
 	// }
-
+	
 	public void setPositions() throws IOException {
-		BufferedReader bf = new BufferedReader(new FileReader("datos.txt"));
+		BufferedReader bf = new BufferedReader(new FileReader("src/main/resources/datos.txt"));
 		String sCadena;
 		while ((sCadena = bf.readLine()) != null) {
 			int signo = 1;
