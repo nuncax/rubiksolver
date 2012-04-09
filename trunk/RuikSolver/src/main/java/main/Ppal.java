@@ -12,8 +12,11 @@ public class Ppal {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Colors");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(new Stick(Color.blue, 0, 0, 33, 33));
-		frame.add(new Structure());
+	//	frame.add(new Structure());
+		
+		Stick stick = new Stick(Color.blue, 0, 0, 33, 33);
+		
+		frame.add(stick);
 		frame.setSize(360, 300);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
