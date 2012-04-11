@@ -1,10 +1,10 @@
 package structure;
 
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
 import java.awt.geom.Line2D.Double;
 
 import javax.swing.JPanel;
@@ -19,6 +19,171 @@ public class Structure extends JPanel {
 	public void paintComponent(Graphics g) {
 		// super.paintComponent(g);
 		g2d = (Graphics2D) g;
+		
+		// vertices
+		StickPanel stickPanel = new StickPanel(Color.blue, 191, 191, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.yellow, 191, 225, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.orange, 291, 191, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.green, 325, 191, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.blue, 125, 191, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.yellow, 125, 225, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.red, 91, 191, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.green, 391, 191, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.yellow, 125, 291, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.orange, 225, 125, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.white, 191, 91, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.orange, 291, 125, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.green, 325, 125, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.white, 191, 25, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.red, 91, 125, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.white, 125, 91, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.blue, 125, 125, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.green, 391, 125, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.white, 125, 25, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.blue, 191, 125, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.yellow, 191, 291, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.red, 25, 125, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.orange, 225, 191, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		// centros
+
+		stickPanel = new StickPanel(color.red, 58, 158, 33, 33);
+		stickPanel.paintComponent(g2d);
+		stickPanel = new StickPanel(color.blue, 158, 158, 33, 33);
+		stickPanel.paintComponent(g2d);
+		stickPanel = new StickPanel(color.orange, 258, 158, 33, 33);
+		stickPanel.paintComponent(g2d);
+		stickPanel = new StickPanel(color.green, 358, 158, 33, 33);
+		stickPanel.paintComponent(g2d);
+		stickPanel = new StickPanel(color.yellow, 158, 258, 33, 33);
+		stickPanel.paintComponent(g2d);
+		stickPanel = new StickPanel(color.white, 158, 58, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		// aristas
+
+		stickPanel = new StickPanel(color.white, 158, 91, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.white, 158, 25, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.blue, 158, 125, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.blue, 158, 191, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.yellow, 158, 225, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.yellow, 158, 291, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.red, 25, 158, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.red, 91, 158, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.blue, 125, 158, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.blue, 191, 158, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.orange, 225, 158, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.orange, 291, 158, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.green, 325, 158, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.green, 391, 158, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.red, 58, 125, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.orange, 258, 125, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		 stickPanel = new StickPanel(color.green, 358,125, 33, 33);
+		 stickPanel.paintComponent(g2d);
+		
+		 stickPanel = new StickPanel(color.red, 58,191, 33, 33);
+		 stickPanel.paintComponent(g2d);
+		
+		 stickPanel = new StickPanel(color.orange, 258,191, 33, 33);
+		 stickPanel.paintComponent(g2d);
+		
+		 stickPanel = new StickPanel(color.green, 358,191, 33, 33);
+		 stickPanel.paintComponent(g2d);
+		
+		 stickPanel = new StickPanel(color.white, 125,58, 33, 33);
+		 stickPanel.paintComponent(g2d);
+		
+		 stickPanel = new StickPanel(color.white, 191,58, 33, 33);
+		 stickPanel.paintComponent(g2d);
+		
+		 stickPanel = new StickPanel(color.yellow, 191,258, 33, 33);
+		 stickPanel.paintComponent(g2d);
+		
+		 stickPanel = new StickPanel(color.yellow, 125,258, 33, 33);
+		 stickPanel.paintComponent(g2d);
+
+		// //////////////////////////////////////
+
 		g2d.setColor(Color.black);
 		line = new Line2D.Double(25, 125, 425, 125);
 		g2d.draw(line);
@@ -102,45 +267,6 @@ public class Structure extends JPanel {
 		g2d.draw(line);
 		line = new Line2D.Double(426, 125, 426, 225);
 		g2d.draw(line);
-
-		StickPanel stickPanel = new StickPanel(Color.blue, 191,191, 33, 33);
-		stickPanel.paintComponent(g2d);
-
-		stickPanel = new StickPanel(color.orange, 225,191, 33, 33);
-		stickPanel.paintComponent(g2d);
-
-		stickPanel = new StickPanel(color.yellow, 191, 225,33, 33);
-		stickPanel.paintComponent(g2d);
-		
-	stickPanel = new StickPanel(color.black, 225, 191,33, 33);
-		stickPanel.paintComponent(g2d);
-		
-		//stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
-		//stickPanel.paintComponent(g2d);
-		
-//		stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
-//		stickPanel.paintComponent(g2d);
-//		
-//		stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
-//		stickPanel.paintComponent(g2d);
-//		
-//		stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
-//		stickPanel.paintComponent(g2d);
-//		
-//		stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
-//		stickPanel.paintComponent(g2d);
-//		
-//		stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
-//		stickPanel.paintComponent(g2d);
-//		
-//		stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
-//		stickPanel.paintComponent(g2d);
-//		
-//		stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
-//		stickPanel.paintComponent(g2d);
-
-		// g2d.fill(stickPanel.getColorsquare());
-		// g2d.setColor(stickPanel.getColor());
 
 	}
 }
