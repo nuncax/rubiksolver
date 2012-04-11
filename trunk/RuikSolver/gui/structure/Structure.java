@@ -1,5 +1,6 @@
 package structure;
 
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -8,13 +9,15 @@ import java.awt.geom.Line2D.Double;
 
 import javax.swing.JPanel;
 
+import stickPanel.StickPanel;
+
 public class Structure extends JPanel {
-	Graphics2D g2d;
-	Color color;
+	private Graphics2D g2d;
+	private Color color;
 	private Double line;
 
 	public void paintComponent(Graphics g) {
-		//super.paintComponent(g);
+		// super.paintComponent(g);
 		g2d = (Graphics2D) g;
 		g2d.setColor(Color.black);
 		line = new Line2D.Double(25, 125, 425, 125);
@@ -99,5 +102,45 @@ public class Structure extends JPanel {
 		g2d.draw(line);
 		line = new Line2D.Double(426, 125, 426, 225);
 		g2d.draw(line);
+
+		StickPanel stickPanel = new StickPanel(Color.blue, 191,191, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.orange, 225,191, 33, 33);
+		stickPanel.paintComponent(g2d);
+
+		stickPanel = new StickPanel(color.yellow, 191, 225,33, 33);
+		stickPanel.paintComponent(g2d);
+		
+	stickPanel = new StickPanel(color.black, 225, 191,33, 33);
+		stickPanel.paintComponent(g2d);
+		
+		//stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
+		//stickPanel.paintComponent(g2d);
+		
+//		stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
+//		stickPanel.paintComponent(g2d);
+//		
+//		stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
+//		stickPanel.paintComponent(g2d);
+//		
+//		stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
+//		stickPanel.paintComponent(g2d);
+//		
+//		stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
+//		stickPanel.paintComponent(g2d);
+//		
+//		stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
+//		stickPanel.paintComponent(g2d);
+//		
+//		stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
+//		stickPanel.paintComponent(g2d);
+//		
+//		stickPanel = new StickPanel(color.red, 25, 191, 33, 33);
+//		stickPanel.paintComponent(g2d);
+
+		// g2d.fill(stickPanel.getColorsquare());
+		// g2d.setColor(stickPanel.getColor());
+
 	}
 }
