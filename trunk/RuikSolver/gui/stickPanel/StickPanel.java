@@ -14,9 +14,9 @@ public class StickPanel extends JPanel{
 	private Graphics2D g2d;
 	private Color color;
 
-	public StickPanel(Color color, double x, double y, double w, double h) {
+	public StickPanel(Color color, double x, double y, double w) {
 		this.color = color;
-		colorsquare = new Rectangle2D.Double(x, y, w, h);
+		colorsquare = new Rectangle2D.Double(x, y, w, w);
 	}
 	
 	public void paintComponent(Graphics g) {
