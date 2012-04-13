@@ -11,23 +11,26 @@ import javax.swing.JPanel;
 import stickPanel.StickPanel;
 
 public class facePanel extends JPanel {
-	
-	
-	
-	
+
+	private Graphics2D g2d;
+
+	private Color color;
+
 	int lineaGruesa = 3;
 	int lineaFina = 1;
 
 	int w = 33;
-	int h = 33;
 
-	int oX = 1;
+	int oX = 0;
 	int oY = 1;
 
-	
-	private Graphics2D g2d;
-	private Color color;
 	private Double line;
+
+	public facePanel(Color color, int x, int y) {
+		this.color = color;
+		oX = x;
+		oY = y;
+	}
 
 	public void paintComponent(Graphics g) {
 
@@ -35,22 +38,22 @@ public class facePanel extends JPanel {
 
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				pintaRectangulo(oX + i, oY + j, color.white);
+				pintaRectangulo(oX + i, oY + j, color);
 			}
 		}
 
 		for (int i = 0; i <= 3; i++) {
-			lineaFinaH(oX, i+oY);
+			lineaFinaH(oX, i + oY);
 		}
 
 		for (int i = 0; i <= 3; i++) {
-			lineaFinaV(i+oX, oY);
+			lineaFinaV(i + oX, oY);
 		}
 
 	}
 
 	private void pintaRectangulo(int x, int y, Color color) {
-		StickPanel stickPanel = new StickPanel(color, (x * w), (y * w), w);
+		StickPanel stickPanel = new StickPanel(color, x, y, w);
 		stickPanel.paintComponent(g2d);
 	}
 

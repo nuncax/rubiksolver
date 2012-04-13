@@ -1,6 +1,5 @@
 package stickPanel;
 
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -9,22 +8,22 @@ import java.awt.geom.Rectangle2D;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-public class StickPanel extends JPanel{
+public class StickPanel extends JPanel {
 	private Rectangle2D square;
 	private Graphics2D g2d;
 	private Color color;
 
 	public StickPanel(Color color, double x, double y, double w) {
 		this.color = color;
-		square = new Rectangle2D.Double(x, y, w, w);
+		square = new Rectangle2D.Double(x * w, y * w, w, w);
 	}
-	
+
 	public void paintComponent(Graphics g) {
-		 super.paintComponent(g);
+		super.paintComponent(g);
 		g2d = (Graphics2D) g;
 		g2d.setColor(this.getColor());
 		g2d.fill(this.getSquare());
-		
+
 	}
 
 	public Rectangle2D getSquare() {
