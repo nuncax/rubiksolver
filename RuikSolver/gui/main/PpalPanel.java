@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
-import nuevoPanel.nuevoPanel;
+import nuevoPanel.facePanel;
 import structure.Structure;
 
 public class PpalPanel {
@@ -18,7 +18,7 @@ public class PpalPanel {
 		
 		
 		//frame.add(new Structure());
-		frame.add(new nuevoPanel());
+		frame.add(new facePanel());
 		
 		
 		
