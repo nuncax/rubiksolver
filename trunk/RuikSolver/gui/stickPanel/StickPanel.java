@@ -10,29 +10,29 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 public class StickPanel extends JPanel{
-	private Rectangle2D colorsquare;
+	private Rectangle2D square;
 	private Graphics2D g2d;
 	private Color color;
 
 	public StickPanel(Color color, double x, double y, double w) {
 		this.color = color;
-		colorsquare = new Rectangle2D.Double(x, y, w, w);
+		square = new Rectangle2D.Double(x, y, w, w);
 	}
 	
 	public void paintComponent(Graphics g) {
 		 super.paintComponent(g);
 		g2d = (Graphics2D) g;
 		g2d.setColor(this.getColor());
-		g2d.fill(this.getColorsquare());
+		g2d.fill(this.getSquare());
 		
 	}
 
-	public Rectangle2D getColorsquare() {
-		return colorsquare;
+	public Rectangle2D getSquare() {
+		return square;
 	}
 
-	public void setColorsquare(Rectangle2D colorsquare) {
-		this.colorsquare = colorsquare;
+	public void setSquare(Rectangle2D colorsquare) {
+		this.square = colorsquare;
 	}
 
 	public Color getColor() {
