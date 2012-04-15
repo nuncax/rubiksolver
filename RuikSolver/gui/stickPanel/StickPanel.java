@@ -41,6 +41,12 @@ public class StickPanel extends JPanel {
 		square = new Rectangle2D.Double(oX * w, oY * w, w, w);
 		g2d.setColor(this.color);
 		g2d.fill(this.square);
-
 	}
+
+	@Override
+	public String toString() {
+		return "StickPanel [color=" + color + ", oX=" + oX + ", oY=" + oY + "]";
+	}
+	
+	
 }

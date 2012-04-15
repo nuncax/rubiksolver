@@ -57,7 +57,12 @@ public class facePanel extends JPanel {
 		// map.put(new Vectr(1, 1, 1), new StickPanel(this.color, oX, oY, w));
 		// map.put(new Vectr(0, 1, 1), new StickPanel(this.color, oX, oY, w));
 		// map.put(new Vectr(-1, 1, 1), new StickPanel(this.color, oX, oY, w));
-
+		
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				m[i][j] = new StickPanel(color, i + oX, j + oY, w);
+			}
+		}
 	}
 
 	public void paintComponent(Graphics g) {
@@ -66,7 +71,6 @@ public class facePanel extends JPanel {
 
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				m[i][j] = new StickPanel(color, i + oX, j + oY, w);
 				m[i][j].paintComponent(g);
 			}
 		}

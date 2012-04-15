@@ -24,6 +24,14 @@
 		</plugins>
 	</build>
 	<dependencies>
+	   <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>11.0.2</version>
+            <systemPath>${basedir}/lib/guava-11.0.2.jar</systemPath>
+            <scope>system</scope>
+        </dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -40,10 +48,10 @@
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
-		<artifactId>log4j</artifactId>
-		<version>1.2.16</version>
-		<scope>system</scope>
-		<systemPath>${basedir}/lib/log4j-1.2.16.jar</systemPath>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/log4j-1.2.16.jar</systemPath>
 		</dependency>
 	</dependencies>
 </project>

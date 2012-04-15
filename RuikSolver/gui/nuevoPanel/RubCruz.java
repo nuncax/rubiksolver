@@ -12,6 +12,10 @@ import java.util.SortedSet;
 
 import javax.swing.JPanel;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+
+
 import pieza.Vectr;
 import stickPanel.StickPanel;
 
@@ -36,123 +40,68 @@ public class RubCruz extends JPanel {
 	private int oY;
 
 	public RubCruz(int x, int y, int w) {
-		
-		//White
-		listPos.add(new Vectr());
-		listPos.add(new Vectr(0,-1,1));
-		listPos.add(new Vectr());
-		listPos.add(new Vectr(1,0,1));
-		listPos.add(new Vectr());
-		listPos.add(new Vectr(-1,0,1));
-		listPos.add(new Vectr());
-		listPos.add(new Vectr(0,1,1));
-		listPos.add(new Vectr());
-		//Red
+
+		// White
 		listPos.add(new Vectr(1, -1, 1));
-		listPos.add(new Vectr(1,0,1));
-		listPos.add(new Vectr(1,-1,1));
-		listPos.add(new Vectr(1,0,-1));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(1,1,0));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		//Blue
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(0,1,1));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(1,1,0));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(-1,1,0));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		//Yellow
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		//Orange
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(-1,0,1));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(-1,1,0));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(-1,-1,0));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		//Green
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(0,-1,1));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(-1,-1,0));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(1,-1,0));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		listPos.add(new Vectr(,,));
-		
-		//rw
-		//listPos.add(new Vectr(1,0,1));
-		//bw
-//		listPos.add(new Vectr(0,1,1));
-		//ow
-//		listPos.add(new Vectr(-1,0,1));
-		//gw
-	//	listPos.add(new Vectr(0,-1,1));
-		//br
-		//listPos.add(new Vectr(1,1,0));
-		//bo
-//		listPos.add(new Vectr(-1,1,0));
-		//go
-	//	listPos.add(new Vectr(-1,-1,0));
-		//gr
-		//listPos.add(new Vectr(1,-1,0));
-		//ry
-		listPos.add(new Vectr(1,0,-1));
-		//by
-		listPos.add(new Vectr(0,1,-1));
-		//oy
-		listPos.add(new Vectr(-1,0,-1));
-		//gy
-		listPos.add(new Vectr(0,-1,-1));
-		//brw
-		listPos.add(new Vectr(1,1,1));
-		//bow
-		listPos.add(new Vectr(-1,1,1));
-		//gow
-		listPos.add(new Vectr(-1,-1,1));
-		//grw
-		listPos.add(new Vectr(1,-1,1));
-		//boy
-		listPos.add(new Vectr(-1,1,-1));
-		//bry
-		listPos.add(new Vectr(1,1,-1));
-		//gry
-		listPos.add(new Vectr(1,-1,-1));
-		//goy
-		listPos.add(new Vectr(-1,-1,-1));
-		
-		
-		//r
-		listPos.add(new Vectr(1,0,0));
-		//o
-		listPos.add(new Vectr(-1,0,0));
-		//b
-		listPos.add(new Vectr(0,1,0));
-		//g
-		listPos.add(new Vectr(0,-1,0));
-		//y
-		listPos.add(new Vectr(0,0,-1));
-		//w		
-		listPos.add(new Vectr(0,0,1));
-		
+		listPos.add(new Vectr(0, -1, 1));
+		listPos.add(new Vectr(-1, -1, 1));
+		listPos.add(new Vectr(1, 0, 1));
+		listPos.add(new Vectr(0, 0, 1));
+		listPos.add(new Vectr(-1, 0, 1));
+		listPos.add(new Vectr(1, 1, 1));
+		listPos.add(new Vectr(0, 1, 1));
+		listPos.add(new Vectr(-1, 1, 1));
+		// Red
+		listPos.add(new Vectr(1, -1, 1));
+		listPos.add(new Vectr(1, 0, 1));
+		listPos.add(new Vectr(1, 1, 1));
+		listPos.add(new Vectr(1, -1, 0));
+		listPos.add(new Vectr(1, 0, 0));
+		listPos.add(new Vectr(1, 1, 0));
+		listPos.add(new Vectr(1, -1, -1));
+		listPos.add(new Vectr(1, 0, -1));
+		listPos.add(new Vectr(1, 1, -1));
+		// Blue
+		listPos.add(new Vectr(1, 1, 1));
+		listPos.add(new Vectr(0, 1, 1));
+		listPos.add(new Vectr(-1, 1, 1));
+		listPos.add(new Vectr(1, 1, 0));
+		listPos.add(new Vectr(0, 1, 0));
+		listPos.add(new Vectr(-1, 1, 0));
+		listPos.add(new Vectr(1, 1, -1));
+		listPos.add(new Vectr(0, 1, -1));
+		listPos.add(new Vectr(-1, 1, -1));
+		// Yellow
+		listPos.add(new Vectr(1, 1, -1));
+		listPos.add(new Vectr(0, 1, -1));
+		listPos.add(new Vectr(-1, 1, -1));
+		listPos.add(new Vectr(1, 0, -1));
+		listPos.add(new Vectr(0, 0, -1));
+		listPos.add(new Vectr(-1, 0, -1));
+		listPos.add(new Vectr(1, -1, -1));
+		listPos.add(new Vectr(0, -1, -1));
+		listPos.add(new Vectr(-1, -1, -1));
+		// Orange
+		listPos.add(new Vectr(-1, 1, 1));
+		listPos.add(new Vectr(-1, 0, 1));
+		listPos.add(new Vectr(-1, -1, 1));
+		listPos.add(new Vectr(-1, 1, 0));
+		listPos.add(new Vectr(-1, 0, 0));
+		listPos.add(new Vectr(-1, -1, 0));
+		listPos.add(new Vectr(-1, 1, -1));
+		listPos.add(new Vectr(-1, 0, -1));
+		listPos.add(new Vectr(-1, -1, -1));
+		// Green
+		listPos.add(new Vectr(-1, -1, 1));
+		listPos.add(new Vectr(0, -1, 1));
+		listPos.add(new Vectr(1, -1, 1));
+		listPos.add(new Vectr(-1, -1, 0));
+		listPos.add(new Vectr(0, -1, 0));
+		listPos.add(new Vectr(1, -1, 0));
+		listPos.add(new Vectr(-1, -1, -1));
+		listPos.add(new Vectr(0, -1, -1));
+		listPos.add(new Vectr(1, -1, -1));
+
 		oX = x;
 		oY = y;
 		this.w = w;
@@ -164,22 +113,29 @@ public class RubCruz extends JPanel {
 		fG = new facePanel(Color.green, 9 + oX, 3 + oY, this.w);
 		fY = new facePanel(Color.yellow, 3 + oX, 6 + oY, this.w);
 
+		int k = 0;
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				map.put(listPos.subList(0, 9).get(k), fW.getStickPanel(i, j));
+				map.put(listPos.subList(9, 18).get(k), fR.getStickPanel(i, j));
+				map.put(listPos.subList(18, 27).get(k), fB.getStickPanel(i, j));
+				map.put(listPos.subList(27, 36).get(k), fY.getStickPanel(i, j));
+				map.put(listPos.subList(36, 45).get(k), fO.getStickPanel(i, j));
+				map.put(listPos.subList(45, 54).get(k), fG.getStickPanel(i, j));
+			//	map.put(listPos.get(k), new StickPanel(Color.white, i + oX, j+ oY, w));
+				k++;
+//				m[i][j] = new StickPanel(color, i + oX, j + oY, w);
+//				m[i][j].paintComponent(g);
+			}
+		}
+
 	}
 
-	private Map<Vectr, StickPanel> map = new HashMap<>();
+//	private Map<Vectr, StickPanel> map = new HashMap<>();
+	
+	private Multimap<Vectr, StickPanel> map = HashMultimap.create();
 
 	public void paintComponent(Graphics g) {
-
-		// int k = 0;
-		// for (int i = 0; i < 3; i++) {
-		// for (int j = 0; j < 3; j++) {
-		// //map.put(listPos.get(k), new StickPanel(Color.white, i + oX, j+ oY,
-		// w));
-		// k++;
-		// m[i][j] = new StickPanel(color, i + oX, j + oY, w);
-		// m[i][j].paintComponent(g);
-		// }
-		// }
 
 		fW.paintComponent(g);
 		fB.paintComponent(g);
