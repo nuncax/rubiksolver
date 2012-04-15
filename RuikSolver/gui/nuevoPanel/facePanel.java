@@ -6,7 +6,14 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Line2D.Double;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.swing.JPanel;
+
+import pieza.Vectr;
 
 import stickPanel.StickPanel;
 
@@ -32,12 +39,25 @@ public class facePanel extends JPanel {
 
 	private Double line;
 
+	// Map<Vectr, StickPanel> map = new HashMap<Vectr, StickPanel>();
+
 	public facePanel(Color color, int x, int y, int w) {
 		this.m = new StickPanel[3][3];
 		this.color = color;
 		oX = x;
 		oY = y;
 		this.w = w;
+
+		// map.put(new Vectr(1, -1, 1), new StickPanel(this.color, oX, oY, w));
+		// map.put(new Vectr(0, -1, 1), new StickPanel(this.color, oX, oY, w));
+		// map.put(new Vectr(-1, -1, 1), new StickPanel(this.color, oX, oY, w));
+		// map.put(new Vectr(1, 0, 1), new StickPanel(this.color, oX, oY, w));
+		// map.put(new Vectr(0, 0, 1), new StickPanel(this.color, oX, oY, w));
+		// map.put(new Vectr(-1, 0, 1), new StickPanel(this.color, oX, oY, w));
+		// map.put(new Vectr(1, 1, 1), new StickPanel(this.color, oX, oY, w));
+		// map.put(new Vectr(0, 1, 1), new StickPanel(this.color, oX, oY, w));
+		// map.put(new Vectr(-1, 1, 1), new StickPanel(this.color, oX, oY, w));
+
 	}
 
 	public void paintComponent(Graphics g) {
@@ -51,6 +71,10 @@ public class facePanel extends JPanel {
 			}
 		}
 
+		// for (Vectr vec : map.keySet()) {
+		// map.get(vec).paintComponent(g2d);
+		// }
+
 		for (int i = 0; i <= 3; i++) {
 			lineaFinaH(oX, i + oY);
 		}
@@ -63,7 +87,12 @@ public class facePanel extends JPanel {
 
 	public StickPanel getStickPanel(int x, int y) {
 		return m[x][y];
+
 	}
+
+	// public StickPanel getStickPanel(Vectr vec) {
+	// return map.get(vec);
+	// }
 
 	private void lineaFinaH(int x, int y) {
 		line = new Line2D.Double(w * x, w * y, (w * (3 + x)) - 1, (w) * y);

@@ -15,6 +15,14 @@ public class StickPanel extends JPanel {
 	private Graphics2D g2d;
 	private Color color;
 
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
 	private int w;
 	private int oX;
 	private int oY;
