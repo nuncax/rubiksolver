@@ -17,7 +17,7 @@ public class PpalPanel {
 		frame.setBackground(new Color(175, 200, 255));
 
 		
-		frame.add(new RubCruz(1, 1, 33));
+		frame.add(new RubCruz(2, 2, 60));
 		
 		
 		frame.setSize(475, 400);
