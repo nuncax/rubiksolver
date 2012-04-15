@@ -1,25 +1,53 @@
-191,191
-191,225
-291,191
-325,191
-191,291
-125,191
-125,225
-91,191
-25,191
-391,191
-125,291
-191,125
-225,125
-191,91
-291,125
-325,125
-191,25
-91,125
-125,91
-125,125
-391,125
-125,25
-25,125
+	// rw
+		// listPos.add(new Vectr(1,0,1));
+		// bw
+		// listPos.add(new Vectr(0,1,1));
+		// ow
+		// listPos.add(new Vectr(-1,0,1));
+		// gw
+		// listPos.add(new Vectr(0,-1,1));
+		// br
+		// listPos.add(new Vectr(1,1,0));
+		// bo
+		// listPos.add(new Vectr(-1,1,0));
+		// go
+		// listPos.add(new Vectr(-1,-1,0));
+		// gr
+		// listPos.add(new Vectr(1,-1,0));
+		// ry
+		// listPos.add(new Vectr(1,0,-1));
+		// by
+		// listPos.add(new Vectr(0,1,-1));
+		// oy
+		// listPos.add(new Vectr(-1,0,-1));
+		// gy
+		// listPos.add(new Vectr(0,-1,-1));
+		// brw
+		// listPos.add(new Vectr(1,1,1));
+		// bow
+		// listPos.add(new Vectr(-1,1,1));
+		// gow
+		// listPos.add(new Vectr(-1,-1,1));
+		// grw
+		// listPos.add(new Vectr(1,-1,1));
+		// boy
+		// listPos.add(new Vectr(-1,1,-1));
+		// bry
+		// listPos.add(new Vectr(1,1,-1));
+		// gry
+		// listPos.add(new Vectr(1,-1,-1));
+		// goy
+		// listPos.add(new Vectr(-1,-1,-1));
 
-
+		// r
+		//listPos.add(new Vectr(1, 0, 0));
+		// o
+		//listPos.add(new Vectr(-1, 0, 0));
+		// b
+		//listPos.add(new Vectr(0, 1, 0));
+		// g
+		//listPos.add(new Vectr(0, -1, 0));
+		// y
+		//listPos.add(new Vectr(0, 0, -1));
+		// w
+		//listPos.add(new Vectr(0, 0, 1));
