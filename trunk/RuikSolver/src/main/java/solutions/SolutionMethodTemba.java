@@ -2,6 +2,7 @@ package solutions;
 
 import java.util.Iterator;
 import java.util.List;
+import observer.IObserver;
 import pieza.Arista;
 import pieza.Color;
 import pieza.Pieza;
@@ -99,8 +100,8 @@ public class SolutionMethodTemba {
 		} else if (aristaRight.estaOrientada() || aristaLeft.estaOrientada()) {
 			antiHorario();
 			horario();
-		}else{
-			//caso en el estan las 4 posicionadas xo no orientadas
+		} else {
+			// caso en el estan las 4 posicionadas xo no orientadas
 			horario();
 			antiHorario();
 		}
@@ -113,10 +114,10 @@ public class SolutionMethodTemba {
 			antiHorario();
 		} else if (aristaBack.pertenece(rubikCube.left_face)) {
 			horario();
-		} else if (aristaBack.pertenece(rubikCube.front_face)) {			
+		} else if (aristaBack.pertenece(rubikCube.front_face)) {
 			antiHorario();
 		}
-		
+
 	}
 
 	private void unoAdos() {
@@ -615,7 +616,7 @@ public class SolutionMethodTemba {
 		antiHorario();
 		rubikCube.setFrontByFace(this.rubikCube.left_face);
 		antiHorario();
-		antiHorario();		
+		antiHorario();
 		horario();
 		colocarAristasDeDown();
 	}

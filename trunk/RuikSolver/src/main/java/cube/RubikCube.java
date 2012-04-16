@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+
+import observer.IObserver;
 import pieza.Arista;
 import pieza.Centro;
 import pieza.Color;
@@ -32,6 +34,12 @@ public class RubikCube {
 		this.back_face = Color.GREEN;
 		this.left_face = Color.RED;
 		this.up_face = Color.WHITE;
+	}
+
+	IObserver observer;
+
+	public void addObservador(IObserver observer) {
+		this.observer = observer;
 	}
 
 	public void right(int signo) {
@@ -219,9 +227,10 @@ public class RubikCube {
 	// }
 	// return piezaRes;
 	// }
-	
+
 	public void setPositions() throws IOException {
-		BufferedReader bf = new BufferedReader(new FileReader("src/main/resources/datos.txt"));
+		BufferedReader bf = new BufferedReader(new FileReader(
+				"src/main/resources/datos.txt"));
 		String sCadena;
 		while ((sCadena = bf.readLine()) != null) {
 			int signo = 1;
@@ -294,11 +303,12 @@ public class RubikCube {
 		for (Pieza pieza : getFace(color)) {
 			pieza.multiplicar(matriz);
 		}
+		this.observer.observa(piezas);	
 	}
 
 	public static void setPieceInformation(String piecename, int posx,
 			int posy, int posz, int dirx, int diry, int dirz) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

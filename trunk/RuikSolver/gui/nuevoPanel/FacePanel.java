@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Line2D.Double;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.JPanel;
 import com.google.common.collect.HashMultimap;
@@ -14,12 +15,20 @@ import com.google.common.collect.Multimap;
 import pieza.Vectr;
 import stickPanel.StickPanel;
 
-public class facePanel extends JPanel {
+public class FacePanel extends JPanel {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -9145680029000312265L;
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
 
 	private Graphics2D g2d;
 
@@ -38,11 +47,10 @@ public class facePanel extends JPanel {
 
 	private List<Vectr> listPos = new ArrayList<Vectr>();
 
-	private Multimap<Vectr, StickPanel> map = HashMultimap.create();
-
+	private HashMap<Vectr, StickPanel> map = new HashMap<Vectr, StickPanel>();
 	// Map<Vectr, StickPanel> map = new HashMap<Vectr, StickPanel>();
 
-	public facePanel(Color color, int x, int y, int w) {
+	public FacePanel(Color color, int x, int y, int w) {
 		this.m = new StickPanel[3][3];
 		this.color = color;
 		this.oX = x;
@@ -125,11 +133,11 @@ public class facePanel extends JPanel {
 //		}
 	}
 
-	public Multimap<Vectr, StickPanel> getMap() {
+	public HashMap<Vectr, StickPanel> getMap() {
 		return map;
 	}
 
-	public void setMap(Multimap<Vectr, StickPanel> map) {
+	public void setMap(HashMap<Vectr, StickPanel> map) {
 		this.map = map;
 	}
 
@@ -157,9 +165,7 @@ public class facePanel extends JPanel {
 		
 		
 		for (Vectr v : map.keySet()) {
-			for (StickPanel stickPanel: map.get(v)) {
-				stickPanel.paintComponent(g);
-			}
+			map.get(v).paint(g2d);
 		}
 		
 
