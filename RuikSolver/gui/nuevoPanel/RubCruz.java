@@ -3,6 +3,7 @@ package nuevoPanel;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -26,7 +27,7 @@ public class RubCruz extends JPanel {
 	 */
 	private static final long serialVersionUID = 5180355775069038712L;
 
-	private List<Vectr> listPos = new ArrayList<>();
+	private List<Vectr> listPos = new ArrayList<Vectr>();
 
 	private facePanel fW;
 	private facePanel fB;
@@ -129,6 +130,14 @@ public class RubCruz extends JPanel {
 			}
 		}
 
+	}
+	
+	public void actualizaCruz( Multimap<Vectr, StickPanel> m){
+		for (Vectr v : m.keySet()) {
+			for (StickPanel stickPanel: m.get(v)) {
+				stickPanel.paintComponent(g);
+			}
+		}
 	}
 
 //	private Map<Vectr, StickPanel> map = new HashMap<>();
