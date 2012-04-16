@@ -6,15 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Line2D.Double;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.swing.JPanel;
-
-import pieza.Vectr;
-
 import stickPanel.StickPanel;
 
 public class facePanel extends JPanel {
@@ -47,16 +39,6 @@ public class facePanel extends JPanel {
 		oX = x;
 		oY = y;
 		this.w = w;
-
-		// map.put(new Vectr(1, -1, 1), new StickPanel(this.color, oX, oY, w));
-		// map.put(new Vectr(0, -1, 1), new StickPanel(this.color, oX, oY, w));
-		// map.put(new Vectr(-1, -1, 1), new StickPanel(this.color, oX, oY, w));
-		// map.put(new Vectr(1, 0, 1), new StickPanel(this.color, oX, oY, w));
-		// map.put(new Vectr(0, 0, 1), new StickPanel(this.color, oX, oY, w));
-		// map.put(new Vectr(-1, 0, 1), new StickPanel(this.color, oX, oY, w));
-		// map.put(new Vectr(1, 1, 1), new StickPanel(this.color, oX, oY, w));
-		// map.put(new Vectr(0, 1, 1), new StickPanel(this.color, oX, oY, w));
-		// map.put(new Vectr(-1, 1, 1), new StickPanel(this.color, oX, oY, w));
 		
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
