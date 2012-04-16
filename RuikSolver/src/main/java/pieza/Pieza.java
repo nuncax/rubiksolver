@@ -14,7 +14,7 @@ public abstract class Pieza {
 		this.stickers = null;
 	}
 
-	Vectr getPosicion() {
+	public Vectr getPosicion() {
 		Vectr sumaRes = new Vectr(0, 0, 0);
 		for (int i = 0; i < this.stickers.length; i++) {
 			Stick stick = this.stickers[i];
