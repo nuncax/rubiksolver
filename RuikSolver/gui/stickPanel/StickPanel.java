@@ -47,6 +47,4 @@ public class StickPanel extends JPanel {
 	public String toString() {
 		return "StickPanel [color=" + color + ", oX=" + oX + ", oY=" + oY + "]";
 	}
-	
-	
 }
