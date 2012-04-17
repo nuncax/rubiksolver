@@ -6,10 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import javax.swing.JPanel;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
 import pieza.Vectr;
-
 
 public class RubCruz extends JPanel {
 
@@ -21,7 +18,7 @@ public class RubCruz extends JPanel {
 	static HashMap<Vectr, FacePanel> map = new HashMap<>();
 
 	private List<FacePanel> facePanels;
-	
+
 	private int w;
 	private int oX;
 	private int oY;
@@ -72,7 +69,7 @@ public class RubCruz extends JPanel {
 	}
 
 	public void paintComponent(Graphics g) {
-		
+
 		for (FacePanel face : this.facePanels) {
 			face.paintComponent(g);
 		}
