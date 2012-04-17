@@ -2,7 +2,6 @@ package solutions;
 
 import java.util.Iterator;
 import java.util.List;
-import observer.IObserver;
 import pieza.Arista;
 import pieza.Color;
 import pieza.Pieza;

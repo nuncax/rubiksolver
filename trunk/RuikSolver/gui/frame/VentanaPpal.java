@@ -27,8 +27,9 @@ public class VentanaPpal extends JFrame {
 
 	public VentanaPpal() throws HeadlessException {
 		super();
+		this.setTitle("Rubik by Temba");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		// frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
 		// frame.setResizable(false);
 
@@ -40,20 +41,4 @@ public class VentanaPpal extends JFrame {
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
-
-	public VentanaPpal(GraphicsConfiguration gc) {
-		super(gc);
-		// TODO Auto-generated constructor stub
-	}
-
-	public VentanaPpal(String title, GraphicsConfiguration gc) {
-		super(title, gc);
-		// TODO Auto-generated constructor stub
-	}
-
-	public VentanaPpal(String title) throws HeadlessException {
-		super(title);
-		// TODO Auto-generated constructor stub
-	}
-
 }
