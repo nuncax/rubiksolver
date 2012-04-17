@@ -10,7 +10,7 @@ import nuevoPanel.RubCruz;
 
 public class VentanaPpal extends JFrame {
 
-	private RubCruz comp = new RubCruz(0, 0, 33);
+	private RubCruz comp = new RubCruz(1, 1, 33);
 
 	/**
 	 * 

@@ -28,23 +28,31 @@ public class AWTObserver implements IObserver {
 				FacePanel facePanel = map.get(orientacion);
 				StickPanel stickpanel = facePanel.getMap().get(posicion);
 				stickpanel.setColor(calcColor(stickers[i].getColor()));
+				//waiting(0.1);
+				try {
+					//wait(500);
+					Thread.sleep(1);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 	}
 
 	private java.awt.Color calcColor(Color colorP) {
 		java.awt.Color colorRes = null;
-		if (colorP.equals(Color.BLUE)) {
+		if (colorP.toString().equals("azul")) {
 			colorRes = java.awt.Color.BLUE;
-		} else if (colorP.equals(Color.GREEN)) {
+		} else if (colorP.toString().equals("verde")) {
 			colorRes = java.awt.Color.GREEN;
-		} else if (colorP.equals(Color.ORANGE)) {
+		} else if (colorP.toString().equals("naranja")) {
 			colorRes = java.awt.Color.ORANGE;
-		} else if (colorP.equals(Color.RED)) {
+		} else if (colorP.toString().equals("rojo")) {
 			colorRes = java.awt.Color.RED;
-		} else if (colorP.equals(Color.WHITE)) {
+		} else if (colorP.toString().equals("blanco")) {
 			colorRes = java.awt.Color.WHITE;
-		} else if (colorP.equals(Color.YELLOW)) {
+		} else if (colorP.toString().equals("amarillo")) {
 			colorRes = java.awt.Color.YELLOW;
 		}
 		return colorRes;
@@ -54,6 +62,18 @@ public class AWTObserver implements IObserver {
 	@Override
 	public void observa(List<Pieza> piezas) {
 		observa(piezas, this.map);
+
+	}
+
+	public static void waiting(double d) {
+
+		long t0, t1;
+
+		t0 = System.currentTimeMillis();
+
+		do {
+			t1 = System.currentTimeMillis();
+		} while (t1 - t0 < d);
 
 	}
 
