@@ -1,24 +1,21 @@
 package thread;
 
-import java.util.ArrayList;
-
-import panelOld.Drawingpanel;
+import panelOld.Rubikcube;
 
 public class OldThread extends Thread {
-	//VentanaPpalOld ventanaPpalOld = new VentanaPpalOld();
+	boolean fin = false;
+	Rubikcube rubikcube;
 
-	Drawingpanel drawingpanel;
-	ArrayList<String[]> array;
+	public OldThread(Rubikcube rubikcube) {
+		this.rubikcube = rubikcube;
 
-	public OldThread(ArrayList<String[]> c, Drawingpanel drawingpanel) {
-		super();
-		this.array = c;
-		this.drawingpanel = drawingpanel;
 	}
 
 	public void run() {
-		while (true) {
-			drawingpanel.showcube(array);
-		}
+		rubikcube.solveClassicalMethod();
+		fin = true;
+	}
+	public boolean getFin(){
+		return fin;
 	}
 }

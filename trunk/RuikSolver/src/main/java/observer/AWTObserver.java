@@ -65,16 +65,4 @@ public class AWTObserver implements IObserver {
 
 	}
 
-	public static void waiting(double d) {
-
-		long t0, t1;
-
-		t0 = System.currentTimeMillis();
-
-		do {
-			t1 = System.currentTimeMillis();
-		} while (t1 - t0 < d);
-
-	}
-
 }
