@@ -15,7 +15,7 @@ public class RubCruz extends JPanel {
 	 */
 	private static final long serialVersionUID = 5180355775069038712L;
 
-	static HashMap<Vectr, FacePanel> map = new HashMap<>();
+	static HashMap<Vectr, FacePanel> map = new HashMap();
 
 	private List<FacePanel> facePanels;
 
