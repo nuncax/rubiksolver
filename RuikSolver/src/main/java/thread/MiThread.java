@@ -7,11 +7,12 @@ import pieza.Vectr;
 import frame.VentanaPpal;
 
 public class MiThread extends Thread {
-	VentanaPpal ventanaPpal = new VentanaPpal();
+	private VentanaPpal ventanaPpal = new VentanaPpal();
+	private Boolean repaint = Boolean.TRUE;
 	
 	public void run() {
-		while(true){
-			ventanaPpal.repaint();						
+		while(repaint){
+			ventanaPpal.repaint();
 		}
 	
 	}
@@ -19,5 +20,7 @@ public class MiThread extends Thread {
 		// TODO Auto-generated method stub
 		return ventanaPpal.getComp().getMap();
 	}
-	
+	public void setRepaint(Boolean repaint) {
+		this.repaint = repaint;
+	}	
 }

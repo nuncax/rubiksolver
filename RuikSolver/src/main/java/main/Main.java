@@ -1,7 +1,8 @@
 package main;
 
 import java.io.IOException;
-import panel.Interfaz;
+
+import panelOld.Interfaz;
 import solutions.SolutionMethodTemba;
 import cube.RubikCube;
 

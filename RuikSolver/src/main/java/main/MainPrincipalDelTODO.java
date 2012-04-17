@@ -14,17 +14,17 @@ public class MainPrincipalDelTODO {
 	 * @param args
 	 */
 
-	static MiThread thread = new MiThread();
+	static MiThread thre = new MiThread();
 
 	static RubikCube rubikCube = new RubikCube();
 
 	// static VentanaPpal ventanaPpal = new VentanaPpal();
 
-	static IObserver observer = new AWTObserver(thread.getmap());
+	static IObserver observer = new AWTObserver(thre.getmap());
 
 	public static void main(String[] args) throws IOException {
 
-		thread.start();
+		thre.start();
 
 		rubikCube.addObservador(observer);
 
@@ -32,6 +32,8 @@ public class MainPrincipalDelTODO {
 
 		SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
 		temba.solucionar();
+		
+		thre.setRepaint(Boolean.FALSE);
 
 	}
 
