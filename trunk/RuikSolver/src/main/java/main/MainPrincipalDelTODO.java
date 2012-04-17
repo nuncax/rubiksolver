@@ -6,9 +6,7 @@ import observer.AWTObserver;
 import observer.IObserver;
 import solutions.SolutionMethodTemba;
 import thread.MiThread;
-import nuevoPanel.RubCruz;
 import cube.RubikCube;
-import frame.VentanaPpal;
 
 public class MainPrincipalDelTODO {
 

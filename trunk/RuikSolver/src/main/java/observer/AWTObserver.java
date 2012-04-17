@@ -29,13 +29,13 @@ public class AWTObserver implements IObserver {
 				StickPanel stickpanel = facePanel.getMap().get(posicion);
 				stickpanel.setColor(calcColor(stickers[i].getColor()));
 				//waiting(0.1);
-				try {
-					//wait(500);
-					Thread.sleep(1);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+//				try {
+//					//wait(500);
+//					Thread.sleep(1);
+//				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
 			}
 		}
 	}
