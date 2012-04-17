@@ -233,7 +233,10 @@ public class Rubikcube {
 			frame.add(drawingpanel);
 			frameposition.add(positionpanel);
 			classicalmethodthread = new ClassicalMethodThread();
-			classicalmethodthread.setPriority(Thread.NORM_PRIORITY);
+			classicalmethodthread.setPriority(Thread.MAX_PRIORITY);
+			
+			
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		}
 	}
 
