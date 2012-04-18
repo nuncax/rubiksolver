@@ -7,7 +7,7 @@
  * |············································|
  */
 
-package panelOld;
+package rubikcubeOld;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -27,8 +27,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
-
-import cube.RubikCube;
 
 /**
  * This class lets the user draw the cube manually, instead of set the pieces
@@ -448,7 +446,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 
 		posx = -1;
@@ -536,7 +534,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 
 		posx = -1;
@@ -624,7 +622,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 
 		posx = 1;
@@ -712,7 +710,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 	}
 
@@ -806,7 +804,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 
 		posx = -1;
@@ -894,7 +892,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 
 		posx = -1;
@@ -982,7 +980,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 
 		posx = 1;
@@ -1070,7 +1068,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 	}
 
@@ -1162,7 +1160,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 
 		posx = 0;
@@ -1248,7 +1246,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 
 		posx = -1;
@@ -1334,7 +1332,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 
 		posx = 0;
@@ -1420,7 +1418,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 	}
 
@@ -1512,7 +1510,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 
 		posx = 0;
@@ -1598,7 +1596,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 
 		posx = 0;
@@ -1684,7 +1682,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 
 		posx = -1;
@@ -1770,7 +1768,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 	}
 
@@ -1862,7 +1860,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 
 		posx = -1;
@@ -1948,7 +1946,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 
 		posx = -1;
@@ -2034,7 +2032,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 
 		posx = 1;
@@ -2120,7 +2118,7 @@ public class Positionpanel extends JPanel {
 			lettera = "b";
 		}
 		piecename = lettera + letterb + letterc;
-		RubikCube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
+		Rubikcube.setPieceInformation(piecename, posx, posy, posz, dirx, diry,
 				dirz);
 	}
 

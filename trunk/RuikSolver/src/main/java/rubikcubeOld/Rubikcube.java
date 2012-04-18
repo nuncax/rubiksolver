@@ -7,7 +7,7 @@
  * |············································|
  */
 
-package panelOld;
+package rubikcubeOld;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -107,9 +107,9 @@ public class Rubikcube {
 	public static int auxiliarxpos, auxiliarypos, auxiliarzpos, auxiliarxdir,
 			auxiliarydir, auxiliarzdir, numberofmovements = 0,
 			randomnumber = 17, auxiliarrandomnumber = 16;
-	public static JFrame frame = new JFrame("Rubik's cube current position");
+	static JFrame frame = new JFrame("Rubik's cube current position");
 	static JFrame frameposition = new JFrame("Rubik's cube position");
-	public final static Drawingpanel drawingpanel = new Drawingpanel();
+	final static Drawingpanel drawingpanel = new Drawingpanel();
 	final static Positionpanel positionpanel = new Positionpanel(frameposition);
 	public static ClassicalMethodThread classicalmethodthread;
 	public boolean isclassicalstarted = false;
@@ -233,10 +233,7 @@ public class Rubikcube {
 			frame.add(drawingpanel);
 			frameposition.add(positionpanel);
 			classicalmethodthread = new ClassicalMethodThread();
-			classicalmethodthread.setPriority(Thread.MAX_PRIORITY);
-			
-			
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			classicalmethodthread.setPriority(Thread.NORM_PRIORITY);
 		}
 	}
 

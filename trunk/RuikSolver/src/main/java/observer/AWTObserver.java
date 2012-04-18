@@ -28,16 +28,9 @@ public class AWTObserver implements IObserver {
 				FacePanel facePanel = map.get(orientacion);
 				StickPanel stickpanel = facePanel.getMap().get(posicion);
 				stickpanel.setColor(calcColor(stickers[i].getColor()));
-
-				try {
-					Thread.sleep(1);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
 			}
 		}
+		slep(400);
 	}
 
 	private java.awt.Color calcColor(Color colorP) {
@@ -64,5 +57,12 @@ public class AWTObserver implements IObserver {
 		observa(piezas, this.map);
 
 	}
-
+	
+	private void slep(long time) {
+		try {
+			Thread.sleep(time);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 }

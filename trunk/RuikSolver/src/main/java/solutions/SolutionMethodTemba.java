@@ -27,7 +27,7 @@ public class SolutionMethodTemba {
 	}
 
 	private void colocarAristasDeDown() {
-		System.out.println("*Colocando aristas de Down");
+		// System.out.println("*Colocando aristas de Down");
 		List<Arista> piezas = this.rubikCube
 				.buscarAristas(this.rubikCube.down_face);
 		int num = 0;
@@ -188,7 +188,7 @@ public class SolutionMethodTemba {
 	}
 
 	private void resolverCruz() {
-		System.out.println("*Resolviendo cruz:*");
+		// System.out.println("*Resolviendo cruz:*");
 		List<Arista> piezas = this.rubikCube
 				.buscarAristas(this.rubikCube.up_face);
 		for (Arista arista : piezas) {
@@ -198,8 +198,8 @@ public class SolutionMethodTemba {
 
 	private void ponerAristaEnPosicionCruz(Arista arista) {
 		if (!arista.estaOrientada()) {
-			System.out.println("*Colocando Arista: " + arista
-					+ "en su posicion*");
+			// System.out.println("*Colocando Arista: " + arista +
+			// "en su posicion*");
 			bajarArista(arista);
 			llevarAsuCara(arista);
 			subirArista(arista);
@@ -210,7 +210,7 @@ public class SolutionMethodTemba {
 		this.rubikCube.setFrontByPieza(arista);
 		// TODO refinar
 		if (!arista.estaEnCara(this.rubikCube.down_face)) {
-			System.out.println("*Bajando pieza*");
+			// System.out.println("*Bajando pieza*");
 			if (arista.estaEnCara(this.rubikCube.right_face)) {
 				rubikCube.front(1);
 				rubikCube.down(1);
@@ -230,7 +230,7 @@ public class SolutionMethodTemba {
 
 	private void llevarAsuCara(Arista pieza) {
 		// TODO this.rubikCube.front_face.equals(stick.getColor())
-		System.out.println("Llevando a su cara");
+		// System.out.println("Llevando a su cara");
 		Stick stick = pieza.getStickQueApunta(this.rubikCube.front_face);
 		// if (stick != null) {
 		if (stick != null && this.rubikCube.front_face.equals(stick.getColor())) {
@@ -260,7 +260,7 @@ public class SolutionMethodTemba {
 	}
 
 	private void subirArista(Arista pieza) {
-		System.out.println("Colocando subiendo pieza");
+		// System.out.println("Colocando subiendo pieza");
 		if (pieza.esPar(this.rubikCube.front_face)) {
 			rubikCube.front(1);
 			rubikCube.front(1);
@@ -273,7 +273,7 @@ public class SolutionMethodTemba {
 	}
 
 	private void colocarEsquinasDeDown() {
-		System.out.println("ColocarEsquinasDeDown:");
+		// System.out.println("ColocarEsquinasDeDown:");
 
 		Vertice vertice = getVerticeInferiorDerecho(this.rubikCube.front_face);
 		Vertice vertice2 = getVerticeInferiorIaquierdo(this.rubikCube.front_face);
@@ -454,7 +454,7 @@ public class SolutionMethodTemba {
 	}
 
 	private void segundaCapa() {
-		System.out.println("Segunda Capa:");
+		// System.out.println("Segunda Capa:");
 		List<Arista> piezas = this.rubikCube
 				.buscarAristas(this.rubikCube.front_face);
 		piezas.addAll(this.rubikCube.buscarAristas(this.rubikCube.back_face));
@@ -469,8 +469,8 @@ public class SolutionMethodTemba {
 		if (!arista.pertenece(this.rubikCube.down_face)
 				&& !arista.pertenece(this.rubikCube.up_face)
 				&& !arista.estaOrientada()) {
-			System.out.println("Colocando arista: " + arista
-					+ " en segunda capa");
+			// System.out.println("Colocando arista: " + arista +
+			// " en segunda capa");
 
 			this.rubikCube.setFrontByPieza(arista);
 			this.bajarPiezaSegunda(arista);
@@ -539,8 +539,8 @@ public class SolutionMethodTemba {
 
 	private void colocarVerticeEnSuPosicionT(Vertice pieza) {
 		if (!pieza.estaOrientada()) {
-			System.out
-					.println("Colocando vertice: " + pieza + "en su posicion");
+			// System.out.println("Colocando vertice: " + pieza +
+			// "en su posicion");
 			this.rubikCube.setFrontByPieza(pieza);
 			bajarVertice(pieza);
 			llevarVerticeAsuEsquina(pieza);
@@ -549,7 +549,7 @@ public class SolutionMethodTemba {
 	}
 
 	private void subirVertice(Vertice pieza) {
-		System.out.println("subiendo vertice*********************");
+		// System.out.println("subiendo vertice*********************");
 
 		if (pieza.estaEnCara(this.rubikCube.right_face)) {
 			while (!pieza.esPar(this.rubikCube.front_face)) {
@@ -579,7 +579,7 @@ public class SolutionMethodTemba {
 	}
 
 	private void llevarVerticeAsuEsquina(Vertice pieza) {
-		System.out.println("Llevando vertice a su cara");
+		// System.out.println("Llevando vertice a su cara");
 		while (
 
 		!pieza.pertenece(this.rubikCube.front_face)
@@ -596,7 +596,7 @@ public class SolutionMethodTemba {
 
 	private void bajarVertice(Vertice pieza) {
 		if (!pieza.estaEnCara(this.rubikCube.down_face)) {
-			System.out.println("Bajando vertice:");
+			// System.out.println("Bajando vertice:");
 			if (pieza.estaEnCara(this.rubikCube.right_face)) {
 				this.rubikCube.right(-1);
 				this.rubikCube.down(-1);
