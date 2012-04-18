@@ -1,8 +1,6 @@
 package main;
 
-import javax.swing.JFrame;
-
-import panelOld.Rubikcube;
+import rubikcubeOld.Rubikcube;
 
 import thread.OldThread;
 

@@ -7,7 +7,7 @@
  * |············································|
  */
 
-package panelOld;
+package rubikcubeOld;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

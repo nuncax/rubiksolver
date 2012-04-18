@@ -1,6 +1,6 @@
 package thread;
 
-import panelOld.Rubikcube;
+import rubikcubeOld.Rubikcube;
 
 public class OldThread extends Thread {
 	boolean fin = false;

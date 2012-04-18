@@ -1,13 +1,12 @@
 package cube;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
-
 import observer.IObserver;
 import pieza.Arista;
 import pieza.Centro;
@@ -218,23 +217,12 @@ public class RubikCube {
 		}
 	}
 
-	// public Set<Pieza> buscarAristas(Color color) {
-	// Set<Pieza> piezaRes = new HashSet<Pieza>();
-	// for (Pieza pieza : this.getAristas()) {
-	// if (pieza.pernetece(color)) {
-	// piezaRes.add(pieza);
-	// }
-	// }
-	// return piezaRes;
-	// }
-
 	public void setPositions() throws IOException {
-		BufferedReader bf = new BufferedReader(new FileReader(
-				"src/main/resources/datos.txt"));
+		BufferedReader bf = new BufferedReader(new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream("datos.txt")));
 		String sCadena;
 		while ((sCadena = bf.readLine()) != null) {
 			int signo = 1;
-			System.out.println(sCadena);
+			//System.out.println(sCadena);
 
 			if (sCadena.length() == 2 && sCadena.endsWith("P")) {
 				signo = -1;
@@ -298,17 +286,11 @@ public class RubikCube {
 	}
 
 	public void rotateFaceClockwise(Color color, int signo) {
-		System.out.println("Gira la cara " + color + " " + signo);
+	//	System.out.println("Gira la cara " + color + " " + signo);
 		int[][] matriz = getCentro(color).getMatriz(signo);
 		for (Pieza pieza : getFace(color)) {
 			pieza.multiplicar(matriz);
 		}
-		this.observer.observa(piezas);	
-	}
-
-	public static void setPieceInformation(String piecename, int posx,
-			int posy, int posz, int dirx, int diry, int dirz) {
-		// TODO Auto-generated method stub
-
+			this.observer.observa(piezas);				
 	}
 }

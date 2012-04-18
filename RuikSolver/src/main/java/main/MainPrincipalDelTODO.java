@@ -18,8 +18,6 @@ public class MainPrincipalDelTODO {
 
 	static RubikCube rubikCube = new RubikCube();
 
-	// static VentanaPpal ventanaPpal = new VentanaPpal();
-
 	static IObserver observer = new AWTObserver(thre.getmap());
 
 	public static void main(String[] args) throws IOException {
@@ -32,7 +30,6 @@ public class MainPrincipalDelTODO {
 
 		SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
 		temba.solucionar();
-		
 		thre.setRepaint(Boolean.FALSE);
 
 	}

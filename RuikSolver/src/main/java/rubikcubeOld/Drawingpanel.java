@@ -7,7 +7,7 @@
  * |············································|
  */
 
-package panelOld;
+package rubikcubeOld;
 
 import java.awt.Color;
 import java.awt.Dimension;

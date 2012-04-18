@@ -29,7 +29,7 @@ public class VentanaPpal extends JFrame {
 		super();
 		this.setTitle("Rubik by Temba");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
 		// frame.setResizable(false);
 
