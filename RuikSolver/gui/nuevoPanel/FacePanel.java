@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import javax.swing.JPanel;
 import pieza.Vectr;
-import stickPanel.StickPanel;
 
 public class FacePanel extends JPanel {
 
