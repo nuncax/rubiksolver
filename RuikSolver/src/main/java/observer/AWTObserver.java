@@ -3,11 +3,11 @@ package observer;
 import java.util.HashMap;
 import java.util.List;
 import nuevoPanel.FacePanel;
+import nuevoPanel.StickPanel;
 import pieza.Color;
 import pieza.Pieza;
 import pieza.Stick;
 import pieza.Vectr;
-import stickPanel.StickPanel;
 
 public class AWTObserver implements IObserver {
 
