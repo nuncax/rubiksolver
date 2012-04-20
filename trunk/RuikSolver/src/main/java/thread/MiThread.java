@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import nuevoPanel.FacePanel;
 import pieza.Vectr;
+import utiles.Utiles;
 import frame.VentanaPpal;
 
 public class MiThread extends Thread {
@@ -17,20 +18,12 @@ public class MiThread extends Thread {
 			ventanaPpal.repaint();
 			cont++;
 
-			slep(0);
+			Utiles.slep(0);
 
 		} while (repaint);
 		
 		System.out.println(cont);
 
-	}
-
-	private void slep(long time) {
-		try {
-			Thread.sleep(time);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public HashMap<Vectr, FacePanel> getmap() {
