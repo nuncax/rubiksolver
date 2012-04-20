@@ -2,8 +2,9 @@ package observer;
 
 import java.util.HashMap;
 import java.util.List;
-import nuevoPanel.FacePanel;
-import nuevoPanel.StickPanel;
+
+import panel.FacePanel;
+import panel.StickPanel;
 import pieza.Color;
 import pieza.Pieza;
 import pieza.Stick;
