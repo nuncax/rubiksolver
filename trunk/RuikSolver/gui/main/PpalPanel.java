@@ -2,7 +2,8 @@ package main;
 
 import java.awt.Color;
 import javax.swing.JFrame;
-import nuevoPanel.RubCruz;
+
+import panel.RubCruz;
 
 
 public class PpalPanel {

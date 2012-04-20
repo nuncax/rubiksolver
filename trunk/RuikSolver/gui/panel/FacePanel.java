@@ -1,4 +1,4 @@
-package nuevoPanel;
+package panel;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

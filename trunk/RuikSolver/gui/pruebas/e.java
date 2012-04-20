@@ -7,7 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import nuevoPanel.RubCruz;
+import panel.RubCruz;
+
 
 public class e extends JFrame {
 
