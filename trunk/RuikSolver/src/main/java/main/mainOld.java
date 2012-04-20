@@ -3,6 +3,7 @@ package main;
 import rubikcubeOld.Rubikcube;
 
 import thread.OldThread;
+import utiles.Utiles;
 
 public class mainOld {
 
@@ -21,6 +22,7 @@ public class mainOld {
 
 		while (!oldThread.getFin()) {
 			rubikcube.drawCube();
+			Utiles.slep(0);
 		}
 		//rubikcube.setSolvedPosition();
 		//rubikcube.drawCube();
