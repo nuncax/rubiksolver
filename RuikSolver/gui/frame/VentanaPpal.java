@@ -6,7 +6,8 @@ import java.awt.HeadlessException;
 
 import javax.swing.JFrame;
 
-import nuevoPanel.RubCruz;
+import panel.RubCruz;
+
 
 public class VentanaPpal extends JFrame {
 
