@@ -2,7 +2,7 @@ package thread;
 
 import java.util.HashMap;
 
-import nuevoPanel.FacePanel;
+import panel.FacePanel;
 import pieza.Vectr;
 import utiles.Utiles;
 import frame.VentanaPpal;

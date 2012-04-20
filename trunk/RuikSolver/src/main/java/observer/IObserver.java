@@ -2,7 +2,8 @@ package observer;
 
 import java.util.HashMap;
 import java.util.List;
-import nuevoPanel.FacePanel;
+
+import panel.FacePanel;
 import pieza.Pieza;
 import pieza.Vectr;
 
