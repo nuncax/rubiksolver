@@ -119,8 +119,8 @@ public class FacePanel extends JPanel {
 		int k = 0;
 		for (int j = 0; j < 3; j++) {
 			for (int i = 0; i < 3; i++) {
-				map.put(getSubListPos(this.color).get(k), new StickPanel(color,
-						i + oX, j + oY, w));
+				m[i][j] = new StickPanel(color, i + oX, j + oY, w);
+				map.put(getSubListPos(this.color).get(k), m[i][j]);
 				k++;
 			}
 		}
@@ -163,7 +163,7 @@ public class FacePanel extends JPanel {
 		g2d = (Graphics2D) g;
 
 		for (Vectr v : map.keySet()) {
-			map.get(v).paintComponent(g2d);
+			map.get(v).paint(g2d);
 		}
 
 		// for (int i = 0; i < 3; i++) {
