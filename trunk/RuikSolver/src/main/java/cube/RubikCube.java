@@ -17,6 +17,10 @@ import pieza.Vertice;
 public class RubikCube {
 	private List<Pieza> piezas;
 
+	public List<Pieza> getPiezas() {
+		return piezas;
+	}
+
 	public Color front_face;
 	public Color right_face;
 	public Color left_face;
@@ -218,11 +222,12 @@ public class RubikCube {
 	}
 
 	public void setPositions() throws IOException {
-		BufferedReader bf = new BufferedReader(new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream("datos.txt")));
+		BufferedReader bf = new BufferedReader(new InputStreamReader(this
+				.getClass().getClassLoader().getResourceAsStream("datos.txt")));
 		String sCadena;
 		while ((sCadena = bf.readLine()) != null) {
 			int signo = 1;
-			//System.out.println(sCadena);
+			// System.out.println(sCadena);
 
 			if (sCadena.length() == 2 && sCadena.endsWith("P")) {
 				signo = -1;
@@ -286,11 +291,11 @@ public class RubikCube {
 	}
 
 	public void rotateFaceClockwise(Color color, int signo) {
-	//	System.out.println("Gira la cara " + color + " " + signo);
+		// System.out.println("Gira la cara " + color + " " + signo);
 		int[][] matriz = getCentro(color).getMatriz(signo);
 		for (Pieza pieza : getFace(color)) {
 			pieza.multiplicar(matriz);
 		}
-			this.observer.observa(piezas);				
+		this.observer.observa(piezas);
 	}
 }
