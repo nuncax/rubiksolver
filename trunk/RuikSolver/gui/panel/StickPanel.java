@@ -1,6 +1,7 @@
 package panel;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
@@ -23,7 +24,7 @@ public class StickPanel extends JPanel {
 		this.color = color;
 	}
 
-	private int w;
+	public int w;
 	private int oX;
 	private int oY;
 
@@ -46,5 +47,10 @@ public class StickPanel extends JPanel {
 	@Override
 	public String toString() {
 		return "StickPanel [color=" + color + ", oX=" + oX + ", oY=" + oY + "]";
+	}
+
+	public Rectangle2D getSquare() {
+		// TODO Auto-generated method stub
+		return square;
 	}
 }
