@@ -24,7 +24,7 @@ public class MiThread extends Thread {
 			ventanaPpal.repaint();
 			cont++;
 
-			Utiles.slep(0);
+			Utiles.slep(1);
 
 		} while (repaint);
 
