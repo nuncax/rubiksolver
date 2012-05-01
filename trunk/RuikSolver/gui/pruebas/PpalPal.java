@@ -28,6 +28,7 @@ import solutions.SolutionMethodTemba;
 import thread.MiThread;
 
 public class PpalPal {
+	public static JFrame frame;
 	RubCruz cruz = new RubCruz(0, 0, 33);
 
 	private RubikCube cube = new RubikCube();
@@ -53,7 +54,8 @@ public class PpalPal {
 
 			while (true) {
 				System.out.print("hilo");
-				cruz.repaint();
+				//cruz.repaint();
+				PpalPal.frame.repaint();
 				try {
 					this.sleep(100);
 				} catch (InterruptedException e) {
@@ -91,17 +93,21 @@ public class PpalPal {
 
 	private static void createAndShowGUI() {
 
-		JFrame frame = new JFrame("CoordinatesDemo");
+		//JFrame frame = new JFrame("CoordinatesDemo");
+		PpalPal.frame= new JFrame("CoordinatesDemo");
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		PpalPal.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		PpalPal controller = new PpalPal();
-		controller.buildUI(frame.getContentPane());
+		controller.buildUI(PpalPal.frame.getContentPane());
 
 		// Display the window.
 		frame.pack();
 		frame.setVisible(true);
 	}
-
+	
+	
 	public class RubCruz extends JComponent {
 
 		/**

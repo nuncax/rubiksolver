@@ -8,8 +8,14 @@ import utiles.Utiles;
 import frame.VentanaPpal;
 
 public class MiThread extends Thread {
-	private VentanaPpal ventanaPpal = new VentanaPpal();
+	//private VentanaPpal ventanaPpal = new VentanaPpal();
+	private VentanaPpal ventanaPpal;
 	private Boolean repaint = Boolean.TRUE;
+
+	public MiThread(VentanaPpal ventanaPpal) {
+		super();
+		this.ventanaPpal = ventanaPpal;
+	}
 
 	public void run() {
 
@@ -21,13 +27,13 @@ public class MiThread extends Thread {
 			Utiles.slep(0);
 
 		} while (repaint);
-		
+
 		System.out.println(cont);
 
 	}
 
 	public HashMap<Vectr, FacePanel> getmap() {
-		return ventanaPpal.getComp().getMap();
+		return ventanaPpal.getRubCruz().getMap();
 	}
 
 	public void setRepaint(Boolean repaint) {
