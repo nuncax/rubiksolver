@@ -46,7 +46,6 @@ public class MainPrincipalDelTODO {
 				temba.solucionar();
 				thre.setRepaint(Boolean.FALSE);
 			}
-
 		}
 	}
 

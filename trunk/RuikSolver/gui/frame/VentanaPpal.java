@@ -7,8 +7,11 @@ import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -31,10 +34,10 @@ public class VentanaPpal extends JFrame {
 	private RubCruz rubCruz = new RubCruz(10, 4, 42);
 	private SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
 	private MiThread thre = new MiThread(this);
-
-	/**
-	 * 
-	 */
+	
+	
+	BufferedImage img;
+	
 	private static final long serialVersionUID = -4226961849442887198L;
 
 	public RubCruz getRubCruz() {
@@ -51,11 +54,18 @@ public class VentanaPpal extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setBackground(new Color(175, 200, 255));
-
+		
+		try {
+			img = ImageIO.read(new File("panelBotoneraIzq.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//
 		Container container = this.getContentPane();
 
 		container.setLayout(new BoxLayout(container, BoxLayout.PAGE_AXIS));
+		
 
 		container.add(rubCruz);
 		container.add(botonSol());
