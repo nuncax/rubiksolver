@@ -19,21 +19,40 @@ public class MainPrincipalDelTODO {
 
 	static IObserver observer = new AWTObserver(thre.getmap());
 
+	static boolean b = false;
+
 	public static void re() {
-		thre.start();
 
-		rubikCube.addObservador(observer);
+		while (true) {
+			try {
+				Thread.sleep(0);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			if (b) {
+				thre.start();
 
-		try {
-			rubikCube.setPositions();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+				rubikCube.addObservador(observer);
+
+				try {
+					rubikCube.setPositions();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
+				temba.solucionar();
+				thre.setRepaint(Boolean.FALSE);
+			}
+
 		}
+	}
 
-		SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
-		temba.solucionar();
-		thre.setRepaint(Boolean.FALSE);
+	public void setB(boolean b) {
+		MainPrincipalDelTODO.b = b;
+		
 	}
 
 	public static void main(String[] args) throws IOException {

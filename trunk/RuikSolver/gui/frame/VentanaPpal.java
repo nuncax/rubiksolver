@@ -24,6 +24,7 @@ import panel.RubCruz;
 import pruebas.PpalPal;
 import solutions.SolutionMethodTemba;
 import thread.MiThread;
+import thread.OldThread;
 
 public class VentanaPpal extends JFrame {
 	private RubikCube rubikCube = new RubikCube();
@@ -72,9 +73,8 @@ public class VentanaPpal extends JFrame {
 		ActionListener solucion = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				System.out.print("asdfasdf");
-
+			MainPrincipalDelTODO delTODO = new MainPrincipalDelTODO();
+			delTODO.setB(true);
 			}
 		};
 		button.addActionListener(solucion);
