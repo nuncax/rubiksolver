@@ -92,26 +92,26 @@ public class MainClass extends JFrame {
 
 		JPanel panelBoton = new JPanel();
 		panelBoton.setBackground(colorFondo);
-//		panelBoton.add(azul);
-//		panelBoton.add(amarillo);
-//		panelBoton.add(verde);
-//		panelBoton.add(rojo);
-//		panelBoton.add(blanco);
-//		panelBoton.add(naranja);
+		panelBoton.add(azul);
+		panelBoton.add(amarillo);
+		panelBoton.add(verde);
+		panelBoton.add(rojo);
+		panelBoton.add(blanco);
+		panelBoton.add(naranja);
 
 		// boton cargar
-	//	rubCruz.setLayout(null);
+		rubCruz.setLayout(null);
 		JButton cargar = new JButton("cargar");
 		cargar.setBounds(325, 70, 80, 30);
 		cargar.addActionListener(actionCargar);
-//		rubCruz.add(cargar);
+		rubCruz.add(cargar);
 		panelBoton.add(cargar);
 
 		// boton solucionar
 		JButton solucionar = new JButton("Solucionar");
 		solucionar.setBounds(325, 40, 80, 30);
 		solucionar.addActionListener(actionSolucionar);
-//		rubCruz.add(solucionar);
+		rubCruz.add(solucionar);
 		panelBoton.add(solucionar);
 
 		Container container = this.getContentPane();

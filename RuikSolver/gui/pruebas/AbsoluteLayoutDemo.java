@@ -23,22 +23,6 @@ public class AbsoluteLayoutDemo extends JFrame {
 		setVisible(true);
 	}
 
-	@Override
-	public void paint(Graphics g) {
-		Graphics2D g2d = (Graphics2D) g;
-		Color color = Color.blue;
-
-		Rectangle2D m[][] = factoriaCruz.createFace(color, 1, 1, 33);
-		for (int i = 0; i < m.length; i++) {
-			for (int j = 0; j < m.length; j++) {
-				Rectangle2D rectangle2d = m[i][j];
-				g2d.setColor(Color.red);
-				g2d.fill(rectangle2d);
-			}
-		}
-
-	}
-
 	private static void createAndShowGUI() {
 		new AbsoluteLayoutDemo("zsdf");
 

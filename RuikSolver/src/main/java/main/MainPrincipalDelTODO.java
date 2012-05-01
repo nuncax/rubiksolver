@@ -7,31 +7,39 @@ import observer.IObserver;
 import solutions.SolutionMethodTemba;
 import thread.MiThread;
 import cube.RubikCube;
+import frame.VentanaPpal;
 
 public class MainPrincipalDelTODO {
 
-	/**
-	 * @param args
-	 */
+	static VentanaPpal ventanaPpal = new VentanaPpal();
 
-	static MiThread thre = new MiThread();
+	static MiThread thre = new MiThread(ventanaPpal);
 
 	static RubikCube rubikCube = new RubikCube();
 
 	static IObserver observer = new AWTObserver(thre.getmap());
 
-	public static void main(String[] args) throws IOException {
-
+	public static void re() {
 		thre.start();
 
 		rubikCube.addObservador(observer);
 
-		rubikCube.setPositions();
+		try {
+			rubikCube.setPositions();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
 		temba.solucionar();
 		thre.setRepaint(Boolean.FALSE);
+	}
 
+	public static void main(String[] args) throws IOException {
+		ventanaPpal.setVisible(true);
+
+		re();
 	}
 
 }
