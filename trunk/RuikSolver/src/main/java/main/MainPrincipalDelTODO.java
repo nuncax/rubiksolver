@@ -15,25 +15,10 @@ public class MainPrincipalDelTODO {
 
 	static MiThread thre = new MiThread(ventanaPpal);
 
-	
-
-
-	public static void re() {
-	
-			
-		//	SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
-			//temba.solucionar();
-
-	}
-
 	public static void main(String[] args) throws IOException {
 		ventanaPpal.setVisible(true);
 
 		thre.start();
-		
-		
-		
-	//	re();
 	}
 
 }

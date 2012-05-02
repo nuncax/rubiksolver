@@ -3,13 +3,15 @@ package listener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import solutions.SolutionMethodTemba;
+
 import cube.RubikCube;
 
-public class ScrambleActionListener implements ActionListener {
-	RubikCube rubikCube;
+public class SolucionarrActionListener implements ActionListener {
+	SolutionMethodTemba temba;
 
-	public ScrambleActionListener(RubikCube rubikCube) {
-		this.rubikCube = rubikCube;
+	public SolucionarrActionListener(SolutionMethodTemba temba) {
+		this.temba = temba;
 	}
 
 	@Override
@@ -18,12 +20,14 @@ public class ScrambleActionListener implements ActionListener {
 
 			@Override
 			public void run() {
-				rubikCube.scramble();
+				temba.solucionar();
 
 			}
 
 		});
 
 		thread.start();
+
 	}
+
 }
