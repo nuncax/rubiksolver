@@ -98,8 +98,7 @@ public class VentanaPpal extends JFrame {
 
 		panel.setPreferredSize(new Dimension(1366, 768));
 		panel.setLayout(null);
-		etqImagen.setIcon(new ImageIcon(getClass().getResource(
-				"panelBotoneraIzq.png")));
+		etqImagen.setIcon(new ImageIcon(getClass().getResource("panelBotoneraIzq.png")));
 		panel.add(etqImagen);
 		etqImagen.add(botonAleatorio());
 		etqImagen.add(botonSalir());
