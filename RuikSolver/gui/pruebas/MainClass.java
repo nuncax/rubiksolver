@@ -108,15 +108,15 @@ public class MainClass extends JFrame {
 		panelBoton.add(cargar);
 
 		// boton solucionar
-		JButton solucionar = new JButton("Solucionar");
-		solucionar.setBounds(325, 40, 80, 30);
-		solucionar.addActionListener(actionSolucionar);
-		rubCruz.add(solucionar);
-		panelBoton.add(solucionar);
+//		JButton solucionar = new JButton("Solucionar");
+//		solucionar.setBounds(325, 40, 80, 30);
+//		solucionar.addActionListener(actionSolucionar);
+//		rubCruz.add(panelBoton);
+//		panelBoton.add(solucionar);
 
 		Container container = this.getContentPane();
 		container.setBackground(colorFondo);
-		container.add(solucionar, BorderLayout.SOUTH);
+		container.add(panelBoton, BorderLayout.SOUTH);
 		container.add(rubCruz, BorderLayout.CENTER);
 
 		this.setContentPane(container);
@@ -140,7 +140,7 @@ public class MainClass extends JFrame {
 						if (!(i == 1 && j == 1)) {
 							StickPanel panel = facePanel.getStickPanel(i, j);
 
-							double x = getMousePosition().getX() - 10;
+							double x = getMousePosition().getX() ;
 							double y = getMousePosition().getY() - panel.w;
 
 							if (panel.getSquare().contains(x, y)) {

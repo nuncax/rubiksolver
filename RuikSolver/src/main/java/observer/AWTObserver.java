@@ -31,7 +31,7 @@ public class AWTObserver implements IObserver {
 				stickpanel.setColor(calcColor(stickers[i].getColor()));
 			}
 		}
-		slep(400);
+		slep(100);
 	}
 
 	private java.awt.Color calcColor(Color colorP) {
