@@ -24,16 +24,12 @@ public class MiThread extends Thread {
 			ventanaPpal.repaint();
 			cont++;
 
-			Utiles.slep(1);
+			Utiles.slep(50);
 
 		} while (repaint);
 
 		System.out.println(cont);
 
-	}
-
-	public HashMap<Vectr, FacePanel> getmap() {
-		return ventanaPpal.getRubCruz().getMap();
 	}
 
 	public void setRepaint(Boolean repaint) {
