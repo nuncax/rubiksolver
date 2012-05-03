@@ -1,14 +1,9 @@
 package thread;
 
-import java.util.HashMap;
-
-import panel.FacePanel;
-import pieza.Vectr;
 import utiles.Utiles;
 import frame.VentanaPpal;
 
 public class MiThread extends Thread {
-	//private VentanaPpal ventanaPpal = new VentanaPpal();
 	private VentanaPpal ventanaPpal;
 	private Boolean repaint = Boolean.TRUE;
 
