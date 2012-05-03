@@ -11,16 +11,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-
 import actionListener.SalirActionListener;
 import actionListener.ScrambleActionListener;
 import actionListener.SolucionarrActionListener;
@@ -43,9 +40,11 @@ public class VentanaPpal extends JFrame {
 	private RubikCube rubikCube = new RubikCube();
 	private RubCruz rubCruz = new RubCruz(1, 3, 50);
 
-	private SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
+	public static JTextArea textArea = new JTextArea();
 
-	private JTextArea textArea = new JTextArea(40, 20);
+	private SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
+	
+	public static int numGiros;
 
 	private static final long serialVersionUID = -4226961849442887198L;
 
@@ -68,18 +67,22 @@ public class VentanaPpal extends JFrame {
 		panel.setBackground(colorAzulito);
 		// textArea.setBounds(10, 70, 230, 600);
 		// textArea.setEditable(false);
+		textArea.setBackground(new Color(238, 238, 236));
 		JScrollPane scrollPane = new JScrollPane(textArea);
 		scrollPane.setBounds(10, 70, 230, 640);
 		scrollPane.setBorder(null);
 
 		scrollPane.getViewport().setOpaque(true);
 
-		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		
-		scrollPane.getVerticalScrollBar();
-		
-		//scrollPane.getVerticalScrollBar().get
+		scrollPane
+				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scrollPane
+				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+	//	String newline = "\n";
+		//textArea.append("holaaaaaaaaaaa" + newline);
+		//this.temba.solucionar(textArea);
+
 		panel.add(scrollPane);
 
 		return panel;

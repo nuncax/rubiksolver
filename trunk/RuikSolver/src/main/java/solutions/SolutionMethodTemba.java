@@ -7,6 +7,7 @@ import pieza.Pieza;
 import pieza.Stick;
 import pieza.Vertice;
 import cube.RubikCube;
+import frame.VentanaPpal;
 
 public class SolutionMethodTemba {
 
@@ -17,6 +18,7 @@ public class SolutionMethodTemba {
 	}
 
 	public void solucionar() {
+		// TODO
 		resolverCruz();
 		resolverEsquinas();
 		segundaCapa();
@@ -27,6 +29,10 @@ public class SolutionMethodTemba {
 
 	private void colocarAristasDeDown() {
 		// System.out.println("*Colocando aristas de Down");
+
+		VentanaPpal.textArea.append("\n");
+		VentanaPpal.textArea.append("Colocando Aristas inferioes*:" + ":\n");
+		VentanaPpal.textArea.append("\n");
 		List<Arista> piezas = this.rubikCube
 				.buscarAristas(this.rubikCube.down_face);
 		int num = 0;
@@ -171,23 +177,27 @@ public class SolutionMethodTemba {
 		return aristaRes;
 	}
 
-//	private Arista getAristaPosicionada() {
-//		Arista aristaRes = null;
-//		Iterator<Arista> iterator = this.rubikCube.buscarAristas(
-//				this.rubikCube.down_face).iterator();
-//		boolean enc = false;
-//
-//		while (iterator.hasNext() && !enc) {
-//			Arista arista = iterator.next();
-//			if (!arista.estaPosicionado())
-//				aristaRes = arista;
-//			enc = true;
-//		}
-//		return aristaRes;
-//	}
+	// private Arista getAristaPosicionada() {
+	// Arista aristaRes = null;
+	// Iterator<Arista> iterator = this.rubikCube.buscarAristas(
+	// this.rubikCube.down_face).iterator();
+	// boolean enc = false;
+	//
+	// while (iterator.hasNext() && !enc) {
+	// Arista arista = iterator.next();
+	// if (!arista.estaPosicionado())
+	// aristaRes = arista;
+	// enc = true;
+	// }
+	// return aristaRes;
+	// }
 
 	private void resolverCruz() {
 		// System.out.println("*Resolviendo cruz:*");
+
+		VentanaPpal.textArea.append("\n");
+		VentanaPpal.textArea.append("*Resolviendo cruz:*" + "\n");
+
 		List<Arista> piezas = this.rubikCube
 				.buscarAristas(this.rubikCube.up_face);
 		for (Arista arista : piezas) {
@@ -199,6 +209,11 @@ public class SolutionMethodTemba {
 		if (!arista.estaOrientada()) {
 			// System.out.println("*Colocando Arista: " + arista +
 			// "en su posicion*");
+
+			VentanaPpal.textArea.append("\n");
+			VentanaPpal.textArea.append("Colocando Arista: " + arista + ":\n");
+			VentanaPpal.textArea.append("\n");
+
 			bajarArista(arista);
 			llevarAsuCara(arista);
 			subirArista(arista);
@@ -273,6 +288,10 @@ public class SolutionMethodTemba {
 
 	private void colocarEsquinasDeDown() {
 		// System.out.println("ColocarEsquinasDeDown:");
+
+		VentanaPpal.textArea.append("\n");
+		VentanaPpal.textArea.append("Colocando esquinas inferiores:" + "\n");
+		VentanaPpal.textArea.append("\n");
 
 		Vertice vertice = getVerticeInferiorDerecho(this.rubikCube.front_face);
 		Vertice vertice2 = getVerticeInferiorIaquierdo(this.rubikCube.front_face);
@@ -389,6 +408,9 @@ public class SolutionMethodTemba {
 	}
 
 	private void colocarEsquinaDownEnPos() {
+		VentanaPpal.textArea.append("\n");
+		VentanaPpal.textArea.append("Orientando vertices:" + "\n");
+		VentanaPpal.textArea.append("\n");
 		int numeroDeVerticesOrientados = 0;
 		for (Vertice vertice2 : rubikCube.buscarVertices(rubikCube.down_face)) {
 			if (vertice2.estaOrientada()) {
@@ -454,6 +476,9 @@ public class SolutionMethodTemba {
 
 	private void segundaCapa() {
 		// System.out.println("Segunda Capa:");
+		VentanaPpal.textArea.append("\n");
+		VentanaPpal.textArea.append("*Segunda Capa:*" + "\n");
+
 		List<Arista> piezas = this.rubikCube
 				.buscarAristas(this.rubikCube.front_face);
 		piezas.addAll(this.rubikCube.buscarAristas(this.rubikCube.back_face));
@@ -470,6 +495,11 @@ public class SolutionMethodTemba {
 				&& !arista.estaOrientada()) {
 			// System.out.println("Colocando arista: " + arista +
 			// " en segunda capa");
+
+			VentanaPpal.textArea.append("\n");
+			VentanaPpal.textArea.append("Colocando arista: " + arista
+					+ " en segunda capa" + "\n");
+			VentanaPpal.textArea.append("\n");
 
 			this.rubikCube.setFrontByPieza(arista);
 			this.bajarPiezaSegunda(arista);
@@ -529,6 +559,10 @@ public class SolutionMethodTemba {
 	}
 
 	private void resolverEsquinas() {
+
+		VentanaPpal.textArea.append("\n");
+		VentanaPpal.textArea.append("*Resolviendo Esquinas:*" + "\n");
+
 		List<Vertice> piezas = this.rubikCube
 				.buscarVertices(this.rubikCube.up_face);
 		for (Vertice pieza : piezas) {
@@ -538,6 +572,10 @@ public class SolutionMethodTemba {
 
 	private void colocarVerticeEnSuPosicionT(Vertice pieza) {
 		if (!pieza.estaOrientada()) {
+
+			VentanaPpal.textArea.append("\n");
+			VentanaPpal.textArea.append("Colocando vertice: " + pieza + "\n");
+			VentanaPpal.textArea.append("\n");
 			// System.out.println("Colocando vertice: " + pieza +
 			// "en su posicion");
 			this.rubikCube.setFrontByPieza(pieza);

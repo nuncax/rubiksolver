@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+
+import frame.VentanaPpal;
 import observer.IObserver;
 import pieza.Arista;
 import pieza.Centro;
@@ -114,15 +116,15 @@ public class RubikCube {
 		return piezasRes;
 	}
 
-//	private List<Pieza> buscarPiezas(Color color) {
-//		List<Pieza> piezas = new ArrayList<Pieza>();
-//		for (Pieza pieza : this.piezas) {
-//			if (pieza.pertenece(color)) {
-//				piezas.add(pieza);
-//			}
-//		}
-//		return piezas;
-//	}
+	// private List<Pieza> buscarPiezas(Color color) {
+	// List<Pieza> piezas = new ArrayList<Pieza>();
+	// for (Pieza pieza : this.piezas) {
+	// if (pieza.pertenece(color)) {
+	// piezas.add(pieza);
+	// }
+	// }
+	// return piezas;
+	// }
 
 	public List<Pieza> getFace(Color color) {
 		List<Pieza> face = new ArrayList<Pieza>();
@@ -256,6 +258,10 @@ public class RubikCube {
 	}
 
 	public void scramble() {
+		
+		VentanaPpal.textArea.append("*Cubo aleatorio" + "*\n");
+		VentanaPpal.textArea.append("\n");
+				
 		int aux = 6;
 		int vecesQueGiro = 10;
 		int queGiro = tirar(5);
@@ -292,6 +298,16 @@ public class RubikCube {
 
 	public void rotateFaceClockwise(Color color, int signo) {
 		// System.out.println("Gira la cara " + color + " " + signo);
+
+		String signoStr = "Sentido Anti-horario";
+
+		if (signo == 1) {
+			signoStr = "Sentido horario";
+		}
+		VentanaPpal.numGiros++;
+		VentanaPpal.textArea.append(VentanaPpal.numGiros + " " + "Cara " + color + " "
+				+ signoStr + "\n");
+
 		int[][] matriz = getCentro(color).getMatriz(signo);
 		for (Pieza pieza : getFace(color)) {
 			pieza.multiplicar(matriz);
