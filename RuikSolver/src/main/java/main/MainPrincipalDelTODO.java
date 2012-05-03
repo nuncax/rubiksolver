@@ -1,19 +1,14 @@
 package main;
 
 import java.io.IOException;
-
-import observer.AWTObserver;
-import observer.IObserver;
-import solutions.SolutionMethodTemba;
-import thread.MiThread;
-import cube.RubikCube;
+import thread.ThreadRepintaFrame;
 import frame.VentanaPpal;
 
 public class MainPrincipalDelTODO {
 
 	static VentanaPpal ventanaPpal = new VentanaPpal();
 
-	static MiThread thre = new MiThread(ventanaPpal);
+	static ThreadRepintaFrame thre = new ThreadRepintaFrame(ventanaPpal);
 
 	public static void main(String[] args) throws IOException {
 		ventanaPpal.setVisible(true);
