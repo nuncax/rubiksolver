@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JComponent;
-import javax.swing.JPanel;
 import pieza.Vectr;
 
 public class RubCruz extends JComponent {
@@ -17,7 +16,7 @@ public class RubCruz extends JComponent {
 	 */
 	private static final long serialVersionUID = 5180355775069038712L;
 
-	static HashMap<Vectr, FacePanel> map = new HashMap();
+	private HashMap<Vectr, FacePanel> map = new HashMap<Vectr, FacePanel>();
 
 	private List<FacePanel> facePanels;
 

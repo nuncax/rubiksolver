@@ -16,8 +16,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import listener.ColorActionListener;
 import listener.KeyListenerCustom;
 import listener.SalirActionListener;
 import listener.ScrambleActionListener;

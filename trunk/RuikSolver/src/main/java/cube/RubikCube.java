@@ -114,15 +114,15 @@ public class RubikCube {
 		return piezasRes;
 	}
 
-	private List<Pieza> buscarPiezas(Color color) {
-		List<Pieza> piezas = new ArrayList<Pieza>();
-		for (Pieza pieza : this.piezas) {
-			if (pieza.pertenece(color)) {
-				piezas.add(pieza);
-			}
-		}
-		return piezas;
-	}
+//	private List<Pieza> buscarPiezas(Color color) {
+//		List<Pieza> piezas = new ArrayList<Pieza>();
+//		for (Pieza pieza : this.piezas) {
+//			if (pieza.pertenece(color)) {
+//				piezas.add(pieza);
+//			}
+//		}
+//		return piezas;
+//	}
 
 	public List<Pieza> getFace(Color color) {
 		List<Pieza> face = new ArrayList<Pieza>();

@@ -3,11 +3,11 @@ package thread;
 import utiles.Utiles;
 import frame.VentanaPpal;
 
-public class MiThread extends Thread {
+public class ThreadRepintaFrame extends Thread {
 	private VentanaPpal ventanaPpal;
 	private Boolean repaint = Boolean.TRUE;
 
-	public MiThread(VentanaPpal ventanaPpal) {
+	public ThreadRepintaFrame(VentanaPpal ventanaPpal) {
 		super();
 		this.ventanaPpal = ventanaPpal;
 	}

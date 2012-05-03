@@ -198,21 +198,21 @@ public class FacePanel extends JPanel {
 	private void lineaFinaH(int x, int y) {
 		line = new Line2D.Double(w * x, w * y, (w * (3 + x)) - 1, (w) * y);
 		g2d.setStroke(new BasicStroke(lineaFina));
-		g2d.setColor(color.black);
+		g2d.setColor(Color.black);
 		g2d.draw(line);
 	}
 
 	private void lineaFinaV(int x, int y) {
 		line = new Line2D.Double(w * x, w * y, w * x, (w * (3 + y)) - 1);
 		g2d.setStroke(new BasicStroke(lineaFina));
-		g2d.setColor(color.black);
+		g2d.setColor(Color.black);
 		g2d.draw(line);
 	}
 
 	private void lineaGruesaV(int x, int y) {
 		line = new Line2D.Double(w * x, w * y, w * x, (w * (3 + y)) - 1);
 		g2d.setStroke(new BasicStroke(lineaGruesa));
-		g2d.setColor(color.black);
+		g2d.setColor(Color.black);
 		g2d.draw(line);
 
 	}
@@ -220,7 +220,7 @@ public class FacePanel extends JPanel {
 	private void lineaGruesaH(int x, int y) {
 		line = new Line2D.Double(w * x, w * y, (w * (3 + x)) - 1, (w) * y);
 		g2d.setStroke(new BasicStroke(lineaGruesa));
-		g2d.setColor(color.black);
+		g2d.setColor(Color.black);
 		g2d.draw(line);
 	}
 

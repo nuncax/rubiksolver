@@ -1,6 +1,5 @@
 package solutions;
 
-import java.util.Iterator;
 import java.util.List;
 import pieza.Arista;
 import pieza.Color;
@@ -172,20 +171,20 @@ public class SolutionMethodTemba {
 		return aristaRes;
 	}
 
-	private Arista getAristaPosicionada() {
-		Arista aristaRes = null;
-		Iterator<Arista> iterator = this.rubikCube.buscarAristas(
-				this.rubikCube.down_face).iterator();
-		boolean enc = false;
-
-		while (iterator.hasNext() && !enc) {
-			Arista arista = iterator.next();
-			if (!arista.estaPosicionado())
-				aristaRes = arista;
-			enc = true;
-		}
-		return aristaRes;
-	}
+//	private Arista getAristaPosicionada() {
+//		Arista aristaRes = null;
+//		Iterator<Arista> iterator = this.rubikCube.buscarAristas(
+//				this.rubikCube.down_face).iterator();
+//		boolean enc = false;
+//
+//		while (iterator.hasNext() && !enc) {
+//			Arista arista = iterator.next();
+//			if (!arista.estaPosicionado())
+//				aristaRes = arista;
+//			enc = true;
+//		}
+//		return aristaRes;
+//	}
 
 	private void resolverCruz() {
 		// System.out.println("*Resolviendo cruz:*");
