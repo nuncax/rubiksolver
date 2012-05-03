@@ -16,10 +16,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import listener.KeyListenerCustom;
-import listener.SalirActionListener;
-import listener.ScrambleActionListener;
-import listener.SolucionarrActionListener;
+
+import actionListener.SalirActionListener;
+import actionListener.ScrambleActionListener;
+import actionListener.SolucionarrActionListener;
 import observer.AWTObserver;
 import observer.IObserver;
 import cube.RubikCube;
@@ -32,15 +32,14 @@ import pieza.Vectr;
 import solutions.SolutionMethodTemba;
 
 public class VentanaPpal extends JFrame {
-	Color colorAzulito = new Color(175, 200, 255);
+	private Color colorAzulito = new Color(175, 200, 255);
 	private Color colorCarga = null;
-	JPanel panelBotonero = new JPanel();
+	private JPanel panelBotonero = new JPanel();
 
 	private RubikCube rubikCube = new RubikCube();
 	private RubCruz rubCruz = new RubCruz(2, 3, 50);
 
 	private SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
-	// private MiThread thre = new MiThread(this);
 
 	BufferedImage img;
 
@@ -71,7 +70,6 @@ public class VentanaPpal extends JFrame {
 	private Component botoneraColores() {
 
 		panelBotonero.setLayout(null);
-		// panel.setPreferredSize(new Dimension(198, 66));
 		panelBotonero.setBounds(500, 100, 200, 190);
 		panelBotonero.setBackground(colorAzulito);
 		panelBotonero.add(botonRed());
@@ -86,7 +84,7 @@ public class VentanaPpal extends JFrame {
 
 		rubCruz.setLayout(null);
 		rubCruz.add(panelBotonero);
-		rubCruz.addMouseListener(mouseCarga);
+		rubCruz.addMouseListener(mouseAdapterCargaManual);
 		return rubCruz;
 	}
 
@@ -96,7 +94,8 @@ public class VentanaPpal extends JFrame {
 
 		panel.setPreferredSize(new Dimension(1366, 768));
 		panel.setLayout(null);
-		etqImagen.setIcon(new ImageIcon(getClass().getResource("panelBotoneraIzq.png")));
+		etqImagen.setIcon(new ImageIcon(getClass().getResource(
+				"panelBotoneraIzq.png")));
 		panel.add(etqImagen);
 		etqImagen.add(botonAleatorio());
 		etqImagen.add(botonSalir());
@@ -109,10 +108,8 @@ public class VentanaPpal extends JFrame {
 		this.setTitle("Rubik by Temba");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setUndecorated(true);
-		this.addKeyListener(new KeyListenerCustom());
 		this.setSize(1366, 768);
 
-		// this.setLocationRelativeTo(null);
 	}
 
 	private Component botonAleatorio() {
@@ -143,7 +140,6 @@ public class VentanaPpal extends JFrame {
 		button.setBounds(10, 310, 235, 55);
 		button.setBorder(null);
 
-		// ActionListener cargar = new actionCargar();
 		button.addActionListener(actionCargaManual);
 		return button;
 	}
@@ -322,7 +318,8 @@ public class VentanaPpal extends JFrame {
 			return colorRes;
 		}
 	};
-	final MouseAdapter mouseCarga = new MouseAdapter() {
+
+	MouseAdapter mouseAdapterCargaManual = new MouseAdapter() {
 
 		public void mouseClicked(MouseEvent e) {
 			double x = getMousePosition().getX() - 5 * 50 - 30;
