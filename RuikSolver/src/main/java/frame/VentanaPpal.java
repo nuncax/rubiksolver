@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,6 +17,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import actionListener.SalirActionListener;
 import actionListener.ScrambleActionListener;
@@ -37,11 +41,11 @@ public class VentanaPpal extends JFrame {
 	private JPanel panelBotonero = new JPanel();
 
 	private RubikCube rubikCube = new RubikCube();
-	private RubCruz rubCruz = new RubCruz(2, 3, 50);
+	private RubCruz rubCruz = new RubCruz(1, 3, 50);
 
 	private SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
 
-	BufferedImage img;
+	private JTextArea textArea = new JTextArea(40, 20);
 
 	private static final long serialVersionUID = -4226961849442887198L;
 
@@ -57,6 +61,30 @@ public class VentanaPpal extends JFrame {
 
 	}
 
+	private Component jtextArea() {
+		JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		panel.setLayout(null);
+		panel.setPreferredSize(new Dimension(380, 776));
+		panel.setBackground(colorAzulito);
+		// textArea.setBounds(10, 70, 230, 600);
+		// textArea.setEditable(false);
+		JScrollPane scrollPane = new JScrollPane(textArea);
+		scrollPane.setBounds(10, 70, 230, 640);
+		scrollPane.setBorder(null);
+
+		scrollPane.getViewport().setOpaque(true);
+
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		
+		scrollPane.getVerticalScrollBar();
+		
+		//scrollPane.getVerticalScrollBar().get
+		panel.add(scrollPane);
+
+		return panel;
+	}
+
 	private void cargaContainer() {
 		Container container = this.getContentPane();
 
@@ -65,6 +93,7 @@ public class VentanaPpal extends JFrame {
 
 		container.add(botoneraColores(), BorderLayout.CENTER);
 		container.add(panelIzq(), BorderLayout.WEST);
+		container.add(jtextArea(), BorderLayout.EAST);
 	}
 
 	private Component botoneraColores() {
