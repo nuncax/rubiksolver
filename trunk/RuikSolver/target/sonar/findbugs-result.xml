@@ -1,0 +1,955 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://findbugs.sourceforge.net/xsl/default.xsl"?>
+
+<BugCollection version="1.3.9" sequence="0" timestamp="1336006477902" analysisTimestamp="1336006916932" release="">
+  <Project>
+    <Jar>C:\Users\Esteban\workspace\RubikSolver\target\classes</Jar>
+    <AuxClasspathEntry>C:\Users\Esteban\workspace\RubikSolver\lib\guava-11.0.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Esteban\workspace\RubikSolver\lib\junit-4.10.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Esteban\workspace\RubikSolver\lib\mockito-all-1.9.0-rc1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Esteban\workspace\RubikSolver\lib\log4j-1.2.16.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Esteban\AppData\Local\Temp\findbugs688395548546603641.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Esteban\AppData\Local\Temp\findbugs736524149991721374.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\Esteban\workspace\RubikSolver\src\main\java</SrcDir>
+    <WrkDir>C:\Users\Esteban\workspace\RubikSolver\target</WrkDir>
+  </Project>
+  <BugInstance type="OS_OPEN_STREAM" priority="2" abbrev="OS" category="BAD_PRACTICE" instanceHash="51493e473dd8eb8ec6f45d7d73fb0915" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to close stream</ShortMessage>
+    <LongMessage>cube.RubikCube.setPositions() may fail to close stream</LongMessage>
+    <Class classname="cube.RubikCube" primary="true">
+      <SourceLine classname="cube.RubikCube" start="21" end="300" sourcefile="RubikCube.java" sourcepath="cube/RubikCube.java" relSourcepath="cube\RubikCube.java">
+        <Message>At RubikCube.java:[lines 21-300]</Message>
+      </SourceLine>
+      <Message>In class cube.RubikCube</Message>
+    </Class>
+    <Method classname="cube.RubikCube" name="setPositions" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="cube.RubikCube" start="225" end="250" startBytecode="0" endBytecode="77" sourcefile="RubikCube.java" sourcepath="cube/RubikCube.java" relSourcepath="cube\RubikCube.java"/>
+      <Message>In method cube.RubikCube.setPositions()</Message>
+    </Method>
+    <Type descriptor="Ljava/io/Reader;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.io.Reader" start="66" end="249" sourcefile="Reader.java" sourcepath="java/io/Reader.java">
+        <Message>At Reader.java:[lines 66-249]</Message>
+      </SourceLine>
+      <Message>Need to close java.io.Reader </Message>
+    </Type>
+    <SourceLine classname="cube.RubikCube" primary="true" start="225" end="225" startBytecode="0" endBytecode="0" sourcefile="RubikCube.java" sourcepath="cube/RubikCube.java" relSourcepath="cube\RubikCube.java">
+      <Message>At RubikCube.java:[line 225]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="3" abbrev="DLS" category="STYLE" instanceHash="946708ad66e0e270c76fdbdf5896cc9c" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to stickers in cube.RubikCubeData.createVertices()</LongMessage>
+    <Class classname="cube.RubikCubeData" primary="true">
+      <SourceLine classname="cube.RubikCubeData" start="14" end="209" sourcefile="RubikCubeData.java" sourcepath="cube/RubikCubeData.java" relSourcepath="cube\RubikCubeData.java">
+        <Message>At RubikCubeData.java:[lines 14-209]</Message>
+      </SourceLine>
+      <Message>In class cube.RubikCubeData</Message>
+    </Class>
+    <Method classname="cube.RubikCubeData" name="createVertices" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="cube.RubikCubeData" start="41" end="93" startBytecode="0" endBytecode="241" sourcefile="RubikCubeData.java" sourcepath="cube/RubikCubeData.java" relSourcepath="cube\RubikCubeData.java"/>
+      <Message>In method cube.RubikCubeData.createVertices()</Message>
+    </Method>
+    <LocalVariable name="stickers" register="1" pc="8" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named stickers</Message>
+    </LocalVariable>
+    <SourceLine classname="cube.RubikCubeData" primary="true" start="41" end="41" startBytecode="7" endBytecode="7" sourcefile="RubikCubeData.java" sourcepath="cube/RubikCubeData.java" relSourcepath="cube\RubikCubeData.java">
+      <Message>At RubikCubeData.java:[line 41]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.MANY_STORES" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="stickers"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.DEAD_OBJECT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.KILLED_BY_SUBSEQUENT_STORE" value="true"/>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="3" abbrev="Se" category="BAD_PRACTICE" instanceHash="2a7644ae8306dbea80fed1f15820ba63" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-transient non-serializable instance field in serializable class</ShortMessage>
+    <LongMessage>Class frame.VentanaPpal defines non-transient non-serializable instance field img</LongMessage>
+    <Class classname="frame.VentanaPpal" primary="true">
+      <SourceLine classname="frame.VentanaPpal" start="35" end="322" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 35-322]</Message>
+      </SourceLine>
+      <Message>In class frame.VentanaPpal</Message>
+    </Class>
+    <Field classname="frame.VentanaPpal" name="img" signature="Ljava/awt/image/BufferedImage;" isStatic="false" primary="true">
+      <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>In VentanaPpal.java</Message>
+      </SourceLine>
+      <Message>Field frame.VentanaPpal.img</Message>
+    </Field>
+    <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java" synthetic="true">
+      <Message>In VentanaPpal.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="3" abbrev="Se" category="BAD_PRACTICE" instanceHash="93d0d44f892f61575db91b1be21ad7ac" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-transient non-serializable instance field in serializable class</ShortMessage>
+    <LongMessage>Class frame.VentanaPpal defines non-transient non-serializable instance field mouseAdapterCargaManual</LongMessage>
+    <Class classname="frame.VentanaPpal" primary="true">
+      <SourceLine classname="frame.VentanaPpal" start="35" end="322" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 35-322]</Message>
+      </SourceLine>
+      <Message>In class frame.VentanaPpal</Message>
+    </Class>
+    <Field classname="frame.VentanaPpal" name="mouseAdapterCargaManual" signature="Ljava/awt/event/MouseAdapter;" isStatic="false" primary="true">
+      <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>In VentanaPpal.java</Message>
+      </SourceLine>
+      <Message>Field frame.VentanaPpal.mouseAdapterCargaManual</Message>
+    </Field>
+    <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java" synthetic="true">
+      <Message>In VentanaPpal.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="3" abbrev="Se" category="BAD_PRACTICE" instanceHash="86a96c7107624d0ccd77ba9be7d6531f" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-transient non-serializable instance field in serializable class</ShortMessage>
+    <LongMessage>Class frame.VentanaPpal defines non-transient non-serializable instance field rubikCube</LongMessage>
+    <Class classname="frame.VentanaPpal" primary="true">
+      <SourceLine classname="frame.VentanaPpal" start="35" end="322" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 35-322]</Message>
+      </SourceLine>
+      <Message>In class frame.VentanaPpal</Message>
+    </Class>
+    <Field classname="frame.VentanaPpal" name="rubikCube" signature="Lcube/RubikCube;" isStatic="false" primary="true">
+      <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>In VentanaPpal.java</Message>
+      </SourceLine>
+      <Message>Field frame.VentanaPpal.rubikCube</Message>
+    </Field>
+    <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java" synthetic="true">
+      <Message>In VentanaPpal.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="3" abbrev="Se" category="BAD_PRACTICE" instanceHash="7c96d03d25f366972249dcd4906fd498" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-transient non-serializable instance field in serializable class</ShortMessage>
+    <LongMessage>Class frame.VentanaPpal defines non-transient non-serializable instance field temba</LongMessage>
+    <Class classname="frame.VentanaPpal" primary="true">
+      <SourceLine classname="frame.VentanaPpal" start="35" end="322" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 35-322]</Message>
+      </SourceLine>
+      <Message>In class frame.VentanaPpal</Message>
+    </Class>
+    <Field classname="frame.VentanaPpal" name="temba" signature="Lsolutions/SolutionMethodTemba;" isStatic="false" primary="true">
+      <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>In VentanaPpal.java</Message>
+      </SourceLine>
+      <Message>Field frame.VentanaPpal.temba</Message>
+    </Field>
+    <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java" synthetic="true">
+      <Message>In VentanaPpal.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD_STORE" priority="2" abbrev="Se" category="BAD_PRACTICE" instanceHash="46aef146295928fae6dff89eb29535b5" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-serializable value stored into instance field of a serializable class</ShortMessage>
+    <LongMessage>frame.VentanaPpal$3 stored into non-transient field VentanaPpal.actionB</LongMessage>
+    <Class classname="frame.VentanaPpal" primary="true">
+      <SourceLine classname="frame.VentanaPpal" start="35" end="322" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 35-322]</Message>
+      </SourceLine>
+      <Message>In class frame.VentanaPpal</Message>
+    </Class>
+    <Field classname="frame.VentanaPpal" name="actionB" signature="Ljava/awt/event/ActionListener;" isStatic="false" primary="true">
+      <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>In VentanaPpal.java</Message>
+      </SourceLine>
+      <Message>Field frame.VentanaPpal.actionB</Message>
+    </Field>
+    <Type descriptor="Lframe/VentanaPpal$3;" role="TYPE_FOUND">
+      <SourceLine classname="frame.VentanaPpal$3" start="1" end="250" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 1-250]</Message>
+      </SourceLine>
+      <Message>Actual type frame.VentanaPpal$3</Message>
+    </Type>
+    <SourceLine classname="frame.VentanaPpal" primary="true" start="245" end="245" startBytecode="114" endBytecode="114" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+      <Message>At VentanaPpal.java:[line 245]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD_STORE" priority="2" abbrev="Se" category="BAD_PRACTICE" instanceHash="932741c5dfea561dd52190c7b1a0f544" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-serializable value stored into instance field of a serializable class</ShortMessage>
+    <LongMessage>frame.VentanaPpal$8 stored into non-transient field VentanaPpal.actionCarga</LongMessage>
+    <Class classname="frame.VentanaPpal" primary="true">
+      <SourceLine classname="frame.VentanaPpal" start="35" end="322" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 35-322]</Message>
+      </SourceLine>
+      <Message>In class frame.VentanaPpal</Message>
+    </Class>
+    <Field classname="frame.VentanaPpal" name="actionCarga" signature="Ljava/awt/event/ActionListener;" isStatic="false" primary="true">
+      <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>In VentanaPpal.java</Message>
+      </SourceLine>
+      <Message>Field frame.VentanaPpal.actionCarga</Message>
+    </Field>
+    <Type descriptor="Lframe/VentanaPpal$8;" role="TYPE_FOUND">
+      <SourceLine classname="frame.VentanaPpal$8" start="1" end="318" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 1-318]</Message>
+      </SourceLine>
+      <Message>Actual type frame.VentanaPpal$8</Message>
+    </Type>
+    <SourceLine classname="frame.VentanaPpal" primary="true" start="281" end="281" startBytecode="174" endBytecode="174" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+      <Message>At VentanaPpal.java:[line 281]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD_STORE" priority="2" abbrev="Se" category="BAD_PRACTICE" instanceHash="45630601bee4aec3e48a18a2ed3cb744" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-serializable value stored into instance field of a serializable class</ShortMessage>
+    <LongMessage>frame.VentanaPpal$7 stored into non-transient field VentanaPpal.actionCargaManual</LongMessage>
+    <Class classname="frame.VentanaPpal" primary="true">
+      <SourceLine classname="frame.VentanaPpal" start="35" end="322" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 35-322]</Message>
+      </SourceLine>
+      <Message>In class frame.VentanaPpal</Message>
+    </Class>
+    <Field classname="frame.VentanaPpal" name="actionCargaManual" signature="Ljava/awt/event/ActionListener;" isStatic="false" primary="true">
+      <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>In VentanaPpal.java</Message>
+      </SourceLine>
+      <Message>Field frame.VentanaPpal.actionCargaManual</Message>
+    </Field>
+    <Type descriptor="Lframe/VentanaPpal$7;" role="TYPE_FOUND">
+      <SourceLine classname="frame.VentanaPpal$7" start="1" end="278" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 1-278]</Message>
+      </SourceLine>
+      <Message>Actual type frame.VentanaPpal$7</Message>
+    </Type>
+    <SourceLine classname="frame.VentanaPpal" primary="true" start="273" end="273" startBytecode="162" endBytecode="162" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+      <Message>At VentanaPpal.java:[line 273]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD_STORE" priority="2" abbrev="Se" category="BAD_PRACTICE" instanceHash="c306d560ddad875c860e8b4d286a7242" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-serializable value stored into instance field of a serializable class</ShortMessage>
+    <LongMessage>frame.VentanaPpal$4 stored into non-transient field VentanaPpal.actionG</LongMessage>
+    <Class classname="frame.VentanaPpal" primary="true">
+      <SourceLine classname="frame.VentanaPpal" start="35" end="322" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 35-322]</Message>
+      </SourceLine>
+      <Message>In class frame.VentanaPpal</Message>
+    </Class>
+    <Field classname="frame.VentanaPpal" name="actionG" signature="Ljava/awt/event/ActionListener;" isStatic="false" primary="true">
+      <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>In VentanaPpal.java</Message>
+      </SourceLine>
+      <Message>Field frame.VentanaPpal.actionG</Message>
+    </Field>
+    <Type descriptor="Lframe/VentanaPpal$4;" role="TYPE_FOUND">
+      <SourceLine classname="frame.VentanaPpal$4" start="1" end="257" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 1-257]</Message>
+      </SourceLine>
+      <Message>Actual type frame.VentanaPpal$4</Message>
+    </Type>
+    <SourceLine classname="frame.VentanaPpal" primary="true" start="252" end="252" startBytecode="126" endBytecode="126" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+      <Message>At VentanaPpal.java:[line 252]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD_STORE" priority="2" abbrev="Se" category="BAD_PRACTICE" instanceHash="27ce86727e676ecab3103fda8f0b1fe0" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-serializable value stored into instance field of a serializable class</ShortMessage>
+    <LongMessage>frame.VentanaPpal$5 stored into non-transient field VentanaPpal.actionO</LongMessage>
+    <Class classname="frame.VentanaPpal" primary="true">
+      <SourceLine classname="frame.VentanaPpal" start="35" end="322" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 35-322]</Message>
+      </SourceLine>
+      <Message>In class frame.VentanaPpal</Message>
+    </Class>
+    <Field classname="frame.VentanaPpal" name="actionO" signature="Ljava/awt/event/ActionListener;" isStatic="false" primary="true">
+      <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>In VentanaPpal.java</Message>
+      </SourceLine>
+      <Message>Field frame.VentanaPpal.actionO</Message>
+    </Field>
+    <Type descriptor="Lframe/VentanaPpal$5;" role="TYPE_FOUND">
+      <SourceLine classname="frame.VentanaPpal$5" start="1" end="264" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 1-264]</Message>
+      </SourceLine>
+      <Message>Actual type frame.VentanaPpal$5</Message>
+    </Type>
+    <SourceLine classname="frame.VentanaPpal" primary="true" start="259" end="259" startBytecode="138" endBytecode="138" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+      <Message>At VentanaPpal.java:[line 259]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD_STORE" priority="2" abbrev="Se" category="BAD_PRACTICE" instanceHash="6d05905f4ef467b74f68dd43da4f7c61" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-serializable value stored into instance field of a serializable class</ShortMessage>
+    <LongMessage>frame.VentanaPpal$2 stored into non-transient field VentanaPpal.actionR</LongMessage>
+    <Class classname="frame.VentanaPpal" primary="true">
+      <SourceLine classname="frame.VentanaPpal" start="35" end="322" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 35-322]</Message>
+      </SourceLine>
+      <Message>In class frame.VentanaPpal</Message>
+    </Class>
+    <Field classname="frame.VentanaPpal" name="actionR" signature="Ljava/awt/event/ActionListener;" isStatic="false" primary="true">
+      <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>In VentanaPpal.java</Message>
+      </SourceLine>
+      <Message>Field frame.VentanaPpal.actionR</Message>
+    </Field>
+    <Type descriptor="Lframe/VentanaPpal$2;" role="TYPE_FOUND">
+      <SourceLine classname="frame.VentanaPpal$2" start="1" end="243" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 1-243]</Message>
+      </SourceLine>
+      <Message>Actual type frame.VentanaPpal$2</Message>
+    </Type>
+    <SourceLine classname="frame.VentanaPpal" primary="true" start="238" end="238" startBytecode="102" endBytecode="102" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+      <Message>At VentanaPpal.java:[line 238]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD_STORE" priority="2" abbrev="Se" category="BAD_PRACTICE" instanceHash="6f633c0dc68e95f00df27f8363af6818" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-serializable value stored into instance field of a serializable class</ShortMessage>
+    <LongMessage>frame.VentanaPpal$6 stored into non-transient field VentanaPpal.actionW</LongMessage>
+    <Class classname="frame.VentanaPpal" primary="true">
+      <SourceLine classname="frame.VentanaPpal" start="35" end="322" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 35-322]</Message>
+      </SourceLine>
+      <Message>In class frame.VentanaPpal</Message>
+    </Class>
+    <Field classname="frame.VentanaPpal" name="actionW" signature="Ljava/awt/event/ActionListener;" isStatic="false" primary="true">
+      <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>In VentanaPpal.java</Message>
+      </SourceLine>
+      <Message>Field frame.VentanaPpal.actionW</Message>
+    </Field>
+    <Type descriptor="Lframe/VentanaPpal$6;" role="TYPE_FOUND">
+      <SourceLine classname="frame.VentanaPpal$6" start="1" end="271" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 1-271]</Message>
+      </SourceLine>
+      <Message>Actual type frame.VentanaPpal$6</Message>
+    </Type>
+    <SourceLine classname="frame.VentanaPpal" primary="true" start="266" end="266" startBytecode="150" endBytecode="150" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+      <Message>At VentanaPpal.java:[line 266]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD_STORE" priority="2" abbrev="Se" category="BAD_PRACTICE" instanceHash="2bb8241e4538c0001a1bc211818f9f5e" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-serializable value stored into instance field of a serializable class</ShortMessage>
+    <LongMessage>frame.VentanaPpal$1 stored into non-transient field VentanaPpal.actionY</LongMessage>
+    <Class classname="frame.VentanaPpal" primary="true">
+      <SourceLine classname="frame.VentanaPpal" start="35" end="322" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 35-322]</Message>
+      </SourceLine>
+      <Message>In class frame.VentanaPpal</Message>
+    </Class>
+    <Field classname="frame.VentanaPpal" name="actionY" signature="Ljava/awt/event/ActionListener;" isStatic="false" primary="true">
+      <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>In VentanaPpal.java</Message>
+      </SourceLine>
+      <Message>Field frame.VentanaPpal.actionY</Message>
+    </Field>
+    <Type descriptor="Lframe/VentanaPpal$1;" role="TYPE_FOUND">
+      <SourceLine classname="frame.VentanaPpal$1" start="1" end="236" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 1-236]</Message>
+      </SourceLine>
+      <Message>Actual type frame.VentanaPpal$1</Message>
+    </Type>
+    <SourceLine classname="frame.VentanaPpal" primary="true" start="230" end="230" startBytecode="90" endBytecode="90" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+      <Message>At VentanaPpal.java:[line 230]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD_STORE" priority="2" abbrev="Se" category="BAD_PRACTICE" instanceHash="f45c7ffd5300c7833ec6a2743c80255f" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-serializable value stored into instance field of a serializable class</ShortMessage>
+    <LongMessage>frame.VentanaPpal$9 stored into non-transient field VentanaPpal.mouseAdapterCargaManual</LongMessage>
+    <Class classname="frame.VentanaPpal" primary="true">
+      <SourceLine classname="frame.VentanaPpal" start="35" end="322" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 35-322]</Message>
+      </SourceLine>
+      <Message>In class frame.VentanaPpal</Message>
+    </Class>
+    <Field classname="frame.VentanaPpal" name="mouseAdapterCargaManual" signature="Ljava/awt/event/MouseAdapter;" isStatic="false" primary="true">
+      <SourceLine classname="frame.VentanaPpal" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>In VentanaPpal.java</Message>
+      </SourceLine>
+      <Message>Field frame.VentanaPpal.mouseAdapterCargaManual</Message>
+    </Field>
+    <Type descriptor="Lframe/VentanaPpal$9;" role="TYPE_FOUND">
+      <SourceLine classname="frame.VentanaPpal$9" start="1" end="344" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+        <Message>At VentanaPpal.java:[lines 1-344]</Message>
+      </SourceLine>
+      <Message>Actual type frame.VentanaPpal$9</Message>
+    </Type>
+    <SourceLine classname="frame.VentanaPpal" primary="true" start="322" end="322" startBytecode="186" endBytecode="186" sourcefile="VentanaPpal.java" sourcepath="frame/VentanaPpal.java" relSourcepath="frame\VentanaPpal.java">
+      <Message>At VentanaPpal.java:[line 322]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_ALWAYS_NULL" priority="1" abbrev="NP" category="CORRECTNESS" instanceHash="d1cb04251fcff182edbb263590b23414" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Null pointer dereference</ShortMessage>
+    <LongMessage>Null pointer dereference of System.out in listener.KeyListenerCustom.keyPressed(KeyEvent)</LongMessage>
+    <Class classname="listener.KeyListenerCustom" primary="true">
+      <SourceLine classname="listener.KeyListenerCustom" start="6" end="31" sourcefile="KeyListenerCustom.java" sourcepath="listener/KeyListenerCustom.java" relSourcepath="listener\KeyListenerCustom.java">
+        <Message>At KeyListenerCustom.java:[lines 6-31]</Message>
+      </SourceLine>
+      <Message>In class listener.KeyListenerCustom</Message>
+    </Class>
+    <Method classname="listener.KeyListenerCustom" name="keyPressed" signature="(Ljava/awt/event/KeyEvent;)V" isStatic="false" primary="true">
+      <SourceLine classname="listener.KeyListenerCustom" start="14" end="20" startBytecode="0" endBytecode="98" sourcefile="KeyListenerCustom.java" sourcepath="listener/KeyListenerCustom.java" relSourcepath="listener\KeyListenerCustom.java"/>
+      <Message>In method listener.KeyListenerCustom.keyPressed(KeyEvent)</Message>
+    </Method>
+    <Field classname="java.lang.System" name="out" signature="Ljava/io/PrintStream;" isStatic="true" role="FIELD_VALUE_OF">
+      <SourceLine classname="java.lang.System" sourcefile="System.java" sourcepath="java/lang/System.java">
+        <Message>In System.java</Message>
+      </SourceLine>
+      <Message>Value loaded from field java.lang.System.out</Message>
+    </Field>
+    <SourceLine classname="listener.KeyListenerCustom" primary="true" start="14" end="14" startBytecode="5" endBytecode="5" sourcefile="KeyListenerCustom.java" sourcepath="listener/KeyListenerCustom.java" relSourcepath="listener\KeyListenerCustom.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at KeyListenerCustom.java:[line 14]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_ALWAYS_NULL" priority="1" abbrev="NP" category="CORRECTNESS" instanceHash="2fca9ad51cafbf59e7b45300b6bc74ba" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Null pointer dereference</ShortMessage>
+    <LongMessage>Null pointer dereference of System.out in listener.KeyListenerCustom.keyReleased(KeyEvent)</LongMessage>
+    <Class classname="listener.KeyListenerCustom" primary="true">
+      <SourceLine classname="listener.KeyListenerCustom" start="6" end="31" sourcefile="KeyListenerCustom.java" sourcepath="listener/KeyListenerCustom.java" relSourcepath="listener\KeyListenerCustom.java">
+        <Message>At KeyListenerCustom.java:[lines 6-31]</Message>
+      </SourceLine>
+      <Message>In class listener.KeyListenerCustom</Message>
+    </Class>
+    <Method classname="listener.KeyListenerCustom" name="keyReleased" signature="(Ljava/awt/event/KeyEvent;)V" isStatic="false" primary="true">
+      <SourceLine classname="listener.KeyListenerCustom" start="25" end="26" startBytecode="0" endBytecode="64" sourcefile="KeyListenerCustom.java" sourcepath="listener/KeyListenerCustom.java" relSourcepath="listener\KeyListenerCustom.java"/>
+      <Message>In method listener.KeyListenerCustom.keyReleased(KeyEvent)</Message>
+    </Method>
+    <Field classname="java.lang.System" name="out" signature="Ljava/io/PrintStream;" isStatic="true" role="FIELD_VALUE_OF">
+      <SourceLine classname="java.lang.System" sourcefile="System.java" sourcepath="java/lang/System.java">
+        <Message>In System.java</Message>
+      </SourceLine>
+      <Message>Value loaded from field java.lang.System.out</Message>
+    </Field>
+    <SourceLine classname="listener.KeyListenerCustom" primary="true" start="25" end="25" startBytecode="5" endBytecode="5" sourcefile="KeyListenerCustom.java" sourcepath="listener/KeyListenerCustom.java" relSourcepath="listener\KeyListenerCustom.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at KeyListenerCustom.java:[line 25]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_ALWAYS_NULL" priority="1" abbrev="NP" category="CORRECTNESS" instanceHash="2d1645f9c020824e5c669eae7d705ad2" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Null pointer dereference</ShortMessage>
+    <LongMessage>Null pointer dereference of System.out in listener.KeyListenerCustom.keyTyped(KeyEvent)</LongMessage>
+    <Class classname="listener.KeyListenerCustom" primary="true">
+      <SourceLine classname="listener.KeyListenerCustom" start="6" end="31" sourcefile="KeyListenerCustom.java" sourcepath="listener/KeyListenerCustom.java" relSourcepath="listener\KeyListenerCustom.java">
+        <Message>At KeyListenerCustom.java:[lines 6-31]</Message>
+      </SourceLine>
+      <Message>In class listener.KeyListenerCustom</Message>
+    </Class>
+    <Method classname="listener.KeyListenerCustom" name="keyTyped" signature="(Ljava/awt/event/KeyEvent;)V" isStatic="false" primary="true">
+      <SourceLine classname="listener.KeyListenerCustom" start="30" end="31" startBytecode="0" endBytecode="64" sourcefile="KeyListenerCustom.java" sourcepath="listener/KeyListenerCustom.java" relSourcepath="listener\KeyListenerCustom.java"/>
+      <Message>In method listener.KeyListenerCustom.keyTyped(KeyEvent)</Message>
+    </Method>
+    <Field classname="java.lang.System" name="out" signature="Ljava/io/PrintStream;" isStatic="true" role="FIELD_VALUE_OF">
+      <SourceLine classname="java.lang.System" sourcefile="System.java" sourcepath="java/lang/System.java">
+        <Message>In System.java</Message>
+      </SourceLine>
+      <Message>Value loaded from field java.lang.System.out</Message>
+    </Field>
+    <SourceLine classname="listener.KeyListenerCustom" primary="true" start="30" end="30" startBytecode="5" endBytecode="5" sourcefile="KeyListenerCustom.java" sourcepath="listener/KeyListenerCustom.java" relSourcepath="listener\KeyListenerCustom.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at KeyListenerCustom.java:[line 30]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="3" abbrev="BC" category="STYLE" instanceHash="dd2303292ec77f62e8703558e476605a" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from java.awt.Graphics to java.awt.Graphics2D in panel.FacePanel.paintComponent(Graphics)</LongMessage>
+    <Class classname="panel.FacePanel" primary="true">
+      <SourceLine classname="panel.FacePanel" start="23" end="225" sourcefile="FacePanel.java" sourcepath="panel/FacePanel.java" relSourcepath="panel\FacePanel.java">
+        <Message>At FacePanel.java:[lines 23-225]</Message>
+      </SourceLine>
+      <Message>In class panel.FacePanel</Message>
+    </Class>
+    <Method classname="panel.FacePanel" name="paintComponent" signature="(Ljava/awt/Graphics;)V" isStatic="false" primary="true">
+      <SourceLine classname="panel.FacePanel" start="165" end="191" startBytecode="0" endBytecode="83" sourcefile="FacePanel.java" sourcepath="panel/FacePanel.java" relSourcepath="panel\FacePanel.java"/>
+      <Message>In method panel.FacePanel.paintComponent(Graphics)</Message>
+    </Method>
+    <Type descriptor="Ljava/awt/Graphics;" role="TYPE_FOUND">
+      <SourceLine classname="java.awt.Graphics" start="118" end="1254" sourcefile="Graphics.java" sourcepath="java/awt/Graphics.java">
+        <Message>At Graphics.java:[lines 118-1254]</Message>
+      </SourceLine>
+      <Message>Actual type java.awt.Graphics</Message>
+    </Type>
+    <Type descriptor="Ljava/awt/Graphics2D;" role="TYPE_EXPECTED">
+      <SourceLine classname="java.awt.Graphics2D" start="421" end="506" sourcefile="Graphics2D.java" sourcepath="java/awt/Graphics2D.java">
+        <Message>At Graphics2D.java:[lines 421-506]</Message>
+      </SourceLine>
+      <Message>Expected java.awt.Graphics2D</Message>
+    </Type>
+    <LocalVariable name="g" register="1" pc="1" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from g</Message>
+    </LocalVariable>
+    <SourceLine classname="panel.FacePanel" primary="true" start="165" end="165" startBytecode="2" endBytecode="2" sourcefile="FacePanel.java" sourcepath="panel/FacePanel.java" relSourcepath="panel\FacePanel.java">
+      <Message>At FacePanel.java:[line 165]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="3" abbrev="Se" category="BAD_PRACTICE" instanceHash="74b47c1849e2bd15370977a0feb2b2f0" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-transient non-serializable instance field in serializable class</ShortMessage>
+    <LongMessage>Class panel.FacePanel defines non-transient non-serializable instance field g2d</LongMessage>
+    <Class classname="panel.FacePanel" primary="true">
+      <SourceLine classname="panel.FacePanel" start="23" end="225" sourcefile="FacePanel.java" sourcepath="panel/FacePanel.java" relSourcepath="panel\FacePanel.java">
+        <Message>At FacePanel.java:[lines 23-225]</Message>
+      </SourceLine>
+      <Message>In class panel.FacePanel</Message>
+    </Class>
+    <Field classname="panel.FacePanel" name="g2d" signature="Ljava/awt/Graphics2D;" isStatic="false" primary="true">
+      <SourceLine classname="panel.FacePanel" sourcefile="FacePanel.java" sourcepath="panel/FacePanel.java" relSourcepath="panel\FacePanel.java">
+        <Message>In FacePanel.java</Message>
+      </SourceLine>
+      <Message>Field panel.FacePanel.g2d</Message>
+    </Field>
+    <SourceLine classname="panel.FacePanel" sourcefile="FacePanel.java" sourcepath="panel/FacePanel.java" relSourcepath="panel\FacePanel.java" synthetic="true">
+      <Message>In FacePanel.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="3" abbrev="BC" category="STYLE" instanceHash="58451a166e2a21f89223db293610b365" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unchecked/unconfirmed cast</ShortMessage>
+    <LongMessage>Unchecked/unconfirmed cast from java.awt.Graphics to java.awt.Graphics2D in panel.StickPanel.paintComponent(Graphics)</LongMessage>
+    <Class classname="panel.StickPanel" primary="true">
+      <SourceLine classname="panel.StickPanel" start="19" end="53" sourcefile="StickPanel.java" sourcepath="panel/StickPanel.java" relSourcepath="panel\StickPanel.java">
+        <Message>At StickPanel.java:[lines 19-53]</Message>
+      </SourceLine>
+      <Message>In class panel.StickPanel</Message>
+    </Class>
+    <Method classname="panel.StickPanel" name="paintComponent" signature="(Ljava/awt/Graphics;)V" isStatic="false" primary="true">
+      <SourceLine classname="panel.StickPanel" start="39" end="44" startBytecode="0" endBytecode="40" sourcefile="StickPanel.java" sourcepath="panel/StickPanel.java" relSourcepath="panel\StickPanel.java"/>
+      <Message>In method panel.StickPanel.paintComponent(Graphics)</Message>
+    </Method>
+    <Type descriptor="Ljava/awt/Graphics;" role="TYPE_FOUND">
+      <SourceLine classname="java.awt.Graphics" start="118" end="1254" sourcefile="Graphics.java" sourcepath="java/awt/Graphics.java">
+        <Message>At Graphics.java:[lines 118-1254]</Message>
+      </SourceLine>
+      <Message>Actual type java.awt.Graphics</Message>
+    </Type>
+    <Type descriptor="Ljava/awt/Graphics2D;" role="TYPE_EXPECTED">
+      <SourceLine classname="java.awt.Graphics2D" start="421" end="506" sourcefile="Graphics2D.java" sourcepath="java/awt/Graphics2D.java">
+        <Message>At Graphics2D.java:[lines 421-506]</Message>
+      </SourceLine>
+      <Message>Expected java.awt.Graphics2D</Message>
+    </Type>
+    <LocalVariable name="g" register="1" pc="6" role="LOCAL_VARIABLE_VALUE_OF">
+      <Message>Value loaded from g</Message>
+    </LocalVariable>
+    <SourceLine classname="panel.StickPanel" primary="true" start="40" end="40" startBytecode="7" endBytecode="7" sourcefile="StickPanel.java" sourcepath="panel/StickPanel.java" relSourcepath="panel\StickPanel.java">
+      <Message>At StickPanel.java:[line 40]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="3" abbrev="Se" category="BAD_PRACTICE" instanceHash="36572a79044be9499fd330085f7fd6ba" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-transient non-serializable instance field in serializable class</ShortMessage>
+    <LongMessage>Class panel.StickPanel defines non-transient non-serializable instance field g2d</LongMessage>
+    <Class classname="panel.StickPanel" primary="true">
+      <SourceLine classname="panel.StickPanel" start="19" end="53" sourcefile="StickPanel.java" sourcepath="panel/StickPanel.java" relSourcepath="panel\StickPanel.java">
+        <Message>At StickPanel.java:[lines 19-53]</Message>
+      </SourceLine>
+      <Message>In class panel.StickPanel</Message>
+    </Class>
+    <Field classname="panel.StickPanel" name="g2d" signature="Ljava/awt/Graphics2D;" isStatic="false" primary="true">
+      <SourceLine classname="panel.StickPanel" sourcefile="StickPanel.java" sourcepath="panel/StickPanel.java" relSourcepath="panel\StickPanel.java">
+        <Message>In StickPanel.java</Message>
+      </SourceLine>
+      <Message>Field panel.StickPanel.g2d</Message>
+    </Field>
+    <SourceLine classname="panel.StickPanel" sourcefile="StickPanel.java" sourcepath="panel/StickPanel.java" relSourcepath="panel\StickPanel.java" synthetic="true">
+      <Message>In StickPanel.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" abbrev="EI" category="MALICIOUS_CODE" instanceHash="aea907981577d252addcc0754c87cdcc" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>pieza.Pieza.getStickers() may expose internal representation by returning Pieza.stickers</LongMessage>
+    <Class classname="pieza.Pieza" primary="true">
+      <SourceLine classname="pieza.Pieza" start="10" end="150" sourcefile="Pieza.java" sourcepath="pieza/Pieza.java" relSourcepath="pieza\Pieza.java">
+        <Message>At Pieza.java:[lines 10-150]</Message>
+      </SourceLine>
+      <Message>In class pieza.Pieza</Message>
+    </Class>
+    <Method classname="pieza.Pieza" name="getStickers" signature="()[Lpieza/Stick;" isStatic="false" primary="true">
+      <SourceLine classname="pieza.Pieza" start="10" end="10" startBytecode="0" endBytecode="46" sourcefile="Pieza.java" sourcepath="pieza/Pieza.java" relSourcepath="pieza\Pieza.java"/>
+      <Message>In method pieza.Pieza.getStickers()</Message>
+    </Method>
+    <Field classname="pieza.Pieza" name="stickers" signature="[Lpieza/Stick;" isStatic="false" primary="true">
+      <SourceLine classname="pieza.Pieza" sourcefile="Pieza.java" sourcepath="pieza/Pieza.java" relSourcepath="pieza\Pieza.java">
+        <Message>In Pieza.java</Message>
+      </SourceLine>
+      <Message>Field pieza.Pieza.stickers</Message>
+    </Field>
+    <SourceLine classname="pieza.Pieza" primary="true" start="10" end="10" startBytecode="4" endBytecode="4" sourcefile="Pieza.java" sourcepath="pieza/Pieza.java" relSourcepath="pieza\Pieza.java">
+      <Message>At Pieza.java:[line 10]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" abbrev="DLS" category="STYLE" instanceHash="13e05d81bcf42436702f7981a56baf8" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to vertice2 in solutions.SolutionMethodTemba.colocarEsquinasDeDown()</LongMessage>
+    <Class classname="solutions.SolutionMethodTemba" primary="true">
+      <SourceLine classname="solutions.SolutionMethodTemba" start="15" end="620" sourcefile="SolutionMethodTemba.java" sourcepath="solutions/SolutionMethodTemba.java" relSourcepath="solutions\SolutionMethodTemba.java">
+        <Message>At SolutionMethodTemba.java:[lines 15-620]</Message>
+      </SourceLine>
+      <Message>In class solutions.SolutionMethodTemba</Message>
+    </Class>
+    <Method classname="solutions.SolutionMethodTemba" name="colocarEsquinasDeDown" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="solutions.SolutionMethodTemba" start="277" end="344" startBytecode="0" endBytecode="199" sourcefile="SolutionMethodTemba.java" sourcepath="solutions/SolutionMethodTemba.java" relSourcepath="solutions\SolutionMethodTemba.java"/>
+      <Message>In method solutions.SolutionMethodTemba.colocarEsquinasDeDown()</Message>
+    </Method>
+    <LocalVariable name="vertice2" register="2" pc="316" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named vertice2</Message>
+    </LocalVariable>
+    <SourceLine classname="solutions.SolutionMethodTemba" primary="true" start="328" end="328" startBytecode="315" endBytecode="315" sourcefile="SolutionMethodTemba.java" sourcepath="solutions/SolutionMethodTemba.java" relSourcepath="solutions\SolutionMethodTemba.java">
+      <Message>At SolutionMethodTemba.java:[line 328]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="vertice2"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="3" abbrev="SF" category="STYLE" instanceHash="196f5109f46b61a3d018ce5983fb749f" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in solutions.SolutionMethodTemba.dameColorPivote(int) where default case is missing</LongMessage>
+    <Class classname="solutions.SolutionMethodTemba" primary="true">
+      <SourceLine classname="solutions.SolutionMethodTemba" start="15" end="620" sourcefile="SolutionMethodTemba.java" sourcepath="solutions/SolutionMethodTemba.java" relSourcepath="solutions\SolutionMethodTemba.java">
+        <Message>At SolutionMethodTemba.java:[lines 15-620]</Message>
+      </SourceLine>
+      <Message>In class solutions.SolutionMethodTemba</Message>
+    </Class>
+    <Method classname="solutions.SolutionMethodTemba" name="dameColorPivote" signature="(I)Lpieza/Color;" isStatic="false" primary="true">
+      <SourceLine classname="solutions.SolutionMethodTemba" start="434" end="447" startBytecode="0" endBytecode="166" sourcefile="SolutionMethodTemba.java" sourcepath="solutions/SolutionMethodTemba.java" relSourcepath="solutions\SolutionMethodTemba.java"/>
+      <Message>In method solutions.SolutionMethodTemba.dameColorPivote(int)</Message>
+    </Method>
+    <SourceLine classname="solutions.SolutionMethodTemba" primary="true" start="443" end="447" startBytecode="57" endBytecode="58" sourcefile="SolutionMethodTemba.java" sourcepath="solutions/SolutionMethodTemba.java" relSourcepath="solutions\SolutionMethodTemba.java">
+      <Message>At SolutionMethodTemba.java:[lines 443-447]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NP_ALWAYS_NULL" priority="1" abbrev="NP" category="CORRECTNESS" instanceHash="5fed7689c91a448aaf0114b78ed58fd7" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Null pointer dereference</ShortMessage>
+    <LongMessage>Null pointer dereference of System.out in thread.ThreadRepintaFrame.run()</LongMessage>
+    <Class classname="thread.ThreadRepintaFrame" primary="true">
+      <SourceLine classname="thread.ThreadRepintaFrame" start="8" end="33" sourcefile="ThreadRepintaFrame.java" sourcepath="thread/ThreadRepintaFrame.java" relSourcepath="thread\ThreadRepintaFrame.java">
+        <Message>At ThreadRepintaFrame.java:[lines 8-33]</Message>
+      </SourceLine>
+      <Message>In class thread.ThreadRepintaFrame</Message>
+    </Class>
+    <Method classname="thread.ThreadRepintaFrame" name="run" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="thread.ThreadRepintaFrame" start="17" end="28" startBytecode="0" endBytecode="125" sourcefile="ThreadRepintaFrame.java" sourcepath="thread/ThreadRepintaFrame.java" relSourcepath="thread\ThreadRepintaFrame.java"/>
+      <Message>In method thread.ThreadRepintaFrame.run()</Message>
+    </Method>
+    <Field classname="java.lang.System" name="out" signature="Ljava/io/PrintStream;" isStatic="true" role="FIELD_VALUE_OF">
+      <SourceLine classname="java.lang.System" sourcefile="System.java" sourcepath="java/lang/System.java">
+        <Message>In System.java</Message>
+      </SourceLine>
+      <Message>Value loaded from field java.lang.System.out</Message>
+    </Field>
+    <SourceLine classname="thread.ThreadRepintaFrame" primary="true" start="26" end="26" startBytecode="30" endBytecode="30" sourcefile="ThreadRepintaFrame.java" sourcepath="thread/ThreadRepintaFrame.java" relSourcepath="thread\ThreadRepintaFrame.java" role="SOURCE_LINE_DEREF">
+      <Message>Dereferenced at ThreadRepintaFrame.java:[line 26]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="3" abbrev="MS" category="MALICIOUS_CODE" instanceHash="121741ec54f34f9d60feaa166ffa3c4b" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Field isn&apos;t final but should be</ShortMessage>
+    <LongMessage>utiles.Utiles.orange isn&apos;t final but should be</LongMessage>
+    <Class classname="utiles.Utiles" primary="true">
+      <SourceLine classname="utiles.Utiles" start="5" end="16" sourcefile="Utiles.java" sourcepath="utiles/Utiles.java" relSourcepath="utiles\Utiles.java">
+        <Message>At Utiles.java:[lines 5-16]</Message>
+      </SourceLine>
+      <Message>In class utiles.Utiles</Message>
+    </Class>
+    <Field classname="utiles.Utiles" name="orange" signature="Ljava/awt/Color;" isStatic="true" primary="true">
+      <SourceLine classname="utiles.Utiles" sourcefile="Utiles.java" sourcepath="utiles/Utiles.java" relSourcepath="utiles\Utiles.java">
+        <Message>In Utiles.java</Message>
+      </SourceLine>
+      <Message>Field utiles.Utiles.orange</Message>
+    </Field>
+    <SourceLine classname="utiles.Utiles" primary="true" start="6" end="6" startBytecode="14" endBytecode="14" sourcefile="Utiles.java" sourcepath="utiles/Utiles.java" relSourcepath="utiles\Utiles.java">
+      <Message>At Utiles.java:[line 6]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy</Description>
+  </BugCategory>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="CORRECTNESS">
+    <Description>Correctness</Description>
+  </BugCategory>
+  <BugPattern type="SF_SWITCH_NO_DEFAULT" abbrev="SF" category="STYLE">
+    <ShortDescription>Switch statement found where default case is missing</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This method contains a switch statement where default case is missing.
+  Usually you need to provide a default case.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="BC_UNCONFIRMED_CAST" abbrev="BC" category="STYLE">
+    <ShortDescription>Unchecked/unconfirmed cast</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This cast is unchecked, and not all instances of the type casted from can be cast to
+the type it is being cast to. Ensure that your program logic ensures that this
+cast will not fail.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="OS_OPEN_STREAM" abbrev="OS" category="BAD_PRACTICE">
+    <ShortDescription>Method may fail to close stream</ShortDescription>
+    <Details><![CDATA[
+
+<p> The method creates an IO stream object, does not assign it to any
+fields, pass it to other methods that might close it, 
+or return it, and does not appear to close
+the stream on all paths out of the method.&nbsp; This may result in
+a file descriptor leak.&nbsp; It is generally a good
+idea to use a <code>finally</code> block to ensure that streams are
+closed.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="NP_ALWAYS_NULL" abbrev="NP" category="CORRECTNESS">
+    <ShortDescription>Null pointer dereference</ShortDescription>
+    <Details><![CDATA[
+
+<p> A null pointer is dereferenced here.&nbsp; This will lead to a
+<code>NullPointerException</code> when the code is executed.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SE_BAD_FIELD_STORE" abbrev="Se" category="BAD_PRACTICE">
+    <ShortDescription>Non-serializable value stored into instance field of a serializable class</ShortDescription>
+    <Details><![CDATA[
+
+<p> A non-serializable value is stored into a non-transient field
+of a serializable class.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SE_BAD_FIELD" abbrev="Se" category="BAD_PRACTICE">
+    <ShortDescription>Non-transient non-serializable instance field in serializable class</ShortDescription>
+    <Details><![CDATA[
+
+<p> This Serializable class defines a non-primitive instance field which is neither transient,
+Serializable, or <code>java.lang.Object</code>, and does not appear to implement
+the <code>Externalizable</code> interface or the
+<code>readObject()</code> and <code>writeObject()</code> methods.&nbsp;
+Objects of this class will not be deserialized correctly if a non-Serializable
+object is stored in this field.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables.  Because FindBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_SHOULD_BE_FINAL" abbrev="MS" category="MALICIOUS_CODE">
+    <ShortDescription>Field isn&apos;t final but should be</ShortDescription>
+    <Details><![CDATA[
+
+   <p>
+ A mutable static field could be changed by malicious code or
+        by accident from another package.
+        The field could be made final to avoid
+        this vulnerability.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="Se">
+    <Description>Incorrect definition of Serializable class</Description>
+  </BugCode>
+  <BugCode abbrev="SF">
+    <Description>Switch case falls through</Description>
+  </BugCode>
+  <BugCode abbrev="BC">
+    <Description>Bad casts of object references</Description>
+  </BugCode>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <BugCode abbrev="OS">
+    <Description>Stream not closed on all paths</Description>
+  </BugCode>
+  <BugCode abbrev="NP" cweid="476">
+    <Description>Null pointer dereference</Description>
+  </BugCode>
+  <BugCode abbrev="MS" cweid="218">
+    <Description>Mutable static field</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method returning array may expose internal representation</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 3 May 2012 02:54:37 +0200" total_classes="42" referenced_classes="375" total_bugs="27" total_size="1763" num_packages="11" vm_version="21.1-b02" cpu_seconds="41.14" clock_seconds="25.22" peak_mbytes="290.31" alloc_mbytes="910.25" gc_seconds="1.05" priority_3="11" priority_2="12" priority_1="4">
+    <FileStats path="actionListener/ColorActionListener.java" bugCount="0" size="20"/>
+    <FileStats path="actionListener/SalirActionListener.java" bugCount="0" size="6"/>
+    <FileStats path="actionListener/ScrambleActionListener.java" bugCount="0" size="18"/>
+    <FileStats path="actionListener/SolucionarrActionListener.java" bugCount="0" size="18"/>
+    <FileStats path="cube/RubikCube.java" bugCount="1" size="191" bugHash="0e618091a58f54e1bcd9cf0c40d9f818"/>
+    <FileStats path="cube/RubikCubeData.java" bugCount="1" size="138" bugHash="678dd59edce7283f7ece43e6549c15b7"/>
+    <FileStats path="frame/VentanaPpal.java" bugCount="13" size="274" bugHash="7fdbc72063b4c523ff14480bbfac5f68"/>
+    <FileStats path="listener/ColorActionListener.java" bugCount="0" size="20"/>
+    <FileStats path="listener/KeyListenerCustom.java" bugCount="3" size="14" bugHash="185868037584230058c9329963e32094"/>
+    <FileStats path="listener/SalirActionListener.java" bugCount="0" size="6"/>
+    <FileStats path="listener/ScrambleActionListener.java" bugCount="0" size="18"/>
+    <FileStats path="listener/SolucionarrActionListener.java" bugCount="0" size="18"/>
+    <FileStats path="main/Main.java" bugCount="0" size="9"/>
+    <FileStats path="main/MainPrincipalDelTODO.java" bugCount="0" size="12"/>
+    <FileStats path="observer/AWTObserver.java" bugCount="0" size="40"/>
+    <FileStats path="observer/IObserver.java" bugCount="0" size="3"/>
+    <FileStats path="panel/FacePanel.java" bugCount="2" size="149" bugHash="c62eeb2bd7cd20c3c2ff1aedb046b0d2"/>
+    <FileStats path="panel/RubCruz.java" bugCount="0" size="45"/>
+    <FileStats path="panel/StickPanel.java" bugCount="2" size="31" bugHash="f3006e3b36accea342a8ead47a371708"/>
+    <FileStats path="pieza/Arista.java" bugCount="0" size="13"/>
+    <FileStats path="pieza/Centro.java" bugCount="0" size="34"/>
+    <FileStats path="pieza/Color.java" bugCount="0" size="52"/>
+    <FileStats path="pieza/Pieza.java" bugCount="1" size="100" bugHash="37c9afd7c8c11138c80ec9d9f4fde9e1"/>
+    <FileStats path="pieza/Stick.java" bugCount="0" size="17"/>
+    <FileStats path="pieza/Vectr.java" bugCount="0" size="50"/>
+    <FileStats path="pieza/Vertice.java" bugCount="0" size="24"/>
+    <FileStats path="solutions/SolutionMethodTemba.java" bugCount="2" size="410" bugHash="46b2b2fe6567eeff8e30d89bf0d0b91f"/>
+    <FileStats path="thread/ThreadRepintaFrame.java" bugCount="1" size="21" bugHash="2089850a3a4050e33f0ebe4bca41f95a"/>
+    <FileStats path="utiles/Utiles.java" bugCount="1" size="12" bugHash="0c3dc4f365e14bb0dc639077b3bd82ed"/>
+    <PackageStats package="actionListener" total_bugs="0" total_types="6" total_size="62">
+      <ClassStats class="actionListener.ColorActionListener" sourceFile="ColorActionListener.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="actionListener.SalirActionListener" sourceFile="SalirActionListener.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="actionListener.ScrambleActionListener" sourceFile="ScrambleActionListener.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="actionListener.ScrambleActionListener$1" sourceFile="ScrambleActionListener.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="actionListener.SolucionarrActionListener" sourceFile="SolucionarrActionListener.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="actionListener.SolucionarrActionListener$1" sourceFile="SolucionarrActionListener.java" interface="false" size="8" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="cube" total_bugs="2" total_types="2" total_size="329" priority_3="1" priority_2="1">
+      <ClassStats class="cube.RubikCube" sourceFile="RubikCube.java" interface="false" size="191" bugs="1" priority_2="1"/>
+      <ClassStats class="cube.RubikCubeData" sourceFile="RubikCubeData.java" interface="false" size="138" bugs="1" priority_3="1"/>
+    </PackageStats>
+    <PackageStats package="frame" total_bugs="13" total_types="10" total_size="274" priority_3="4" priority_2="9">
+      <ClassStats class="frame.VentanaPpal" sourceFile="VentanaPpal.java" interface="false" size="167" bugs="13" priority_3="4" priority_2="9"/>
+      <ClassStats class="frame.VentanaPpal$1" sourceFile="VentanaPpal.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="frame.VentanaPpal$2" sourceFile="VentanaPpal.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="frame.VentanaPpal$3" sourceFile="VentanaPpal.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="frame.VentanaPpal$4" sourceFile="VentanaPpal.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="frame.VentanaPpal$5" sourceFile="VentanaPpal.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="frame.VentanaPpal$6" sourceFile="VentanaPpal.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="frame.VentanaPpal$7" sourceFile="VentanaPpal.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="frame.VentanaPpal$8" sourceFile="VentanaPpal.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="frame.VentanaPpal$9" sourceFile="VentanaPpal.java" interface="false" size="18" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="listener" total_bugs="3" total_types="7" total_size="76" priority_1="3">
+      <ClassStats class="listener.ColorActionListener" sourceFile="ColorActionListener.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="listener.KeyListenerCustom" sourceFile="KeyListenerCustom.java" interface="false" size="14" bugs="3" priority_1="3"/>
+      <ClassStats class="listener.SalirActionListener" sourceFile="SalirActionListener.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="listener.ScrambleActionListener" sourceFile="ScrambleActionListener.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="listener.ScrambleActionListener$1" sourceFile="ScrambleActionListener.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="listener.SolucionarrActionListener" sourceFile="SolucionarrActionListener.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="listener.SolucionarrActionListener$1" sourceFile="SolucionarrActionListener.java" interface="false" size="8" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="main" total_bugs="0" total_types="2" total_size="21">
+      <ClassStats class="main.Main" sourceFile="Main.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="main.MainPrincipalDelTODO" sourceFile="MainPrincipalDelTODO.java" interface="false" size="12" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="observer" total_bugs="0" total_types="2" total_size="43">
+      <ClassStats class="observer.AWTObserver" sourceFile="AWTObserver.java" interface="false" size="40" bugs="0"/>
+      <ClassStats class="observer.IObserver" sourceFile="IObserver.java" interface="true" size="3" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="panel" total_bugs="4" total_types="3" total_size="225" priority_3="4">
+      <ClassStats class="panel.FacePanel" sourceFile="FacePanel.java" interface="false" size="149" bugs="2" priority_3="2"/>
+      <ClassStats class="panel.RubCruz" sourceFile="RubCruz.java" interface="false" size="45" bugs="0"/>
+      <ClassStats class="panel.StickPanel" sourceFile="StickPanel.java" interface="false" size="31" bugs="2" priority_3="2"/>
+    </PackageStats>
+    <PackageStats package="pieza" total_bugs="1" total_types="7" total_size="290" priority_2="1">
+      <ClassStats class="pieza.Arista" sourceFile="Arista.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="pieza.Centro" sourceFile="Centro.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="pieza.Color" sourceFile="Color.java" interface="false" size="52" bugs="0"/>
+      <ClassStats class="pieza.Pieza" sourceFile="Pieza.java" interface="false" size="100" bugs="1" priority_2="1"/>
+      <ClassStats class="pieza.Stick" sourceFile="Stick.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="pieza.Vectr" sourceFile="Vectr.java" interface="false" size="50" bugs="0"/>
+      <ClassStats class="pieza.Vertice" sourceFile="Vertice.java" interface="false" size="24" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="solutions" total_bugs="2" total_types="1" total_size="410" priority_3="1" priority_2="1">
+      <ClassStats class="solutions.SolutionMethodTemba" sourceFile="SolutionMethodTemba.java" interface="false" size="410" bugs="2" priority_3="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="thread" total_bugs="1" total_types="1" total_size="21" priority_1="1">
+      <ClassStats class="thread.ThreadRepintaFrame" sourceFile="ThreadRepintaFrame.java" interface="false" size="21" bugs="1" priority_1="1"/>
+    </PackageStats>
+    <PackageStats package="utiles" total_bugs="1" total_types="1" total_size="12" priority_3="1">
+      <ClassStats class="utiles.Utiles" sourceFile="Utiles.java" interface="false" size="12" bugs="1" priority_3="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.LoadedFieldSetFactory" totalMilliseconds="11" invocations="213" avgMicrosecondsPerInvocation="51" maxMicrosecondsPerInvocation="1491" standardDeviationMircosecondsPerInvocation="141"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DuplicateBranches" totalMilliseconds="11" invocations="42" avgMicrosecondsPerInvocation="265" maxMicrosecondsPerInvocation="4223" standardDeviationMircosecondsPerInvocation="715"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNonShortCircuit" totalMilliseconds="11" invocations="42" avgMicrosecondsPerInvocation="285" maxMicrosecondsPerInvocation="2780" standardDeviationMircosecondsPerInvocation="507"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.MethodReturnCheck" totalMilliseconds="13" invocations="42" avgMicrosecondsPerInvocation="315" maxMicrosecondsPerInvocation="2660" standardDeviationMircosecondsPerInvocation="575"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteCheckReturnValueAnnotations" totalMilliseconds="13" invocations="375" avgMicrosecondsPerInvocation="36" maxMicrosecondsPerInvocation="1622" standardDeviationMircosecondsPerInvocation="114"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindSqlInjection" totalMilliseconds="13" invocations="42" avgMicrosecondsPerInvocation="332" maxMicrosecondsPerInvocation="2053" standardDeviationMircosecondsPerInvocation="445"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ObligationDataflowFactory" totalMilliseconds="14" invocations="23" avgMicrosecondsPerInvocation="615" maxMicrosecondsPerInvocation="6447" standardDeviationMircosecondsPerInvocation="1780"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.RepeatedConditionals" totalMilliseconds="14" invocations="42" avgMicrosecondsPerInvocation="343" maxMicrosecondsPerInvocation="2661" standardDeviationMircosecondsPerInvocation="554"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteCheckReturnValue" totalMilliseconds="15" invocations="375" avgMicrosecondsPerInvocation="40" maxMicrosecondsPerInvocation="1131" standardDeviationMircosecondsPerInvocation="100"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteAnnotationRetention" totalMilliseconds="15" invocations="375" avgMicrosecondsPerInvocation="41" maxMicrosecondsPerInvocation="1405" standardDeviationMircosecondsPerInvocation="104"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindBadCast2" totalMilliseconds="16" invocations="42" avgMicrosecondsPerInvocation="381" maxMicrosecondsPerInvocation="8631" standardDeviationMircosecondsPerInvocation="1342"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ReverseDepthFirstSearchFactory" totalMilliseconds="16" invocations="213" avgMicrosecondsPerInvocation="75" maxMicrosecondsPerInvocation="3692" standardDeviationMircosecondsPerInvocation="262"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteJCIPAnnotation" totalMilliseconds="17" invocations="375" avgMicrosecondsPerInvocation="46" maxMicrosecondsPerInvocation="909" standardDeviationMircosecondsPerInvocation="93"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindSelfComparison" totalMilliseconds="17" invocations="42" avgMicrosecondsPerInvocation="415" maxMicrosecondsPerInvocation="3489" standardDeviationMircosecondsPerInvocation="726"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.InfiniteLoop" totalMilliseconds="17" invocations="42" avgMicrosecondsPerInvocation="419" maxMicrosecondsPerInvocation="6693" standardDeviationMircosecondsPerInvocation="1071"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.asm.ClassReaderAnalysisEngine" totalMilliseconds="17" invocations="1353" avgMicrosecondsPerInvocation="13" maxMicrosecondsPerInvocation="5188" standardDeviationMircosecondsPerInvocation="141"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindPuzzlers" totalMilliseconds="17" invocations="42" avgMicrosecondsPerInvocation="421" maxMicrosecondsPerInvocation="3641" standardDeviationMircosecondsPerInvocation="706"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindUnrelatedTypesInGenericContainer" totalMilliseconds="18" invocations="42" avgMicrosecondsPerInvocation="431" maxMicrosecondsPerInvocation="6650" standardDeviationMircosecondsPerInvocation="1085"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethodInvocations" totalMilliseconds="18" invocations="42" avgMicrosecondsPerInvocation="437" maxMicrosecondsPerInvocation="9374" standardDeviationMircosecondsPerInvocation="1427"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodFactory" totalMilliseconds="18" invocations="354" avgMicrosecondsPerInvocation="52" maxMicrosecondsPerInvocation="2140" standardDeviationMircosecondsPerInvocation="128"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.DepthFirstSearchFactory" totalMilliseconds="18" invocations="271" avgMicrosecondsPerInvocation="68" maxMicrosecondsPerInvocation="3099" standardDeviationMircosecondsPerInvocation="203"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindHEmismatch" totalMilliseconds="20" invocations="42" avgMicrosecondsPerInvocation="493" maxMicrosecondsPerInvocation="5496" standardDeviationMircosecondsPerInvocation="946"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="21" invocations="42" avgMicrosecondsPerInvocation="503" maxMicrosecondsPerInvocation="9656" standardDeviationMircosecondsPerInvocation="2003"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.RuntimeExceptionCapture" totalMilliseconds="21" invocations="42" avgMicrosecondsPerInvocation="516" maxMicrosecondsPerInvocation="6803" standardDeviationMircosecondsPerInvocation="1116"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNullDeref" totalMilliseconds="21" invocations="42" avgMicrosecondsPerInvocation="522" maxMicrosecondsPerInvocation="6670" standardDeviationMircosecondsPerInvocation="1068"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SwitchFallthrough" totalMilliseconds="23" invocations="42" avgMicrosecondsPerInvocation="562" maxMicrosecondsPerInvocation="5312" standardDeviationMircosecondsPerInvocation="993"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.Methods" totalMilliseconds="24" invocations="375" avgMicrosecondsPerInvocation="66" maxMicrosecondsPerInvocation="8771" standardDeviationMircosecondsPerInvocation="512"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CrossSiteScripting" totalMilliseconds="26" invocations="42" avgMicrosecondsPerInvocation="624" maxMicrosecondsPerInvocation="16633" standardDeviationMircosecondsPerInvocation="2527"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="27" invocations="42" avgMicrosecondsPerInvocation="655" maxMicrosecondsPerInvocation="4107" standardDeviationMircosecondsPerInvocation="980"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="30" invocations="42" avgMicrosecondsPerInvocation="721" maxMicrosecondsPerInvocation="5689" standardDeviationMircosecondsPerInvocation="1133"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.URLProblems" totalMilliseconds="35" invocations="42" avgMicrosecondsPerInvocation="842" maxMicrosecondsPerInvocation="7451" standardDeviationMircosecondsPerInvocation="1397"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindDeadLocalStores" totalMilliseconds="35" invocations="42" avgMicrosecondsPerInvocation="846" maxMicrosecondsPerInvocation="6020" standardDeviationMircosecondsPerInvocation="1321"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.TypeQualifierNullnessAnnotationDatabase" totalMilliseconds="35" invocations="4066" avgMicrosecondsPerInvocation="8" maxMicrosecondsPerInvocation="5301" standardDeviationMircosecondsPerInvocation="86"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteNonNullAnnotations" totalMilliseconds="40" invocations="375" avgMicrosecondsPerInvocation="108" maxMicrosecondsPerInvocation="25059" standardDeviationMircosecondsPerInvocation="1292"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.obl.ObligationAnalysis" totalMilliseconds="42" invocations="23" avgMicrosecondsPerInvocation="1846" maxMicrosecondsPerInvocation="8277" standardDeviationMircosecondsPerInvocation="1826"/>
+      <ClassProfile name="edu.umd.cs.findbugs.DetectorToDetector2Adapter" totalMilliseconds="43" invocations="4953" avgMicrosecondsPerInvocation="8" maxMicrosecondsPerInvocation="21331" standardDeviationMircosecondsPerInvocation="303"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="56" invocations="42" avgMicrosecondsPerInvocation="1350" maxMicrosecondsPerInvocation="9183" standardDeviationMircosecondsPerInvocation="2347"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInconsistentSync2" totalMilliseconds="58" invocations="42" avgMicrosecondsPerInvocation="1381" maxMicrosecondsPerInvocation="11141" standardDeviationMircosecondsPerInvocation="2327"/>
+      <ClassProfile name="edu.umd.cs.findbugs.NonReportingDetectorToDetector2Adapter" totalMilliseconds="75" invocations="4959" avgMicrosecondsPerInvocation="15" maxMicrosecondsPerInvocation="46164" standardDeviationMircosecondsPerInvocation="655"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SerializableIdiom" totalMilliseconds="93" invocations="42" avgMicrosecondsPerInvocation="2216" maxMicrosecondsPerInvocation="62880" standardDeviationMircosecondsPerInvocation="9654"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ReflectiveClasses" totalMilliseconds="93" invocations="375" avgMicrosecondsPerInvocation="250" maxMicrosecondsPerInvocation="8595" standardDeviationMircosecondsPerInvocation="823"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteSuppressedWarnings" totalMilliseconds="95" invocations="375" avgMicrosecondsPerInvocation="255" maxMicrosecondsPerInvocation="72773" standardDeviationMircosecondsPerInvocation="3751"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNullDeref$CheckCallSitesAndReturnInstructions" totalMilliseconds="100" invocations="213" avgMicrosecondsPerInvocation="473" maxMicrosecondsPerInvocation="45310" standardDeviationMircosecondsPerInvocation="3537"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.impl.ZipCodeBaseFactory" totalMilliseconds="126" invocations="19" avgMicrosecondsPerInvocation="6678" maxMicrosecondsPerInvocation="81938" standardDeviationMircosecondsPerInvocation="19156"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ClassContextClassAnalysisEngine" totalMilliseconds="136" invocations="474" avgMicrosecondsPerInvocation="287" maxMicrosecondsPerInvocation="127977" standardDeviationMircosecondsPerInvocation="5872"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="185" invocations="375" avgMicrosecondsPerInvocation="493" maxMicrosecondsPerInvocation="24700" standardDeviationMircosecondsPerInvocation="1931"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteUnconditionalParamDerefs" totalMilliseconds="197" invocations="42" avgMicrosecondsPerInvocation="4713" maxMicrosecondsPerInvocation="190398" standardDeviationMircosecondsPerInvocation="28999"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.LiveLocalStoreDataflowFactory" totalMilliseconds="219" invocations="208" avgMicrosecondsPerInvocation="1054" maxMicrosecondsPerInvocation="44503" standardDeviationMircosecondsPerInvocation="4603"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison" totalMilliseconds="228" invocations="42" avgMicrosecondsPerInvocation="5431" maxMicrosecondsPerInvocation="189427" standardDeviationMircosecondsPerInvocation="28789"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="246" invocations="375" avgMicrosecondsPerInvocation="656" maxMicrosecondsPerInvocation="82730" standardDeviationMircosecondsPerInvocation="4583"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="292" invocations="173" avgMicrosecondsPerInvocation="1692" maxMicrosecondsPerInvocation="54438" standardDeviationMircosecondsPerInvocation="5128"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="293" invocations="215" avgMicrosecondsPerInvocation="1363" maxMicrosecondsPerInvocation="95520" standardDeviationMircosecondsPerInvocation="9056"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteNonnullReturnValues" totalMilliseconds="343" invocations="42" avgMicrosecondsPerInvocation="8185" maxMicrosecondsPerInvocation="168420" standardDeviationMircosecondsPerInvocation="34421"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="349" invocations="470" avgMicrosecondsPerInvocation="744" maxMicrosecondsPerInvocation="109857" standardDeviationMircosecondsPerInvocation="6118"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="376" invocations="375" avgMicrosecondsPerInvocation="1003" maxMicrosecondsPerInvocation="89534" standardDeviationMircosecondsPerInvocation="5578"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="427" invocations="213" avgMicrosecondsPerInvocation="2006" maxMicrosecondsPerInvocation="181444" standardDeviationMircosecondsPerInvocation="13490"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="457" invocations="213" avgMicrosecondsPerInvocation="2149" maxMicrosecondsPerInvocation="44762" standardDeviationMircosecondsPerInvocation="4950"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="505" invocations="375" avgMicrosecondsPerInvocation="1347" maxMicrosecondsPerInvocation="306194" standardDeviationMircosecondsPerInvocation="16261"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="573" invocations="213" avgMicrosecondsPerInvocation="2693" maxMicrosecondsPerInvocation="127912" standardDeviationMircosecondsPerInvocation="12519"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="668" invocations="1451" avgMicrosecondsPerInvocation="460" maxMicrosecondsPerInvocation="93428" standardDeviationMircosecondsPerInvocation="2797"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="752" invocations="213" avgMicrosecondsPerInvocation="3532" maxMicrosecondsPerInvocation="218155" standardDeviationMircosecondsPerInvocation="16781"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="950" invocations="213" avgMicrosecondsPerInvocation="4462" maxMicrosecondsPerInvocation="506915" standardDeviationMircosecondsPerInvocation="35628"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.LazyInit" totalMilliseconds="1066" invocations="42" avgMicrosecondsPerInvocation="25399" maxMicrosecondsPerInvocation="1066195" standardDeviationMircosecondsPerInvocation="162545"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="1152" invocations="375" avgMicrosecondsPerInvocation="3074" maxMicrosecondsPerInvocation="469031" standardDeviationMircosecondsPerInvocation="29532"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="1162" invocations="375" avgMicrosecondsPerInvocation="3099" maxMicrosecondsPerInvocation="219100" standardDeviationMircosecondsPerInvocation="15312"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="1190" invocations="271" avgMicrosecondsPerInvocation="4393" maxMicrosecondsPerInvocation="323408" standardDeviationMircosecondsPerInvocation="24932"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="1222" invocations="6587" avgMicrosecondsPerInvocation="185" maxMicrosecondsPerInvocation="345712" standardDeviationMircosecondsPerInvocation="4593"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="1616" invocations="213" avgMicrosecondsPerInvocation="7589" maxMicrosecondsPerInvocation="400663" standardDeviationMircosecondsPerInvocation="40634"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="6392" invocations="1453" avgMicrosecondsPerInvocation="4399" maxMicrosecondsPerInvocation="1278749" standardDeviationMircosecondsPerInvocation="47145"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>
