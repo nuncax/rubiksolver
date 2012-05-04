@@ -7,6 +7,7 @@ import pieza.Pieza;
 import pieza.Stick;
 import pieza.Vertice;
 import cube.RubikCube;
+import frame.MyJtexPane;
 import frame.VentanaPpal;
 
 public class SolutionMethodTemba {
@@ -28,11 +29,10 @@ public class SolutionMethodTemba {
 	}
 
 	private void colocarAristasDeDown() {
-		// System.out.println("*Colocando aristas de Down");
 
-		VentanaPpal.textArea.append("\n");
-		VentanaPpal.textArea.append("Colocando Aristas inferioes*:" + ":\n");
-		VentanaPpal.textArea.append("\n");
+		MyJtexPane.insert("*Colocando Aristas inferioes*:",
+				MyJtexPane.DEFAULT_STYLE);
+
 		List<Arista> piezas = this.rubikCube
 				.buscarAristas(this.rubikCube.down_face);
 		int num = 0;
@@ -193,10 +193,8 @@ public class SolutionMethodTemba {
 	// }
 
 	private void resolverCruz() {
-		// System.out.println("*Resolviendo cruz:*");
 
-		VentanaPpal.textArea.append("\n");
-		VentanaPpal.textArea.append("*Resolviendo cruz:*" + "\n");
+		MyJtexPane.insert("*Resolviendo cruz:*", MyJtexPane.DEFAULT_STYLE);
 
 		List<Arista> piezas = this.rubikCube
 				.buscarAristas(this.rubikCube.up_face);
@@ -207,12 +205,9 @@ public class SolutionMethodTemba {
 
 	private void ponerAristaEnPosicionCruz(Arista arista) {
 		if (!arista.estaOrientada()) {
-			// System.out.println("*Colocando Arista: " + arista +
-			// "en su posicion*");
 
-			VentanaPpal.textArea.append("\n");
-			VentanaPpal.textArea.append("Colocando Arista: " + arista + ":\n");
-			VentanaPpal.textArea.append("\n");
+			MyJtexPane.insert("Colocando Arista:" + arista,
+					MyJtexPane.SUB_STYLE);
 
 			bajarArista(arista);
 			llevarAsuCara(arista);
@@ -287,11 +282,9 @@ public class SolutionMethodTemba {
 	}
 
 	private void colocarEsquinasDeDown() {
-		// System.out.println("ColocarEsquinasDeDown:");
 
-		VentanaPpal.textArea.append("\n");
-		VentanaPpal.textArea.append("Colocando esquinas inferiores:" + "\n");
-		VentanaPpal.textArea.append("\n");
+		MyJtexPane.insert("*Colocando esquinas inferiores:*",
+				MyJtexPane.DEFAULT_STYLE);
 
 		Vertice vertice = getVerticeInferiorDerecho(this.rubikCube.front_face);
 		Vertice vertice2 = getVerticeInferiorIaquierdo(this.rubikCube.front_face);
@@ -408,9 +401,9 @@ public class SolutionMethodTemba {
 	}
 
 	private void colocarEsquinaDownEnPos() {
-		VentanaPpal.textArea.append("\n");
-		VentanaPpal.textArea.append("Orientando vertices:" + "\n");
-		VentanaPpal.textArea.append("\n");
+
+		MyJtexPane.insert("*Orientando vertices:*", MyJtexPane.DEFAULT_STYLE);
+
 		int numeroDeVerticesOrientados = 0;
 		for (Vertice vertice2 : rubikCube.buscarVertices(rubikCube.down_face)) {
 			if (vertice2.estaOrientada()) {
@@ -475,9 +468,8 @@ public class SolutionMethodTemba {
 	}
 
 	private void segundaCapa() {
-		// System.out.println("Segunda Capa:");
-		VentanaPpal.textArea.append("\n");
-		VentanaPpal.textArea.append("*Segunda Capa:*" + "\n");
+
+		MyJtexPane.insert("*Segunda Capa:*", MyJtexPane.DEFAULT_STYLE);
 
 		List<Arista> piezas = this.rubikCube
 				.buscarAristas(this.rubikCube.front_face);
@@ -496,10 +488,13 @@ public class SolutionMethodTemba {
 			// System.out.println("Colocando arista: " + arista +
 			// " en segunda capa");
 
-			VentanaPpal.textArea.append("\n");
-			VentanaPpal.textArea.append("Colocando arista: " + arista
-					+ " en segunda capa" + "\n");
-			VentanaPpal.textArea.append("\n");
+			// VentanaPpal.textPane.append("\n");
+			// VentanaPpal.textPane.append("Colocando arista: " + arista
+			// + " en segunda capa" + "\n");
+			// VentanaPpal.textPane.append("\n");
+
+			MyJtexPane.insert("Colocando arista: " + arista
+					+ " en segunda capa", MyJtexPane.SUB_STYLE);
 
 			this.rubikCube.setFrontByPieza(arista);
 			this.bajarPiezaSegunda(arista);
@@ -560,8 +555,7 @@ public class SolutionMethodTemba {
 
 	private void resolverEsquinas() {
 
-		VentanaPpal.textArea.append("\n");
-		VentanaPpal.textArea.append("*Resolviendo Esquinas:*" + "\n");
+		MyJtexPane.insert("*Resolviendo Esquinas:*", MyJtexPane.DEFAULT_STYLE);
 
 		List<Vertice> piezas = this.rubikCube
 				.buscarVertices(this.rubikCube.up_face);
@@ -573,9 +567,14 @@ public class SolutionMethodTemba {
 	private void colocarVerticeEnSuPosicionT(Vertice pieza) {
 		if (!pieza.estaOrientada()) {
 
-			VentanaPpal.textArea.append("\n");
-			VentanaPpal.textArea.append("Colocando vertice: " + pieza + "\n");
-			VentanaPpal.textArea.append("\n");
+			// VentanaPpal.textPane.append("\n");
+			// VentanaPpal.textPane.append("Colocando vertice: " + pieza +
+			// "\n");
+			// VentanaPpal.textPane.append("\n");
+
+			MyJtexPane.insert("Colocando vertice: " + pieza,
+					MyJtexPane.SUB_STYLE);
+
 			// System.out.println("Colocando vertice: " + pieza +
 			// "en su posicion");
 			this.rubikCube.setFrontByPieza(pieza);

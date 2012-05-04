@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.HeadlessException;
@@ -18,6 +19,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextPane;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Style;
+import javax.swing.text.StyleContext;
+import javax.swing.text.StyledDocument;
+
+import org.mockito.cglib.transform.impl.AddStaticInitTransformer;
+
 import actionListener.SalirActionListener;
 import actionListener.ScrambleActionListener;
 import actionListener.SolucionarrActionListener;
@@ -40,10 +49,11 @@ public class VentanaPpal extends JFrame {
 	private RubikCube rubikCube = new RubikCube();
 	private RubCruz rubCruz = new RubCruz(1, 3, 50);
 
-	public static JTextArea textArea = new JTextArea();
+	// public static JTextArea textPane = new JTextArea();
+	private JTextPane textPane = new MyJtexPane();
 
 	private SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
-	
+
 	public static int numGiros;
 
 	private static final long serialVersionUID = -4226961849442887198L;
@@ -67,21 +77,32 @@ public class VentanaPpal extends JFrame {
 		panel.setBackground(colorAzulito);
 		// textArea.setBounds(10, 70, 230, 600);
 		// textArea.setEditable(false);
-		textArea.setBackground(new Color(238, 238, 236));
-		JScrollPane scrollPane = new JScrollPane(textArea);
+
+		textPane.setBackground(new Color(238, 238, 236));
+		JScrollPane scrollPane = new JScrollPane(textPane);
 		scrollPane.setBounds(10, 70, 230, 640);
 		scrollPane.setBorder(null);
 
-		scrollPane.getViewport().setOpaque(true);
+		// scrollPane.getViewport().setOpaque(true);
 
 		scrollPane
 				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		scrollPane
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-	//	String newline = "\n";
-		//textArea.append("holaaaaaaaaaaa" + newline);
-		//this.temba.solucionar(textArea);
+//		Style def = StyleContext.getDefaultStyleContext().getStyle(
+//				StyleContext.DEFAULT_STYLE);
+//
+//		MyJtexPane.Insert("hOLA PARE", MyJtexPane.DEFAULT_STYLE);
+//		MyJtexPane.Insert("hOLA PARE", MyJtexPane.ORANGE_STYLE);
+//		MyJtexPane.Insert("hOLA PARE", MyJtexPane.RED_STYLE);
+//		MyJtexPane.Insert("hOLA PARE", MyJtexPane.GREEN_STYLE);
+
+		// textPane.adds
+
+		// String newline = "\n";
+		// textArea.append("holaaaaaaaaaaa" + newline);
+		// this.temba.solucionar(textArea);
 
 		panel.add(scrollPane);
 
@@ -149,6 +170,7 @@ public class VentanaPpal extends JFrame {
 		button.setBackground(new Color(238, 238, 236));
 		button.setBounds(10, 200, 235, 55);
 		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		ActionListener aleatorio = new ScrambleActionListener(rubikCube);
 		button.addActionListener(aleatorio);

@@ -8,6 +8,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import javax.swing.text.BadLocationException;
+import javax.swing.text.StyleContext;
+
+import frame.MyJtexPane;
 import frame.VentanaPpal;
 import observer.IObserver;
 import pieza.Arista;
@@ -258,10 +262,12 @@ public class RubikCube {
 	}
 
 	public void scramble() {
-		
-		VentanaPpal.textArea.append("*Cubo aleatorio" + "*\n");
-		VentanaPpal.textArea.append("\n");
-				
+
+		// VentanaPpal.textPane.append("*Cubo aleatorio" + "*\n");
+		MyJtexPane.insert("*Cubo aleatorio*", MyJtexPane.DEFAULT_STYLE);
+
+		// VentanaPpal.textPane.append("\n");
+
 		int aux = 6;
 		int vecesQueGiro = 10;
 		int queGiro = tirar(5);
@@ -305,13 +311,36 @@ public class RubikCube {
 			signoStr = "Sentido horario";
 		}
 		VentanaPpal.numGiros++;
-		VentanaPpal.textArea.append(VentanaPpal.numGiros + " " + "Cara " + color + " "
-				+ signoStr + "\n");
+		// VentanaPpal.textPane.append(VentanaPpal.numGiros + " " + "Cara "
+		// + color + " " + signoStr + "\n");
+
+		MyJtexPane.insert(VentanaPpal.numGiros + " ", MyJtexPane.NUMBER_STYLE);
+
+		MyJtexPane.insert("Cara " + color + " " + signoStr,
+				getColorStyle(color));
 
 		int[][] matriz = getCentro(color).getMatriz(signo);
 		for (Pieza pieza : getFace(color)) {
 			pieza.multiplicar(matriz);
 		}
 		this.observer.observa(piezas);
+	}
+
+	private String getColorStyle(Color color) {
+		String colorRes = null;
+		if (color.equals(Color.WHITE)) {
+			colorRes = MyJtexPane.WHITE_STYLE;
+		} else if (color.equals(Color.YELLOW)) {
+			colorRes = MyJtexPane.YELLOW_STYLE;
+		} else if (color.equals(Color.ORANGE)) {
+			colorRes = MyJtexPane.ORANGE_STYLE;
+		} else if (color.equals(Color.GREEN)) {
+			colorRes = MyJtexPane.GREEN_STYLE;
+		} else if (color.equals(Color.RED)) {
+			colorRes = MyJtexPane.RED_STYLE;
+		} else if (color.equals(Color.BLUE)) {
+			colorRes = MyJtexPane.BLUE_STYLE;
+		}
+		return colorRes;
 	}
 }
