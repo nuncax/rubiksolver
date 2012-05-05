@@ -18,15 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextPane;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.Style;
-import javax.swing.text.StyleContext;
-import javax.swing.text.StyledDocument;
-
-import org.mockito.cglib.transform.impl.AddStaticInitTransformer;
-
 import actionListener.SalirActionListener;
 import actionListener.ScrambleActionListener;
 import actionListener.SolucionarrActionListener;
@@ -70,15 +62,18 @@ public class VentanaPpal extends JFrame {
 
 	}
 
-	private Component jtextArea() {
+	private Component jtextPane() {
 		JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		panel.setLayout(null);
 		panel.setPreferredSize(new Dimension(380, 776));
 		panel.setBackground(colorAzulito);
 		// textArea.setBounds(10, 70, 230, 600);
-		// textArea.setEditable(false);
+		 textPane.setEditable(false);
+		 textPane.setSelectedTextColor(null);
 
-		textPane.setBackground(new Color(238, 238, 236));
+		//textPane.setBackground(new Color(238, 238, 236));
+		textPane.setBackground(Color.gray);
+		
 		JScrollPane scrollPane = new JScrollPane(textPane);
 		scrollPane.setBounds(10, 70, 230, 640);
 		scrollPane.setBorder(null);
@@ -117,7 +112,7 @@ public class VentanaPpal extends JFrame {
 
 		container.add(botoneraColores(), BorderLayout.CENTER);
 		container.add(panelIzq(), BorderLayout.WEST);
-		container.add(jtextArea(), BorderLayout.EAST);
+		container.add(jtextPane(), BorderLayout.EAST);
 	}
 
 	private Component botoneraColores() {

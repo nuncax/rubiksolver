@@ -76,32 +76,40 @@ public class MyJtexPane extends JTextPane {
 
 		// colores
 		s = doc.addStyle("orange", regular);
-		StyleConstants.setFontSize(s, 10);
+		StyleConstants.setFontSize(s, 13);
+		StyleConstants.setBold(s, true);
+		
 		StyleConstants.setForeground(s, Color.orange);
 
 		s = doc.addStyle("green", regular);
-		StyleConstants.setFontSize(s, 10);
+		StyleConstants.setFontSize(s, 13);
+		StyleConstants.setBold(s, true);
 		StyleConstants.setForeground(s, Color.green);
 
 		s = doc.addStyle("red", regular);
-		StyleConstants.setFontSize(s, 10);
+		StyleConstants.setFontSize(s, 13);
+		StyleConstants.setBold(s, true);
 		StyleConstants.setForeground(s, Color.red);
 
 		s = doc.addStyle("blue", regular);
-		StyleConstants.setFontSize(s, 10);
+		StyleConstants.setFontSize(s, 13);
+		StyleConstants.setBold(s, true);
 		StyleConstants.setForeground(s, Color.blue);
 
 		s = doc.addStyle("white", regular);
-		StyleConstants.setFontSize(s, 10);
+		StyleConstants.setFontSize(s, 13);
+		StyleConstants.setBold(s, true);
 		StyleConstants.setForeground(s, Color.white);
 
 		s = doc.addStyle("yellow", regular);
-		StyleConstants.setFontSize(s, 10);
+		StyleConstants.setFontSize(s, 13);
+		StyleConstants.setBold(s, true);
 		StyleConstants.setForeground(s, Color.yellow);
 
 		// number
 		s = doc.addStyle("nunber", regular);
-		StyleConstants.setFontSize(s, 10);
+		StyleConstants.setFontSize(s, 13);
+		StyleConstants.setBold(s, true);
 
 		// s = doc.addStyle("large", regular);
 		// StyleConstants.setFontSize(s, 16);
