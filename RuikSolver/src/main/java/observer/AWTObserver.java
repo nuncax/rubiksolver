@@ -9,15 +9,33 @@ import pieza.Color;
 import pieza.Pieza;
 import pieza.Stick;
 import pieza.Vectr;
+import utiles.Utiles;
 
 public class AWTObserver implements IObserver {
+	private HashMap<Vectr, FacePanel> map;
+	private int sleep;
+	private boolean parado;
 
 	public AWTObserver(HashMap<Vectr, FacePanel> map) {
 		super();
 		this.map = map;
+		this.sleep = 200;
+		this.parado = false;
 	}
 
-	private HashMap<Vectr, FacePanel> map;
+	/**
+	 * @return the parado
+	 */
+	public boolean isParado() {
+		return parado;
+	}
+
+	/**
+	 * @param parado the parado to set
+	 */
+	public void setParado(boolean parado) {
+		this.parado = parado;
+	}
 
 	@Override
 	public void observa(List<Pieza> piezas, HashMap<Vectr, FacePanel> map) {
@@ -31,7 +49,26 @@ public class AWTObserver implements IObserver {
 				stickpanel.setColor(calcColor(stickers[i].getColor()));
 			}
 		}
-		slep(0);
+		// Utiles.slep(sleep);
+		if (parado == true) {
+			parar();
+		} else {
+			reanudar();
+			///Utiles.slep(sleep);
+		}
+	}
+
+	public synchronized void parar() {
+		try {
+			wait();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public synchronized void reanudar() {
+		notifyAll();
 	}
 
 	private java.awt.Color calcColor(Color colorP) {
@@ -53,17 +90,17 @@ public class AWTObserver implements IObserver {
 
 	}
 
+	/**
+	 * @param sleep
+	 *            the sleep to set
+	 */
+	public void setSleep(int sleep) {
+		this.sleep = sleep;
+	}
+
 	@Override
 	public void observa(List<Pieza> piezas) {
 		observa(piezas, this.map);
 
-	}
-	
-	private void slep(long time) {
-		try {
-			Thread.sleep(time);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 }
