@@ -43,7 +43,11 @@ public class RubCruz extends JComponent {
 		oX = x;
 		oY = y;
 		this.w = w;
+		cargar();
 
+	}
+
+	public void cargar() {
 		facePanels = new ArrayList<FacePanel>();
 
 		facePanels.add(new FacePanel(Color.white, 3 + oX, 0 + oY, this.w));

@@ -3,6 +3,8 @@ package observer;
 import java.util.HashMap;
 import java.util.List;
 
+import frame.VentanaPpal;
+
 import panel.FacePanel;
 import panel.StickPanel;
 import pieza.Color;
@@ -19,7 +21,7 @@ public class AWTObserver implements IObserver {
 	public AWTObserver(HashMap<Vectr, FacePanel> map) {
 		super();
 		this.map = map;
-		this.sleep = 200;
+		this.sleep = 50;
 		this.parado = false;
 	}
 
@@ -31,7 +33,8 @@ public class AWTObserver implements IObserver {
 	}
 
 	/**
-	 * @param parado the parado to set
+	 * @param parado
+	 *            the parado to set
 	 */
 	public void setParado(boolean parado) {
 		this.parado = parado;
@@ -50,11 +53,10 @@ public class AWTObserver implements IObserver {
 			}
 		}
 		// Utiles.slep(sleep);
-		if (parado == true) {
+		if (VentanaPpal.iniciado == true) {
 			parar();
 		} else {
-			reanudar();
-			///Utiles.slep(sleep);
+			Utiles.slep(sleep);
 		}
 	}
 

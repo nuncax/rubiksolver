@@ -50,9 +50,13 @@ public class VentanaPpal extends JFrame {
 
 	private static final long serialVersionUID = -4226961849442887198L;
 	private IObserver observer;
+	
+	private JButton buttonNext;
 
 	public VentanaPpal() throws HeadlessException {
 		super();
+		
+		buttonNext = (JButton) botonNext();
 
 		observer = new AWTObserver(rubCruz.getMap());
 		rubikCube.addObservador(observer);
@@ -72,8 +76,8 @@ public class VentanaPpal extends JFrame {
 		textPane.setEditable(false);
 		textPane.setSelectedTextColor(null);
 
-		// textPane.setBackground(new Color(238, 238, 236));
-		textPane.setBackground(Color.gray);
+		 textPane.setBackground(new Color(238, 238, 236));
+		
 
 		JScrollPane scrollPane = new JScrollPane(textPane);
 		scrollPane.setBounds(10, 70, 230, 640);
@@ -133,7 +137,7 @@ public class VentanaPpal extends JFrame {
 
 		rubCruz.setLayout(null);
 		rubCruz.add(panelBotonero);
-		rubCruz.add(botonNext());
+		rubCruz.add(this.buttonNext);
 		rubCruz.addMouseListener(mouseAdapterCargaManual);
 		return rubCruz;
 	}
@@ -151,6 +155,8 @@ public class VentanaPpal extends JFrame {
 		etqImagen.add(botonSalir());
 		etqImagen.add(botonSolucioinar());
 		etqImagen.add(botonCargaManual());
+		etqImagen.add(botonOriginal());
+		etqImagen.add(botonSolucionarNext());
 		return etqImagen;
 	}
 
@@ -174,40 +180,7 @@ public class VentanaPpal extends JFrame {
 		return button;
 	}
 
-	private Component botonSolucioinar() {
-		JButton button = new JButton("Solucionar");
-		button.setBackground(new Color(238, 238, 236));
-		button.setBounds(10, 255, 235, 55);
-		button.setBorder(null);
-		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		ActionListener solucionar = new SolucionarrActionListener(temba);
-		button.addActionListener(solucionar);
-		return button;
-	}
-
-	private Component botonCargaManual() {
-		JButton button = new JButton("Carga Manual");
-		button.setBackground(new Color(238, 238, 236));
-		button.setBounds(10, 310, 235, 55);
-		button.setBorder(null);
-		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-		button.addActionListener(actionCargaManual);
-		return button;
-	}
-
-	private Component botonSalir() {
-		JButton button = new JButton("Salir");
-		button.setBackground(new Color(238, 238, 236));
-		button.setBounds(10, 700, 235, 55);
-		button.setBorder(null);
-		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-		ActionListener salir = new SalirActionListener();
-		button.addActionListener(salir);
-		return button;
-	}
 
 	private Component botonRed() {
 		JButton button = new JButton(new ImageIcon("botonRed.png"));
@@ -294,11 +267,84 @@ public class VentanaPpal extends JFrame {
 		button.setBounds(500, 500, 66, 66);
 		button.setBorder(null);
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
+		button.setVisible(false);
 		button.addActionListener(actionNext);
+		return button;
+
+	}
+
+	
+	private Component botonSolucioinar() {
+		JButton button = new JButton("Solucionar");
+		button.setBackground(new Color(238, 238, 236));
+		button.setBounds(10, 255, 235, 55);
+		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+		ActionListener solucionar = new SolucionarrActionListener(temba);
+		button.addActionListener(solucionar);
 		return button;
 	}
 
+	private Component botonCargaManual() {
+		JButton button = new JButton("Carga Manual");
+		button.setBackground(new Color(238, 238, 236));
+		button.setBounds(10, 310, 235, 55);
+		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+		button.addActionListener(actionCargaManual);
+		return button;
+	}
+	private Component botonOriginal() {
+		JButton button = new JButton("Cube Original");
+		button.setBackground(new Color(238, 238, 236));
+		button.setBounds(10, 365, 235, 55);
+		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+		button.addActionListener(actionOriginal);
+		return button;
+	}
+	
+	private Component botonSolucionarNext() {
+		JButton button = new JButton("Solucionar Paso a Paso");
+		button.setBackground(new Color(238, 238, 236));
+		button.setBounds(10, 420, 235, 55);
+		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+		button.addActionListener(actionPasoApaso);
+		return button;
+	}
+	private Component botonSalir() {
+		JButton button = new JButton("Salir");
+		button.setBackground(new Color(238, 238, 236));
+		button.setBounds(10, 700, 235, 55);
+		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+		ActionListener salir = new SalirActionListener();
+		button.addActionListener(salir);
+		return button;
+	}
+	
+	ActionListener actionPasoApaso = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			buttonNext.setVisible(true);
+		}
+	};
+	
+	ActionListener actionOriginal = new ActionListener() {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			rubCruz.cargar();
+			cargar();
+		}
+	};
 	ActionListener actionY = new ActionListener() {
 
 		@Override
@@ -355,56 +401,61 @@ public class VentanaPpal extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 
-			for (Pieza pieza : rubikCube.getPiezas()) {
-				Vectr posicion = pieza.getPosicion();
-				Stick stickers[] = pieza.getStickers();
-				for (int i = 0; i < stickers.length; i++) {
-					Vectr orientacion = stickers[i].getOrientacion();
-					FacePanel facePanel = rubCruz.getMap().get(orientacion);
-					StickPanel stickpanel = facePanel.getMap().get(posicion);
-
-					Color colorStickPanel = stickpanel.getColor();
-					pieza.Color calcColor = calcColor(colorStickPanel);
-					stickers[i].setColor(calcColor);
-				}
-			}
+			cargar();
 
 			panelBotonero.setVisible(false);
 		}
 
-		private pieza.Color calcColor(Color color) {
-			pieza.Color colorRes = null;
-			if (color.equals(Color.blue)) {
-				colorRes = pieza.Color.BLUE;
-			} else if (color.equals(Color.green)) {
-				colorRes = pieza.Color.GREEN;
-			} else if (color.equals(Color.orange)) {
-				colorRes = pieza.Color.ORANGE;
-			} else if (color.equals(Color.red)) {
-				colorRes = pieza.Color.RED;
-			} else if (color.equals(Color.white)) {
-				colorRes = pieza.Color.WHITE;
-			} else if (color.equals(Color.yellow)) {
-				colorRes = pieza.Color.YELLOW;
-			}
-			return colorRes;
-		}
 	};
+
+	private pieza.Color calcColor(Color color) {
+		pieza.Color colorRes = null;
+		if (color.equals(Color.blue)) {
+			colorRes = pieza.Color.BLUE;
+		} else if (color.equals(Color.green)) {
+			colorRes = pieza.Color.GREEN;
+		} else if (color.equals(Color.orange)) {
+			colorRes = pieza.Color.ORANGE;
+		} else if (color.equals(Color.red)) {
+			colorRes = pieza.Color.RED;
+		} else if (color.equals(Color.white)) {
+			colorRes = pieza.Color.WHITE;
+		} else if (color.equals(Color.yellow)) {
+			colorRes = pieza.Color.YELLOW;
+		}
+		return colorRes;
+	}
+
+	private void cargar() {
+		for (Pieza pieza : rubikCube.getPiezas()) {
+			Vectr posicion = pieza.getPosicion();
+			Stick stickers[] = pieza.getStickers();
+			for (int i = 0; i < stickers.length; i++) {
+				Vectr orientacion = stickers[i].getOrientacion();
+				FacePanel facePanel = rubCruz.getMap().get(orientacion);
+				StickPanel stickpanel = facePanel.getMap().get(posicion);
+
+				Color colorStickPanel = stickpanel.getColor();
+				pieza.Color calcColor = calcColor(colorStickPanel);
+				stickers[i].setColor(calcColor);
+			}
+		}
+	}
+
+	public static boolean iniciado = false;
 
 	ActionListener actionNext = new ActionListener() {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if (!observer.isParado()){
-				observer.setParado(true);
-				observer.setParado(false);
-			}else{
-				observer.setParado(false);
+			if (iniciado == false) {
+				iniciado = true;
+				SolucionarrActionListener q = new SolucionarrActionListener(
+						temba);
+				q.actionPerformed(e);
+			} else {
+				observer.reanudar();
 			}
-			SolucionarrActionListener q = new SolucionarrActionListener(temba);
-			q.actionPerformed(e);
-			
-			
 
 		}
 	};
