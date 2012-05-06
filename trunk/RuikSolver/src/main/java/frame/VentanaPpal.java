@@ -49,11 +49,12 @@ public class VentanaPpal extends JFrame {
 	public static int numGiros;
 
 	private static final long serialVersionUID = -4226961849442887198L;
+	private IObserver observer;
 
 	public VentanaPpal() throws HeadlessException {
 		super();
 
-		IObserver observer = new AWTObserver(rubCruz.getMap());
+		observer = new AWTObserver(rubCruz.getMap());
 		rubikCube.addObservador(observer);
 
 		propiedadesFrame();
@@ -68,12 +69,12 @@ public class VentanaPpal extends JFrame {
 		panel.setPreferredSize(new Dimension(380, 776));
 		panel.setBackground(colorAzulito);
 		// textArea.setBounds(10, 70, 230, 600);
-		 textPane.setEditable(false);
-		 textPane.setSelectedTextColor(null);
+		textPane.setEditable(false);
+		textPane.setSelectedTextColor(null);
 
-		//textPane.setBackground(new Color(238, 238, 236));
+		// textPane.setBackground(new Color(238, 238, 236));
 		textPane.setBackground(Color.gray);
-		
+
 		JScrollPane scrollPane = new JScrollPane(textPane);
 		scrollPane.setBounds(10, 70, 230, 640);
 		scrollPane.setBorder(null);
@@ -85,13 +86,13 @@ public class VentanaPpal extends JFrame {
 		scrollPane
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-//		Style def = StyleContext.getDefaultStyleContext().getStyle(
-//				StyleContext.DEFAULT_STYLE);
-//
-//		MyJtexPane.Insert("hOLA PARE", MyJtexPane.DEFAULT_STYLE);
-//		MyJtexPane.Insert("hOLA PARE", MyJtexPane.ORANGE_STYLE);
-//		MyJtexPane.Insert("hOLA PARE", MyJtexPane.RED_STYLE);
-//		MyJtexPane.Insert("hOLA PARE", MyJtexPane.GREEN_STYLE);
+		// Style def = StyleContext.getDefaultStyleContext().getStyle(
+		// StyleContext.DEFAULT_STYLE);
+		//
+		// MyJtexPane.Insert("hOLA PARE", MyJtexPane.DEFAULT_STYLE);
+		// MyJtexPane.Insert("hOLA PARE", MyJtexPane.ORANGE_STYLE);
+		// MyJtexPane.Insert("hOLA PARE", MyJtexPane.RED_STYLE);
+		// MyJtexPane.Insert("hOLA PARE", MyJtexPane.GREEN_STYLE);
 
 		// textPane.adds
 
@@ -132,6 +133,7 @@ public class VentanaPpal extends JFrame {
 
 		rubCruz.setLayout(null);
 		rubCruz.add(panelBotonero);
+		rubCruz.add(botonNext());
 		rubCruz.addMouseListener(mouseAdapterCargaManual);
 		return rubCruz;
 	}
@@ -177,6 +179,7 @@ public class VentanaPpal extends JFrame {
 		button.setBackground(new Color(238, 238, 236));
 		button.setBounds(10, 255, 235, 55);
 		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		ActionListener solucionar = new SolucionarrActionListener(temba);
 		button.addActionListener(solucionar);
@@ -188,6 +191,7 @@ public class VentanaPpal extends JFrame {
 		button.setBackground(new Color(238, 238, 236));
 		button.setBounds(10, 310, 235, 55);
 		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		button.addActionListener(actionCargaManual);
 		return button;
@@ -198,6 +202,7 @@ public class VentanaPpal extends JFrame {
 		button.setBackground(new Color(238, 238, 236));
 		button.setBounds(10, 700, 235, 55);
 		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		ActionListener salir = new SalirActionListener();
 		button.addActionListener(salir);
@@ -209,6 +214,7 @@ public class VentanaPpal extends JFrame {
 		button.setBackground(colorAzulito);
 		button.setBounds(0, 0, 66, 66);
 		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		button.addActionListener(actionR);
 		return button;
@@ -220,6 +226,7 @@ public class VentanaPpal extends JFrame {
 		button.setBackground(Color.green);
 		button.setBounds(66, 0, 66, 66);
 		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		button.addActionListener(actionG);
 		return button;
@@ -231,6 +238,7 @@ public class VentanaPpal extends JFrame {
 		button.setBackground(Color.blue);
 		button.setBounds(132, 0, 66, 66);
 		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		button.addActionListener(actionB);
 		return button;
@@ -241,6 +249,7 @@ public class VentanaPpal extends JFrame {
 		button.setBackground(Color.orange);
 		button.setBounds(0, 66, 66, 66);
 		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		button.addActionListener(actionO);
 		return button;
@@ -251,6 +260,7 @@ public class VentanaPpal extends JFrame {
 		button.setBackground(Color.white);
 		button.setBounds(66, 66, 66, 66);
 		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		button.addActionListener(actionW);
 		return button;
@@ -261,6 +271,7 @@ public class VentanaPpal extends JFrame {
 		button.setBackground(Color.yellow);
 		button.setBounds(132, 66, 66, 66);
 		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		button.addActionListener(actionY);
 		return button;
@@ -271,8 +282,20 @@ public class VentanaPpal extends JFrame {
 		button.setBackground(Color.gray);
 		button.setBounds(134, 124, 66, 66);
 		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		button.addActionListener(actionCarga);
+		return button;
+	}
+
+	private Component botonNext() {
+		JButton button = new JButton("Next");
+		button.setBackground(Color.magenta);
+		button.setBounds(500, 500, 66, 66);
+		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+		button.addActionListener(actionNext);
 		return button;
 	}
 
@@ -365,6 +388,24 @@ public class VentanaPpal extends JFrame {
 				colorRes = pieza.Color.YELLOW;
 			}
 			return colorRes;
+		}
+	};
+
+	ActionListener actionNext = new ActionListener() {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (!observer.isParado()){
+				observer.setParado(true);
+				observer.setParado(false);
+			}else{
+				observer.setParado(false);
+			}
+			SolucionarrActionListener q = new SolucionarrActionListener(temba);
+			q.actionPerformed(e);
+			
+			
+
 		}
 	};
 
