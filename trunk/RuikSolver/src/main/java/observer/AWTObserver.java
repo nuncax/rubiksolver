@@ -18,10 +18,17 @@ public class AWTObserver implements IObserver {
 	private int sleep;
 	private boolean parado;
 
-	public AWTObserver(HashMap<Vectr, FacePanel> map) {
+	/**
+	 * @return the sleep
+	 */
+	public int getSleep() {
+		return sleep;
+	}
+
+	public AWTObserver(HashMap<Vectr, FacePanel> map, int sleep) {
 		super();
 		this.map = map;
-		this.sleep = 50;
+		this.sleep = sleep;
 		this.parado = false;
 	}
 
