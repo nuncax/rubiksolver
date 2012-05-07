@@ -6,27 +6,27 @@ import java.awt.event.ActionListener;
 import cube.RubikCube;
 import frame.VentanaPpal;
 
-public class ScrambleActionListener implements ActionListener {
+public class NotepadActionListener implements ActionListener {
 	RubikCube rubikCube;
 
-	public ScrambleActionListener(RubikCube rubikCube) {
+	public NotepadActionListener(RubikCube rubikCube) {
 		this.rubikCube = rubikCube;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		VentanaPpal.numGiros = 0;
 		Thread thread = new Thread(new Runnable() {
 
 			@Override
 			public void run() {
 
-				rubikCube.scramble();
 				VentanaPpal.buttonSolucionar.setEnabled(true);
 				VentanaPpal.buttonOriginal.setEnabled(true);
 				VentanaPpal.buttonSolucionarNext.setEnabled(true);
-				//VentanaPpal.buttonAleatorio.setEnabled(true);
+				rubikCube.setPositions();
+			//	VentanaPpal.buttonAleatorio.setEnabled(true);
 			}
-
 		});
 
 		thread.start();
@@ -36,5 +36,6 @@ public class ScrambleActionListener implements ActionListener {
 		VentanaPpal.buttonNotepad.setEnabled(false);
 		VentanaPpal.buttonManual.setEnabled(false);
 		VentanaPpal.buttonAleatorio.setEnabled(false);
+
 	}
 }

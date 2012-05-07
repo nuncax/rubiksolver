@@ -224,6 +224,7 @@ public class RubikCube {
 	}
 
 	public void setPositions()  {
+		setFrontByFace(Color.BLUE);
 		BufferedReader bf = new BufferedReader(new InputStreamReader(this
 				.getClass().getClassLoader().getResourceAsStream("datos.txt")));
 		MyJtexPane.insert("*Cubo Notepad*", MyJtexPane.DEFAULT_STYLE);

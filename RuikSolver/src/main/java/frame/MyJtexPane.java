@@ -47,18 +47,6 @@ public class MyJtexPane extends JTextPane {
 		super(doc);
 	}
 
-	public static void insert(String str, String style) {
-		// StyleConstants.setForeground(StyledDocument. , Color.red);
-		if (!style.equals(NUMBER_STYLE)) {
-		str=	str.concat("\n");
-		}
-		try {
-			doc.insertString(doc.getLength(), str, doc.getStyle(style));
-		} catch (BadLocationException e) {
-			e.printStackTrace();
-		}
-	}
-
 	private void addStylesToDocument(StyledDocument doc) {
 		Style def = StyleContext.getDefaultStyleContext().getStyle(
 				StyleContext.DEFAULT_STYLE);
@@ -78,7 +66,7 @@ public class MyJtexPane extends JTextPane {
 		s = doc.addStyle("orange", regular);
 		StyleConstants.setFontSize(s, 13);
 		StyleConstants.setBold(s, true);
-		
+
 		StyleConstants.setForeground(s, Color.orange);
 
 		s = doc.addStyle("green", regular);
@@ -114,6 +102,18 @@ public class MyJtexPane extends JTextPane {
 		// s = doc.addStyle("large", regular);
 		// StyleConstants.setFontSize(s, 16);
 
+	}
+
+	public static void insert(String str, String style) {
+		// StyleConstants.setForeground(StyledDocument. , Color.red);
+		if (!style.equals(NUMBER_STYLE)) {
+			str = str.concat("\n");
+		}
+		try {
+			doc.insertString(doc.getLength(), str, doc.getStyle(style));
+		} catch (BadLocationException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
