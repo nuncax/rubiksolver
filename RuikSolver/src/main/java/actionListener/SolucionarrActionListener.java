@@ -22,8 +22,8 @@ public class SolucionarrActionListener implements ActionListener {
 			public void run() {
 				temba.solucionar();
 				VentanaPpal.iniciado = false;
+				VentanaPpal.buttonNext.setVisible(false);
 			}
-
 		});
 
 		thread.start();
