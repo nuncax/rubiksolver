@@ -79,7 +79,6 @@ public class VentanaPpal extends JFrame {
 		propiedadesFrame();
 
 		cargaContainer();
-
 	}
 
 	private Component jtextPane() {
@@ -462,17 +461,17 @@ public class VentanaPpal extends JFrame {
 
 		}
 	};
+	
 	ActionListener actionCargaManual = new ActionListener() {
-
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			panelBotonero.setVisible(true);
-
+			buttonAleatorio.setEnabled(false);
+			buttonNotepad.setEnabled(false);
 		}
 	};
 
 	ActionListener actionCarga = new ActionListener() {
-
 		@Override
 		public void actionPerformed(ActionEvent e) {
 
@@ -486,6 +485,7 @@ public class VentanaPpal extends JFrame {
 			buttonAleatorio.setEnabled(false);
 			buttonManual.setEnabled(false);
 			buttonNotepad.setEnabled(false);
+			
 			colorCarga = null;
 		}
 
@@ -543,10 +543,8 @@ public class VentanaPpal extends JFrame {
 	};
 
 	MouseAdapter mouseAdapterCargaManual = new MouseAdapter() {
-
 		public void mouseClicked(MouseEvent e) {
 			if (colorCarga != null) {
-
 				double x = getMousePosition().getX() - 5 * 50 - 30;
 				double y = getMousePosition().getY();
 				for (Vectr v : rubCruz.getMap().keySet()) {
