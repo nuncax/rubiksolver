@@ -7,10 +7,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
-
-import javax.swing.text.BadLocationException;
-import javax.swing.text.StyleContext;
-
 import frame.MyJtexPane;
 import frame.VentanaPpal;
 import observer.IObserver;
@@ -227,32 +223,39 @@ public class RubikCube {
 		}
 	}
 
-	public void setPositions() throws IOException {
+	public void setPositions()  {
 		BufferedReader bf = new BufferedReader(new InputStreamReader(this
 				.getClass().getClassLoader().getResourceAsStream("datos.txt")));
-		String sCadena;
-		while ((sCadena = bf.readLine()) != null) {
-			int signo = 1;
-			// System.out.println(sCadena);
+		MyJtexPane.insert("*Cubo Notepad*", MyJtexPane.DEFAULT_STYLE);
+		String cad = new String();
+		try {
+			cad = bf.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		int signo = 1;
 
-			if (sCadena.length() == 2 && sCadena.endsWith("P")) {
+		String[] arrayMovimientos = cad.split(",");
+
+		for (int i = 0; i < arrayMovimientos.length; i++) {
+			if (arrayMovimientos[i].length() == 2 && arrayMovimientos[i].endsWith("P")) {
 				signo = -1;
 			}
-			if (sCadena.startsWith("R")) {
+			if (arrayMovimientos[i].startsWith("R")) {
 				this.right(signo);
-			} else if (sCadena.startsWith("L")) {
+			} else if (arrayMovimientos[i].startsWith("L")) {
 				this.left(signo);
-			} else if (sCadena.startsWith("F")) {
+			} else if (arrayMovimientos[i].startsWith("F")) {
 				this.front(signo);
-			} else if (sCadena.startsWith("B")) {
+			} else if (arrayMovimientos[i].startsWith("B")) {
 				this.back(signo);
-			} else if (sCadena.startsWith("U")) {
+			} else if (arrayMovimientos[i].startsWith("U")) {
 				this.uper(signo);
-			} else if (sCadena.startsWith("D")) {
+			} else if (arrayMovimientos[i].startsWith("D")) {
 				this.down(signo);
 			}
-
 		}
+
 	}
 
 	private int tirar(int n) {
