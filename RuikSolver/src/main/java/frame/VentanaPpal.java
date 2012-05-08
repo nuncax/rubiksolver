@@ -51,6 +51,7 @@ public class VentanaPpal extends JFrame {
 
 	private JPanel panelBotonero = new JPanel();
 	private JTextPane textPane = new MyJtexPane();
+	private JTextPane textPanePad = new JTextPane();
 	private JSlider slider;
 
 	public static JButton buttonSolucionar;
@@ -59,6 +60,7 @@ public class VentanaPpal extends JFrame {
 	public static JButton buttonNotepad;
 	public static JButton buttonManual;
 	public static JButton buttonAleatorio;
+	public static JButton buttonNextAuto;
 
 	public static JButton buttonNext;
 	private int sleep;
@@ -72,6 +74,7 @@ public class VentanaPpal extends JFrame {
 		sleep = 150;
 
 		buttonNext = (JButton) botonNext();
+		buttonNextAuto = (JButton) botonSalirNext();
 
 		observer = new AWTObserver(rubCruz.getMap(), sleep);
 		rubikCube.addObservador(observer);
@@ -100,11 +103,17 @@ public class VentanaPpal extends JFrame {
 		scrollPane
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-		//scrollPane.get
-		
+		// scrollPane.get
+
 		panel.add(scrollPane);
 
 		return panel;
+	}
+
+	private Component jtextPanePad() {
+		textPanePad.setBounds(40, 555, 180, 80);
+		textPanePad.setVisible(false);
+		return textPanePad;
 	}
 
 	private void cargaContainer() {
@@ -129,13 +138,17 @@ public class VentanaPpal extends JFrame {
 		panelBotonero.add(botonOrange());
 		panelBotonero.add(botonWhite());
 		panelBotonero.add(botonYellow());
-		panelBotonero.add(botonCarga());
+		panelBotonero.add(botonCargar());
+		panelBotonero.add(botonCancelarCargar());
 
 		panelBotonero.setVisible(false);
 
 		rubCruz.setLayout(null);
 		rubCruz.add(panelBotonero);
 		rubCruz.add(buttonNext);
+		rubCruz.add(buttonNextAuto);
+		rubCruz.add(botonSalirNext());
+		rubCruz.add(botonSalirNext());
 		rubCruz.add(createSlider());
 		rubCruz.addMouseListener(mouseAdapterCargaManual);
 		return rubCruz;
@@ -164,7 +177,7 @@ public class VentanaPpal extends JFrame {
 		return slider;
 	}
 
-	ChangeListener istenerSlider = new ChangeListener() {
+	private ChangeListener istenerSlider = new ChangeListener() {
 
 		@Override
 		public void stateChanged(ChangeEvent e) {
@@ -176,6 +189,7 @@ public class VentanaPpal extends JFrame {
 			}
 		}
 	};
+	private JButton buttonCargaNotePad;
 
 	private JLabel panelIzq() {
 		JPanel panel = new JPanel();
@@ -183,8 +197,10 @@ public class VentanaPpal extends JFrame {
 
 		panel.setPreferredSize(new Dimension(1366, 768));
 		panel.setLayout(null);
-		etqImagen.setIcon(new ImageIcon(getClass().getResource(
-				"panelBotoneraIzq.png")));
+		// etqImagen.setIcon(new
+		// ImageIcon(getClass().getResource("panelBotoneraIzq.png")));
+		etqImagen.setIcon(new ImageIcon(this.getClass().getClassLoader()
+				.getResource("images/panelBotoneraIzq.png")));
 		panel.add(etqImagen);
 		etqImagen.add(botonAleatorio());
 		etqImagen.add(botonSalir());
@@ -193,8 +209,36 @@ public class VentanaPpal extends JFrame {
 		etqImagen.add(botonOriginal());
 		etqImagen.add(botonSolucionarNext());
 		etqImagen.add(botonNotepad());
+		etqImagen.add(jtextPanePad());
+		etqImagen.add(botonCargaNotePad());
+
 		return etqImagen;
 	}
+
+	private Component botonCargaNotePad() {
+		buttonCargaNotePad = new JButton("Carga Texto");
+		buttonCargaNotePad.setBackground(new Color(238, 238, 236));
+		buttonCargaNotePad.setBounds(10, 650, 235, 55);
+		buttonCargaNotePad.setBorder(null);
+		buttonCargaNotePad.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonCargaNotePad.setVisible(false);
+
+		ActionListener actionNotePad = new NotepadActionListener(rubikCube,
+				null);
+		buttonCargaNotePad.addActionListener(actionNotePad);
+		
+		return buttonCargaNotePad;
+	}
+
+	ActionListener actionCargaTexto = new ActionListener() {
+
+		@Override
+		// TODO
+		public void actionPerformed(ActionEvent e) {
+			buttonCargaNotePad.setVisible(true);
+			textPanePad.setVisible(true);
+		}
+	};
 
 	private void propiedadesFrame() {
 		this.setTitle("Rubik by Temba");
@@ -204,11 +248,13 @@ public class VentanaPpal extends JFrame {
 
 	}
 
-	private Component botonRed() {
-		JButton button = new JButton(new ImageIcon("botonRed.png"));
+	private JButton botonRed() {
+		JButton button = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/botonRed.png")));
 		button.setBackground(colorAzulito);
 		button.setBounds(0, 0, 66, 66);
 		button.setBorder(null);
+		button.setSelected(false);
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		button.addActionListener(actionR);
@@ -272,14 +318,25 @@ public class VentanaPpal extends JFrame {
 		return button;
 	}
 
-	private Component botonCarga() {
+	private Component botonCargar() {
 		JButton button = new JButton("carga");
 		button.setBackground(Color.gray);
-		button.setBounds(134, 124, 66, 66);
+		button.setBounds(132, 124, 66, 66);
 		button.setBorder(null);
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		button.addActionListener(actionCarga);
+		return button;
+	}
+
+	private Component botonCancelarCargar() {
+		JButton button = new JButton("cancela");
+		button.setBackground(Color.gray);
+		button.setBounds(0, 124, 66, 66);
+		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+		button.addActionListener(actionCancelaCarga);
 		return button;
 	}
 
@@ -295,8 +352,21 @@ public class VentanaPpal extends JFrame {
 
 	}
 
+	private Component botonSalirNext() {
+		JButton button = new JButton("Auto-Sol");
+		button.setBackground(new Color(238, 238, 236));
+		button.setBounds(566, 500, 66, 66);
+		button.setBorder(null);
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		button.setVisible(false);
+
+		button.addActionListener(actionSalirNext);
+		return button;
+	}
+
 	private Component botonAleatorio() {
-		buttonAleatorio = new JButton(new ImageIcon("boton1menu.png"));
+		buttonAleatorio = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/boton1menu.png")));
 		buttonAleatorio.setBackground(new Color(238, 238, 236));
 		buttonAleatorio.setBounds(10, 200, 235, 55);
 		buttonAleatorio.setBorder(null);
@@ -366,9 +436,7 @@ public class VentanaPpal extends JFrame {
 		buttonNotepad.setBorder(null);
 		buttonNotepad.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		ActionListener actionNotePad = new NotepadActionListener(rubikCube);
-
-		buttonNotepad.addActionListener(actionNotePad);
+		buttonNotepad.addActionListener(actionCargaTexto);
 		return buttonNotepad;
 	}
 
@@ -384,13 +452,12 @@ public class VentanaPpal extends JFrame {
 		return button;
 	}
 
-	ActionListener actionNotePad = new ActionListener() {
+	ActionListener actionSalirNext = new ActionListener() {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-
-			rubikCube.setPositions();
-
+			iniciado = false;
+			observer.reanudar();
 		}
 	};
 
@@ -399,6 +466,7 @@ public class VentanaPpal extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			buttonNext.setVisible(true);
+			buttonNextAuto.setVisible(true);
 			buttonSolucionar.setEnabled(false);
 		}
 	};
@@ -430,7 +498,7 @@ public class VentanaPpal extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			colorCarga = Color.red;
-
+			botonRed().setFocusPainted(false);
 		}
 	};
 	ActionListener actionB = new ActionListener() {
@@ -461,7 +529,7 @@ public class VentanaPpal extends JFrame {
 
 		}
 	};
-	
+
 	ActionListener actionCargaManual = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -485,7 +553,21 @@ public class VentanaPpal extends JFrame {
 			buttonAleatorio.setEnabled(false);
 			buttonManual.setEnabled(false);
 			buttonNotepad.setEnabled(false);
-			
+
+			colorCarga = null;
+		}
+
+	};
+	ActionListener actionCancelaCarga = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+
+			panelBotonero.setVisible(false);
+
+			buttonAleatorio.setEnabled(true);
+			buttonManual.setEnabled(true);
+			buttonNotepad.setEnabled(true);
+
 			colorCarga = null;
 		}
 

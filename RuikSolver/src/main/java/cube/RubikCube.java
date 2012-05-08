@@ -223,7 +223,7 @@ public class RubikCube {
 		}
 	}
 
-	public void setPositions()  {
+	public void setPositions(String str)  {
 		setFrontByFace(Color.BLUE);
 		BufferedReader bf = new BufferedReader(new InputStreamReader(this
 				.getClass().getClassLoader().getResourceAsStream("datos.txt")));
