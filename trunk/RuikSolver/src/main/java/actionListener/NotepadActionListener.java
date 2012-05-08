@@ -8,9 +8,11 @@ import frame.VentanaPpal;
 
 public class NotepadActionListener implements ActionListener {
 	RubikCube rubikCube;
+	String str;
 
-	public NotepadActionListener(RubikCube rubikCube) {
+	public NotepadActionListener(RubikCube rubikCube, String str) {
 		this.rubikCube = rubikCube;
+		this.str = str;
 	}
 
 	@Override
@@ -24,8 +26,8 @@ public class NotepadActionListener implements ActionListener {
 				VentanaPpal.buttonSolucionar.setEnabled(true);
 				VentanaPpal.buttonOriginal.setEnabled(true);
 				VentanaPpal.buttonSolucionarNext.setEnabled(true);
-				rubikCube.setPositions();
-			//	VentanaPpal.buttonAleatorio.setEnabled(true);
+				rubikCube.setPositions(str);
+				// VentanaPpal.buttonAleatorio.setEnabled(true);
 			}
 		});
 

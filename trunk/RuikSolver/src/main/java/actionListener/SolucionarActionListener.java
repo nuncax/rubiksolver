@@ -24,6 +24,7 @@ public class SolucionarActionListener implements ActionListener {
 				temba.solucionar();
 				VentanaPpal.iniciado = false;
 				VentanaPpal.buttonNext.setVisible(false);
+				VentanaPpal.buttonNextAuto.setVisible(false);
 				VentanaPpal.buttonAleatorio.setEnabled(true);
 				VentanaPpal.buttonManual.setEnabled(true);
 				VentanaPpal.buttonNotepad.setEnabled(true);
