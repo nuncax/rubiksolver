@@ -228,15 +228,15 @@ public class RubikCube {
 		BufferedReader bf = new BufferedReader(new InputStreamReader(this
 				.getClass().getClassLoader().getResourceAsStream("datos.txt")));
 		MyJtexPane.insert("*Cubo Notepad*", MyJtexPane.DEFAULT_STYLE);
-		String cad = new String();
-		try {
-			cad = bf.readLine();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	//	String cad = new String();
+//		try {
+//			cad = bf.readLine();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		int signo = 1;
 
-		String[] arrayMovimientos = cad.split(",");
+		String[] arrayMovimientos = str.split(",");
 
 		for (int i = 0; i < arrayMovimientos.length; i++) {
 			if (arrayMovimientos[i].length() == 2 && arrayMovimientos[i].endsWith("P")) {

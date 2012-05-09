@@ -3,17 +3,23 @@ package actionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+
 import cube.RubikCube;
 import frame.VentanaPpal;
 
 public class NotepadActionListener implements ActionListener {
 	RubikCube rubikCube;
-	String str;
+	JTextArea textAreaPad;
 
-	public NotepadActionListener(RubikCube rubikCube, String str) {
+	public NotepadActionListener(RubikCube rubikCube, JTextArea textPanePad) {
 		this.rubikCube = rubikCube;
-		this.str = str;
+		this.textAreaPad = textPanePad;
 	}
+
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -26,7 +32,12 @@ public class NotepadActionListener implements ActionListener {
 				VentanaPpal.buttonSolucionar.setEnabled(true);
 				VentanaPpal.buttonOriginal.setEnabled(true);
 				VentanaPpal.buttonSolucionarNext.setEnabled(true);
-				rubikCube.setPositions(str);
+				rubikCube.setPositions(textAreaPad.getText());
+				VentanaPpal.textAreaPad.setVisible(false);
+				VentanaPpal.scroll.setVisible(false);
+				VentanaPpal.buttonCargaNotePad.setVisible(false);
+				
+				
 				// VentanaPpal.buttonAleatorio.setEnabled(true);
 			}
 		});

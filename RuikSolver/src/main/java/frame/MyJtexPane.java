@@ -1,16 +1,8 @@
 package frame;
 
 import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Insets;
-import java.text.AttributedCharacterIterator.Attribute;
-
-import javax.print.attribute.AttributeSet;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JTextPane;
 import javax.swing.text.BadLocationException;
-import javax.swing.text.DefaultEditorKit.InsertContentAction;
 import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyleContext;
@@ -18,10 +10,12 @@ import javax.swing.text.StyledDocument;
 
 public class MyJtexPane extends JTextPane {
 
+	private static final long serialVersionUID = 7680980271859590658L;
+
 	private static StyledDocument doc;
 
-	private static String[] initStyles = { "regular", "italic", "bold",
-			"small", "large", "regular", "button", "regular", "icon", "regular" };
+//	private static String[] initStyles = { "regular", "italic", "bold",
+	//		"small", "large", "regular", "button", "regular", "icon", "regular" };
 
 	public static final String DEFAULT_STYLE = "regular";
 	public static final String NUMBER_STYLE = "nunber";

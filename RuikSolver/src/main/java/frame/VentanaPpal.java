@@ -14,6 +14,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Hashtable;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,10 +22,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
+import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-
 import actionListener.NotepadActionListener;
 import actionListener.SalirActionListener;
 import actionListener.ScrambleActionListener;
@@ -51,7 +52,7 @@ public class VentanaPpal extends JFrame {
 
 	private JPanel panelBotonero = new JPanel();
 	private JTextPane textPane = new MyJtexPane();
-	private JTextPane textPanePad = new JTextPane();
+	public static JTextArea textAreaPad = new JTextArea("pare", 0, 0);
 	private JSlider slider;
 
 	public static JButton buttonSolucionar;
@@ -64,6 +65,7 @@ public class VentanaPpal extends JFrame {
 
 	public static JButton buttonNext;
 	private int sleep;
+	public static JScrollPane scroll;
 	public static int numGiros;
 
 	private static final long serialVersionUID = -4226961849442887198L;
@@ -111,9 +113,79 @@ public class VentanaPpal extends JFrame {
 	}
 
 	private Component jtextPanePad() {
-		textPanePad.setBounds(40, 555, 180, 80);
-		textPanePad.setVisible(false);
-		return textPanePad;
+		textAreaPad.setBounds(40, 555, 180, 80);
+		textAreaPad.setBorder(BorderFactory.createLineBorder(Color.black));
+		textAreaPad.setLineWrap(true);
+
+		scroll = new JScrollPane();
+		scroll.setViewportView(textAreaPad);
+
+		scroll.setBounds(40, 555, 180, 80);
+		scroll.setBorder(null);
+
+		scroll.setVisible(false);
+
+		return scroll;
+		// DocumentListener listenerTextArea = new DocumentListener() {
+		//
+		// @Override
+		// public void removeUpdate(DocumentEvent e) {
+		//
+		// }
+		//
+		// @Override
+		// public void insertUpdate(DocumentEvent e) {
+		// int q = e.getOffset();
+		// String str = textAreaPad.getText();
+		// srt = str.substring(beginIndex)
+		// c = Character.toUpperCase(c);
+		// switch (str) {
+		// case "R":
+		//
+		// break;
+		// case "RP":
+		//
+		// break;
+		// case "L":
+		//
+		// break;
+		// case "LP":
+		//
+		// break;
+		// case "F":
+		//
+		// break;
+		// case "FP":
+		// break;
+		// case "B":
+		//
+		// break;
+		// case "BP":
+		//
+		// break;
+		// case "U":
+		//
+		// break;
+		// case "UP":
+		//
+		// break;
+		// case "D":
+		//
+		// break;
+		// case "DP":
+		// break;
+		//
+		// default:
+		// break;
+		// }
+		// }
+		//
+		// @Override
+		// public void changedUpdate(DocumentEvent e) {
+		//
+		// }
+		// };
+
 	}
 
 	private void cargaContainer() {
@@ -189,7 +261,7 @@ public class VentanaPpal extends JFrame {
 			}
 		}
 	};
-	private JButton buttonCargaNotePad;
+	public static JButton buttonCargaNotePad;
 
 	private JLabel panelIzq() {
 		JPanel panel = new JPanel();
@@ -220,13 +292,14 @@ public class VentanaPpal extends JFrame {
 		buttonCargaNotePad.setBackground(new Color(238, 238, 236));
 		buttonCargaNotePad.setBounds(10, 650, 235, 55);
 		buttonCargaNotePad.setBorder(null);
-		buttonCargaNotePad.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonCargaNotePad.setCursor(Cursor
+				.getPredefinedCursor(Cursor.HAND_CURSOR));
 		buttonCargaNotePad.setVisible(false);
 
 		ActionListener actionNotePad = new NotepadActionListener(rubikCube,
-				null);
+				textAreaPad);
 		buttonCargaNotePad.addActionListener(actionNotePad);
-		
+
 		return buttonCargaNotePad;
 	}
 
@@ -236,7 +309,7 @@ public class VentanaPpal extends JFrame {
 		// TODO
 		public void actionPerformed(ActionEvent e) {
 			buttonCargaNotePad.setVisible(true);
-			textPanePad.setVisible(true);
+			scroll.setVisible(true);
 		}
 	};
 
