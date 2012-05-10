@@ -52,7 +52,7 @@ public class VentanaPpal extends JFrame {
 
 	private JPanel panelBotonero = new JPanel();
 	private JTextPane textPane = new MyJtexPane();
-	public static JTextArea textAreaPad = new JTextArea("pare", 0, 0);
+	public static JTextArea textAreaPad = new JTextArea();
 	private JSlider slider;
 
 	public static JButton buttonSolucionar;
@@ -261,6 +261,7 @@ public class VentanaPpal extends JFrame {
 			}
 		}
 	};
+	public static JButton buttonCancelaCargaNotePad;
 	public static JButton buttonCargaNotePad;
 
 	private JLabel panelIzq() {
@@ -283,6 +284,7 @@ public class VentanaPpal extends JFrame {
 		etqImagen.add(botonNotepad());
 		etqImagen.add(jtextPanePad());
 		etqImagen.add(botonCargaNotePad());
+		etqImagen.add(botonCancelaCargaNotePad());
 
 		return etqImagen;
 	}
@@ -290,7 +292,7 @@ public class VentanaPpal extends JFrame {
 	private Component botonCargaNotePad() {
 		buttonCargaNotePad = new JButton("Carga Texto");
 		buttonCargaNotePad.setBackground(new Color(238, 238, 236));
-		buttonCargaNotePad.setBounds(10, 650, 235, 55);
+		buttonCargaNotePad.setBounds(40, 650, 66, 66);
 		buttonCargaNotePad.setBorder(null);
 		buttonCargaNotePad.setCursor(Cursor
 				.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -302,6 +304,33 @@ public class VentanaPpal extends JFrame {
 
 		return buttonCargaNotePad;
 	}
+	
+	private Component botonCancelaCargaNotePad() {
+		buttonCancelaCargaNotePad = new JButton("Cancelar");
+		buttonCancelaCargaNotePad.setBackground(new Color(238, 238, 236));
+		buttonCancelaCargaNotePad.setBounds(106, 650, 66, 66);
+		buttonCancelaCargaNotePad.setBorder(null);
+		buttonCancelaCargaNotePad.setCursor(Cursor
+				.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonCancelaCargaNotePad.setVisible(false);
+
+		
+		buttonCancelaCargaNotePad.addActionListener(actionCancelaCargaNotePad);
+
+		return buttonCancelaCargaNotePad;
+	}
+	ActionListener actionCancelaCargaNotePad = new ActionListener() {
+
+		@Override
+		// TODO
+		public void actionPerformed(ActionEvent e) {
+			buttonCargaNotePad.setVisible(false);
+			scroll.setVisible(false);
+			textAreaPad.setVisible(false);
+			buttonCancelaCargaNotePad.setVisible(false);
+			//textAreaPad.setText("");
+		}
+	};
 
 	ActionListener actionCargaTexto = new ActionListener() {
 
@@ -310,6 +339,9 @@ public class VentanaPpal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			buttonCargaNotePad.setVisible(true);
 			scroll.setVisible(true);
+			textAreaPad.setVisible(true);
+			buttonCancelaCargaNotePad.setVisible(true);
+			textAreaPad.setText("");
 		}
 	};
 
@@ -483,6 +515,7 @@ public class VentanaPpal extends JFrame {
 		buttonOriginal.setBorder(null);
 		buttonOriginal
 				.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
 		buttonOriginal.setEnabled(false);
 
 		buttonOriginal.addActionListener(actionOriginal);
@@ -557,6 +590,7 @@ public class VentanaPpal extends JFrame {
 			buttonManual.setEnabled(true);
 			buttonNotepad.setEnabled(true);
 			buttonAleatorio.setEnabled(true);
+			
 		}
 	};
 	ActionListener actionY = new ActionListener() {

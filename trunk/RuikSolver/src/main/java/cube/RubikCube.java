@@ -223,40 +223,43 @@ public class RubikCube {
 		}
 	}
 
-	public void setPositions(String str)  {
+	public void setPositions(String str) {
 		setFrontByFace(Color.BLUE);
-		BufferedReader bf = new BufferedReader(new InputStreamReader(this
-				.getClass().getClassLoader().getResourceAsStream("datos.txt")));
+		// BufferedReader bf = new BufferedReader(new InputStreamReader(this
+		// .getClass().getClassLoader().getResourceAsStream("datos.txt")));
+
 		MyJtexPane.insert("*Cubo Notepad*", MyJtexPane.DEFAULT_STYLE);
-	//	String cad = new String();
-//		try {
-//			cad = bf.readLine();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
+		// String cad = new String();
+		// try {
+		// cad = bf.readLine();
+		// } catch (IOException e) {
+		// e.printStackTrace();
+		// }
 		int signo = 1;
 
 		String[] arrayMovimientos = str.split(",");
 
 		for (int i = 0; i < arrayMovimientos.length; i++) {
-			if (arrayMovimientos[i].length() == 2 && arrayMovimientos[i].endsWith("P")) {
+
+			String movimientos = arrayMovimientos[i].toUpperCase();
+
+			if (movimientos.length() == 2 && movimientos.endsWith("P")) {
 				signo = -1;
 			}
-			if (arrayMovimientos[i].startsWith("R")) {
+			if (movimientos.startsWith("R")) {
 				this.right(signo);
-			} else if (arrayMovimientos[i].startsWith("L")) {
+			} else if (movimientos.startsWith("L")) {
 				this.left(signo);
-			} else if (arrayMovimientos[i].startsWith("F")) {
+			} else if (movimientos.startsWith("F")) {
 				this.front(signo);
-			} else if (arrayMovimientos[i].startsWith("B")) {
+			} else if (movimientos.startsWith("B")) {
 				this.back(signo);
-			} else if (arrayMovimientos[i].startsWith("U")) {
+			} else if (movimientos.startsWith("U")) {
 				this.uper(signo);
-			} else if (arrayMovimientos[i].startsWith("D")) {
+			} else if (movimientos.startsWith("D")) {
 				this.down(signo);
 			}
 		}
-
 	}
 
 	private int tirar(int n) {
