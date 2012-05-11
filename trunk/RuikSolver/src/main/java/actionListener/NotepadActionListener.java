@@ -6,8 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
 
 import cube.RubikCube;
 import frame.VentanaPpal;
@@ -15,7 +13,6 @@ import frame.VentanaPpal;
 public class NotepadActionListener implements ActionListener {
 	RubikCube rubikCube;
 	JTextArea textAreaPad;
-	private boolean carga = true;
 
 	public NotepadActionListener(RubikCube rubikCube, JTextArea textPanePad) {
 		this.rubikCube = rubikCube;
@@ -36,35 +33,25 @@ public class NotepadActionListener implements ActionListener {
 					VentanaPpal.buttonSolucionar.setEnabled(true);
 					VentanaPpal.buttonOriginal.setEnabled(true);
 					VentanaPpal.buttonSolucionarNext.setEnabled(true);
-					VentanaPpal.textAreaPad.setVisible(false);
+					VentanaPpal.buttonAleatorio.setEnabled(true);
+					VentanaPpal.buttonManual.setEnabled(true);
+					
+
+					// VentanaPpal.textAreaPad.setVisible(false);
 					VentanaPpal.scroll.setVisible(false);
 					VentanaPpal.buttonCargaNotePad.setVisible(false);
 					VentanaPpal.buttonCancelaCargaNotePad.setVisible(false);
-					VentanaPpal.buttonAleatorio.setEnabled(false);
-					VentanaPpal.buttonManual.setEnabled(false);
-					
 
 				} else {
-					carga = false;
+
 					JOptionPane
 							.showMessageDialog(new JFrame(),
 									"Movimientos validos:\n F,R,L,U,D,B,FP,RP,LP,UP,DP,BP\n Entre comas.");
-				}
-				if (carga) {
-//					VentanaPpal.buttonSolucionar.setEnabled(false);
-//					VentanaPpal.buttonOriginal.setEnabled(false);
-//					VentanaPpal.buttonSolucionarNext.setEnabled(false);
-//					VentanaPpal.buttonNotepad.setEnabled(false);
-//					VentanaPpal.buttonManual.setEnabled(false);
-//					VentanaPpal.buttonAleatorio.setEnabled(false);
-//					VentanaPpal.buttonCancelaCargaNotePad.setVisible(false);
-
 				}
 			}
 		});
 
 		thread.start();
-
 	}
 
 	private boolean cadenaMovimientoValida(String[] arrayMovimientos) {

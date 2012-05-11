@@ -24,7 +24,9 @@ public class ScrambleActionListener implements ActionListener {
 				VentanaPpal.buttonSolucionar.setEnabled(true);
 				VentanaPpal.buttonOriginal.setEnabled(true);
 				VentanaPpal.buttonSolucionarNext.setEnabled(true);
-				//VentanaPpal.buttonAleatorio.setEnabled(true);
+				VentanaPpal.buttonNotepad.setEnabled(true);
+				VentanaPpal.buttonManual.setEnabled(true);
+				VentanaPpal.buttonAleatorio.setEnabled(true);
 			}
 
 		});

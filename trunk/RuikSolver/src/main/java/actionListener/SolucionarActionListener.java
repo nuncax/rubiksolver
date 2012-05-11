@@ -4,10 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import frame.VentanaPpal;
-import solutions.SolutionMethodTemba;
+import solution.SolutionMethodTemba;
 
 public class SolucionarActionListener implements ActionListener {
 	SolutionMethodTemba temba;
+	public static Thread thread;
 
 	public SolucionarActionListener(SolutionMethodTemba temba) {
 		this.temba = temba;
@@ -16,14 +17,14 @@ public class SolucionarActionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		VentanaPpal.numGiros = 0;
-		Thread thread = new Thread(new Runnable() {
+		thread = new Thread(new Runnable() {
 
 			@Override
 			public void run() {
 
 				temba.solucionar();
 				VentanaPpal.iniciado = false;
-				VentanaPpal.buttonNext.setVisible(false);
+				VentanaPpal.buttonPasoApaso.setVisible(false);
 				VentanaPpal.buttonNextAuto.setVisible(false);
 				VentanaPpal.buttonAleatorio.setEnabled(true);
 				VentanaPpal.buttonManual.setEnabled(true);
