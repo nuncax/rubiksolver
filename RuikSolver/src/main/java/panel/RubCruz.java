@@ -112,8 +112,8 @@ public class RubCruz extends JComponent {
 					}
 				}
 			}
-			break;
 		}
+
 
 		return res;
 	}

@@ -30,17 +30,10 @@ public class NotepadActionListener implements ActionListener {
 				if (cadenaMovimientoValida(arrayMovimientos)) {
 					rubikCube.setPositions(textAreaPad.getText());
 
-					VentanaPpal.buttonSolucionar.setEnabled(true);
-					VentanaPpal.buttonOriginal.setEnabled(true);
-					VentanaPpal.buttonSolucionarNext.setEnabled(true);
-					VentanaPpal.buttonAleatorio.setEnabled(true);
-					VentanaPpal.buttonManual.setEnabled(true);
+			//		VentanaPpal.setEnableAll(true);
 					
-
-					// VentanaPpal.textAreaPad.setVisible(false);
-					VentanaPpal.scroll.setVisible(false);
-					VentanaPpal.buttonCargaNotePad.setVisible(false);
-					VentanaPpal.buttonCancelaCargaNotePad.setVisible(false);
+					VentanaPpal.setVisibleNotepad(false);
+					VentanaPpal.enableCancel();
 
 				} else {
 

@@ -43,7 +43,7 @@ import solution.SolutionMethodTemba;
 
 public class VentanaPpal extends JFrame {
 	private RubikCube rubikCube = new RubikCube();
-	private RubCruz rubCruz = new RubCruz(1, 3, 50);
+	public static RubCruz rubCruz = new RubCruz(1, 3, 50);
 	private SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
 	private IObserver observer;
 
@@ -56,12 +56,12 @@ public class VentanaPpal extends JFrame {
 	private JSlider slider;
 
 	public static JButton buttonSolucionar;
-	public static JButton buttonSolucionarNext;
+	public static JButton buttonSolucionarPasoApaso;
 	public static JButton buttonOriginal;
 	public static JButton buttonNotepad;
-	public static JButton buttonManual;
+	public static JButton buttonCargaManual;
 	public static JButton buttonAleatorio;
-	public static JButton buttonNextAuto;
+	public static JButton buttonSalirPasoAPaso;
 
 	public static JButton buttonPasoApaso;
 	private int sleep;
@@ -76,7 +76,7 @@ public class VentanaPpal extends JFrame {
 		sleep = 150;
 
 		buttonPasoApaso = (JButton) botonNext();
-		buttonNextAuto = (JButton) botonSalirNext();
+		buttonSalirPasoAPaso = (JButton) botonSalirPasoAPaso();
 
 		observer = new AWTObserver(rubCruz.getMap(), sleep);
 		rubikCube.addObservador(observer);
@@ -84,6 +84,7 @@ public class VentanaPpal extends JFrame {
 		propiedadesFrame();
 
 		cargaContainer();
+		setEnableSolucion(false);
 	}
 
 	private Component jtextPane() {
@@ -105,8 +106,6 @@ public class VentanaPpal extends JFrame {
 		scrollPane
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-		// scrollPane.get
-
 		panel.add(scrollPane);
 
 		return panel;
@@ -126,66 +125,6 @@ public class VentanaPpal extends JFrame {
 		scroll.setVisible(false);
 
 		return scroll;
-		// DocumentListener listenerTextArea = new DocumentListener() {
-		//
-		// @Override
-		// public void removeUpdate(DocumentEvent e) {
-		//
-		// }
-		//
-		// @Override
-		// public void insertUpdate(DocumentEvent e) {
-		// int q = e.getOffset();
-		// String str = textAreaPad.getText();
-		// srt = str.substring(beginIndex)
-		// c = Character.toUpperCase(c);
-		// switch (str) {
-		// case "R":
-		//
-		// break;
-		// case "RP":
-		//
-		// break;
-		// case "L":
-		//
-		// break;
-		// case "LP":
-		//
-		// break;
-		// case "F":
-		//
-		// break;
-		// case "FP":
-		// break;
-		// case "B":
-		//
-		// break;
-		// case "BP":
-		//
-		// break;
-		// case "U":
-		//
-		// break;
-		// case "UP":
-		//
-		// break;
-		// case "D":
-		//
-		// break;
-		// case "DP":
-		// break;
-		//
-		// default:
-		// break;
-		// }
-		// }
-		//
-		// @Override
-		// public void changedUpdate(DocumentEvent e) {
-		//
-		// }
-		// };
-
 	}
 
 	private void cargaContainer() {
@@ -218,9 +157,9 @@ public class VentanaPpal extends JFrame {
 		rubCruz.setLayout(null);
 		rubCruz.add(panelBotonero);
 		rubCruz.add(buttonPasoApaso);
-		rubCruz.add(buttonNextAuto);
-		rubCruz.add(botonSalirNext());
-		rubCruz.add(botonSalirNext());
+		rubCruz.add(buttonSalirPasoAPaso);
+		rubCruz.add(botonSalirPasoAPaso());
+		rubCruz.add(botonSalirPasoAPaso());
 		rubCruz.add(createSlider());
 		rubCruz.addMouseListener(mouseAdapterCargaManual);
 		return rubCruz;
@@ -270,8 +209,6 @@ public class VentanaPpal extends JFrame {
 
 		panel.setPreferredSize(new Dimension(1366, 768));
 		panel.setLayout(null);
-		// etqImagen.setIcon(new
-		// ImageIcon(getClass().getResource("panelBotoneraIzq.png")));
 		etqImagen.setIcon(new ImageIcon(this.getClass().getClassLoader()
 				.getResource("images/panelBotoneraIzq.png")));
 		panel.add(etqImagen);
@@ -304,7 +241,7 @@ public class VentanaPpal extends JFrame {
 
 		return buttonCargaNotePad;
 	}
-	
+
 	private Component botonCancelaCargaNotePad() {
 		buttonCancelaCargaNotePad = new JButton("Cancelar");
 		buttonCancelaCargaNotePad.setBackground(new Color(238, 238, 236));
@@ -314,43 +251,31 @@ public class VentanaPpal extends JFrame {
 				.getPredefinedCursor(Cursor.HAND_CURSOR));
 		buttonCancelaCargaNotePad.setVisible(false);
 
-		
 		buttonCancelaCargaNotePad.addActionListener(actionCancelaCargaNotePad);
 
 		return buttonCancelaCargaNotePad;
 	}
+
 	ActionListener actionCancelaCargaNotePad = new ActionListener() {
 
 		@Override
 		// TODO
 		public void actionPerformed(ActionEvent e) {
-			buttonCargaNotePad.setVisible(false);
-			scroll.setVisible(false);
-			buttonCancelaCargaNotePad.setVisible(false);
-			
-			buttonManual.setEnabled(true);
-			buttonAleatorio.setEnabled(true);
-			//textAreaPad.setText("");
+			setVisibleNotepad(false);
+
+			enableCancel();
+			textAreaPad.setText("");
 		}
+
 	};
 
 	ActionListener actionCargaTexto = new ActionListener() {
 
 		@Override
-		// TODO
 		public void actionPerformed(ActionEvent e) {
-			System.out.println(rubCruz.isResuelto());
-			buttonCargaNotePad.setVisible(true);
-			scroll.setVisible(true);
-			textAreaPad.setVisible(true);
-			buttonCancelaCargaNotePad.setVisible(true);
+			setVisibleNotepad(true);
+			setEnableAll(false);
 			textAreaPad.setText("");
-			
-			VentanaPpal.buttonSolucionar.setEnabled(false);
-			VentanaPpal.buttonOriginal.setEnabled(false);
-			VentanaPpal.buttonSolucionarNext.setEnabled(false);
-			VentanaPpal.buttonManual.setEnabled(false);
-			VentanaPpal.buttonAleatorio.setEnabled(false);
 		}
 	};
 
@@ -439,7 +364,7 @@ public class VentanaPpal extends JFrame {
 		button.setBorder(null);
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		button.addActionListener(actionCarga);
+		button.addActionListener(actionCargar);
 		return button;
 	}
 
@@ -466,15 +391,15 @@ public class VentanaPpal extends JFrame {
 
 	}
 
-	private Component botonSalirNext() {
-		JButton button = new JButton("Auto-Sol");
+	private Component botonSalirPasoAPaso() {
+		JButton button = new JButton("Salir");
 		button.setBackground(new Color(238, 238, 236));
 		button.setBounds(566, 500, 66, 66);
 		button.setBorder(null);
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button.setVisible(false);
 
-		button.addActionListener(actionSalirNext);
+		button.addActionListener(actionSalirPasoAPaso);
 		return button;
 	}
 
@@ -499,7 +424,7 @@ public class VentanaPpal extends JFrame {
 		buttonSolucionar.setBorder(null);
 		buttonSolucionar.setCursor(Cursor
 				.getPredefinedCursor(Cursor.HAND_CURSOR));
-		buttonSolucionar.setEnabled(false);
+		// buttonSolucionar.setEnabled(false);
 
 		ActionListener solucionar = new SolucionarActionListener(temba);
 		buttonSolucionar.addActionListener(solucionar);
@@ -507,14 +432,15 @@ public class VentanaPpal extends JFrame {
 	}
 
 	private Component botonCargaManual() {
-		buttonManual = new JButton("Carga Manual");
-		buttonManual.setBackground(new Color(238, 238, 236));
-		buttonManual.setBounds(10, 310, 235, 55);
-		buttonManual.setBorder(null);
-		buttonManual.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonCargaManual = new JButton("Carga Manual");
+		buttonCargaManual.setBackground(new Color(238, 238, 236));
+		buttonCargaManual.setBounds(10, 310, 235, 55);
+		buttonCargaManual.setBorder(null);
+		buttonCargaManual.setCursor(Cursor
+				.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		buttonManual.addActionListener(actionCargaManual);
-		return buttonManual;
+		buttonCargaManual.addActionListener(actionCargaManual);
+		return buttonCargaManual;
 	}
 
 	private Component botonOriginal() {
@@ -524,24 +450,24 @@ public class VentanaPpal extends JFrame {
 		buttonOriginal.setBorder(null);
 		buttonOriginal
 				.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
-		buttonOriginal.setEnabled(false);
+
+		// buttonOriginal.setEnabled(false);
 
 		buttonOriginal.addActionListener(actionOriginal);
 		return buttonOriginal;
 	}
 
 	private Component botonSolucionarNext() {
-		buttonSolucionarNext = new JButton("Solucionar Paso a Paso");
-		buttonSolucionarNext.setBackground(new Color(238, 238, 236));
-		buttonSolucionarNext.setBounds(10, 420, 235, 55);
-		buttonSolucionarNext.setBorder(null);
-		buttonSolucionarNext.setCursor(Cursor
+		buttonSolucionarPasoApaso = new JButton("Solucionar Paso a Paso");
+		buttonSolucionarPasoApaso.setBackground(new Color(238, 238, 236));
+		buttonSolucionarPasoApaso.setBounds(10, 420, 235, 55);
+		buttonSolucionarPasoApaso.setBorder(null);
+		buttonSolucionarPasoApaso.setCursor(Cursor
 				.getPredefinedCursor(Cursor.HAND_CURSOR));
-		buttonSolucionarNext.setEnabled(false);
+		// buttonSolucionarNext.setEnabled(false);
 
-		buttonSolucionarNext.addActionListener(actionPasoApaso);
-		return buttonSolucionarNext;
+		buttonSolucionarPasoApaso.addActionListener(actionPasoApaso);
+		return buttonSolucionarPasoApaso;
 	}
 
 	private Component botonNotepad() {
@@ -567,31 +493,26 @@ public class VentanaPpal extends JFrame {
 		return button;
 	}
 
-	ActionListener actionSalirNext = new ActionListener() {
+	ActionListener actionSalirPasoAPaso = new ActionListener() {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			iniciado = false;
-			SolucionarActionListener.thread.stop();
-			buttonPasoApaso.setVisible(false);
-			buttonNextAuto.setVisible(false);
-			
-			buttonSolucionar.setEnabled(true);
-			buttonManual.setEnabled(true);
-			buttonNotepad.setEnabled(true);
-			buttonAleatorio.setEnabled(true);
-			buttonOriginal.setEnabled(true);
-			buttonPasoApaso.setEnabled(true);
-			
+			// SolucionarActionListener.thread.stop();
+
+			setVisiblePasoAPaso(false);
+
+			setEnableAll(true);
+
 		}
+
 	};
 
 	ActionListener actionPasoApaso = new ActionListener() {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			buttonPasoApaso.setVisible(true);
-			buttonNextAuto.setVisible(true);
+			setVisiblePasoAPaso(true);
 			buttonSolucionar.setEnabled(false);
 		}
 	};
@@ -602,15 +523,10 @@ public class VentanaPpal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			rubCruz.setResuelto();
 			cargar();
-			
-			buttonSolucionar.setEnabled(false);
-			buttonOriginal.setEnabled(false);
-			buttonSolucionarNext.setEnabled(false);
 
-			buttonManual.setEnabled(true);
-			buttonNotepad.setEnabled(true);
-			buttonAleatorio.setEnabled(true);
-			
+			setEnableSolucion(false);
+			setEnableCargar(true);
+
 		}
 	};
 	ActionListener actionY = new ActionListener() {
@@ -661,40 +577,44 @@ public class VentanaPpal extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			panelBotonero.setVisible(true);
-			buttonAleatorio.setEnabled(false);
-			buttonNotepad.setEnabled(false);
+			setEnableAll(false);
 		}
 	};
 
-	ActionListener actionCarga = new ActionListener() {
+	ActionListener actionCargar = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 
 			cargar();
 
 			panelBotonero.setVisible(false);
-			
-			buttonSolucionar.setEnabled(true);
-			buttonOriginal.setEnabled(true);
-			buttonSolucionarNext.setEnabled(true);
-			buttonNotepad.setEnabled(true);
-			buttonManual.setEnabled(true);
-			buttonAleatorio.setEnabled(true);
+
+			enableCancel();
+
+		//	setEnableSolucion(true);
 
 			colorCarga = null;
 		}
 
 	};
+
+	public static void enableCancel() {
+		if (rubCruz.isResuelto()) {
+			setEnableCargar(true);
+		} else {
+			setEnableAll(true);
+		}
+	}
+
 	ActionListener actionCancelaCarga = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 
 			panelBotonero.setVisible(false);
 
-			buttonAleatorio.setEnabled(true);
-			buttonManual.setEnabled(true);
-			buttonNotepad.setEnabled(true);
+			enableCancel();
 
+			observer.observa(rubikCube.getPiezas());
 			colorCarga = null;
 		}
 
@@ -735,6 +655,7 @@ public class VentanaPpal extends JFrame {
 	}
 
 	public static boolean iniciado = false;
+	SolucionarActionListener q = new SolucionarActionListener(temba);
 
 	ActionListener actionNext = new ActionListener() {
 
@@ -742,12 +663,11 @@ public class VentanaPpal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			if (iniciado == false) {
 				iniciado = true;
-				SolucionarActionListener q = new SolucionarActionListener(temba);
 				q.actionPerformed(e);
+
 			} else {
 				observer.reanudar();
 			}
-
 		}
 	};
 
@@ -777,4 +697,36 @@ public class VentanaPpal extends JFrame {
 		}
 	};
 
+	public static void setEnableCargar(boolean b) {
+		buttonCargaManual.setEnabled(b);
+		buttonNotepad.setEnabled(b);
+		buttonAleatorio.setEnabled(b);
+
+	}
+
+	public static void setEnableSolucion(boolean b) {
+		buttonSolucionar.setEnabled(b);
+		buttonSolucionarPasoApaso.setEnabled(b);
+		buttonOriginal.setEnabled(b);
+	}
+
+	public static void setEnableAll(boolean b) {
+		buttonSolucionar.setEnabled(b);
+		buttonOriginal.setEnabled(b);
+		buttonSolucionarPasoApaso.setEnabled(b);
+		buttonNotepad.setEnabled(b);
+		buttonCargaManual.setEnabled(b);
+		buttonAleatorio.setEnabled(b);
+	}
+
+	public static void setVisiblePasoAPaso(boolean b) {
+		buttonPasoApaso.setVisible(b);
+		buttonSalirPasoAPaso.setVisible(b);
+	}
+
+	public static void setVisibleNotepad(boolean b) {
+		buttonCargaNotePad.setVisible(b);
+		scroll.setVisible(b);
+		buttonCancelaCargaNotePad.setVisible(b);
+	}
 }
