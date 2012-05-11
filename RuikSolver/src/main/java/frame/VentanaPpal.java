@@ -39,7 +39,7 @@ import panel.StickPanel;
 import pieza.Pieza;
 import pieza.Stick;
 import pieza.Vectr;
-import solutions.SolutionMethodTemba;
+import solution.SolutionMethodTemba;
 
 public class VentanaPpal extends JFrame {
 	private RubikCube rubikCube = new RubikCube();
@@ -63,7 +63,7 @@ public class VentanaPpal extends JFrame {
 	public static JButton buttonAleatorio;
 	public static JButton buttonNextAuto;
 
-	public static JButton buttonNext;
+	public static JButton buttonPasoApaso;
 	private int sleep;
 	public static JScrollPane scroll;
 	public static int numGiros;
@@ -75,7 +75,7 @@ public class VentanaPpal extends JFrame {
 
 		sleep = 150;
 
-		buttonNext = (JButton) botonNext();
+		buttonPasoApaso = (JButton) botonNext();
 		buttonNextAuto = (JButton) botonSalirNext();
 
 		observer = new AWTObserver(rubCruz.getMap(), sleep);
@@ -217,7 +217,7 @@ public class VentanaPpal extends JFrame {
 
 		rubCruz.setLayout(null);
 		rubCruz.add(panelBotonero);
-		rubCruz.add(buttonNext);
+		rubCruz.add(buttonPasoApaso);
 		rubCruz.add(buttonNextAuto);
 		rubCruz.add(botonSalirNext());
 		rubCruz.add(botonSalirNext());
@@ -326,8 +326,10 @@ public class VentanaPpal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			buttonCargaNotePad.setVisible(false);
 			scroll.setVisible(false);
-			textAreaPad.setVisible(false);
 			buttonCancelaCargaNotePad.setVisible(false);
+			
+			buttonManual.setEnabled(true);
+			buttonAleatorio.setEnabled(true);
 			//textAreaPad.setText("");
 		}
 	};
@@ -337,11 +339,18 @@ public class VentanaPpal extends JFrame {
 		@Override
 		// TODO
 		public void actionPerformed(ActionEvent e) {
+			System.out.println(rubCruz.isResuelto());
 			buttonCargaNotePad.setVisible(true);
 			scroll.setVisible(true);
 			textAreaPad.setVisible(true);
 			buttonCancelaCargaNotePad.setVisible(true);
 			textAreaPad.setText("");
+			
+			VentanaPpal.buttonSolucionar.setEnabled(false);
+			VentanaPpal.buttonOriginal.setEnabled(false);
+			VentanaPpal.buttonSolucionarNext.setEnabled(false);
+			VentanaPpal.buttonManual.setEnabled(false);
+			VentanaPpal.buttonAleatorio.setEnabled(false);
 		}
 	};
 
@@ -563,7 +572,17 @@ public class VentanaPpal extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			iniciado = false;
-			observer.reanudar();
+			SolucionarActionListener.thread.stop();
+			buttonPasoApaso.setVisible(false);
+			buttonNextAuto.setVisible(false);
+			
+			buttonSolucionar.setEnabled(true);
+			buttonManual.setEnabled(true);
+			buttonNotepad.setEnabled(true);
+			buttonAleatorio.setEnabled(true);
+			buttonOriginal.setEnabled(true);
+			buttonPasoApaso.setEnabled(true);
+			
 		}
 	};
 
@@ -571,7 +590,7 @@ public class VentanaPpal extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			buttonNext.setVisible(true);
+			buttonPasoApaso.setVisible(true);
 			buttonNextAuto.setVisible(true);
 			buttonSolucionar.setEnabled(false);
 		}
@@ -581,8 +600,9 @@ public class VentanaPpal extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			rubCruz.cargar();
+			rubCruz.setResuelto();
 			cargar();
+			
 			buttonSolucionar.setEnabled(false);
 			buttonOriginal.setEnabled(false);
 			buttonSolucionarNext.setEnabled(false);
@@ -653,13 +673,13 @@ public class VentanaPpal extends JFrame {
 			cargar();
 
 			panelBotonero.setVisible(false);
+			
 			buttonSolucionar.setEnabled(true);
 			buttonOriginal.setEnabled(true);
 			buttonSolucionarNext.setEnabled(true);
-
-			buttonAleatorio.setEnabled(false);
-			buttonManual.setEnabled(false);
-			buttonNotepad.setEnabled(false);
+			buttonNotepad.setEnabled(true);
+			buttonManual.setEnabled(true);
+			buttonAleatorio.setEnabled(true);
 
 			colorCarga = null;
 		}

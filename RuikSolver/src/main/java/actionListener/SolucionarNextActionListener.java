@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import frame.VentanaPpal;
-import solutions.SolutionMethodTemba;
+import solution.SolutionMethodTemba;
 
 public class SolucionarNextActionListener implements ActionListener {
 	SolutionMethodTemba temba;
@@ -23,7 +23,7 @@ public class SolucionarNextActionListener implements ActionListener {
 
 				temba.solucionar();
 				VentanaPpal.iniciado = false;
-				VentanaPpal.buttonNext.setVisible(false);
+				VentanaPpal.buttonPasoApaso.setVisible(false);
 
 				VentanaPpal.buttonAleatorio.setEnabled(true);
 				VentanaPpal.buttonManual.setEnabled(true);

@@ -1,4 +1,4 @@
-package solutions;
+package solution;
 
 import java.util.List;
 import pieza.Arista;
