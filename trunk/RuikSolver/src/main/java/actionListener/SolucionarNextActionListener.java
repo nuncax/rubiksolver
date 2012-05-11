@@ -26,7 +26,7 @@ public class SolucionarNextActionListener implements ActionListener {
 				VentanaPpal.buttonPasoApaso.setVisible(false);
 
 				VentanaPpal.buttonAleatorio.setEnabled(true);
-				VentanaPpal.buttonManual.setEnabled(true);
+				VentanaPpal.buttonCargaManual.setEnabled(true);
 				VentanaPpal.buttonNotepad.setEnabled(true);
 			}
 		});
@@ -35,7 +35,7 @@ public class SolucionarNextActionListener implements ActionListener {
 
 		
 			VentanaPpal.buttonOriginal.setEnabled(false);
-			VentanaPpal.buttonSolucionarNext.setEnabled(false);
+			VentanaPpal.buttonSolucionarPasoApaso.setEnabled(false);
 
 		
 		// VentanaPpal.buttonAleatorio.setEnabled(true);

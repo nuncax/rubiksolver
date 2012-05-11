@@ -3,12 +3,13 @@ package actionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import com.google.common.collect.Sets.SetView;
+
 import frame.VentanaPpal;
 import solution.SolutionMethodTemba;
 
-public class SolucionarActionListener implements ActionListener {
+public class SolucionarActionListener extends Thread implements ActionListener, Runnable {
 	SolutionMethodTemba temba;
-	public static Thread thread;
 
 	public SolucionarActionListener(SolutionMethodTemba temba) {
 		this.temba = temba;
@@ -17,33 +18,17 @@ public class SolucionarActionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		VentanaPpal.numGiros = 0;
-		thread = new Thread(new Runnable() {
+	
+		start();
+		
+		VentanaPpal.setEnableAll(false);
+	}
 
-			@Override
-			public void run() {
-
-				temba.solucionar();
-				VentanaPpal.iniciado = false;
-				VentanaPpal.buttonPasoApaso.setVisible(false);
-				VentanaPpal.buttonNextAuto.setVisible(false);
-				VentanaPpal.buttonAleatorio.setEnabled(true);
-				VentanaPpal.buttonManual.setEnabled(true);
-				VentanaPpal.buttonNotepad.setEnabled(true);
-			}
-		});
-
-		thread.start();
-
-		VentanaPpal.buttonSolucionar.setEnabled(false);
-		VentanaPpal.buttonOriginal.setEnabled(false);
-		VentanaPpal.buttonSolucionarNext.setEnabled(false);
-		VentanaPpal.buttonNotepad.setEnabled(false);
-		VentanaPpal.buttonManual.setEnabled(false);
-		VentanaPpal.buttonAleatorio.setEnabled(false);
-
-		// VentanaPpal.buttonAleatorio.setEnabled(true);
-		// VentanaPpal.buttonManual.setEnabled(true);
-		// VentanaPpal.buttonNotepad.setEnabled(true);
-
+	@Override
+	public void run() {
+		temba.solucionar();
+		VentanaPpal.iniciado = false;
+		VentanaPpal.setVisiblePasoAPaso(false);		
+		VentanaPpal.setEnableCargar(true);		
 	}
 }
