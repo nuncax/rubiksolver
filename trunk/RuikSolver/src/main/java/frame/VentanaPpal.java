@@ -655,12 +655,13 @@ public class VentanaPpal extends JFrame {
 	}
 
 	public static boolean iniciado = false;
-	SolucionarActionListener q = new SolucionarActionListener(temba);
+	SolucionarActionListener q;
 
 	ActionListener actionNext = new ActionListener() {
-
+//TODO
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			SolucionarActionListener q = new SolucionarActionListener(temba);
 			if (iniciado == false) {
 				iniciado = true;
 				q.actionPerformed(e);
