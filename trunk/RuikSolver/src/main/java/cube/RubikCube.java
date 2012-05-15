@@ -165,7 +165,6 @@ public class RubikCube {
 		}
 		return centroRes;
 	}
-
 	public void setFrontByFace(Color cara) {
 		Color colorAux;
 		if (!cara.equals(front_face)) {

@@ -1,6 +1,11 @@
 package frame;
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.JTextPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Style;
@@ -8,14 +13,16 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyleContext;
 import javax.swing.text.StyledDocument;
 
+import utiles.Utiles;
+
 public class MyJtexPane extends JTextPane {
 
 	private static final long serialVersionUID = 7680980271859590658L;
 
 	private static StyledDocument doc;
 
-//	private static String[] initStyles = { "regular", "italic", "bold",
-	//		"small", "large", "regular", "button", "regular", "icon", "regular" };
+	// private static String[] initStyles = { "regular", "italic", "bold",
+	// "small", "large", "regular", "button", "regular", "icon", "regular" };
 
 	public static final String DEFAULT_STYLE = "regular";
 	public static final String NUMBER_STYLE = "nunber";
@@ -61,32 +68,32 @@ public class MyJtexPane extends JTextPane {
 		StyleConstants.setFontSize(s, 13);
 		StyleConstants.setBold(s, true);
 
-		StyleConstants.setForeground(s, Color.orange);
+		StyleConstants.setForeground(s, Utiles.orange);
 
 		s = doc.addStyle("green", regular);
 		StyleConstants.setFontSize(s, 13);
 		StyleConstants.setBold(s, true);
-		StyleConstants.setForeground(s, Color.green);
+		StyleConstants.setForeground(s, Utiles.green);
 
 		s = doc.addStyle("red", regular);
 		StyleConstants.setFontSize(s, 13);
 		StyleConstants.setBold(s, true);
-		StyleConstants.setForeground(s, Color.red);
+		StyleConstants.setForeground(s, Utiles.red);
 
 		s = doc.addStyle("blue", regular);
 		StyleConstants.setFontSize(s, 13);
 		StyleConstants.setBold(s, true);
-		StyleConstants.setForeground(s, Color.blue);
+		StyleConstants.setForeground(s, Utiles.blue);
 
 		s = doc.addStyle("white", regular);
 		StyleConstants.setFontSize(s, 13);
 		StyleConstants.setBold(s, true);
-		StyleConstants.setForeground(s, Color.white);
+		StyleConstants.setForeground(s, Utiles.white);
 
 		s = doc.addStyle("yellow", regular);
 		StyleConstants.setFontSize(s, 13);
 		StyleConstants.setBold(s, true);
-		StyleConstants.setForeground(s, Color.yellow);
+		StyleConstants.setForeground(s, Utiles.yellow);
 
 		// number
 		s = doc.addStyle("nunber", regular);
@@ -99,7 +106,7 @@ public class MyJtexPane extends JTextPane {
 	}
 
 	public static void insert(String str, String style) {
-		// StyleConstants.setForeground(StyledDocument. , Color.red);
+		// StyleConstants.setForeground(StyledDocument. , Utiles.red);
 		if (!style.equals(NUMBER_STYLE)) {
 			str = str.concat("\n");
 		}
@@ -109,5 +116,59 @@ public class MyJtexPane extends JTextPane {
 			e.printStackTrace();
 		}
 	}
+
+//	@Override
+//	protected void paintComponent(Graphics g) {
+//		// set background green - but can draw image here too
+//		g.setColor(Utiles.colorAzulito);
+//		g.fillRect(0, 0, getWidth(), getHeight());
+//
+//		// uncomment the following to draw an image
+//		Image img = null;
+//		try {
+//			img = ImageIO.read(this.getClass().getClassLoader()
+//					.getResource("images/panelLateralDerecho.fw.png"));
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		g.drawImage(img, 0, 0, this);
+//
+//		super.paintComponent(g);
+//	}
+	
+	
+	
+	
+	Image  bgImage ;
+	
+	@Override
+	protected void paintComponent(Graphics g) {
+		g.setColor(Utiles.colorAzulito);
+		g.fillRect(0, 0, getWidth(), getHeight());
+		   try {
+			bgImage=ImageIO.read(this.getClass().getClassLoader()
+						.getResource("images/panelLateralDerecho.fw.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	        // if a background image exists, paint it
+	        if (bgImage != null) {
+	            int width = this.getWidth();
+	            int height = this.getHeight();
+	            int imageW = bgImage.getWidth(null);
+	            int imageH = bgImage.getHeight(null);
+
+	            // we'll tile the image to fill our area
+	            for (int x = 0; x < width; x += imageW) {
+	                for (int y = 0; y < height; y += imageH) {
+	                    g.drawImage(bgImage, x, y, this);
+	                }
+	            }
+	            super.paintComponent(g);
+	        }
+	    }
+
 
 }

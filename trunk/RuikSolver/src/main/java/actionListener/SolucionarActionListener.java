@@ -3,13 +3,12 @@ package actionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.google.common.collect.Sets.SetView;
-
 import frame.VentanaPpal;
 import solution.SolutionMethodTemba;
 
-public class SolucionarActionListener extends Thread implements ActionListener, Runnable {
+public class SolucionarActionListener implements ActionListener {
 	SolutionMethodTemba temba;
+	public static Thread thread;
 
 	public SolucionarActionListener(SolutionMethodTemba temba) {
 		this.temba = temba;
@@ -18,17 +17,25 @@ public class SolucionarActionListener extends Thread implements ActionListener, 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		VentanaPpal.numGiros = 0;
-	
-		start();
-		
-		VentanaPpal.setEnableAll(false);
-	}
+		thread = new Thread(new Runnable() {
 
-	@Override
-	public void run() {
-		temba.solucionar();
-		VentanaPpal.iniciado = false;
-		VentanaPpal.setVisiblePasoAPaso(false);		
-		VentanaPpal.setEnableCargar(true);		
+			@Override
+			public void run() {
+
+				temba.solucionar();
+				VentanaPpal.iniciado = false;
+				VentanaPpal.setVisiblePasoAPaso(false);		
+				VentanaPpal.setEnableCargar(true);
+			}
+		});
+
+		thread.start();
+
+		VentanaPpal.setEnableAll(false);
+
+		// VentanaPpal.buttonAleatorio.setEnabled(true);
+		// VentanaPpal.buttonManual.setEnabled(true);
+		// VentanaPpal.buttonNotepad.setEnabled(true);
+
 	}
 }

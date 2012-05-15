@@ -83,17 +83,17 @@ public class AWTObserver implements IObserver {
 	private java.awt.Color calcColor(Color colorP) {
 		java.awt.Color colorRes = null;
 		if (colorP.toString().equals("azul")) {
-			colorRes = java.awt.Color.BLUE;
+			colorRes = Utiles.blue;
 		} else if (colorP.toString().equals("verde")) {
-			colorRes = java.awt.Color.GREEN;
+			colorRes = Utiles.green;
 		} else if (colorP.toString().equals("naranja")) {
-			colorRes = java.awt.Color.ORANGE;
+			colorRes = Utiles.orange;
 		} else if (colorP.toString().equals("rojo")) {
-			colorRes = java.awt.Color.RED;
+			colorRes = Utiles.red;
 		} else if (colorP.toString().equals("blanco")) {
-			colorRes = java.awt.Color.WHITE;
+			colorRes = Utiles.white;
 		} else if (colorP.toString().equals("amarillo")) {
-			colorRes = java.awt.Color.YELLOW;
+			colorRes = Utiles.yellow;
 		}
 		return colorRes;
 

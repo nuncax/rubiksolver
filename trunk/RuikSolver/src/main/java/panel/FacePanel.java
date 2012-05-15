@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import javax.swing.JPanel;
 import pieza.Vectr;
+import utiles.Utiles;
 
 public class FacePanel extends JPanel {
 
@@ -141,20 +142,19 @@ public class FacePanel extends JPanel {
 	public void setMap(HashMap<Vectr, StickPanel> map) {
 		this.map = map;
 	}
-
 	private List<Vectr> getSubListPos(Color color) {
 		List<Vectr> listRes = null;
-		if (color.equals(Color.white)) {
+		if (color.equals(Utiles.white)) {
 			listRes = listPos.subList(0, 9);
-		} else if (color.equals(Color.red)) {
+		} else if (color.equals(Utiles.red)) {
 			listRes = listPos.subList(9, 18);
-		} else if (color.equals(Color.blue)) {
+		} else if (color.equals(Utiles.blue)) {
 			listRes = listPos.subList(18, 27);
-		} else if (color.equals(Color.yellow)) {
+		} else if (color.equals(Utiles.yellow)) {
 			listRes = listPos.subList(27, 36);
-		} else if (color.equals(Color.orange)) {
+		} else if (color.equals(Utiles.orange)) {
 			listRes = listPos.subList(36, 45);
-		} else if (color.equals(Color.green)) {
+		} else if (color.equals(Utiles.green)) {
 			listRes = listPos.subList(45, 54);
 		}
 		return listRes;
