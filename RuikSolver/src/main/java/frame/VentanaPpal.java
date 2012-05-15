@@ -8,6 +8,7 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.HeadlessException;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -40,18 +41,19 @@ import pieza.Pieza;
 import pieza.Stick;
 import pieza.Vectr;
 import solution.SolutionMethodTemba;
+import utiles.Utiles;
 
 public class VentanaPpal extends JFrame {
 	private RubikCube rubikCube = new RubikCube();
-	public static RubCruz rubCruz = new RubCruz(1, 3, 50);
+	public static RubCruz rubCruz = new RubCruz(2, 3, 50);
 	private SolutionMethodTemba temba = new SolutionMethodTemba(rubikCube);
 	private IObserver observer;
 
-	private Color colorAzulito = new Color(175, 200, 255);
 	private Color colorCarga = null;
 
 	private JPanel panelBotonero = new JPanel();
 	private JTextPane textPane = new MyJtexPane();
+
 	public static JTextArea textAreaPad = new JTextArea();
 	private JSlider slider;
 
@@ -62,8 +64,9 @@ public class VentanaPpal extends JFrame {
 	public static JButton buttonCargaManual;
 	public static JButton buttonAleatorio;
 	public static JButton buttonSalirPasoAPaso;
-
 	public static JButton buttonPasoApaso;
+	public static JButton buttonCancelaCargaNotePad;
+	public static JButton buttonCargaNotePad;
 	private int sleep;
 	public static JScrollPane scroll;
 	public static int numGiros;
@@ -91,11 +94,13 @@ public class VentanaPpal extends JFrame {
 		JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		panel.setLayout(null);
 		panel.setPreferredSize(new Dimension(380, 776));
-		panel.setBackground(colorAzulito);
+		panel.setBackground(Color.yellow);
+
 		textPane.setEditable(false);
 		textPane.setSelectedTextColor(null);
 
-		textPane.setBackground(new Color(238, 238, 236));
+		textPane.setBackground(Color.red);
+		textPane.setOpaque(true);
 
 		JScrollPane scrollPane = new JScrollPane(textPane);
 		scrollPane.setBounds(10, 70, 230, 640);
@@ -109,6 +114,34 @@ public class VentanaPpal extends JFrame {
 		panel.add(scrollPane);
 
 		return panel;
+	}
+
+	private Component panelDer() {
+
+		JLabel etqImagen = new JLabel();
+		etqImagen.setIcon(new ImageIcon(this.getClass().getClassLoader()
+				.getResource("images/panelLateralDerecho.fw.png")));
+
+		textPane.getMargin();
+		textPane.setMargin(new Insets(50, 50, 50, 50));
+
+		textPane.setEditable(false);
+		textPane.setSelectedTextColor(null);
+		textPane.setOpaque(false);
+		textPane.setBackground(Utiles.colorAzulito);
+
+		JScrollPane scrollPane = new JScrollPane(textPane);
+		scrollPane.setBounds(0, 0, 282, 777);
+		scrollPane.setBorder(null);
+
+		scrollPane
+				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scrollPane
+				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+		etqImagen.add(scrollPane);
+
+		return etqImagen;
 	}
 
 	private Component jtextPanePad() {
@@ -131,20 +164,26 @@ public class VentanaPpal extends JFrame {
 		Container container = this.getContentPane();
 
 		container.setLayout(new BorderLayout());
-		container.setBackground(colorAzulito);
+		container.setBackground(Utiles.colorAzulito);
 
 		container.add(botoneraColores(), BorderLayout.CENTER);
+		// container.add(botoneraColores(), BorderLayout.NORTH);
 		container.add(panelIzq(), BorderLayout.WEST);
-		container.add(jtextPane(), BorderLayout.EAST);
+		container.add(panelDer(), BorderLayout.EAST);
+
+		// panelDer();
+		// panelIzq();
 	}
 
 	private Component botoneraColores() {
 
 		panelBotonero.setLayout(null);
-		panelBotonero.setBounds(500, 100, 200, 190);
-		panelBotonero.setBackground(colorAzulito);
-		panelBotonero.add(botonRed());
+		panelBotonero.setBounds(185, 8, 432, 57);
+		panelBotonero.setBackground(colorCarga);
+		// panelBotonero.setOpaque(false);
+
 		panelBotonero.add(botonGreen());
+		panelBotonero.add(botonRed());
 		panelBotonero.add(botonBlue());
 		panelBotonero.add(botonOrange());
 		panelBotonero.add(botonWhite());
@@ -155,6 +194,12 @@ public class VentanaPpal extends JFrame {
 		panelBotonero.setVisible(false);
 
 		rubCruz.setLayout(null);
+		rubCruz.add(up());
+		rubCruz.add(down());
+		rubCruz.add(left());
+		rubCruz.add(right());
+		rubCruz.add(back());
+		rubCruz.add(front());
 		rubCruz.add(panelBotonero);
 		rubCruz.add(buttonPasoApaso);
 		rubCruz.add(buttonSalirPasoAPaso);
@@ -165,10 +210,58 @@ public class VentanaPpal extends JFrame {
 		return rubCruz;
 	}
 
+	private Component front() {
+		JLabel etqImagen = new JLabel();
+		etqImagen.setBounds(190, 450, 58, 25);
+		etqImagen.setIcon(new ImageIcon(this.getClass().getClassLoader()
+				.getResource("images/front.fw.png")));
+		return etqImagen;
+	}
+
+	private Component back() {
+		JLabel etqImagen = new JLabel();
+		etqImagen.setBounds(655, 278, 48, 25);
+		etqImagen.setIcon(new ImageIcon(this.getClass().getClassLoader()
+				.getResource("images/back.fw.png")));
+		return etqImagen;
+	}
+
+	private Component right() {
+		JLabel etqImagen = new JLabel();
+		etqImagen.setBounds(500, 278, 53, 25);
+		etqImagen.setIcon(new ImageIcon(this.getClass().getClassLoader()
+				.getResource("images/right.fw.png")));
+		return etqImagen;
+	}
+
+	private Component left() {
+		JLabel etqImagen = new JLabel();
+		etqImagen.setBounds(100, 278, 41, 25);
+		etqImagen.setIcon(new ImageIcon(this.getClass().getClassLoader()
+				.getResource("images/left.fw.png")));
+		return etqImagen;
+	}
+
+	private JLabel up() {
+		JLabel etqImagen = new JLabel();
+		etqImagen.setBounds(380, 128, 26, 25);
+		etqImagen.setIcon(new ImageIcon(this.getClass().getClassLoader()
+				.getResource("images/up.fw.png")));
+		return etqImagen;
+	}
+
+	private JLabel down() {
+		JLabel etqImagen = new JLabel();
+		etqImagen.setBounds(350, 599, 57, 25);
+		etqImagen.setIcon(new ImageIcon(this.getClass().getClassLoader()
+				.getResource("images/down.fw.png")));
+		return etqImagen;
+	}
+
 	private Component createSlider() {
-		slider = new JSlider(JSlider.HORIZONTAL, 0, 30, 5);
-		slider.setBounds(60, 60, 210, 50);
-		slider.setBackground(colorAzulito);
+		slider = new JSlider(JSlider.VERTICAL, 0, 30, 5);
+		slider.setBounds(10, 550, 80, 200);
+		slider.setBackground(Utiles.colorAzulito);
 
 		slider.setMajorTickSpacing(30);
 		slider.setMinorTickSpacing(1);
@@ -200,8 +293,6 @@ public class VentanaPpal extends JFrame {
 			}
 		}
 	};
-	public static JButton buttonCancelaCargaNotePad;
-	public static JButton buttonCargaNotePad;
 
 	private JLabel panelIzq() {
 		JPanel panel = new JPanel();
@@ -209,8 +300,9 @@ public class VentanaPpal extends JFrame {
 
 		panel.setPreferredSize(new Dimension(1366, 768));
 		panel.setLayout(null);
+
 		etqImagen.setIcon(new ImageIcon(this.getClass().getClassLoader()
-				.getResource("images/panelBotoneraIzq.png")));
+				.getResource("images/panelLateralIzquierda.fw.png")));
 		panel.add(etqImagen);
 		etqImagen.add(botonAleatorio());
 		etqImagen.add(botonSalir());
@@ -223,17 +315,24 @@ public class VentanaPpal extends JFrame {
 		etqImagen.add(botonCargaNotePad());
 		etqImagen.add(botonCancelaCargaNotePad());
 
+		// TODO
+		etqImagen.add(botonCargar());
+		etqImagen.add(botonCancelarCargar());
+
 		return etqImagen;
 	}
 
 	private Component botonCargaNotePad() {
-		buttonCargaNotePad = new JButton("Carga Texto");
-		buttonCargaNotePad.setBackground(new Color(238, 238, 236));
-		buttonCargaNotePad.setBounds(40, 650, 66, 66);
+		buttonCargaNotePad = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/carga.fw.png")));
+
+		// buttonCargaNotePad.setBackground(new Color(238, 238, 236));
+		buttonCargaNotePad.setBounds(40, 625, 66, 66);
 		buttonCargaNotePad.setBorder(null);
 		buttonCargaNotePad.setCursor(Cursor
 				.getPredefinedCursor(Cursor.HAND_CURSOR));
 		buttonCargaNotePad.setVisible(false);
+		buttonCargaNotePad.setContentAreaFilled(false);
 
 		ActionListener actionNotePad = new NotepadActionListener(rubikCube,
 				textAreaPad);
@@ -243,13 +342,15 @@ public class VentanaPpal extends JFrame {
 	}
 
 	private Component botonCancelaCargaNotePad() {
-		buttonCancelaCargaNotePad = new JButton("Cancelar");
-		buttonCancelaCargaNotePad.setBackground(new Color(238, 238, 236));
-		buttonCancelaCargaNotePad.setBounds(106, 650, 66, 66);
+		buttonCancelaCargaNotePad = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/cancelar.fw.png")));
+		
+		buttonCancelaCargaNotePad.setBounds(150, 625, 66, 66);
 		buttonCancelaCargaNotePad.setBorder(null);
 		buttonCancelaCargaNotePad.setCursor(Cursor
 				.getPredefinedCursor(Cursor.HAND_CURSOR));
 		buttonCancelaCargaNotePad.setVisible(false);
+		buttonCancelaCargaNotePad.setContentAreaFilled(false);
 
 		buttonCancelaCargaNotePad.addActionListener(actionCancelaCargaNotePad);
 
@@ -259,7 +360,6 @@ public class VentanaPpal extends JFrame {
 	ActionListener actionCancelaCargaNotePad = new ActionListener() {
 
 		@Override
-		// TODO
 		public void actionPerformed(ActionEvent e) {
 			setVisibleNotepad(false);
 
@@ -278,6 +378,8 @@ public class VentanaPpal extends JFrame {
 			textAreaPad.setText("");
 		}
 	};
+	private JButton buttonCargar;
+	private JButton buttonCancelarCargar;
 
 	private void propiedadesFrame() {
 		this.setTitle("Rubik by Temba");
@@ -289,115 +391,134 @@ public class VentanaPpal extends JFrame {
 
 	private JButton botonRed() {
 		JButton button = new JButton(new ImageIcon(this.getClass()
-				.getClassLoader().getResource("images/botonRed.png")));
-		button.setBackground(colorAzulito);
-		button.setBounds(0, 0, 66, 66);
+				.getClassLoader().getResource("images/botonRed.fw.png")));
+		button.setBounds(0, 0, 57, 57);
+
 		button.setBorder(null);
-		button.setSelected(false);
+		// button.setSelected(false);
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		button.setContentAreaFilled(false);
 
 		button.addActionListener(actionR);
 		return button;
 	}
 
 	private Component botonGreen() {
-		// JButton button = new JButton(new ImageIcon("botonRed.png"));
-		JButton button = new JButton("Green");
-		button.setBackground(Color.green);
-		button.setBounds(66, 0, 66, 66);
+		JButton button = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/botonGreen.fw.png")));
+		button.setBounds(75, 0, 57, 57);
 		button.setBorder(null);
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		button.setContentAreaFilled(false);
 
 		button.addActionListener(actionG);
 		return button;
 	}
 
 	private Component botonBlue() {
-		// JButton button = new JButton(new ImageIcon("botonRed.png"));
-		JButton button = new JButton("Blue");
-		button.setBackground(Color.blue);
-		button.setBounds(132, 0, 66, 66);
+		JButton button = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/botonBlue.fw.png")));
+		button.setBounds(150, 0, 57, 57);
 		button.setBorder(null);
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		button.setContentAreaFilled(false);
 
 		button.addActionListener(actionB);
 		return button;
 	}
 
 	private Component botonOrange() {
-		JButton button = new JButton("Orange");
-		button.setBackground(Color.orange);
-		button.setBounds(0, 66, 66, 66);
+		JButton button = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/botonOrange.fw.png")));
+		button.setBounds(225, 0, 57, 57);
 		button.setBorder(null);
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		button.setContentAreaFilled(false);
 
 		button.addActionListener(actionO);
 		return button;
 	}
 
 	private Component botonWhite() {
-		JButton button = new JButton("White");
-		button.setBackground(Color.white);
-		button.setBounds(66, 66, 66, 66);
+		JButton button = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/botonWhite.fw.png")));
+		button.setBounds(300, 0, 57, 57);
 		button.setBorder(null);
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		button.setContentAreaFilled(false);
 
 		button.addActionListener(actionW);
 		return button;
 	}
 
 	private Component botonYellow() {
-		JButton button = new JButton("Yellow");
-		button.setBackground(Color.yellow);
-		button.setBounds(132, 66, 66, 66);
+		JButton button = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/botonYellow.fw.png")));
+		button.setBounds(375, 0, 57, 57);
 		button.setBorder(null);
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		button.setContentAreaFilled(false);
 
 		button.addActionListener(actionY);
 		return button;
 	}
 
 	private Component botonCargar() {
-		JButton button = new JButton("carga");
-		button.setBackground(Color.gray);
-		button.setBounds(132, 124, 66, 66);
-		button.setBorder(null);
-		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		// TODO
+		buttonCargar = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/carga.fw.png")));
+		buttonCargar.setBounds(40, 625, 66, 66);
+		buttonCargar.setBorder(null);
+		buttonCargar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonCargar.setContentAreaFilled(false);
+		buttonCargar.setVisible(false);
 
-		button.addActionListener(actionCargar);
-		return button;
+		buttonCargar.addActionListener(actionCargar);
+		return buttonCargar;
 	}
 
 	private Component botonCancelarCargar() {
-		JButton button = new JButton("cancela");
-		button.setBackground(Color.gray);
-		button.setBounds(0, 124, 66, 66);
-		button.setBorder(null);
-		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonCancelarCargar = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/cancelar.fw.png")));
+		buttonCancelarCargar.setBounds(150, 625, 66, 66);
+		
+		buttonCancelarCargar.setBorder(null);
+		buttonCancelarCargar.setCursor(Cursor
+				.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonCancelarCargar.setContentAreaFilled(false);
+		buttonCancelarCargar.setVisible(false);
 
-		button.addActionListener(actionCancelaCarga);
-		return button;
+		buttonCancelarCargar.addActionListener(actionCancelaCarga);
+		return buttonCancelarCargar;
 	}
 
 	private Component botonNext() {
-		JButton button = new JButton("Next");
-		button.setBackground(Color.magenta);
-		button.setBounds(500, 500, 66, 66);
+		ImageIcon icon = new ImageIcon(this.getClass().getClassLoader()
+				.getResource("images/siguiente.fw.png"));
+
+		JButton button = new JButton(icon);
+		button.setBounds(566, 500, icon.getIconWidth(), icon.getIconHeight());
 		button.setBorder(null);
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button.setVisible(false);
+		button.setContentAreaFilled(false);
+
 		button.addActionListener(actionNext);
 		return button;
 
 	}
 
 	private Component botonSalirPasoAPaso() {
-		JButton button = new JButton("Salir");
-		button.setBackground(new Color(238, 238, 236));
-		button.setBounds(566, 500, 66, 66);
+		ImageIcon icon = new ImageIcon(this.getClass().getClassLoader()
+				.getResource("images/cancelar.fw.png"));
+
+		JButton button = new JButton(icon);
+
+		button.setBounds(500, 500, icon.getIconWidth(), icon.getIconHeight());
 		button.setBorder(null);
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button.setVisible(false);
+		button.setContentAreaFilled(false);
 
 		button.addActionListener(actionSalirPasoAPaso);
 		return button;
@@ -405,12 +526,13 @@ public class VentanaPpal extends JFrame {
 
 	private Component botonAleatorio() {
 		buttonAleatorio = new JButton(new ImageIcon(this.getClass()
-				.getClassLoader().getResource("images/boton1menu.png")));
-		buttonAleatorio.setBackground(new Color(238, 238, 236));
+				.getClassLoader().getResource("images/cubeAleatorio.fw.png")));
+		buttonAleatorio.setBackground(null);
 		buttonAleatorio.setBounds(10, 200, 235, 55);
 		buttonAleatorio.setBorder(null);
 		buttonAleatorio.setCursor(Cursor
 				.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonAleatorio.setContentAreaFilled(false);
 
 		ActionListener aleatorio = new ScrambleActionListener(rubikCube);
 		buttonAleatorio.addActionListener(aleatorio);
@@ -418,13 +540,15 @@ public class VentanaPpal extends JFrame {
 	}
 
 	private Component botonSolucionar() {
-		buttonSolucionar = new JButton("Solucionar");
+		buttonSolucionar = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/solucionar.fw.png")));
 		buttonSolucionar.setBackground(new Color(238, 238, 236));
 		buttonSolucionar.setBounds(10, 255, 235, 55);
 		buttonSolucionar.setBorder(null);
 		buttonSolucionar.setCursor(Cursor
 				.getPredefinedCursor(Cursor.HAND_CURSOR));
 		// buttonSolucionar.setEnabled(false);
+		buttonSolucionar.setContentAreaFilled(false);
 
 		ActionListener solucionar = new SolucionarActionListener(temba);
 		buttonSolucionar.addActionListener(solucionar);
@@ -432,24 +556,29 @@ public class VentanaPpal extends JFrame {
 	}
 
 	private Component botonCargaManual() {
-		buttonCargaManual = new JButton("Carga Manual");
+		buttonCargaManual = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/cargamanual.fw.png")));
+		// buttonCargaManual = new JButton("Carga Manual");
 		buttonCargaManual.setBackground(new Color(238, 238, 236));
 		buttonCargaManual.setBounds(10, 310, 235, 55);
 		buttonCargaManual.setBorder(null);
 		buttonCargaManual.setCursor(Cursor
 				.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonCargaManual.setContentAreaFilled(false);
 
 		buttonCargaManual.addActionListener(actionCargaManual);
 		return buttonCargaManual;
 	}
 
 	private Component botonOriginal() {
-		buttonOriginal = new JButton("Cube Original");
+		buttonOriginal = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/cubeOriginal.fw.png")));
 		buttonOriginal.setBackground(new Color(238, 238, 236));
 		buttonOriginal.setBounds(10, 365, 235, 55);
 		buttonOriginal.setBorder(null);
 		buttonOriginal
 				.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonOriginal.setContentAreaFilled(false);
 
 		// buttonOriginal.setEnabled(false);
 
@@ -458,35 +587,42 @@ public class VentanaPpal extends JFrame {
 	}
 
 	private Component botonSolucionarNext() {
-		buttonSolucionarPasoApaso = new JButton("Solucionar Paso a Paso");
+		buttonSolucionarPasoApaso = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader()
+				.getResource("images/solucionarPasoApaso.fw.png")));
 		buttonSolucionarPasoApaso.setBackground(new Color(238, 238, 236));
 		buttonSolucionarPasoApaso.setBounds(10, 420, 235, 55);
 		buttonSolucionarPasoApaso.setBorder(null);
 		buttonSolucionarPasoApaso.setCursor(Cursor
 				.getPredefinedCursor(Cursor.HAND_CURSOR));
 		// buttonSolucionarNext.setEnabled(false);
+		buttonSolucionarPasoApaso.setContentAreaFilled(false);
 
 		buttonSolucionarPasoApaso.addActionListener(actionPasoApaso);
 		return buttonSolucionarPasoApaso;
 	}
 
 	private Component botonNotepad() {
-		buttonNotepad = new JButton("Carga notepad");
-		buttonNotepad.setBackground(new Color(238, 238, 236));
+		buttonNotepad = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/cargaNotepad.fw.png")));
+		// buttonNotepad.setBackground(new Color(238, 238, 236));
 		buttonNotepad.setBounds(10, 475, 235, 55);
 		buttonNotepad.setBorder(null);
 		buttonNotepad.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonNotepad.setContentAreaFilled(false);
 
 		buttonNotepad.addActionListener(actionCargaTexto);
 		return buttonNotepad;
 	}
 
 	private Component botonSalir() {
-		JButton button = new JButton("Salir");
+		JButton button = new JButton(new ImageIcon(this.getClass()
+				.getClassLoader().getResource("images/salirDelJuego.fw.png")));
 		button.setBackground(new Color(238, 238, 236));
 		button.setBounds(10, 700, 235, 55);
 		button.setBorder(null);
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		button.setContentAreaFilled(false);
 
 		ActionListener salir = new SalirActionListener();
 		button.addActionListener(salir);
@@ -533,42 +669,42 @@ public class VentanaPpal extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			colorCarga = Color.yellow;
+			colorCarga = Utiles.yellow;
 
 		}
 	};
 	ActionListener actionR = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			colorCarga = Color.red;
+			colorCarga = Utiles.red;
 			botonRed().setFocusPainted(false);
 		}
 	};
 	ActionListener actionB = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			colorCarga = Color.blue;
+			colorCarga = Utiles.blue;
 
 		}
 	};
 	ActionListener actionG = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			colorCarga = Color.green;
+			colorCarga = Utiles.green;
 
 		}
 	};
 	ActionListener actionO = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			colorCarga = Color.orange;
+			colorCarga = Utiles.orange;
 
 		}
 	};
 	ActionListener actionW = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			colorCarga = Color.white;
+			colorCarga = Utiles.white;
 
 		}
 	};
@@ -577,6 +713,9 @@ public class VentanaPpal extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			panelBotonero.setVisible(true);
+			buttonCancelarCargar.setVisible(true);
+			buttonCargar.setVisible(true);
+
 			setEnableAll(false);
 		}
 	};
@@ -590,8 +729,10 @@ public class VentanaPpal extends JFrame {
 			panelBotonero.setVisible(false);
 
 			enableCancel();
+			buttonCargar.setVisible(false);
+			buttonCancelarCargar.setVisible(false);
 
-		//	setEnableSolucion(true);
+			// setEnableSolucion(true);
 
 			colorCarga = null;
 		}
@@ -611,6 +752,8 @@ public class VentanaPpal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 
 			panelBotonero.setVisible(false);
+			buttonCargar.setVisible(false);
+			buttonCancelarCargar.setVisible(false);
 
 			enableCancel();
 
@@ -622,17 +765,17 @@ public class VentanaPpal extends JFrame {
 
 	private pieza.Color calcColor(Color color) {
 		pieza.Color colorRes = null;
-		if (color.equals(Color.blue)) {
+		if (color.equals(Utiles.blue)) {
 			colorRes = pieza.Color.BLUE;
-		} else if (color.equals(Color.green)) {
+		} else if (color.equals(Utiles.green)) {
 			colorRes = pieza.Color.GREEN;
-		} else if (color.equals(Color.orange)) {
+		} else if (color.equals(Utiles.orange)) {
 			colorRes = pieza.Color.ORANGE;
-		} else if (color.equals(Color.red)) {
+		} else if (color.equals(Utiles.red)) {
 			colorRes = pieza.Color.RED;
-		} else if (color.equals(Color.white)) {
+		} else if (color.equals(Utiles.white)) {
 			colorRes = pieza.Color.WHITE;
-		} else if (color.equals(Color.yellow)) {
+		} else if (color.equals(Utiles.yellow)) {
 			colorRes = pieza.Color.YELLOW;
 		}
 		return colorRes;
@@ -658,7 +801,6 @@ public class VentanaPpal extends JFrame {
 	SolucionarActionListener q;
 
 	ActionListener actionNext = new ActionListener() {
-//TODO
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			SolucionarActionListener q = new SolucionarActionListener(temba);

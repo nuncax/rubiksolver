@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.swing.JComponent;
 import pieza.Vectr;
+import utiles.Utiles;
 
 public class RubCruz extends JComponent {
 
@@ -62,36 +63,36 @@ public class RubCruz extends JComponent {
 	public void setResuelto() {
 		facePanels = new ArrayList<FacePanel>();
 
-		facePanels.add(new FacePanel(Color.white, 3 + oX, 0 + oY, this.w));
-		facePanels.add(new FacePanel(Color.blue, 3 + oX, 3 + oY, this.w));
-		facePanels.add(new FacePanel(Color.red, 0 + oX, 3 + oY, this.w));
-		facePanels.add(new FacePanel(Color.orange, 6 + oX, 3 + oY, this.w));
-		facePanels.add(new FacePanel(Color.green, 9 + oX, 3 + oY, this.w));
-		facePanels.add(new FacePanel(Color.yellow, 3 + oX, 6 + oY, this.w));
+		facePanels.add(new FacePanel(Utiles.white, 3 + oX, 0 + oY, this.w));
+		facePanels.add(new FacePanel(Utiles.blue, 3 + oX, 3 + oY, this.w));
+		facePanels.add(new FacePanel(Utiles.red, 0 + oX, 3 + oY, this.w));
+		facePanels.add(new FacePanel(Utiles.orange, 6 + oX, 3 + oY, this.w));
+		facePanels.add(new FacePanel(Utiles.green, 9 + oX, 3 + oY, this.w));
+		facePanels.add(new FacePanel(Utiles.yellow, 3 + oX, 6 + oY, this.w));
 
-		map.put(new Vectr(0, 0, 1), getFacePanels(Color.white));
-		map.put(new Vectr(1, 0, 0), getFacePanels(Color.red));
-		map.put(new Vectr(0, 1, 0), getFacePanels(Color.blue));
-		map.put(new Vectr(0, 0, -1), getFacePanels(Color.yellow));
-		map.put(new Vectr(-1, 0, 0), getFacePanels(Color.orange));
-		map.put(new Vectr(0, -1, 0), getFacePanels(Color.green));
+		map.put(new Vectr(0, 0, 1), getFacePanels(Utiles.white));
+		map.put(new Vectr(1, 0, 0), getFacePanels(Utiles.red));
+		map.put(new Vectr(0, 1, 0), getFacePanels(Utiles.blue));
+		map.put(new Vectr(0, 0, -1), getFacePanels(Utiles.yellow));
+		map.put(new Vectr(-1, 0, 0), getFacePanels(Utiles.orange));
+		map.put(new Vectr(0, -1, 0), getFacePanels(Utiles.green));
 	}
 	public void setResueltoRes() {
 		facePanelsRes = new ArrayList<FacePanel>();
 
-		facePanelsRes.add(new FacePanel(Color.white, 3 + oX, 0 + oY, this.w));
-		facePanelsRes.add(new FacePanel(Color.blue, 3 + oX, 3 + oY, this.w));
-		facePanelsRes.add(new FacePanel(Color.red, 0 + oX, 3 + oY, this.w));
-		facePanelsRes.add(new FacePanel(Color.orange, 6 + oX, 3 + oY, this.w));
-		facePanelsRes.add(new FacePanel(Color.green, 9 + oX, 3 + oY, this.w));
-		facePanelsRes.add(new FacePanel(Color.yellow, 3 + oX, 6 + oY, this.w));
+		facePanelsRes.add(new FacePanel(Utiles.white, 3 + oX, 0 + oY, this.w));
+		facePanelsRes.add(new FacePanel(Utiles.blue, 3 + oX, 3 + oY, this.w));
+		facePanelsRes.add(new FacePanel(Utiles.red, 0 + oX, 3 + oY, this.w));
+		facePanelsRes.add(new FacePanel(Utiles.orange, 6 + oX, 3 + oY, this.w));
+		facePanelsRes.add(new FacePanel(Utiles.green, 9 + oX, 3 + oY, this.w));
+		facePanelsRes.add(new FacePanel(Utiles.yellow, 3 + oX, 6 + oY, this.w));
 
-		mapRes.put(new Vectr(0, 0, 1), getFacePanelsRes(Color.white));
-		mapRes.put(new Vectr(1, 0, 0), getFacePanelsRes(Color.red));
-		mapRes.put(new Vectr(0, 1, 0), getFacePanelsRes(Color.blue));
-		mapRes.put(new Vectr(0, 0, -1), getFacePanelsRes(Color.yellow));
-		mapRes.put(new Vectr(-1, 0, 0), getFacePanelsRes(Color.orange));
-		mapRes.put(new Vectr(0, -1, 0), getFacePanelsRes(Color.green));
+		mapRes.put(new Vectr(0, 0, 1), getFacePanelsRes(Utiles.white));
+		mapRes.put(new Vectr(1, 0, 0), getFacePanelsRes(Utiles.red));
+		mapRes.put(new Vectr(0, 1, 0), getFacePanelsRes(Utiles.blue));
+		mapRes.put(new Vectr(0, 0, -1), getFacePanelsRes(Utiles.yellow));
+		mapRes.put(new Vectr(-1, 0, 0), getFacePanelsRes(Utiles.orange));
+		mapRes.put(new Vectr(0, -1, 0), getFacePanelsRes(Utiles.green));
 	}
 
 	public boolean isResuelto() {
