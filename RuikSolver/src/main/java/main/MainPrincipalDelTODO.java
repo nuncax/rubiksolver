@@ -10,7 +10,7 @@ public class MainPrincipalDelTODO {
 
 	static ThreadRepintaFrame thre = new ThreadRepintaFrame(ventanaPpal);
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		ventanaPpal.setVisible(true);
 
 		thre.start();

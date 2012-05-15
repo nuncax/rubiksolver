@@ -494,7 +494,7 @@ public class VentanaPpal extends JFrame {
 
 	private Component botonNext() {
 		ImageIcon icon = new ImageIcon(this.getClass().getClassLoader()
-				.getResource("images/siguiente.fw.png"));
+				.getResource("images/Siguiente.fw.png"));
 
 		JButton button = new JButton(icon);
 		button.setBounds(566, 500, icon.getIconWidth(), icon.getIconHeight());
