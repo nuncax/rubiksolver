@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.3" timestamp="2012-05-03T03:02:29.817">
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\actionListener\ColorActionListener.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="22" rule="PackageCase" ruleset="Naming Rules" package="actionListener" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\actionListener\SalirActionListener.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="22" rule="PackageCase" ruleset="Naming Rules" package="actionListener" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="9" endline="9" begincolumn="17" endcolumn="27" rule="DoNotCallSystemExit" ruleset="J2EE Rules" package="actionListener" class="SalirActionListener" method="actionPerformed" externalInfoUrl="http://pmd.sourceforge.net/rules/j2ee.html#DoNotCallSystemExit" priority="3">
+System.exit() should not be used in J2EE/JEE apps
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\actionListener\ScrambleActionListener.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="22" rule="PackageCase" ruleset="Naming Rules" package="actionListener" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\actionListener\SolucionarrActionListener.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="22" rule="PackageCase" ruleset="Naming Rules" package="actionListener" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\cube\RubikCube.java">
+<violation beginline="17" endline="301" begincolumn="24" endcolumn="1" rule="TooManyMethods" ruleset="Code Size Rules" package="cube" class="RubikCube" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#TooManyMethods" priority="3">
+This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="18" endline="18" begincolumn="29" endcolumn="34" rule="ImmutableField" ruleset="Design Rules" package="cube" class="RubikCube" variable="piezas" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'piezas' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="226" endline="226" begincolumn="44" endcolumn="58" rule="UseProperClassLoader" ruleset="J2EE Rules" package="cube" class="RubikCube" method="setPositions" externalInfoUrl="http://pmd.sourceforge.net/rules/j2ee.html#UseProperClassLoader" priority="2">
+In J2EE, getClassLoader() might not work as expected.  Use Thread.currentThread().getContextClassLoader() instead.
+</violation>
+<violation beginline="228" endline="228" begincolumn="24" endcolumn="56" rule="AssignmentInOperand" ruleset="Controversial Rules" package="cube" class="RubikCube" method="setPositions" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#AssignmentInOperand" priority="3">
+Avoid assignments in operands
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\frame\VentanaPpal.java">
+<violation beginline="34" endline="347" begincolumn="41" endcolumn="1" rule="TooManyMethods" ruleset="Code Size Rules" package="frame" class="VentanaPpal" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#TooManyMethods" priority="3">
+This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="34" endline="347" begincolumn="8" endcolumn="1" rule="TooManyFields" ruleset="Code Size Rules" package="frame" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#TooManyFields" priority="3">
+Too many fields
+</violation>
+<violation beginline="35" endline="35" begincolumn="23" endcolumn="34" rule="ImmutableField" ruleset="Design Rules" package="frame" class="VentanaPpal" variable="colorAzulito" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'colorAzulito' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="37" endline="37" begincolumn="24" endcolumn="36" rule="ImmutableField" ruleset="Design Rules" package="frame" class="VentanaPpal" variable="panelBotonero" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'panelBotonero' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="39" endline="39" begincolumn="27" endcolumn="35" rule="ImmutableField" ruleset="Design Rules" package="frame" class="VentanaPpal" variable="rubikCube" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'rubikCube' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="40" endline="40" begincolumn="25" endcolumn="31" rule="ImmutableField" ruleset="Design Rules" package="frame" class="VentanaPpal" variable="rubCruz" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'rubCruz' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="42" endline="42" begincolumn="37" endcolumn="41" rule="ImmutableField" ruleset="Design Rules" package="frame" class="VentanaPpal" variable="temba" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'temba' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\listener\SalirActionListener.java">
+<violation beginline="9" endline="9" begincolumn="17" endcolumn="27" rule="DoNotCallSystemExit" ruleset="J2EE Rules" package="listener" class="SalirActionListener" method="actionPerformed" externalInfoUrl="http://pmd.sourceforge.net/rules/j2ee.html#DoNotCallSystemExit" priority="3">
+System.exit() should not be used in J2EE/JEE apps
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\observer\AWTObserver.java">
+<violation beginline="15" endline="15" begincolumn="28" endcolumn="52" rule="LooseCoupling" ruleset="Coupling Rules" package="observer" class="AWTObserver" externalInfoUrl="http://pmd.sourceforge.net/rules/coupling.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'HashMap'; use the interface instead
+</violation>
+<violation beginline="20" endline="20" begincolumn="17" endcolumn="41" rule="LooseCoupling" ruleset="Coupling Rules" package="observer" class="AWTObserver" externalInfoUrl="http://pmd.sourceforge.net/rules/coupling.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'HashMap'; use the interface instead
+</violation>
+<violation beginline="20" endline="20" begincolumn="43" endcolumn="45" rule="ImmutableField" ruleset="Design Rules" package="observer" class="AWTObserver" variable="map" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'map' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="23" endline="23" begincolumn="49" endcolumn="73" rule="LooseCoupling" ruleset="Coupling Rules" package="observer" class="AWTObserver" method="observa" externalInfoUrl="http://pmd.sourceforge.net/rules/coupling.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'HashMap'; use the interface instead
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\observer\IObserver.java">
+<violation beginline="14" endline="14" begincolumn="42" endcolumn="66" rule="LooseCoupling" ruleset="Coupling Rules" package="observer" class="IObserver" method="observa" externalInfoUrl="http://pmd.sourceforge.net/rules/coupling.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'HashMap'; use the interface instead
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\panel\FacePanel.java">
+<violation beginline="34" endline="34" begincolumn="21" endcolumn="31" rule="ImmutableField" ruleset="Design Rules" package="panel" class="FacePanel" variable="lineaGruesa" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'lineaGruesa' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="35" endline="35" begincolumn="21" endcolumn="29" rule="ImmutableField" ruleset="Design Rules" package="panel" class="FacePanel" variable="lineaFina" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'lineaFina' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="37" endline="37" begincolumn="21" endcolumn="21" rule="ImmutableField" ruleset="Design Rules" package="panel" class="FacePanel" variable="w" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'w' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="38" endline="38" begincolumn="21" endcolumn="22" rule="ImmutableField" ruleset="Design Rules" package="panel" class="FacePanel" variable="oX" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'oX' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="39" endline="39" begincolumn="21" endcolumn="22" rule="ImmutableField" ruleset="Design Rules" package="panel" class="FacePanel" variable="oY" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'oY' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="41" endline="41" begincolumn="28" endcolumn="32" rule="ImmutableField" ruleset="Design Rules" package="panel" class="FacePanel" variable="m" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'm' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="45" endline="45" begincolumn="29" endcolumn="35" rule="ImmutableField" ruleset="Design Rules" package="panel" class="FacePanel" variable="listPos" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'listPos' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="47" endline="47" begincolumn="17" endcolumn="42" rule="LooseCoupling" ruleset="Coupling Rules" package="panel" class="FacePanel" externalInfoUrl="http://pmd.sourceforge.net/rules/coupling.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'HashMap'; use the interface instead
+</violation>
+<violation beginline="137" endline="137" begincolumn="16" endcolumn="41" rule="LooseCoupling" ruleset="Coupling Rules" package="panel" class="FacePanel" method="getMap" externalInfoUrl="http://pmd.sourceforge.net/rules/coupling.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'HashMap'; use the interface instead
+</violation>
+<violation beginline="141" endline="141" begincolumn="28" endcolumn="53" rule="LooseCoupling" ruleset="Coupling Rules" package="panel" class="FacePanel" method="setMap" externalInfoUrl="http://pmd.sourceforge.net/rules/coupling.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'HashMap'; use the interface instead
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\panel\RubCruz.java">
+<violation beginline="19" endline="19" begincolumn="17" endcolumn="41" rule="LooseCoupling" ruleset="Coupling Rules" package="panel" class="RubCruz" externalInfoUrl="http://pmd.sourceforge.net/rules/coupling.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'HashMap'; use the interface instead
+</violation>
+<violation beginline="23" endline="23" begincolumn="21" endcolumn="21" rule="ImmutableField" ruleset="Design Rules" package="panel" class="RubCruz" variable="w" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'w' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="24" endline="24" begincolumn="21" endcolumn="22" rule="ImmutableField" ruleset="Design Rules" package="panel" class="RubCruz" variable="oX" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'oX' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="25" endline="25" begincolumn="21" endcolumn="22" rule="ImmutableField" ruleset="Design Rules" package="panel" class="RubCruz" variable="oY" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'oY' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="56" endline="56" begincolumn="45" endcolumn="70" rule="ConstructorCallsOverridableMethod" ruleset="Design Rules" package="panel" class="RubCruz" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ConstructorCallsOverridableMethod" priority="3">
+Overridable method 'getFacePanels' called during object construction
+</violation>
+<violation beginline="57" endline="57" begincolumn="45" endcolumn="68" rule="ConstructorCallsOverridableMethod" ruleset="Design Rules" package="panel" class="RubCruz" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ConstructorCallsOverridableMethod" priority="3">
+Overridable method 'getFacePanels' called during object construction
+</violation>
+<violation beginline="58" endline="58" begincolumn="45" endcolumn="69" rule="ConstructorCallsOverridableMethod" ruleset="Design Rules" package="panel" class="RubCruz" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ConstructorCallsOverridableMethod" priority="3">
+Overridable method 'getFacePanels' called during object construction
+</violation>
+<violation beginline="59" endline="59" begincolumn="46" endcolumn="72" rule="ConstructorCallsOverridableMethod" ruleset="Design Rules" package="panel" class="RubCruz" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ConstructorCallsOverridableMethod" priority="3">
+Overridable method 'getFacePanels' called during object construction
+</violation>
+<violation beginline="60" endline="60" begincolumn="46" endcolumn="72" rule="ConstructorCallsOverridableMethod" ruleset="Design Rules" package="panel" class="RubCruz" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ConstructorCallsOverridableMethod" priority="3">
+Overridable method 'getFacePanels' called during object construction
+</violation>
+<violation beginline="61" endline="61" begincolumn="46" endcolumn="71" rule="ConstructorCallsOverridableMethod" ruleset="Design Rules" package="panel" class="RubCruz" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ConstructorCallsOverridableMethod" priority="3">
+Overridable method 'getFacePanels' called during object construction
+</violation>
+<violation beginline="64" endline="64" begincolumn="16" endcolumn="40" rule="LooseCoupling" ruleset="Coupling Rules" package="panel" class="RubCruz" method="getMap" externalInfoUrl="http://pmd.sourceforge.net/rules/coupling.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'HashMap'; use the interface instead
+</violation>
+<violation beginline="68" endline="68" begincolumn="28" endcolumn="52" rule="LooseCoupling" ruleset="Coupling Rules" package="panel" class="RubCruz" method="setMap" externalInfoUrl="http://pmd.sourceforge.net/rules/coupling.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'HashMap'; use the interface instead
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\panel\StickPanel.java">
+<violation beginline="27" endline="27" begincolumn="21" endcolumn="22" rule="ImmutableField" ruleset="Design Rules" package="panel" class="StickPanel" variable="oX" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'oX' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="28" endline="28" begincolumn="21" endcolumn="22" rule="ImmutableField" ruleset="Design Rules" package="panel" class="StickPanel" variable="oY" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'oY' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\pieza\Color.java">
+<violation beginline="5" endline="5" begincolumn="23" endcolumn="31" rule="ImmutableField" ruleset="Design Rules" package="pieza" class="Color" variable="direccion" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'direccion' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="6" endline="6" begincolumn="24" endcolumn="28" rule="ImmutableField" ruleset="Design Rules" package="pieza" class="Color" variable="color" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'color' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="32" endline="32" begincolumn="17" endcolumn="36" rule="AvoidFinalLocalVariable" ruleset="Controversial Rules" package="pieza" class="Color" method="hashCode" variable="prime" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#AvoidFinalLocalVariable" priority="3">
+Avoid using final local variables, turn them into fields
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\pieza\Pieza.java">
+<violation beginline="10" endline="10" begincolumn="17" endcolumn="32" rule="MethodReturnsInternalArray" ruleset="Security Code Guidelines" package="pieza" class="Pieza" method="getStickers" externalInfoUrl="http://pmd.sourceforge.net/rules/sunsecure.html#MethodReturnsInternalArray" priority="2">
+Returning 'stickers' may expose an internal array.
+</violation>
+<violation beginline="14" endline="14" begincolumn="33" endcolumn="36" rule="NullAssignment" ruleset="Controversial Rules" package="pieza" class="Pieza" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#NullAssignment" priority="3">
+Assigning an Object to null is a code smell.  Consider refactoring.
+</violation>
+<violation beginline="66" endline="66" begincolumn="17" endcolumn="36" rule="AvoidFinalLocalVariable" ruleset="Controversial Rules" package="pieza" class="Pieza" method="hashCode" variable="prime" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#AvoidFinalLocalVariable" priority="3">
+Avoid using final local variables, turn them into fields
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\pieza\Vectr.java">
+<violation beginline="44" endline="44" begincolumn="17" endcolumn="36" rule="AvoidFinalLocalVariable" ruleset="Controversial Rules" package="pieza" class="Vectr" method="hashCode" variable="prime" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#AvoidFinalLocalVariable" priority="3">
+Avoid using final local variables, turn them into fields
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\solutions\SolutionMethodTemba.java">
+<violation beginline="11" endline="622" begincolumn="34" endcolumn="1" rule="TooManyMethods" ruleset="Code Size Rules" package="solutions" class="SolutionMethodTemba" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#TooManyMethods" priority="3">
+This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="235" endline="237" begincolumn="90" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="solutions" class="SolutionMethodTemba" method="llevarAsuCara" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="2">
+Avoid empty if statements
+</violation>
+<violation beginline="354" endline="363" begincolumn="17" endcolumn="9" rule="UnusedFormalParameter" ruleset="Unused Code Rules" package="solutions" class="SolutionMethodTemba" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedFormalParameter" priority="3">
+Avoid unused method parameters such as 'front_face'.
+</violation>
+<violation beginline="365" endline="374" begincolumn="17" endcolumn="9" rule="UnusedFormalParameter" ruleset="Unused Code Rules" package="solutions" class="SolutionMethodTemba" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedFormalParameter" priority="3">
+Avoid unused method parameters such as 'front_face'.
+</violation>
+</file>
+<file name="C:\Users\Esteban\workspace\RubikSolver\src\main\java\thread\ThreadRepintaFrame.java">
+<violation beginline="7" endline="7" begincolumn="29" endcolumn="39" rule="ImmutableField" ruleset="Design Rules" package="thread" class="ThreadRepintaFrame" variable="ventanaPpal" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
+Private field 'ventanaPpal' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+</file>
+</pmd>
