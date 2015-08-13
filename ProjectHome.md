@@ -1,0 +1,1 @@
+Solucionador del cubo de rubik
